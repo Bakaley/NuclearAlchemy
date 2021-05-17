@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlueCosmic
+  m_Shader: {fileID: -6465566751694194690, guid: ce36c712614d8b74e92a2e7eeef99722, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Cubemap_19C462F2:
+        m_Texture: {fileID: 8900000, guid: ac57f9c3822fcca429afad4dd3c0df6a, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Cubemap_C92920D5:
+        m_Texture: {fileID: 8900000, guid: f414cf6455e87e64fbd74abd84369bf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_28648004:
+        m_Texture: {fileID: 2800000, guid: e7dbbe097a909494bb1fac344b132ca9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_2E136DA:
+        m_Texture: {fileID: 2800000, guid: 580e7698afeaf1a4c95ab9543698e5d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F6A70CEC:
+        m_Texture: {fileID: 2800000, guid: fb1c34278c7424b4792cea1e8393752b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CosmicFieldTex:
+        m_Texture: {fileID: 2800000, guid: 0d37d5a7bd77d4c4d87538ec79a8c071, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CubemapAsset_EF60185E_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: dd79d2decd895464e8b3c9797a4bb646, type: 3}
+        m_Scale: {x: 3.73, y: 2.08}
+        m_Offset: {x: 0.74, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_38F3A196_Texture_1:
+        m_Texture: {fileID: 2800000, guid: fb1c34278c7424b4792cea1e8393752b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_588CAED1_Texture_1:
+        m_Texture: {fileID: 2800000, guid: ccd27f6beee271d4c900cde0a998a456, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScreenSpaceTexture:
+        m_Texture: {fileID: 2800000, guid: dd79d2decd895464e8b3c9797a4bb646, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _StarMapTex:
+        m_Texture: {fileID: 2800000, guid: 580e7698afeaf1a4c95ab9543698e5d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_110332F_Out_0:
+        m_Texture: {fileID: 2800000, guid: 580e7698afeaf1a4c95ab9543698e5d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_ee9f9a215de6908fa69c884ddbc921c1_Out_0:
+        m_Texture: {fileID: 2800000, guid: 580e7698afeaf1a4c95ab9543698e5d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_b22dcde45a7045eeab440cf47beac997: 5
+    - _CosmicFieldGlow: 1
+    - _CosmicFieldSize: 4
+    - _CosmicFieldXSpeed: 0
+    - _CosmicFieldYSpeed: -0.08
+    - _Cutoff: 0.5
+    - _OutlineVal: 0.09
+    - _OverallCosmicGlow: 1
+    - _SpeedX: -0.49
+    - _SpeedY: 0.15
+    - _StarMapGlow: 3
+    - _StarMapSize: 6
+    - _StarMapXSpeed: 0
+    - _StarMapYSpeed: 0.03
+    - _TexScale: 0
+    - _Zoom: 1
+    - __dirty: 1
+    m_Colors:
+    - Color_714DF672: {r: 0.022910582, g: 0.26347166, b: 0.8419638, a: 1}
+    - Vector3_A26679ED: {r: 1, g: 1, b: 1, a: 0}
+    - Vector3_E0E83DA4: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlineCol: {r: 1, g: 1, b: 1, a: 0}
+  m_BuildTextureStacks: []

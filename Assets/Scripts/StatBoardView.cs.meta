@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d04f2547ad4c36b4dbf0cb121281f4ef
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - aspectlessSprite: {fileID: 21300000, guid: e3e10e1d5acafb64daf7828cd78ba18d, type: 3}
+  - mindSprite: {fileID: 21300000, guid: d1be6fbe3824c1843bcee6ac8cdb9b03, type: 3}
+  - bodySprite: {fileID: 21300000, guid: d7d1a36764a91a441ba0123c40839d97, type: 3}
+  - soulSprite: {fileID: 21300000, guid: b3fca1721ce1a4b45bdb05348094642e, type: 3}
+  - amassSprite: {fileID: 21300000, guid: 42106913acd604547a457f73e5019370, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

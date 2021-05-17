@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 36a8788a6b7a9704782222405d78bed2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - statBoardView: {instanceID: 0}
+  - w1: {fileID: 2287140787577431367, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+  - w2: {fileID: 4416680366174157162, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+  - w3: {fileID: 1504604985067249816, guid: 3628e5b6ce0bb94438501a299abd18e6, type: 3}
+  - w4: {fileID: 9146637536519389713, guid: 557793a727ea876478380245e1ca0801, type: 3}
+  - f1: {fileID: 8147189446047299872, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
+  - f2: {fileID: 937572511047807676, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+  - f3: {fileID: 5776613254051764725, guid: 5e9c983c86e1cf843bbe7b8c09be1bd1, type: 3}
+  - f4: {fileID: 7900822275459300445, guid: 6de07af66e0bc284d89b377a98847cb7, type: 3}
+  - e1: {fileID: 8979698373603712603, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+  - e2: {fileID: 8112359752912516959, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+  - e3: {fileID: 1243305981431226108, guid: c65e0e5bfc09c6b4099cbd44f5ff50da, type: 3}
+  - e4: {fileID: 7097016394040653353, guid: 75e27676038e37e46b6b117ba5cc3a5b, type: 3}
+  - a1: {fileID: 1151113166482944990, guid: 4a5ce6de9c8aeab46b7913cbd403ce48, type: 3}
+  - a2: {fileID: 7198878802076724105, guid: 7b0b20c7353ff8a4eafda251aa3b57e5, type: 3}
+  - a3: {fileID: 6583435648782796497, guid: 7ede3601d676b704aa9650673169c113, type: 3}
+  - a4: {fileID: 97255993474857610, guid: 62f0f5c084c02b14cae2b6cbbf5e08f9, type: 3}
+  - a1_1: {fileID: 2559152105608695861, guid: 04fcf60f4293c1949ba9823754815e03, type: 3}
+  - a1_2: {fileID: 1821338051921979678, guid: c71de121d94a8704fbf1a01fe790824e, type: 3}
+  - target: {fileID: 1597296989049257869, guid: 71145986129a0154d81f9c789d33f3d5,
+      type: 3}
+  - orbShift: {instanceID: 0}
+  - channelingParticleSystem: {fileID: 883869092277819075, guid: f76a1f33c3ba95241981c9e86ad46d34,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
