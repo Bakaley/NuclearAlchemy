@@ -448,6 +448,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8016165527176570903, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 3025466273520029140, guid: f8bb550b1a6e452439c29058827eaafb, type: 3}
+    - target: {fileID: 8016165527176570903, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: orbElement
       value: 2
       objectReference: {fileID: 0}

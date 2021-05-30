@@ -105,6 +105,7 @@ MonoBehaviour:
   green3: {fileID: 1243305981431226108, guid: c65e0e5bfc09c6b4099cbd44f5ff50da, type: 3}
   greenDye: {fileID: 7030475191334541075, guid: e61db61e1efb53d4ca74cb35c1f4877a, type: 3}
   greenPulsar: {fileID: 471581398611933309, guid: 8191f1e58c5766f4e92d9dd3c3e4ed81, type: 3}
+  grey1: {fileID: 2781051447318325017, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
   grey2_1: {fileID: 2559152105608695861, guid: 04fcf60f4293c1949ba9823754815e03, type: 3}
   grey2_2: {fileID: 1287640677710415664, guid: c71de121d94a8704fbf1a01fe790824e, type: 3}
   grey3: {fileID: 6583435648782796497, guid: 7ede3601d676b704aa9650673169c113, type: 3}

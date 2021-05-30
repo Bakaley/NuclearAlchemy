@@ -196,6 +196,17 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4918615195117697561, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 704975280876629925, guid: 869697e4cacf64f4f908b61b8c9678ed, type: 3}
+    - target: {fileID: 4918615195117697561, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: orbDescription
+      value: "\u041F\u0435\u0440\u0435\u043C\u0435\u0448\u0430\u0439\u0442\u0435,
+        \u0447\u0442\u043E\u0431\u044B \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u0438\u0442\u044C
+        \u0441\u0444\u0435\u0440\u044B \u043F\u043E \u0432\u0435\u0440\u0442\u0438\u043A\u0430\u043B\u0438
+        \u0438\u043B\u0438 \u0433\u043E\u0440\u0438\u0437\u043E\u043D\u0442\u0430\u043B\u0438."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918615195117697561, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
       propertyPath: specialMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 001e4aeed681f314daf9585f096b31ab, type: 2}

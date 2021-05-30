@@ -160,6 +160,18 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4918615195117697561, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 7370791110401133601, guid: b46e15ce42a32574b82c2079152fb7cf, type: 3}
+    - target: {fileID: 4918615195117697561, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: orbDescription
+      value: "\u041F\u0435\u0440\u0435\u043C\u0435\u0448\u0430\u0439\u0442\u0435,
+        \u0447\u0442\u043E\u0431\u044B \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C
+        \u044D\u0444\u0438\u0440 \u0432\u0441\u0435\u0445 \u0441\u0444\u0435\u0440
+        \u043F\u043E \u0433\u043E\u0440\u0438\u0437\u043E\u043D\u0442\u0430\u043B\u0438
+        \u0438 \u043F\u043E \u0432\u0435\u0440\u0442\u0438\u043A\u0430\u043B\u0438."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918615195117697561, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
       propertyPath: particleSystemSample
       value: 
       objectReference: {fileID: 7331537060332970449, guid: 0316789974f2a7243aa51699abd097d7, type: 3}

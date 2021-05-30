@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbType: 1
-  orbPreview: {fileID: 2381616569556411273, guid: 0aa4cfcdab4f8f04bb17d091d0c203f0, type: 3}
+  OrbPreview: {fileID: 2381616569556411273, guid: 0aa4cfcdab4f8f04bb17d091d0c203f0, type: 3}
   countOfReactionsIn: 0
   dissolvingAppearing: 1
   coreSphereRenderer: {fileID: 315232559763528397}
@@ -63,13 +63,16 @@ MonoBehaviour:
   counter: {fileID: 2960177309748358630}
   movingSeed: 0
   particleSystemSample: {fileID: 5438421190355463264, guid: f76a1f33c3ba95241981c9e86ad46d34, type: 3}
-  particleColor: {r: 0, g: 0.67544794, b: 1, a: 1}
+  channelParticleColor: {r: 0, g: 0, b: 0, a: 0}
   channeling: 0
   frozen: 0
   fiery: 0
   aetherCount: 0
   antimatter: 0
   comboAvaliable: 1
+  orbDescription: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0432\u043B\u0438\u044F\u043D\u0438\u0435 \u0437\u0435\u043B\u044C\u044F \u043D\u0430
+    \u0440\u0430\u0437\u0443\u043C \u043D\u0430 XXX."
   nextLevelOrb: {fileID: 0}
   level: 3
   points: 25
@@ -77,6 +80,7 @@ MonoBehaviour:
   fireParticles: {fileID: 2947238113221252739}
   aetherParticle: {fileID: 4793115635376258240, guid: d60256840e70de446b70432273b77861, type: 3}
   orbit: {fileID: 1859300623542526951}
+  aetherParticles: []
 --- !u!1 &1859300623542526951
 GameObject:
   m_ObjectHideFlags: 0

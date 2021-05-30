@@ -19,13 +19,31 @@ public class Target : MonoBehaviour
     private GameObject targetFireRight;
 
     [SerializeField]
+    private GameObject targetFire;
+
+    [SerializeField]
     private GameObject targetIceLeft;
 
     [SerializeField]
     private GameObject targetIceRight;
 
     [SerializeField]
+    private GameObject targetIce;
+
+    [SerializeField]
     private GameObject targetAether;
+
+    [SerializeField]
+    private GameObject targetAntimatter;
+
+    [SerializeField]
+    private GameObject targetVoidLeft;
+
+    [SerializeField]
+    private GameObject targetVoidRight;
+
+    [SerializeField]
+    private GameObject targetVoid;
 
     [SerializeField]
     private GameObject targetDyeBlue;
@@ -53,8 +71,14 @@ public class Target : MonoBehaviour
 
 
     CoreOrb spinCore;
+    VoidOrb spinVoid;
+    Orb leftOrbToDissolve;
+    Orb rightOrbToDissolve;
+
     List<Orb> spinLeftOrbsAffected;
     List<Orb> spinRightOrbsAffected;
+
+    static Dictionary<Orb.ORB_TYPES, GameObject> voidTargetsDictionary;
 
     GameObject[] defaultTargetList
     {
@@ -110,7 +134,20 @@ public class Target : MonoBehaviour
         spinLeftOrbsAffected = new List<Orb>();
         spinRightOrbsAffected = new List<Orb>();
 
+        if(voidTargetsDictionary == null)
+        {
+            voidTargetsDictionary = new Dictionary<Orb.ORB_TYPES, GameObject>();
+            voidTargetsDictionary.Add(Orb.ORB_TYPES.VOID, targetAntimatter);
+            voidTargetsDictionary.Add(Orb.ORB_TYPES.ICE_VOID, targetIce);
+            voidTargetsDictionary.Add(Orb.ORB_TYPES.FIRE_VOID, targetFire);
+            voidTargetsDictionary.Add(Orb.ORB_TYPES.AETHER_VOID, targetAether);
+            voidTargetsDictionary.Add(Orb.ORB_TYPES.SUPERNOVA_VOID, targetLevelUp);
+            voidTargetsDictionary.Add(Orb.ORB_TYPES.BLUE_PULSAR, targetDyeBlue);
+            voidTargetsDictionary.Add(Orb.ORB_TYPES.RED_PULSAR, targetDyeRed);
+            voidTargetsDictionary.Add(Orb.ORB_TYPES.GREEN_PULSAR, targetDyeGreen);
+        }
     }
+
 
 
     // Update is called once per frame
@@ -139,14 +176,17 @@ public class Target : MonoBehaviour
     public void redrawTargets()
     {
         spinCore = null;
+        spinVoid = null;
+        leftOrbToDissolve = null;
+        rightOrbToDissolve = null;
         spinLeftOrbsAffected.Clear();
         spinRightOrbsAffected.Clear();
         foreach (GameObject gameObject in drawnTargets) Destroy(gameObject);
         drawnTargets.Clear();
 
-        if (upLeftOrb && upLeftOrb.xStricted && upLeftOrb.yStricted && upLeftOrb.archetype == Orb.ORB_ARCHETYPES.CORE)
+        if (upLeftOrb && upLeftOrb.xStricted && upLeftOrb.yStricted && (upLeftOrb.archetype == Orb.ORB_ARCHETYPES.CORE||upLeftOrb.archetype == Orb.ORB_ARCHETYPES.VOID))
         {
-            spinCore = upLeftOrb.GetComponent<CoreOrb>();
+            if(upLeftOrb.GetComponent<CoreOrb>()) spinCore = upLeftOrb.GetComponent<CoreOrb>();
             if (upLeftOrb.type == Orb.ORB_TYPES.FIRE_CORE)
             {
                 for (int i = 0; i < MixingBoard.Height; i++)
@@ -240,11 +280,62 @@ public class Target : MonoBehaviour
                     drawnTargets.Add(target);
                 }
             }
+            if (upLeftOrb.GetComponent<VoidOrb>()) spinVoid = upLeftOrb.GetComponent<VoidOrb>();
+            if (upLeftOrb.archetype == Orb.ORB_ARCHETYPES.VOID)
+            {
+                List<GameObject> targetsToPaint = new List<GameObject>();
+
+                if (upRightOrb)rightOrbToDissolve = upRightOrb;
+                else if (downRightOrb) rightOrbToDissolve = downRightOrb;
+                else if (downLeftOrb) rightOrbToDissolve = downLeftOrb;
+
+                if (downLeftOrb) leftOrbToDissolve = downLeftOrb;
+                else if (downRightOrb) leftOrbToDissolve = downRightOrb;
+                else if (upRightOrb) leftOrbToDissolve = upRightOrb;
+                
+                if(leftOrbToDissolve != null && rightOrbToDissolve != null)
+                {
+                    if (leftOrbToDissolve == rightOrbToDissolve)
+                    {
+                        GameObject target = Instantiate(targetVoid, transform);
+                        target.transform.localPosition = new Vector3(leftOrbToDissolve.transform.localPosition.x - transform.localPosition.x, leftOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(target);
+                        targetsToPaint.Add(target);
+                    }
+                    else
+                    {
+                        GameObject targetLeft = Instantiate(targetVoidLeft, transform);
+                        GameObject targetRight = Instantiate(targetVoidRight, transform);
+                        targetLeft.transform.localPosition = new Vector3(leftOrbToDissolve.transform.localPosition.x - transform.localPosition.x, leftOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        targetRight.transform.localPosition = new Vector3(rightOrbToDissolve.transform.localPosition.x - transform.localPosition.x, rightOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(targetLeft);
+                        drawnTargets.Add(targetRight);
+                        targetsToPaint.Add(targetLeft);
+                        targetsToPaint.Add(targetRight);
+                        spinLeftOrbsAffected.Add(rightOrbToDissolve);
+                        spinRightOrbsAffected.Add(leftOrbToDissolve);
+
+                    }
+                    if (downRightOrb && downRightOrb != leftOrbToDissolve && downRightOrb != rightOrbToDissolve)
+                    {
+                        GameObject target = Instantiate(voidTargetsDictionary[spinVoid.type], transform);
+                        target.transform.localPosition = new Vector3(downRightOrb.transform.localPosition.x - transform.localPosition.x, downRightOrb.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(target);
+                        spinLeftOrbsAffected.Add(downRightOrb);
+                        spinRightOrbsAffected.Add(downRightOrb);
+                    }
+                    foreach (GameObject gameObject in targetsToPaint)
+                    {
+                        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+                        if(sr) sr.color = spinVoid.channelParticleColor;
+                    }
+                }
+            }
         }
 
-        else if (upRightOrb && upRightOrb.xStricted && upRightOrb.yStricted && upRightOrb.archetype == Orb.ORB_ARCHETYPES.CORE)
+        else if (upRightOrb && upRightOrb.xStricted && upRightOrb.yStricted && (upRightOrb.archetype == Orb.ORB_ARCHETYPES.CORE || upRightOrb.archetype == Orb.ORB_ARCHETYPES.VOID))
         {
-            spinCore = upRightOrb.GetComponent<CoreOrb>();
+            if (upRightOrb.GetComponent<CoreOrb>())  spinCore = upRightOrb.GetComponent<CoreOrb>();
             if (upRightOrb.type == Orb.ORB_TYPES.FIRE_CORE)
             {
                 for (int i = 0; i < MixingBoard.Height; i++)
@@ -337,10 +428,62 @@ public class Target : MonoBehaviour
                     drawnTargets.Add(target);
                 }
             }
+            if (upRightOrb.GetComponent<VoidOrb>()) spinVoid = upRightOrb.GetComponent<VoidOrb>();
+            if (upRightOrb.archetype == Orb.ORB_ARCHETYPES.VOID)
+            {
+                List<GameObject> targetsToPaint = new List<GameObject>();
+
+                if (downRightOrb) rightOrbToDissolve = downRightOrb;
+                else if (downLeftOrb) rightOrbToDissolve = downLeftOrb;
+                else if (upLeftOrb) rightOrbToDissolve = upLeftOrb;
+
+                if (upLeftOrb) leftOrbToDissolve = upLeftOrb;
+                else if (downLeftOrb) leftOrbToDissolve = downLeftOrb;
+                else if (downRightOrb) leftOrbToDissolve = downRightOrb;
+
+                if (leftOrbToDissolve != null && rightOrbToDissolve != null)
+                {
+                    if (leftOrbToDissolve == rightOrbToDissolve)
+                    {
+                        GameObject target = Instantiate(targetVoid, transform);
+                        target.transform.localPosition = new Vector3(leftOrbToDissolve.transform.localPosition.x - transform.localPosition.x, leftOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(target);
+                        targetsToPaint.Add(target);
+                    }
+                    else
+                    {
+                        GameObject targetLeft = Instantiate(targetVoidLeft, transform);
+                        GameObject targetRight = Instantiate(targetVoidRight, transform);
+                        targetLeft.transform.localPosition = new Vector3(leftOrbToDissolve.transform.localPosition.x - transform.localPosition.x, leftOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        targetRight.transform.localPosition = new Vector3(rightOrbToDissolve.transform.localPosition.x - transform.localPosition.x, rightOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(targetLeft);
+                        drawnTargets.Add(targetRight);
+                        targetsToPaint.Add(targetLeft);
+                        targetsToPaint.Add(targetRight);
+                        spinLeftOrbsAffected.Add(rightOrbToDissolve);
+                        spinRightOrbsAffected.Add(leftOrbToDissolve);
+
+                    }
+                    if (downLeftOrb && downLeftOrb != leftOrbToDissolve && downLeftOrb != rightOrbToDissolve)
+                    {
+                        GameObject target = Instantiate(voidTargetsDictionary[spinVoid.type], transform);
+                        target.transform.localPosition = new Vector3(downLeftOrb.transform.localPosition.x - transform.localPosition.x, downLeftOrb.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(target);
+                        spinLeftOrbsAffected.Add(downLeftOrb);
+                        spinRightOrbsAffected.Add(downLeftOrb);
+                    }
+                    foreach (GameObject gameObject in targetsToPaint)
+                    {
+                        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+                        if (sr) sr.color = spinVoid.channelParticleColor;
+                    }
+                }
+            }
+
         }
-        else if (downLeftOrb && downLeftOrb.xStricted && downLeftOrb.yStricted && downLeftOrb.archetype == Orb.ORB_ARCHETYPES.CORE)
+        else if (downLeftOrb && downLeftOrb.xStricted && downLeftOrb.yStricted && (downLeftOrb.archetype == Orb.ORB_ARCHETYPES.CORE || downLeftOrb.archetype == Orb.ORB_ARCHETYPES.VOID))
         {
-            spinCore = downLeftOrb.GetComponent<CoreOrb>();
+            if (downLeftOrb.GetComponent<CoreOrb>()) spinCore = downLeftOrb.GetComponent<CoreOrb>();
             if (downLeftOrb.type == Orb.ORB_TYPES.FIRE_CORE)
             {
                 for (int i = 0; i < MixingBoard.Height; i++)
@@ -431,11 +574,62 @@ public class Target : MonoBehaviour
                     drawnTargets.Add(target);
                 }
             }
+            if (downLeftOrb.GetComponent<VoidOrb>()) spinVoid = downLeftOrb.GetComponent<VoidOrb>();
+            if (downLeftOrb.archetype == Orb.ORB_ARCHETYPES.VOID)
+            {
+                List<GameObject> targetsToPaint = new List<GameObject>();
+
+                if (upLeftOrb) rightOrbToDissolve = upLeftOrb;
+                else if (upRightOrb) rightOrbToDissolve = upRightOrb;
+                else if (downRightOrb) rightOrbToDissolve = downRightOrb;
+
+                if (downRightOrb) leftOrbToDissolve = downRightOrb;
+                else if (upRightOrb) leftOrbToDissolve = upRightOrb;
+                else if (upLeftOrb) leftOrbToDissolve = upLeftOrb;
+
+                if (leftOrbToDissolve != null && rightOrbToDissolve != null)
+                {
+                    if (leftOrbToDissolve == rightOrbToDissolve)
+                    {
+                        GameObject target = Instantiate(targetVoid, transform);
+                        target.transform.localPosition = new Vector3(leftOrbToDissolve.transform.localPosition.x - transform.localPosition.x, leftOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(target);
+                        targetsToPaint.Add(target);
+                    }
+                    else
+                    {
+                        GameObject targetLeft = Instantiate(targetVoidLeft, transform);
+                        GameObject targetRight = Instantiate(targetVoidRight, transform);
+                        targetLeft.transform.localPosition = new Vector3(leftOrbToDissolve.transform.localPosition.x - transform.localPosition.x, leftOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        targetRight.transform.localPosition = new Vector3(rightOrbToDissolve.transform.localPosition.x - transform.localPosition.x, rightOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(targetLeft);
+                        drawnTargets.Add(targetRight);
+                        targetsToPaint.Add(targetLeft);
+                        targetsToPaint.Add(targetRight);
+                        spinLeftOrbsAffected.Add(rightOrbToDissolve);
+                        spinRightOrbsAffected.Add(leftOrbToDissolve);
+
+                    }
+                    if (upRightOrb && upRightOrb != leftOrbToDissolve && upRightOrb != rightOrbToDissolve)
+                    {
+                        GameObject target = Instantiate(voidTargetsDictionary[spinVoid.type], transform);
+                        target.transform.localPosition = new Vector3(upRightOrb.transform.localPosition.x - transform.localPosition.x, upRightOrb.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(target);
+                        spinLeftOrbsAffected.Add(upRightOrb);
+                        spinRightOrbsAffected.Add(upRightOrb);
+                    }
+                    foreach (GameObject gameObject in targetsToPaint)
+                    {
+                        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+                        if (sr) sr.color = spinVoid.channelParticleColor;
+                    }
+                }
+            }
         }
 
-        else if (downRightOrb && downRightOrb.xStricted && downRightOrb.yStricted && downRightOrb.archetype == Orb.ORB_ARCHETYPES.CORE)
+        else if (downRightOrb && downRightOrb.xStricted && downRightOrb.yStricted && (downRightOrb.archetype == Orb.ORB_ARCHETYPES.CORE || downRightOrb.archetype == Orb.ORB_ARCHETYPES.VOID))
         {
-            spinCore = downRightOrb.GetComponent<CoreOrb>();
+            if (downRightOrb.GetComponent<CoreOrb>()) spinCore = downRightOrb.GetComponent<CoreOrb>();
             if (downRightOrb.type == Orb.ORB_TYPES.FIRE_CORE)
             {
                 for (int i = 0; i < MixingBoard.Height; i++)
@@ -526,6 +720,58 @@ public class Target : MonoBehaviour
                     drawnTargets.Add(target);
                 }
             }
+            if (downRightOrb.GetComponent<VoidOrb>()) spinVoid = downRightOrb.GetComponent<VoidOrb>();
+            if (downRightOrb.archetype == Orb.ORB_ARCHETYPES.VOID)
+            {
+                List<GameObject> targetsToPaint = new List<GameObject>();
+
+                if (downLeftOrb) rightOrbToDissolve = downLeftOrb;
+                else if (upLeftOrb) rightOrbToDissolve = upLeftOrb;
+                else if (upRightOrb) rightOrbToDissolve = upRightOrb;
+
+                if (upRightOrb) leftOrbToDissolve = upRightOrb;
+                else if (upLeftOrb) leftOrbToDissolve = upLeftOrb;
+                else if (downLeftOrb) leftOrbToDissolve = downLeftOrb;
+
+                if (leftOrbToDissolve != null && rightOrbToDissolve != null)
+                {
+                    if (leftOrbToDissolve == rightOrbToDissolve)
+                    {
+                        GameObject target = Instantiate(targetVoid, transform);
+                        target.transform.localPosition = new Vector3(leftOrbToDissolve.transform.localPosition.x - transform.localPosition.x, leftOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(target);
+                        targetsToPaint.Add(target);
+                    }
+                    else
+                    {
+                        GameObject targetLeft = Instantiate(targetVoidLeft, transform);
+                        GameObject targetRight = Instantiate(targetVoidRight, transform);
+                        targetLeft.transform.localPosition = new Vector3(leftOrbToDissolve.transform.localPosition.x - transform.localPosition.x, leftOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        targetRight.transform.localPosition = new Vector3(rightOrbToDissolve.transform.localPosition.x - transform.localPosition.x, rightOrbToDissolve.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(targetLeft);
+                        drawnTargets.Add(targetRight);
+                        targetsToPaint.Add(targetLeft);
+                        targetsToPaint.Add(targetRight);
+                        spinLeftOrbsAffected.Add(rightOrbToDissolve);
+                        spinRightOrbsAffected.Add(leftOrbToDissolve);
+
+                    }
+                    if (upLeftOrb && upLeftOrb != leftOrbToDissolve && upLeftOrb != rightOrbToDissolve)
+                    {
+                        GameObject target = Instantiate(voidTargetsDictionary[spinVoid.type], transform);
+                        target.transform.localPosition = new Vector3(upLeftOrb.transform.localPosition.x - transform.localPosition.x, upLeftOrb.transform.localPosition.y - transform.localPosition.y, 0);
+                        drawnTargets.Add(target);
+                        spinLeftOrbsAffected.Add(upLeftOrb);
+                        spinRightOrbsAffected.Add(upLeftOrb);
+                    }
+                    foreach (GameObject gameObject in targetsToPaint)
+                    {
+                        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+                        if (sr) sr.color = spinVoid.channelParticleColor;
+                    }
+                }
+            }
+
         }
     }
 
@@ -580,8 +826,10 @@ public class Target : MonoBehaviour
             if (MixingBoard.StaticInstance.stable && MixingBoard.StaticInstance.currentTargetDelay <= 0)
             {
 
-                if (spinCore != null)
+                if (spinCore)
                 {
+                    spinCore.DestroyIn(0.5);
+
                     foreach (Orb orb in spinLeftOrbsAffected)
                     {
                         if(orb)
@@ -592,7 +840,20 @@ public class Target : MonoBehaviour
                     if (spinCore.type == Orb.ORB_TYPES.GREEN_DYE_CORE || spinCore.type == Orb.ORB_TYPES.RED_DYE_CORE || spinCore.type == Orb.ORB_TYPES.BLUE_DYE_CORE) addDyeParticles(spinCore.particleSystemSample);
                     if (spinCore.type == Orb.ORB_TYPES.FIRE_CORE || spinCore.type == Orb.ORB_TYPES.ICE_CORE || spinCore.type == Orb.ORB_TYPES.AETHER_CORE || spinCore.type == Orb.ORB_TYPES.SUPERNOVA_CORE) addAffectParticles(spinCore.particleSystemSample, spinLeftOrbsAffected, spinCore);
                     MixingBoard.StaticInstance.spinDelay += .5;
-                    spinCore.DestroyIn(0.5);
+                }
+
+                if (spinVoid)
+                {
+                    foreach (Orb orb in spinLeftOrbsAffected)
+                    {
+                        if (orb)
+                        {
+                            orb.affectWith(spinVoid.voidEffect);
+                        }
+                    }
+                    if (leftOrbToDissolve) leftOrbToDissolve.affectWith(Orb.EFFECT_TYPES.DISSOLVE);
+                    if (spinLeftOrbsAffected.Count != 0) addAffectParticles(spinVoid.particleSystemSample, spinRightOrbsAffected, null);
+                    MixingBoard.StaticInstance.spinDelay += .5;
                 }
 
                 if (upLeftOrb)
@@ -600,7 +861,7 @@ public class Target : MonoBehaviour
                     upLeftOrb.moveDown();
                     if (upLeftOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(upLeftOrb);
                     if (upLeftOrb.aetherImpact != 0) {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upLeftOrb.Level == 3)
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upLeftOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
                            
                         }
@@ -615,7 +876,7 @@ public class Target : MonoBehaviour
                     upRightOrb.moveLeft();
                     if (upRightOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(upRightOrb);
                     if (upRightOrb.aetherImpact != 0)
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upRightOrb.Level == 3)
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upRightOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -629,7 +890,7 @@ public class Target : MonoBehaviour
                     if (downLeftOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(downLeftOrb);
                     if (downLeftOrb.aetherImpact != 0)
                     {
-                    if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downLeftOrb.Level == 3)
+                    if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downLeftOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                     {
 
                         }
@@ -643,7 +904,7 @@ public class Target : MonoBehaviour
                     if (downRightOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(downRightOrb);
                     if (downRightOrb.aetherImpact != 0)
                     {
-                    if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downRightOrb.Level == 3)
+                    if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downRightOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                     {
 
                         }
@@ -663,6 +924,7 @@ public class Target : MonoBehaviour
             {
                 if (spinCore)
                 {
+                    spinCore.DestroyIn(0.5);
                     foreach (Orb orb in spinRightOrbsAffected)
                     {
                         if (orb)
@@ -672,8 +934,21 @@ public class Target : MonoBehaviour
                     }
                     if (spinCore.type == Orb.ORB_TYPES.GREEN_DYE_CORE || spinCore.type == Orb.ORB_TYPES.RED_DYE_CORE || spinCore.type == Orb.ORB_TYPES.BLUE_DYE_CORE) addDyeParticles(spinCore.particleSystemSample);
                     if (spinCore.type == Orb.ORB_TYPES.FIRE_CORE || spinCore.type == Orb.ORB_TYPES.ICE_CORE || spinCore.type == Orb.ORB_TYPES.AETHER_CORE || spinCore.type == Orb.ORB_TYPES.SUPERNOVA_CORE) addAffectParticles(spinCore.particleSystemSample, spinRightOrbsAffected, spinCore);
-                    
-                    spinCore.DestroyIn(0.5);
+                    MixingBoard.StaticInstance.spinDelay += .5;
+                }
+
+                if (spinVoid)
+                {
+                    foreach (Orb orb in spinRightOrbsAffected)
+                    {
+                        if (orb)
+                        {
+                            orb.affectWith(spinVoid.voidEffect);
+                        }
+                    }
+                    if (rightOrbToDissolve) rightOrbToDissolve.affectWith(Orb.EFFECT_TYPES.DISSOLVE);
+                    if (spinRightOrbsAffected.Count != 0) addAffectParticles(spinVoid.particleSystemSample, spinRightOrbsAffected, null);
+                    MixingBoard.StaticInstance.spinDelay += .5;
                 }
 
                 if (upLeftOrb)
@@ -682,7 +957,7 @@ public class Target : MonoBehaviour
                     if (upLeftOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(upLeftOrb);
                     if (upLeftOrb.aetherImpact != 0)
                     {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upLeftOrb.Level == 3)
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upLeftOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -696,7 +971,7 @@ public class Target : MonoBehaviour
                     if (upRightOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(upRightOrb);
                     if (upRightOrb.aetherImpact != 0)
                     {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upRightOrb.Level == 3)
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upRightOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -710,7 +985,7 @@ public class Target : MonoBehaviour
                     if (downLeftOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(downLeftOrb);
                     if (downLeftOrb.aetherImpact != 0)
                     {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downLeftOrb.Level == 3)
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downLeftOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -724,7 +999,7 @@ public class Target : MonoBehaviour
                     if (downRightOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(downRightOrb);
                     if (downRightOrb.aetherImpact != 0)
                     {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downRightOrb.Level == 3)
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downRightOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -799,7 +1074,7 @@ public class Target : MonoBehaviour
     {
         MixingBoard.StaticInstance.spinDelay += .5;
         List<Orb> orbListToAffect = new List<Orb>(affectedOrbs);
-        orbListToAffect.Add(core);
+        if(core) orbListToAffect.Add(core);
 
         foreach (Orb orb in orbListToAffect)
         {

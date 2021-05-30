@@ -400,6 +400,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3439786993165594803, guid: 3628e5b6ce0bb94438501a299abd18e6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 8640359809918044661, guid: b7816649f18d2f640bf70aceaca5729f, type: 3}
+    - target: {fileID: 3439786993165594803, guid: 3628e5b6ce0bb94438501a299abd18e6, type: 3}
       propertyPath: orbElement
       value: 2
       objectReference: {fileID: 0}
@@ -411,6 +415,12 @@ PrefabInstance:
       propertyPath: aetherParticle
       value: 
       objectReference: {fileID: 9199250702057443516, guid: 4e853be0596c4074093ccf10318d30da, type: 3}
+    - target: {fileID: 3439786993165594803, guid: 3628e5b6ce0bb94438501a299abd18e6, type: 3}
+      propertyPath: orbDescription
+      value: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+        \u0432\u043B\u0438\u044F\u043D\u0438\u0435 \u0437\u0435\u043B\u044C\u044F
+        \u043D\u0430 \u0434\u0443\u0448\u0443 \u043D\u0430 XXX."
+      objectReference: {fileID: 0}
     - target: {fileID: 3439786993165594803, guid: 3628e5b6ce0bb94438501a299abd18e6, type: 3}
       propertyPath: combo_avaliable
       value: 1

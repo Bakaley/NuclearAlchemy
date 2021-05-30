@@ -69,15 +69,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 977171912055443555, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}
       propertyPath: m_Name
-      value: DemoE1 (7)
+      value: DemoCoreYellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072275472714660410, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}
+      propertyPath: m_FlipY
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2072275472714660410, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 10a09ba9e30d6564888dac0105bfe457, type: 3}
+      objectReference: {fileID: 21300000, guid: 8dbd56f1a9417fd44b0c7634dde09166, type: 3}
+    - target: {fileID: 2072275472714660410, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2103494085794687542, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0c0cfd69457df4d469fa8044d5ade413, type: 2}
+    - target: {fileID: 7313055027844444984, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313055027844444984, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313055027844444984, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 667738bbeafb09041bd6fb775d052d13, type: 3}

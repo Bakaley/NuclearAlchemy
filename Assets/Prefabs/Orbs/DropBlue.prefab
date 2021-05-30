@@ -5006,7 +5006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbType: 20
-  OrbPreview: {fileID: 0}
+  OrbPreview: {fileID: 7327779279605080925, guid: 567df5f6f553f9e4eb36a66378d85bb0, type: 3}
   countOfReactionsIn: 0
   dissolvingAppearing: 1
   coreSphereRenderer: {fileID: 1134747762716428625}
@@ -5024,6 +5024,10 @@ MonoBehaviour:
   aetherCount: 0
   antimatter: 0
   comboAvaliable: 0
+  orbDescription: "\u041A\u0430\u043F\u043D\u0438\u0442\u0435 \u043D\u0430 \u0434\u0440\u0443\u0433\u0443\u044E
+    \u0441\u0444\u0435\u0440\u0443, \u0447\u0442\u043E\u0431\u044B \u0438\u0437\u043C\u0435\u043D\u0438\u0442\u044C
+    \u0435\u0451 \u0430\u0441\u043F\u0435\u043A\u0442 \u043D\u0430 \u0430\u0441\u043F\u0435\u043A\u0442
+    \u0440\u0430\u0437\u0443\u043C\u0430."
   nextLevelOrb: {fileID: 0}
   level: 0
   points: 0

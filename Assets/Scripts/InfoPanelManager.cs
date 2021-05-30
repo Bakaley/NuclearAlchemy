@@ -82,9 +82,9 @@ public class InfoPanelManager : MonoBehaviour
         orbTypeDicrionary.Add(Orb.ORB_TYPES.AETHER_VOID, "Эфирная пустота");
         orbTypeDicrionary.Add(Orb.ORB_TYPES.SUPERNOVA_VOID, "Сверхновая пустота");
 
-        orbTypeDicrionary.Add(Orb.ORB_TYPES.BLUE_DYE_VOID, "Синий пульсар");
-        orbTypeDicrionary.Add(Orb.ORB_TYPES.RED_DYE_VOID, "Красный пульсар");
-        orbTypeDicrionary.Add(Orb.ORB_TYPES.GREEN_DYE_VOID, "Зелёный пульсар");
+        orbTypeDicrionary.Add(Orb.ORB_TYPES.BLUE_PULSAR, "Синий пульсар");
+        orbTypeDicrionary.Add(Orb.ORB_TYPES.RED_PULSAR, "Красный пульсар");
+        orbTypeDicrionary.Add(Orb.ORB_TYPES.GREEN_PULSAR, "Зелёный пульсар");
 
         orbTypeDicrionary.Add(Orb.ORB_TYPES.BLUE_DROP, "Капля разума");
         orbTypeDicrionary.Add(Orb.ORB_TYPES.RED_DROP, "Капля тела");
@@ -95,7 +95,7 @@ public class InfoPanelManager : MonoBehaviour
         orbTypeDicrionary.Add(Orb.ORB_TYPES.AETHER_DROP, "Капля эфира");
         orbTypeDicrionary.Add(Orb.ORB_TYPES.ANTIMATTER_DROP, "Капля антиматерии");
 
-        orbArchetypeDicrionary.Add(Orb.ORB_ARCHETYPES.ASPECT, "Аспект");
+        orbArchetypeDicrionary.Add(Orb.ORB_ARCHETYPES.ASPECT, "Аспектная сфера");
         orbArchetypeDicrionary.Add(Orb.ORB_ARCHETYPES.NEORGANIC, "Неорганика");
         orbArchetypeDicrionary.Add(Orb.ORB_ARCHETYPES.CORE, "Ядро");
         orbArchetypeDicrionary.Add(Orb.ORB_ARCHETYPES.VOID, "Пустота");
@@ -231,11 +231,24 @@ public class InfoPanelManager : MonoBehaviour
             TextMeshProUGUI typeCounter = orbInfo.GetComponent<OrbInfoComponent>().typeCounter.GetComponent<TextMeshProUGUI>();
             typeCounter.SetText(orbTypeDicrionary[clickedOrb.type] + "");
             TextMeshProUGUI pointsCounter = orbInfo.GetComponent<OrbInfoComponent>().pointsCounter.GetComponent<TextMeshProUGUI>();
-            if(clickedOrb.aetherImpact == 0) pointsCounter.SetText(clickedOrb.pointsImpact + "");
-            else pointsCounter.SetText(clickedOrb.pointsImpact + "");
+            if(clickedOrb.aetherImpact == 0) pointsCounter.SetText("<b>" + clickedOrb.pointsImpact);
+            else pointsCounter.SetText("<b>" + clickedOrb.pointsImpact +"</b><font=\"InfoPanelSDF\"><#808080> [" + clickedOrb.DefaultPoints + " + </font></color><b>" + (clickedOrb.pointsImpact - clickedOrb.DefaultPoints) +  "</b><font=\"InfoPanelSDF\"><#808080>]");
 
             TextMeshProUGUI descriptionCounter = orbInfo.GetComponent<OrbInfoComponent>().descriptionCounter.GetComponent<TextMeshProUGUI>();
-            descriptionCounter.SetText(clickedOrb.name + "");
+
+            string descriptionString = clickedOrb.orbDescription;
+            if(clickedOrb.gameObject.GetComponent<AspectOrb>() && clickedOrb.Level == 3)
+            {
+                string defaultString = "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (1 + (int)(1 * .2 * clickedOrb.aetherImpact)) + "</b></color></font>";
+                string aetherString = "<font=\"InfoPanelSDF\"><#808080> [" + 1 + " + </color></font><b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (int)(1 * .2 * clickedOrb.aetherImpact) + "</color></font></b><font=\"InfoPanelSDF\"><#808080>]</color></font>";
+
+                if (clickedOrb.aetherImpact != 0)
+                {
+                    defaultString += aetherString;
+                }
+                descriptionString = descriptionString.Replace("XXX", defaultString);
+            }
+            descriptionCounter.SetText(descriptionString);
         }
 
 
@@ -245,37 +258,53 @@ public class InfoPanelManager : MonoBehaviour
 
         if (clickedOrb)
         {
-           // Selection.activeGameObject = clickedOrb.gameObject;
+            Selection.activeGameObject = clickedOrb.gameObject;
 
-            if (!clickedOrb.fiery && !clickedOrb.frozen && clickedOrb.aetherImpact == 0 && !clickedOrb.antimatter) Instantiate(orbEffectsAbsent, infoPanelTransorm);
+            if ((!clickedOrb.fiery && !clickedOrb.frozen && clickedOrb.aetherImpact == 0 && !clickedOrb.antimatter) || clickedOrb.archetype == Orb.ORB_ARCHETYPES.DROP || clickedOrb.archetype == Orb.ORB_ARCHETYPES.CORE) Instantiate(orbEffectsAbsent, infoPanelTransorm);
             else
             {
 
                 if (clickedOrb.fiery)
                 {
+                    string defaultString = "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (clickedOrb.Level + (int)Math.Round(clickedOrb.Level * .2 * clickedOrb.aetherImpact)) + "</b></color></font>";
+                    string aetherString = "<font=\"InfoPanelSDF\"><#808080> [" + clickedOrb.Level + " + </color></font><b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + ((int)Math.Round(clickedOrb.Level * .2 * clickedOrb.aetherImpact)) + "</color></font></b><font=\"InfoPanelSDF\"><#808080>]</color></font>";
+
+                    if(clickedOrb.aetherImpact != 0)
+                    {
+                        defaultString += aetherString;
+                    }
+
                     if (clickedOrb.Level == 3)
                     {
                         GameObject fireLevel3Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().fireLevel3Desrcription, infoPanelTransorm);
-                        fireLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = fireLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("X", clickedOrb.Level + (int)Math.Round(clickedOrb.Level * .2 * clickedOrb.aetherImpact) + "");
+                        fireLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = fireLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", defaultString);
                     }
                     else
                     {
                         GameObject fireLevel12Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().fireLevel12Desrcription, infoPanelTransorm);
-                        fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("X", clickedOrb.Level + (int)Math.Round(clickedOrb.Level * .2 * clickedOrb.aetherImpact) + "");
+                        fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", defaultString);
 
                     }
                 }
                 if (clickedOrb.frozen)
                 {
+                    string defaultString = "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (clickedOrb.Level + (int)Math.Round(clickedOrb.Level * .2 * clickedOrb.aetherImpact)) + "</b></color></font>";
+                    string aetherString = "<font=\"InfoPanelSDF\"><#808080> [" + clickedOrb.Level + " + </color></font><b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + ((int)Math.Round(clickedOrb.Level * .2 * clickedOrb.aetherImpact)) + "</color></font></b><font=\"InfoPanelSDF\"><#808080>]</color></font>";
+
+                    if (clickedOrb.aetherImpact != 0)
+                    {
+                        defaultString += aetherString;
+                    }
+
                     if (clickedOrb.Level == 3)
                     {
                         GameObject iceLevel3Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().iceLevel3Desrcription, infoPanelTransorm);
-                        iceLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = iceLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("X", clickedOrb.Level + (int)Math.Round(clickedOrb.Level * .2 * clickedOrb.aetherImpact) + "");
+                        iceLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = iceLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", defaultString);
                     }
                     else
                     {
                         GameObject iceLevel12Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().iceLevel12Desrcription, infoPanelTransorm);
-                        iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("X", clickedOrb.Level + (int)Math.Round(clickedOrb.Level * .2 * clickedOrb.aetherImpact) + "");
+                        iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", defaultString);
 
                     }
                 }
@@ -284,22 +313,47 @@ public class InfoPanelManager : MonoBehaviour
                     if (clickedOrb.Level == 3)
                     {
                         GameObject aetherLevel3Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherLevel3Desrcription, infoPanelTransorm);
-                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("X", clickedOrb.aetherImpact + "");
-                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("Y", clickedOrb.aetherImpact * 20 + "");
+                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>");
+                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * 20 + "%</b></color></font>");
                     }
                     else
                     {
                         GameObject aetherLevel12Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherLevel12Desrcription, infoPanelTransorm);
-                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("X", clickedOrb.aetherImpact + "");
-                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("Y", clickedOrb.aetherImpact * 20 + "");
+                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>");
+                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * 20 + "%</b></color></font>");
                     }
                 }
                 if (clickedOrb.antimatter)
                 {
                     if (clickedOrb.Level == 3)
                     {
+                        string aspectString = "";
+                        
+                        switch (clickedOrb.type)
+                        {
+                            case Orb.ORB_TYPES.MIND_ASPECT:
+                                aspectString = "разум";
+                                break;
+                            case Orb.ORB_TYPES.BODY_ASPECT:
+                                aspectString = "тело";
+                                break;
+                            case Orb.ORB_TYPES.SOUL_ASPECT:
+                                aspectString = "душу";
+                                break;
+                        }
+
+                        string defaultString = "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (1 + (int)(1 * .2 * clickedOrb.aetherImpact)) + "</b></color></font>";
+                        string aetherString = "<font=\"InfoPanelSDF\"><#808080> [" + 1 + " + </color></font><b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (int)(1 * .2 * clickedOrb.aetherImpact) + "</color></font></b><font=\"InfoPanelSDF\"><#808080>]</color></font>";
+
+                        if (clickedOrb.aetherImpact != 0)
+                        {
+                            defaultString += aetherString;
+                        }
+
                         GameObject antimatterLevel3Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().antimatterLevel3Desrcription, infoPanelTransorm);
-                        antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("X", clickedOrb.GetComponent<AspectOrb>().aspectImpact + "");
+                            
+                        antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", aspectString);
+                        antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", defaultString);
 
                     }
                     else Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().antimatterLevel12Desrcription, infoPanelTransorm);

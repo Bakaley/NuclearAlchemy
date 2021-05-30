@@ -12,9 +12,9 @@ public class AspectOrb : Orb
 
     public enum ORB_COLOR
     {
-        blue,
-        red,
-        green
+        Blue,
+        Red,
+        Green
     }
 
     public ORB_COLOR orbColor
@@ -51,29 +51,31 @@ public class AspectOrb : Orb
                 addAether(3);
                 break;
             case EFFECT_TYPES.LEVEL_UP:
+                Invoke("levelUp", .2f);
                 break;
             case EFFECT_TYPES.ANTIMATTER:
                 addAntimatter();
                 break;
             case EFFECT_TYPES.BLUE_DYE:
-                if(colorDictionary[this.type] != ORB_COLOR.blue)
+                if(colorDictionary[this.type] != ORB_COLOR.Blue)
                 {
-                    colorIn(ORB_COLOR.blue);
+                    colorIn(ORB_COLOR.Blue);
                 }
                 break;
             case EFFECT_TYPES.RED_DYE:
-                if (colorDictionary[this.type] != ORB_COLOR.red)
+                if (colorDictionary[this.type] != ORB_COLOR.Red)
                 {
-                    colorIn(ORB_COLOR.red);
+                    colorIn(ORB_COLOR.Red);
                 }
                 break;
             case EFFECT_TYPES.GREEN_DYE:
-                if (colorDictionary[this.type] != ORB_COLOR.green)
+                if (colorDictionary[this.type] != ORB_COLOR.Green)
                 {
-                    colorIn(ORB_COLOR.green);
+                    colorIn(ORB_COLOR.Green);
                 }
                 break;
             case EFFECT_TYPES.DISSOLVE:
+                DestroyIn(0.2f);
                 break;
         }
     }
@@ -138,89 +140,19 @@ public class AspectOrb : Orb
                 particleMain.startColor = orbToPaintIn.aetherParticle.GetComponentInChildren<ParticleSystem>().main.startColor;
             }
         }
+        aetherParticle = orbToPaintIn.aetherParticle;
     }
 
-    void addFire()
-    {
-        fireParticles.gameObject.SetActive(true);
-        fiery = true;
-    }
-
-    void addIce()
-    {
-        GameObject iceOrb = MixingBoard.orbDictionary["ice"];
-
-        if (coreSphereRenderer.GetComponent<Floating>() != null) coreSphereRenderer.GetComponent<Floating>().enabled = false;
-        Invoke("freezeMaterial", .5f);
-
-        if(symbolRenderer)
-        {
-            symbolRenderer.color = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().symbolRenderer.color;
-            Animation animation = symbolRenderer.GetComponent<Animation>();
-            if (animation)
-            {
-                animation.Stop();
-            }
-            symbolRenderer.transform.localPosition = MixingBoard.orbDictionary[orbColor + "" + Level].GetComponent<AspectOrb>().symbolRenderer.transform.localPosition;
-            symbolRenderer.transform.localRotation = MixingBoard.orbDictionary[orbColor + "" + Level].GetComponent<AspectOrb>().symbolRenderer.transform.localRotation;
-            symbolRenderer.transform.localScale = MixingBoard.orbDictionary[orbColor + "" + Level].GetComponent<AspectOrb>().symbolRenderer.transform.localScale;
-            if (symbolRenderer.GetComponent<Floating>() != null) symbolRenderer.GetComponent<Floating>().enabled = false;
-        }
-
-        if (particleSphere)
-        {
-            var main = particleSphere.main;
-            main.startColor = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().particleSphere.main.startColor;
-            particleSphere.Stop();
-            particleSphere.Clear();
-            particleSphere.Play();
-        }
-
-        FireParticlesList[] firelist = gameObject.GetComponentsInChildren<FireParticlesList>(true);
-        foreach (FireParticlesList fireSystem in firelist)
-        {
-            var sparksMain = fireSystem.sparks.main;
-            sparksMain.startColor = iceOrb.GetComponentInChildren<FireParticlesList>(true).sparks.main.startColor;
-            var fireMain = fireSystem.fire.main;
-            fireMain.startColor = iceOrb.GetComponentInChildren<FireParticlesList>(true).fire.main.startColor;
-            var fireDarkMain = fireSystem.fireDark.main;
-            fireDarkMain.startColor = iceOrb.GetComponentInChildren<FireParticlesList>(true).fireDark.main.startColor;
-            fireSystem.fireDark.GetComponent<ParticleSystemRenderer>().material = fireSystem.fire.GetComponent<ParticleSystemRenderer>().material;
-        }
-
-        if (counter.GetComponent<TextMeshPro>())
-        {
-            counter.GetComponent<TextMeshPro>().color = iceOrb.GetComponent<AspectOrb>().counter.GetComponent<TextMeshPro>().color;
-        }
-
-        if (aetherImpact != 0)
-        {
-            foreach (GameObject particle in aetherParticles)
-            {
-                var particleMain = particle.GetComponentInChildren<ParticleSystem>().main;
-                particleMain.startColor = iceOrb.GetComponent<AspectOrb>().aetherParticle.GetComponentInChildren<ParticleSystem>().main.startColor;
-            }
-        }
-
-        this.channelParticleColor = iceOrb.GetComponent<AspectOrb>().channelParticleColor;
-        iceParticles.SetActive(true);
-        frozen = true;
-    }
-
-    void freezeMaterial()
-    {
-        coreSphereRenderer.material = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().coreSphereRenderer.sharedMaterial;
-    }
-
+   
 
     protected override void Start()
     {
         base.Start();
 
         colorDictionary = new Dictionary<ORB_TYPES, ORB_COLOR>();
-        colorDictionary.Add(ORB_TYPES.MIND_ASPECT, ORB_COLOR.blue);
-        colorDictionary.Add(ORB_TYPES.BODY_ASPECT, ORB_COLOR.red);
-        colorDictionary.Add(ORB_TYPES.SOUL_ASPECT, ORB_COLOR.green);
+        colorDictionary.Add(ORB_TYPES.MIND_ASPECT, ORB_COLOR.Blue);
+        colorDictionary.Add(ORB_TYPES.BODY_ASPECT, ORB_COLOR.Red);
+        colorDictionary.Add(ORB_TYPES.SOUL_ASPECT, ORB_COLOR.Green);
 
         counterTMP = counter.GetComponent<TextMeshPro>();
     }

@@ -148,9 +148,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetFireLeft: {fileID: 4362456005170695772, guid: 83395b787a820984abdeaaad90753593, type: 3}
   targetFireRight: {fileID: 4362456005170695772, guid: a96ec0bf83e974d4693376f3a626f179, type: 3}
+  targetFire: {fileID: 4362456005170695772, guid: 7270640dd77efae4baadb9e4a79770f9, type: 3}
   targetIceLeft: {fileID: 4362456005170695772, guid: a03deac910a71c549b1d836197d25002, type: 3}
   targetIceRight: {fileID: 4362456005170695772, guid: 2cadf1da653ee3e46881679d821574d4, type: 3}
+  targetIce: {fileID: 4362456005170695772, guid: 54e21724c80afac4684aee64d90e3a39, type: 3}
   targetAether: {fileID: 4362456005170695772, guid: 1cbb10cf2e8fd264f9ac47482ff886a1, type: 3}
+  targetAntimatter: {fileID: 4362456005170695772, guid: 727a7ca345713f14cbf1133e31594da4, type: 3}
+  targetVoidLeft: {fileID: 4362456005170695772, guid: be71825b673fd364988f42b82f29d749, type: 3}
+  targetVoidRight: {fileID: 4362456005170695772, guid: 67ac4776b841f864fb4df62caf4a7790, type: 3}
+  targetVoid: {fileID: 4362456005170695772, guid: f2f09d2eb485b7f4c85cc80570be1547, type: 3}
   targetDyeBlue: {fileID: 4362456005170695772, guid: 95c20a36de0d9344cbb3613963443c83, type: 3}
   targetDyeRed: {fileID: 4362456005170695772, guid: d2009e57d5c55c44085170d38fbe6303, type: 3}
   targetDyeGreen: {fileID: 4362456005170695772, guid: e161330715198e74599ea37a334c6405, type: 3}

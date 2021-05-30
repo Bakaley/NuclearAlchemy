@@ -60,6 +60,8 @@ public class MixingBoard : MonoBehaviour
     [SerializeField]
     public GameObject greenPulsar;
     [SerializeField]
+    public GameObject grey1;
+    [SerializeField]
     public GameObject grey2_1;
     [SerializeField]
     public GameObject grey2_2;
@@ -144,34 +146,35 @@ public class MixingBoard : MonoBehaviour
         targetSquares = targetGameObject.GetComponentsInChildren<SpriteRenderer>();
         orbDictionary = new Dictionary<string, GameObject>();
 
-        orbDictionary.Add("blue1", blue1);
-        orbDictionary.Add("blue2", blue2);
-        orbDictionary.Add("blue3", blue3);
-        orbDictionary.Add("blueDye", blueDye);
-        orbDictionary.Add("bluePulsar", bluePulsar);
-        orbDictionary.Add("red1", red1);
-        orbDictionary.Add("red2", red2);
-        orbDictionary.Add("red3", red3);
-        orbDictionary.Add("redDye", redDye);
-        orbDictionary.Add("redPulsar", redPulsar);
-        orbDictionary.Add("green1", green1);
-        orbDictionary.Add("green2", green2);
-        orbDictionary.Add("green3", green3);
-        orbDictionary.Add("greenDye", greenDye);
-        orbDictionary.Add("greenPulsar", greenPulsar);
-        orbDictionary.Add("grey2_1", grey2_1);
-        orbDictionary.Add("grey2_2", grey2_2);
-        orbDictionary.Add("grey3", grey3);
-        orbDictionary.Add("yellowCore", yellowCore);
-        orbDictionary.Add("blueCore", blueCore);
-        orbDictionary.Add("redCore", redCore);
-        orbDictionary.Add("greenCore", greenCore);
-        orbDictionary.Add("purpleVoid", purpleVoid);
-        orbDictionary.Add("blueVoid", blueVoid);
-        orbDictionary.Add("redVoid", redVoid);
-        orbDictionary.Add("greenVoid", greenVoid);
-        orbDictionary.Add("yellowVoid", yellowVoid);
-        orbDictionary.Add("ice", iceOrbSample);
+        orbDictionary.Add("Blue1", blue1);
+        orbDictionary.Add("Blue2", blue2);
+        orbDictionary.Add("Blue3", blue3);
+        orbDictionary.Add("BlueDye", blueDye);
+        orbDictionary.Add("BluePulsar", bluePulsar);
+        orbDictionary.Add("Red1", red1);
+        orbDictionary.Add("Red2", red2);
+        orbDictionary.Add("Red3", red3);
+        orbDictionary.Add("RedDye", redDye);
+        orbDictionary.Add("RedPulsar", redPulsar);
+        orbDictionary.Add("Green1", green1);
+        orbDictionary.Add("Green2", green2);
+        orbDictionary.Add("Green3", green3);
+        orbDictionary.Add("GreenDye", greenDye);
+        orbDictionary.Add("GreenPulsar", greenPulsar);
+        orbDictionary.Add("Grey1", grey1);
+        orbDictionary.Add("Grey2_1", grey2_1);
+        orbDictionary.Add("Grey2_2", grey2_2);
+        orbDictionary.Add("Grey3", grey3);
+        orbDictionary.Add("YellowCore", yellowCore);
+        orbDictionary.Add("BlueCore", blueCore);
+        orbDictionary.Add("RedCore", redCore);
+        orbDictionary.Add("GreenCore", greenCore);
+        orbDictionary.Add("PurpleVoid", purpleVoid);
+        orbDictionary.Add("BlueVoid", blueVoid);
+        orbDictionary.Add("RedVoid", redVoid);
+        orbDictionary.Add("GreenVoid", greenVoid);
+        orbDictionary.Add("YellowVoid", yellowVoid);
+        orbDictionary.Add("Ice", iceOrbSample);
 
         comboManager = new ComboManager(this);
     }
@@ -565,6 +568,7 @@ public class MixingBoard : MonoBehaviour
                                 }
                                 else
                                 {
+
                                     reactionMinimumCheck(REACTION_DIMENSIONS.VERTICAL);
                                     reagents.Add(board.orbs[i, j]);
                                     reaction_counter += board.orbs[i, j].comboCounter;
@@ -581,123 +585,6 @@ public class MixingBoard : MonoBehaviour
                 }
                 reactionMinimumCheck(REACTION_DIMENSIONS.VERTICAL);
                 if (reactionList.Count != 0) channelingDistribution();
-
-                /*  foreach (Orb orb in board.orbs)
-                  {
-                      if (orb && board.current_combining_timer <= 0)
-                      {
-                          if (board.stable && orb.type == Orb.ORB_TYPES.NEORGANIC && !orb.channeling && !orb.shouldDestroyed)
-                          {
-                              if (orb.GetComponent<NeorganicOrb>().type_of_neorganic == NeorganicOrb.NEORGANIC_TYPES.Gas)){
-                                  if (orb.transform.localPosition.y == 3)
-                                  {
-                                      board.current_combining_timer = 1;
-                                      orb.startChanneling(channelingTime, Orb.CHANNALING_MODES.combine_destroy);
-                                  }
-                                  else
-                                  {
-                                      bool should_dissolve = true;
-                                      for (int i = (int)Math.Roundorb.transform.localPosition.y + 1; i < MixingBoard.height; i++)
-                                      {
-                                          if (board.orbs[(int)Math.Roundorb.transform.localPosition.x, i] != null)
-                                          {
-                                              should_dissolve = false;
-                                          }
-                                      }
-                                      if (should_dissolve)
-                                      {
-                                          board.current_combining_timer = 1;
-                                          orb.startChanneling(channelingTime, Orb.CHANNALING_MODES.combine_destroy);
-
-                                      }
-                                  }
-                              }
-                          }
-                      }
-                  }*/
-            }
-        }
-
-        void reactionMaximumCheck(REACTION_DIMENSIONS dimension)
-        {
-            {
-                if (reaction_type == Orb.ORB_TYPES.SEMIPLASMA)
-                {
-                    if (reaction_counter >= semiplasma_counter)
-                    {
-                        foreach (Orb orb in reagents)
-                        {
-                            //Reaction reaction = new Reaction(dimension, reagents, null, board.yellowCore);
-                            //if (!reactionList.Contains(reaction)) reactionList.Add(reaction);
-                            //orb.startChanneling(channelingTime, Orb.CHANNELING_MODES.CENTER);
-                        }
-                    }
-                }
-
-                else if (reagents[reagents.Count - 1].Level == 1)
-                {
-                    if (reaction_counter >= max_1lvl_counter)
-                    {
-                        GameObject nextLevelOrb = null;
-                        GameObject dye = null;
-                        int aether = 0;
-                        bool antimatter = false;
-                        foreach (Orb orb in reagents)
-                        {
-                            if (!orb.frozen)
-                            {
-                                nextLevelOrb = orb.NextLevelOrb;
-                                if (nextLevelOrb.GetComponent<AspectOrb>()) dye = MixingBoard.orbDictionary[nextLevelOrb.GetComponent<AspectOrb>().orbColor + "Dye"];
-                            }
-                            aether += orb.aetherImpact;
-                            if (orb.antimatter) antimatter = true;
-                        }
-                        if (nextLevelOrb == null)
-                        {
-                            reaction_counter -= reagents[0].comboCounter;
-                            reagents.RemoveAt(0);
-                            return;
-                        }
-                        else
-                        {
-                            Reaction reaction = new Reaction(dimension, reagents, dye, nextLevelOrb, aether, antimatter);
-                            if (!reactionList.Contains(reaction)) reactionList.Add(reaction);
-                        }
-                    }
-                }
-
-                else if (reagents[reagents.Count - 1].Level == 2)
-                {
-                    if (reaction_counter >= max_2lvl_counter)
-                    {
-
-                        GameObject nextLevelOrb = null;
-                        GameObject dye = null;
-                        int aether = 0;
-                        bool antimatter = false;
-                        foreach (Orb orb in reagents)
-                        {
-                            if (!orb.frozen)
-                            {
-                                nextLevelOrb = orb.NextLevelOrb;
-                                if (nextLevelOrb.GetComponent<AspectOrb>()) dye = MixingBoard.orbDictionary[nextLevelOrb.GetComponent<AspectOrb>().orbColor + "Dye"];
-                            }
-                            aether += orb.aetherImpact;
-                            if (orb.antimatter) antimatter = true;
-                        }
-                        if (nextLevelOrb == null)
-                        {
-                            reaction_counter -= reagents[0].comboCounter;
-                            reagents.RemoveAt(0);
-                            return;
-                        }
-                        else
-                        {
-                            Reaction reaction = new Reaction(dimension, reagents, dye, nextLevelOrb, aether, antimatter);
-                            if (!reactionList.Contains(reaction)) reactionList.Add(reaction);
-                        }
-                    }
-                }
             }
         }
 
@@ -705,13 +592,39 @@ public class MixingBoard : MonoBehaviour
         {
             if (reagents.Count != 0)
             {
-                if (reagents[reagents.Count - 1].Level == 1)
+                if (reaction_type == Orb.ORB_TYPES.SEMIPLASMA)
+                {
+                    if (reaction_counter >= semiplasma_counter)
+                    {
+                        bool antimatterFlag = false;
+                        List<GameObject> coreList = new List<GameObject>();
+                        foreach (Orb orb in reagents)
+                        {
+                            if (orb.fiery && !coreList.Contains(board.redCore)) coreList.Add(board.redCore);
+                            if (orb.frozen && !coreList.Contains(board.blueCore)) coreList.Add(board.blueCore);
+                            if (orb.aetherCount != 0 && !coreList.Contains(board.greenCore)) coreList.Add(board.greenCore);
+                            if (orb.antimatter) antimatterFlag = true;
+                        }
+                        Reaction reaction = null;
+                        if (antimatterFlag) reaction = new Reaction(dimension, reagents, coreList, board.purpleVoid, 0, false);
+                        else reaction = new Reaction(dimension, reagents, coreList, board.yellowCore, 0, false);
+
+                        if (!reactionList.Contains(reaction))
+                        {
+                            reactionList.Add(reaction);
+                        }
+
+                    }
+                }
+
+                else if (reagents[reagents.Count - 1].Level == 1)
                 {
                     if (reaction_counter == min_1lvl_counter)
                     {
                         GameObject nextLevelOrb = null;
                         int aether = 0;
                         bool antimatter = false;
+
                         foreach (Orb orb in reagents)
                         {
                             if (!orb.frozen) nextLevelOrb = orb.NextLevelOrb;
@@ -724,8 +637,11 @@ public class MixingBoard : MonoBehaviour
                         }
                         else
                         {
-                            Reaction reaction = new Reaction(dimension, reagents, null, nextLevelOrb, aether, antimatter);
-                            if (!reactionList.Contains(reaction)) reactionList.Add(reaction);
+                            Reaction reaction = new Reaction(dimension, reagents, new List<GameObject>(), nextLevelOrb, aether, antimatter);
+                            if (!reactionList.Contains(reaction))
+                            {
+                                reactionList.Add(reaction);
+                            }
                         }
                     }
                 }
@@ -749,13 +665,100 @@ public class MixingBoard : MonoBehaviour
                         }
                         else
                         {
-                            Reaction reaction = new Reaction(dimension, reagents, null, nextLevelOrb, aether, antimatter);
-                            if (!reactionList.Contains(reaction)) reactionList.Add(reaction);
+                            Reaction reaction = new Reaction(dimension, reagents, new List<GameObject>(), nextLevelOrb, aether, antimatter);
+                            if (!reactionList.Contains(reaction))
+                            {
+                                reactionList.Add(reaction);
+                            }
                         }
                     }
                 }
             }
             reactionReset();
+        }
+
+
+        void reactionMaximumCheck(REACTION_DIMENSIONS dimension)
+        {
+            if (reaction_type != Orb.ORB_TYPES.SEMIPLASMA)
+            {
+                if (reagents[reagents.Count - 1].Level == 1)
+                {
+                    if (reaction_counter >= max_1lvl_counter)
+                    {
+                        GameObject nextLevelOrb = null;
+                        int aether = 0;
+                        bool antimatter = false;
+                        List<GameObject> coreList = new List<GameObject>();
+                        GameObject coreToAdd = null;
+                        foreach (Orb orb in reagents)
+                        {
+                            if (!orb.frozen)
+                            {
+                                nextLevelOrb = orb.NextLevelOrb;
+                                if (nextLevelOrb.GetComponent<AspectOrb>()) coreToAdd = MixingBoard.orbDictionary[nextLevelOrb.GetComponent<AspectOrb>().orbColor + "Dye"];
+                            }
+                            aether += orb.aetherImpact;
+                            if (orb.antimatter) antimatter = true;
+                        }
+                        if (coreToAdd) coreList.Add(coreToAdd);
+                        if (nextLevelOrb == null)
+                        {
+                            reaction_counter -= reagents[0].comboCounter;
+                            reagents.RemoveAt(0);
+                            return;
+                        }
+                        else
+                        {
+                            Reaction reaction = new Reaction(dimension, reagents, coreList, nextLevelOrb, aether, antimatter);
+                            if (!reactionList.Contains(reaction))
+                            {
+                                reactionList.Add(reaction);
+                                reactionReset();
+                            }
+                        }
+                    }
+                }
+
+                else if (reagents[reagents.Count - 1].Level == 2)
+                {
+                    if (reaction_counter >= max_2lvl_counter)
+                    {
+
+                        GameObject nextLevelOrb = null;
+                        int aether = 0;
+                        bool antimatter = false;
+                        List<GameObject> coreList = new List<GameObject>();
+                        GameObject coreToAdd = null;
+                        foreach (Orb orb in reagents)
+                        {
+                            if (!orb.frozen)
+                            {
+                                nextLevelOrb = orb.NextLevelOrb;
+                                if (nextLevelOrb.GetComponent<AspectOrb>()) coreToAdd = MixingBoard.orbDictionary[nextLevelOrb.GetComponent<AspectOrb>().orbColor + "Dye"];
+                            }
+                            aether += orb.aetherImpact;
+                            if (orb.antimatter) antimatter = true;
+                        }
+                        if (coreToAdd) coreList.Add(coreToAdd);
+                        if (nextLevelOrb == null)
+                        {
+                            reaction_counter -= reagents[0].comboCounter;
+                            reagents.RemoveAt(0);
+                            return;
+                        }
+                        else
+                        {
+                            Reaction reaction = new Reaction(dimension, reagents, coreList, nextLevelOrb, aether, antimatter);
+                            if (!reactionList.Contains(reaction))
+                            {
+                                reactionList.Add(reaction);
+                                reactionReset();
+                            }
+                        }
+                    }
+                }
+            }
         }
 
 
@@ -985,15 +988,18 @@ public class MixingBoard : MonoBehaviour
             get; private set;
         }
 
-        public Reaction(ComboManager.REACTION_DIMENSIONS dimension, List<Orb> reagents, GameObject dye, GameObject levelUppedOrb, int aether, bool antimatter)
+        public Reaction(ComboManager.REACTION_DIMENSIONS dimension, List<Orb> reagents, List<GameObject> coreList, GameObject levelUppedOrb, int aether, bool antimatter)
         {
             this.dimension = dimension;
             this.reagents = new List <Orb>(reagents);
             productList = new List<Orb.ReplacingOrbStruct>();
-            Orb.ReplacingOrbStruct replacingOrb = new Orb.ReplacingOrbStruct(levelUppedOrb, aether, antimatter);
+            Orb.ReplacingOrbStruct replacingOrb = new Orb.ReplacingOrbStruct(levelUppedOrb, false, false, aether, antimatter);
 
             productList.Add(replacingOrb);
-            if (dye!= null) productList.Add(new Orb.ReplacingOrbStruct(dye));
+            foreach (GameObject core in coreList)
+            {
+                productList.Add(new Orb.ReplacingOrbStruct(core));
+            }
 
             if (reagents.Count == 1)
             {

@@ -52,9 +52,9 @@ public abstract class Orb : MonoBehaviour
         ICE_VOID,
         AETHER_VOID,
         SUPERNOVA_VOID,
-        BLUE_DYE_VOID,
-        RED_DYE_VOID,
-        GREEN_DYE_VOID,
+        BLUE_PULSAR,
+        RED_PULSAR,
+        GREEN_PULSAR,
         //GOLD_DYE_VOID,
         //BLACK_DYE_VOID
         BLUE_DROP,
@@ -113,6 +113,7 @@ public abstract class Orb : MonoBehaviour
 
 
     public bool shouldDestroyed { get; private set; } = false;
+
     [HideInInspector]
     public int countOfReactionsIn = 0;
 
@@ -210,11 +211,20 @@ public abstract class Orb : MonoBehaviour
 
     public bool comboAvaliable;
 
-   
+    [SerializeField]
+    public string orbDescription;
 
     public struct ReplacingOrbStruct
     {
         public GameObject baseOrb
+        {
+            get; private set;
+        }
+        public bool ice
+        {
+            get; private set;
+        }
+        public bool fire
         {
             get; private set;
         }
@@ -227,9 +237,11 @@ public abstract class Orb : MonoBehaviour
             get; private set;
         }
 
-        public ReplacingOrbStruct(GameObject orbToReplace, int aetherCounter = 0, bool antimatterFlag = false)
+        public ReplacingOrbStruct(GameObject orbToReplace, bool fireFlag = false, bool iceFlag = false, int aetherCounter = 0, bool antimatterFlag = false)
         {
             baseOrb = orbToReplace;
+            fire = fireFlag;
+            ice = iceFlag;
             aether = aetherCounter;
             antimatter = antimatterFlag;
         }
@@ -352,9 +364,9 @@ public abstract class Orb : MonoBehaviour
             typeArchetypeDictionary.Add(ORB_TYPES.FIRE_VOID, ORB_ARCHETYPES.VOID);
             typeArchetypeDictionary.Add(ORB_TYPES.AETHER_VOID, ORB_ARCHETYPES.VOID);
 
-            typeArchetypeDictionary.Add(ORB_TYPES.BLUE_DYE_VOID, ORB_ARCHETYPES.VOID);
-            typeArchetypeDictionary.Add(ORB_TYPES.RED_DYE_VOID, ORB_ARCHETYPES.VOID);
-            typeArchetypeDictionary.Add(ORB_TYPES.GREEN_DYE_VOID, ORB_ARCHETYPES.VOID);
+            typeArchetypeDictionary.Add(ORB_TYPES.BLUE_PULSAR, ORB_ARCHETYPES.VOID);
+            typeArchetypeDictionary.Add(ORB_TYPES.RED_PULSAR, ORB_ARCHETYPES.VOID);
+            typeArchetypeDictionary.Add(ORB_TYPES.GREEN_PULSAR, ORB_ARCHETYPES.VOID);
 
             typeArchetypeDictionary.Add(ORB_TYPES.BLUE_DROP, ORB_ARCHETYPES.DROP);
             typeArchetypeDictionary.Add(ORB_TYPES.RED_DROP, ORB_ARCHETYPES.DROP);
@@ -371,6 +383,7 @@ public abstract class Orb : MonoBehaviour
         orbArchetype = typeArchetypeDictionary[type];
         dissolvingAppearing = true;
         counterTMP = counter.GetComponent<TextMeshPro>();
+
     }
 
     virtual protected void Start()
@@ -487,6 +500,8 @@ public abstract class Orb : MonoBehaviour
                         GameObject orbObject = Instantiate(replacingOrb.baseOrb, new Vector3(startX, startY, 0), Quaternion.identity);
                         Orb orb = orbObject.GetComponent<Orb>();
                         orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
+                        if (replacingOrb.fire) orb.addFire();
+                        if (replacingOrb.ice) orb.addIce();
                         if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
                         if (replacingOrb.antimatter) orb.addAntimatter();
                         DestroyIn(destroyingTimer);
@@ -500,6 +515,15 @@ public abstract class Orb : MonoBehaviour
             if (currentDestroyingTimer >= 0)
             {
                 currentDestroyingTimer -= Time.deltaTime;
+
+                if (GetComponent<CoreOrb>() && GetComponent<CoreOrb>().coreSphereList)
+                {
+                    foreach (MeshRenderer meshRenderer in GetComponent<CoreOrb>().coreSphereList.GetComponent<CoreSphereList>().meshRenderers)
+                    {
+                        meshRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(1 - currentDestroyingTimer * 1.2));
+                    }
+                }
+
                 coreSphereRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(1 - currentDestroyingTimer * 1.2));
                 if (symbolRenderer)
                 {
@@ -578,12 +602,12 @@ public abstract class Orb : MonoBehaviour
                 if (gameObject.GetComponent<AspectOrb>()) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary[gameObject.GetComponent<AspectOrb>().orbColor + "" + Level].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
                 break;
             case StatBoardView.FILTER_TYPE.TEMPERATURE:
-                if (fiery && frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["ice"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
-                else if (fiery) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["red1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
-                else if (frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["blue1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                if (fiery && frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["Ice"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                else if (fiery) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["Red1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                else if (frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["Blue1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
                 break;
             case StatBoardView.FILTER_TYPE.AETHER:
-                counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["green1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["Green1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
                 break;
         }
         counter.SetActive(true);
@@ -689,6 +713,7 @@ public abstract class Orb : MonoBehaviour
             particleSphere.Clear();
         }
         if(outerSphereRenderer) outerSphereRenderer.enabled = false;
+
     }
 
     public abstract void affectWith(EFFECT_TYPES effect);
@@ -734,7 +759,7 @@ public abstract class Orb : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             GameObject particle;
-            if (frozen) particle = Instantiate(MixingBoard.orbDictionary["ice"].GetComponent<Orb>().aetherParticle, orbit.transform);
+            if (frozen) particle = Instantiate(MixingBoard.orbDictionary["Ice"].GetComponent<Orb>().aetherParticle, orbit.transform);
             else particle = Instantiate(aetherParticle, orbit.transform);
 
             aetherParticles.Add(particle);
@@ -781,6 +806,90 @@ public abstract class Orb : MonoBehaviour
         }
 
     }
+    protected void addFire()
+    {
+        fireParticles.gameObject.SetActive(true);
+        fiery = true;
+    }
+
+    protected void addIce()
+    {
+        GameObject iceOrb = MixingBoard.orbDictionary["Ice"];
+
+        if (coreSphereRenderer.GetComponent<Floating>() != null) coreSphereRenderer.GetComponent<Floating>().enabled = false;
+        Invoke("freezeMaterial", .5f);
+
+        if (symbolRenderer)
+        {
+            symbolRenderer.color = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().symbolRenderer.color;
+            Animation animation = symbolRenderer.GetComponent<Animation>();
+            if (animation)
+            {
+                animation.Stop();
+            }
+            string part = "";
+            if (gameObject.name.IndexOf(' ') != -1)
+                part = gameObject.name.Substring(0, gameObject.name.IndexOf(' '));
+            else if (gameObject.name.IndexOf('(') != -1)
+                part = gameObject.name.Substring(0, gameObject.name.IndexOf('('));
+            else part = gameObject.name;
+
+
+
+            symbolRenderer.transform.localPosition = MixingBoard.orbDictionary[part].GetComponent<Orb>().symbolRenderer.transform.localPosition;
+            symbolRenderer.transform.localRotation = MixingBoard.orbDictionary[part].GetComponent<Orb>().symbolRenderer.transform.localRotation;
+            symbolRenderer.transform.localScale = MixingBoard.orbDictionary[part].GetComponent<Orb>().symbolRenderer.transform.localScale;
+
+            if (symbolRenderer.GetComponent<Floating>() != null) symbolRenderer.GetComponent<Floating>().enabled = false;
+        }
+
+        if (particleSphere)
+        {
+            var main = particleSphere.main;
+            main.startColor = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().particleSphere.main.startColor;
+            particleSphere.Stop();
+            particleSphere.Clear();
+            particleSphere.Play();
+        }
+
+        FireParticlesList[] firelist = gameObject.GetComponentsInChildren<FireParticlesList>(true);
+        foreach (FireParticlesList fireSystem in firelist)
+        {
+            var sparksMain = fireSystem.sparks.main;
+            sparksMain.startColor = iceOrb.GetComponentInChildren<FireParticlesList>(true).sparks.main.startColor;
+            var fireMain = fireSystem.fire.main;
+            fireMain.startColor = iceOrb.GetComponentInChildren<FireParticlesList>(true).fire.main.startColor;
+            var fireDarkMain = fireSystem.fireDark.main;
+            fireDarkMain.startColor = iceOrb.GetComponentInChildren<FireParticlesList>(true).fireDark.main.startColor;
+            fireSystem.fireDark.GetComponent<ParticleSystemRenderer>().material = fireSystem.fire.GetComponent<ParticleSystemRenderer>().material;
+        }
+
+        if (counter.GetComponent<TextMeshPro>())
+        {
+            counter.GetComponent<TextMeshPro>().color = iceOrb.GetComponent<AspectOrb>().counter.GetComponent<TextMeshPro>().color;
+        }
+
+        if (aetherImpact != 0)
+        {
+            foreach (GameObject particle in aetherParticles)
+            {
+                var particleMain = particle.GetComponentInChildren<ParticleSystem>().main;
+                particleMain.startColor = iceOrb.GetComponent<AspectOrb>().aetherParticle.GetComponentInChildren<ParticleSystem>().main.startColor;
+            }
+        }
+
+        this.channelParticleColor = iceOrb.GetComponent<AspectOrb>().channelParticleColor;
+        iceParticles.SetActive(true);
+        frozen = true;
+    }
+
+    void freezeMaterial()
+    {
+        coreSphereRenderer.material = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().coreSphereRenderer.sharedMaterial;
+    }
+
+
+
 
     protected void addAntimatter()
     {
@@ -792,6 +901,22 @@ public abstract class Orb : MonoBehaviour
         }
         channelParticleColor = new Color(221, 0, 231);
         antimatter = true;
+    }
+
+    protected void levelUp()
+    {
+        if (nextLevelOrb)
+        {
+            replacingOrb = new ReplacingOrbStruct(nextLevelOrb, fiery, frozen, aetherCount, antimatter);
+            GameObject orbObject = Instantiate(replacingOrb.baseOrb, new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0), Quaternion.identity);
+            Orb orb = orbObject.GetComponent<Orb>();
+            orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
+            if (replacingOrb.fire) orb.addFire();
+            if (replacingOrb.ice) orb.addIce();
+            if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
+            if (replacingOrb.antimatter) orb.addAntimatter();
+            DestroyIn(destroyingTimer);
+        }
     }
 
     public void chanellingBreak()

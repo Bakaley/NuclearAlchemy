@@ -11,6 +11,15 @@ PrefabInstance:
       propertyPath: orbType
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 715749230090618892, guid: 062429270ffee294a96edde89ccb6367, type: 3}
+      propertyPath: orbDescription
+      value: "\u041F\u0440\u0438 \u043F\u0435\u0440\u0435\u043C\u0435\u0448\u0438\u0432\u0430\u043D\u0438\u0438
+        \u0440\u0430\u0441\u0449\u0435\u043F\u043B\u044F\u0435\u0442 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E
+        \u0441\u0444\u0435\u0440\u0443 \u0438 \u043C\u0435\u043D\u044F\u0435\u0442
+        \u0430\u0441\u043F\u0435\u043A\u0442 \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0445
+        \u0441\u0444\u0435\u0440 \u043D\u0430 \u0430\u0441\u043F\u0435\u043A\u0442
+        \u0442\u0435\u043B\u0430."
+      objectReference: {fileID: 0}
     - target: {fileID: 5888235422578469117, guid: 062429270ffee294a96edde89ccb6367, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.031
@@ -154,6 +163,35 @@ PrefabInstance:
     - target: {fileID: 7055634633871966487, guid: 062429270ffee294a96edde89ccb6367, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key1.r
       value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460122502540951912, guid: 062429270ffee294a96edde89ccb6367, type: 3}
+      propertyPath: orbType
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460122502540951912, guid: 062429270ffee294a96edde89ccb6367, type: 3}
+      propertyPath: orbDescription
+      value: "\u041F\u0435\u0440\u0435\u043C\u0435\u0448\u0430\u0439\u0442\u0435,
+        \u0447\u0442\u043E\u0431\u044B \u0440\u0430\u0441\u0449\u0435\u043F\u0438\u0442\u044C
+        \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E \u0441\u0444\u0435\u0440\u0443
+        \u0438 \u0438\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0430\u0441\u043F\u0435\u043A\u0442
+        \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0445 \u043D\u0430 \u0430\u0441\u043F\u0435\u043A\u0442
+        \u0442\u0435\u043B\u0430."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460122502540951912, guid: 062429270ffee294a96edde89ccb6367, type: 3}
+      propertyPath: particleSystemSample
+      value: 
+      objectReference: {fileID: 4249935754116077189, guid: 1ef80d328c7723e4798d764f416acefa, type: 3}
+    - target: {fileID: 7460122502540951912, guid: 062429270ffee294a96edde89ccb6367, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.08627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460122502540951912, guid: 062429270ffee294a96edde89ccb6367, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.16470589
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460122502540951912, guid: 062429270ffee294a96edde89ccb6367, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.9725491
       objectReference: {fileID: 0}
     - target: {fileID: 8750228497565617340, guid: 062429270ffee294a96edde89ccb6367, type: 3}
       propertyPath: m_fontColor.b

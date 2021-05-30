@@ -41,8 +41,13 @@ public class DropOrb : Orb
         {
             if (targetedtOrb)
             {
-                if(particleSystemSample) Instantiate(particleSystemSample, targetedtOrb.gameObject.transform);
-                targetedtOrb.affectWith(effectDictionary[type]);
+                if(particleSystemSample)
+                    {
+                        ParticleSystem ps = Instantiate(particleSystemSample, targetedtOrb.gameObject.transform);
+                        ps.gameObject.transform.SetParent(MixingBoard.StaticInstance.gameObject.transform);
+                    }
+
+                    targetedtOrb.affectWith(effectDictionary[type]);
             }
             DestroyIn(.5);
         }
