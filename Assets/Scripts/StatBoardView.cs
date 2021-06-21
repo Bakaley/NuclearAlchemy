@@ -17,6 +17,8 @@ public class StatBoardView : MonoBehaviour
     [SerializeField]
     GameObject textAetherCounter;
     [SerializeField]
+    GameObject textPlasmicityCouter;
+    [SerializeField]
     GameObject textVoidCounter;
 
     int scoreCounter;
@@ -25,6 +27,8 @@ public class StatBoardView : MonoBehaviour
     int soulCounter;
     int temperatureCounter;
     int aetherCoutner;
+    int plasmicityCounter;
+    int voidnessCounter;
 
     [SerializeField]
     SpriteRenderer left;
@@ -50,8 +54,10 @@ public class StatBoardView : MonoBehaviour
         NONE,
         POINTS,
         ASPECT,
-        AETHER,
-        TEMPERATURE
+        AETHERNESS,
+        TEMPERATURE,
+        VOIDNESS,
+        VISCOSITY
     }
 
     public enum Aspect
@@ -86,6 +92,12 @@ public class StatBoardView : MonoBehaviour
         int oldAether = aetherCoutner;
         aetherCoutner = 0;
 
+        int oldPlasmicity = plasmicityCounter;
+        plasmicityCounter = 0;
+
+        int oldVoidness = voidnessCounter;
+        voidnessCounter = 0;
+
 
         Aspect oldAspect = potionAspect;
         mindCounter = 0;
@@ -96,18 +108,20 @@ public class StatBoardView : MonoBehaviour
         {
             if (child.gameObject.CompareTag("Orb"))
             {
-                AspectOrb orb = child.gameObject.GetComponent<AspectOrb>();
+                Orb orb = child.gameObject.GetComponent<Orb>();
                 if(orb)
                 {
                     scoreCounter += orb.pointsImpact;
                     if (orb.Level == 3)
                     {
-                        if (orb.type == Orb.ORB_TYPES.MIND_ASPECT) mindCounter += orb.aspectImpact;
-                        if (orb.type == Orb.ORB_TYPES.BODY_ASPECT) bodyCounter += orb.aspectImpact;
-                        if (orb.type == Orb.ORB_TYPES.SOUL_ASPECT) soulCounter += orb.aspectImpact;
+                        if (orb.type == Orb.ORB_TYPES.MIND_ASPECT) mindCounter += orb.GetComponent<AspectOrb>().aspectImpact;
+                        if (orb.type == Orb.ORB_TYPES.BODY_ASPECT) bodyCounter += orb.GetComponent<AspectOrb>().aspectImpact;
+                        if (orb.type == Orb.ORB_TYPES.SOUL_ASPECT) soulCounter += orb.GetComponent<AspectOrb>().aspectImpact;
                     }
                     temperatureCounter += orb.temperatureCountImpact;
                     aetherCoutner += orb.aetherImpact;
+                    plasmicityCounter += orb.viscosityImpact;
+                    voidnessCounter += orb.voidnessImpact;
                 }
             }
         }
@@ -132,6 +146,18 @@ public class StatBoardView : MonoBehaviour
         {
             textAetherCounter.GetComponent<TextMeshProUGUI>().text = aetherCoutner + "";
             textAetherCounter.GetComponent<Animation>().Play();
+        }
+
+        if (oldPlasmicity != plasmicityCounter)
+        {
+            textPlasmicityCouter.GetComponent<TextMeshProUGUI>().text = plasmicityCounter + "";
+            textPlasmicityCouter.GetComponent<Animation>().Play();
+        }
+
+        if (oldVoidness != voidnessCounter)
+        {
+            textVoidCounter.GetComponent<TextMeshProUGUI>().text = voidnessCounter + "";
+            textVoidCounter.GetComponent<Animation>().Play();
         }
 
         if (mindCounter == bodyCounter && mindCounter == soulCounter && mindCounter == 0)

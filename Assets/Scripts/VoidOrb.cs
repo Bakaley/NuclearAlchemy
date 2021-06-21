@@ -4,41 +4,101 @@ using UnityEngine;
 
 public class VoidOrb : Orb
 {
-    public override void affectWith(EFFECT_TYPES effect)
+    public override void affectWith(EFFECT_TYPES effect, int aetherIncreaseOn = 0)
     {
         switch (effect)
         {
             case EFFECT_TYPES.FROZE:
-                nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
-                Invoke("levelUp", .2f);
+                if (affectTimer<=0)
+                {
+                    if (fiery) fiery = false;
+                    frozen = true;
+                    if (aetherIncreaseOn != 0) aetherCount = 0;
+                    nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                    Invoke("levelUp", .2f);
+                    affectTimer = .5f;
+                }
                 break;
             case EFFECT_TYPES.FIRE:
-                nextLevelOrb = MixingBoard.StaticInstance.redVoid;
-                Invoke("levelUp", .2f);
+                if (affectTimer<=0)
+                {
+                    fiery = true;
+                    if (frozen) frozen = false;
+                    if (aetherIncreaseOn != 0) aetherCount = 0;
+                    nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                    Invoke("levelUp", .2f);
+                    affectTimer = .5f;
+                }
                 break;
             case EFFECT_TYPES.AETHER:
-                nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
-                Invoke("levelUp", .2f);
+                if (affectTimer<=0)
+                {
+                    if (aetherCount != 0) increaseAether(aetherIncreaseOn);
+                    else
+                    {
+                        if (frozen) frozen = false;
+                        if (fiery) fiery = false;
+                        aetherCount = aetherIncreaseOn;
+                        nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
+                        Invoke("levelUp", .2f);
+                        affectTimer = .5f;
+                    }
+                }
                 break;
             case EFFECT_TYPES.LEVEL_UP:
-                nextLevelOrb = MixingBoard.StaticInstance.yellowVoid;
-                Invoke("levelUp", .5f);
+                if (affectTimer<=0)
+                {
+                    if (frozen) frozen = false;
+                    if (fiery) fiery = false;
+                    if (aetherIncreaseOn != 0) aetherCount = 0;
+                    nextLevelOrb = MixingBoard.StaticInstance.yellowVoid;
+                    Invoke("levelUp", .2f);
+                    affectTimer = .5f;
+                }
                 break;
             case EFFECT_TYPES.ANTIMATTER:
-                nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
-                Invoke("levelUp", .5f);
+                if (affectTimer<=0)
+                {
+                    if (frozen) frozen = false;
+                    if (fiery) fiery = false;
+                    if (aetherIncreaseOn != 0) aetherCount = 0;
+                    nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
+                    Invoke("levelUp", .2f);
+                    affectTimer = .5f;
+                }
                 break;
             case EFFECT_TYPES.BLUE_DYE:
-                nextLevelOrb = MixingBoard.StaticInstance.bluePulsar;
-                Invoke("levelUp", .5f);
+                if (affectTimer<=0)
+                {
+                    if (frozen) frozen = false;
+                    if (fiery) fiery = false;
+                    if (aetherIncreaseOn != 0) aetherCount = 0;
+                    nextLevelOrb = MixingBoard.StaticInstance.bluePulsar;
+                    Invoke("levelUp", .2f);
+                    affectTimer = .5f;
+                }
                 break;
             case EFFECT_TYPES.RED_DYE:
-                nextLevelOrb = MixingBoard.StaticInstance.redPulsar;
-                Invoke("levelUp", .5f);
+                if (affectTimer<=0)
+                {
+                    if (frozen) frozen = false;
+                    if (fiery) fiery = false;
+                    if (aetherIncreaseOn != 0) aetherCount = 0;
+                    nextLevelOrb = MixingBoard.StaticInstance.redPulsar;
+                    Invoke("levelUp", .2f);
+                    affectTimer = .5f;
+                }
                 break;
             case EFFECT_TYPES.GREEN_DYE:
-                nextLevelOrb = MixingBoard.StaticInstance.greenPulsar;
-                Invoke("levelUp", .5f);
+                if (affectTimer<=0)
+                {
+                    if (frozen) frozen = false;
+                    if (fiery) fiery = false;
+                    if (aetherIncreaseOn != 0) aetherCount = 0;
+                    nextLevelOrb = MixingBoard.StaticInstance.greenPulsar;
+                    Invoke("levelUp", .2f);
+                    affectTimer = .5f;
+                }
                 break;
             case EFFECT_TYPES.DISSOLVE:
                 break;
@@ -75,9 +135,13 @@ public class VoidOrb : Orb
         base.Start();
     }
 
+    private double affectTimer = 0;
+
     // Update is called once per frame
     override protected void Update()
     {
         base.Update();
+
+        if (affectTimer >= 0) affectTimer -= Time.deltaTime;
     }
 }

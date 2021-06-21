@@ -37,7 +37,7 @@ public class AspectOrb : Orb
     }
 
 
-    public override void affectWith(EFFECT_TYPES effect)
+    public override void affectWith(EFFECT_TYPES effect, int aetherIncreaseOn = 0)
     {
         switch (effect)
         {
@@ -48,13 +48,58 @@ public class AspectOrb : Orb
                 addFire();
                 break;
             case EFFECT_TYPES.AETHER:
-                addAether(3);
+                increaseAether(aetherIncreaseOn);
                 break;
             case EFFECT_TYPES.LEVEL_UP:
+                if(Level == 2 && antimatter)
+                {
+                    if (fiery && frozen)
+                    {
+                        if (Mathf.Round(gameObject.transform.localPosition.y) >= 2)
+                        {
+                            nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                        }
+                        else if (Mathf.Round(gameObject.transform.localPosition.y) <= 1)
+                        {
+                            nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                        }
+                    }
+                    else if (fiery) nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                    else if (frozen) nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                    else if (aetherCount != 0) nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
+                    else nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
+
+                    fiery = false;
+                    frozen = false;
+                    antimatter = false;
+                }
                 Invoke("levelUp", .2f);
                 break;
             case EFFECT_TYPES.ANTIMATTER:
-                addAntimatter();
+                if(Level == 3)
+                {
+                    if (fiery && frozen)
+                    {
+                        if (Mathf.Round(gameObject.transform.localPosition.y) >= 2)
+                        {
+                            nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                        }
+                        else if (Mathf.Round(gameObject.transform.localPosition.y) <= 1)
+                        {
+                            nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                        }
+                    }
+                    else if (fiery) nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                    else if (frozen) nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                    else if (aetherCount != 0) nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
+                    else nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
+
+                    fiery = false;
+                    frozen = false;
+                    antimatter = false;
+                    Invoke("levelUp", .2f);
+                }
+                else addAntimatter();
                 break;
             case EFFECT_TYPES.BLUE_DYE:
                 if(colorDictionary[this.type] != ORB_COLOR.Blue)

@@ -33,8 +33,16 @@ public class StatBoardPanel : MonoBehaviour
                 currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: температура";
                 break;
 
-            case StatBoardView.FILTER_TYPE.AETHER:
+            case StatBoardView.FILTER_TYPE.AETHERNESS:
                 currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: эфир";
+                break;
+
+            case StatBoardView.FILTER_TYPE.VISCOSITY:
+                currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: вязкость";
+                break;
+
+            case StatBoardView.FILTER_TYPE.VOIDNESS:
+                currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: пустоты";
                 break;
         }
 
@@ -57,8 +65,16 @@ public class StatBoardPanel : MonoBehaviour
                     if (orb && (orb.frozen || orb.fiery)) orb.enableCounter(filter);
                     break;
 
-                case StatBoardView.FILTER_TYPE.AETHER:
+                case StatBoardView.FILTER_TYPE.AETHERNESS:
                     if (orb && orb.aetherImpact != 0) orb.enableCounter(filter);
+                    break;
+
+                case StatBoardView.FILTER_TYPE.VISCOSITY:
+                    if (orb) orb.enableCounter(filter);
+                    break;
+
+                case StatBoardView.FILTER_TYPE.VOIDNESS:
+                    if(orb && orb.archetype == Orb.ORB_ARCHETYPES.VOID) orb.enableCounter(filter);
                     break;
             }
         }

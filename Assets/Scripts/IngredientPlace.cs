@@ -6,7 +6,13 @@ using UnityEngine.UI;
 public class IngredientPlace : MonoBehaviour
 {
     public IngredientPanel ingredientPanel;
-    public IngredientPreview ingredientPreview;
+    public IngredientPreview ingredientPreview
+    {
+        get
+        {
+            return GetComponentInChildren<IngredientPreview>();
+        }
+    }
 
     [SerializeField]
     bool inventoryFlag;
@@ -24,6 +30,8 @@ public class IngredientPlace : MonoBehaviour
         image.sprite = targetedSprite;
         ingredientPreview.essense1.material = ingredientPreview.TargetedEssenceMaterial;
         ingredientPreview.essense2.material = ingredientPreview.TargetedEssenceMaterial;
+        ingredientPreview.essense3.material = ingredientPreview.TargetedEssenceMaterial;
+
     }
 
     public void untarget()
@@ -31,11 +39,12 @@ public class IngredientPlace : MonoBehaviour
         image.sprite = defaultSprite;
         ingredientPreview.essense1.material = ingredientPreview.DefaultEssenceMaterial;
         ingredientPreview.essense2.material = ingredientPreview.DefaultEssenceMaterial;
+        ingredientPreview.essense3.material = ingredientPreview.DefaultEssenceMaterial;
+
     }
 
     void Start()
     {
-        ingredientPreview = GetComponentInChildren<IngredientPreview>();
         ingredientPanel = GetComponentInParent<IngredientPanel>();
         image = GetComponentInChildren<Button>().GetComponent<Image>();
     }

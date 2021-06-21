@@ -207,7 +207,39 @@ public abstract class Orb : MonoBehaviour
             else return 0;
         }
     }
+
     public bool antimatter;
+    public int voidnessImpact
+    {
+        get
+        {
+            if (!shouldDestroyed && archetype == ORB_ARCHETYPES.VOID)
+            {
+                if (aetherCount == 0) return 1;
+                else return (int)(1 + 1 * aetherCount * .2);
+
+            }
+            else return 0;
+        }
+    }
+    public int basicViscosity
+    {
+        get
+        {
+            return Level;
+        }
+    }
+    public int viscosityImpact
+    {
+        get
+        {
+            if (!shouldDestroyed)
+            {
+                return (int)(basicViscosity + basicViscosity * aetherCount * .2);
+            }
+            else return 0;
+        }
+    }
 
     public bool comboAvaliable;
 
@@ -309,11 +341,17 @@ public abstract class Orb : MonoBehaviour
             if (!shouldDestroyed)
             {
                 int count = 0;
-                if ((int)Math.Round(transform.localPosition.y) + 1 < MixingBoard.Height)
+
+                if (type == ORB_TYPES.ICE_CORE || type == ORB_TYPES.ICE_VOID) count = -Level;
+                else if (type == ORB_TYPES.FIRE_CORE || type == ORB_TYPES.FIRE_VOID) count = Level;
+                else
                 {
-                    if (fiery && mixingBoard.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y) + 1]) count += Level + (int)Math.Round(Level * .2 * aetherCount);
+                    if ((int)Math.Round(transform.localPosition.y) + 1 < MixingBoard.Height)
+                    {
+                        if (fiery && mixingBoard.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y) + 1]) count += Level + (int)Math.Round(Level * .2 * aetherCount);
+                    }
+                    if (frozen && (int)Math.Round(transform.localPosition.y) != 0) count -= Level + (int)Math.Round(Level * .2 * aetherCount);
                 }
-                if (frozen && (int)Math.Round(transform.localPosition.y) != 0) count -= Level + (int)Math.Round(Level * .2 * aetherCount);
                 return count;
             }
             else return 0;
@@ -405,7 +443,7 @@ public abstract class Orb : MonoBehaviour
         {
             int aetherIncreaseOn = aetherCount;
             aetherCount = 0;
-            addAether(aetherIncreaseOn);
+            increaseAether(aetherIncreaseOn);
         }
     }
 
@@ -425,7 +463,7 @@ public abstract class Orb : MonoBehaviour
             else if (xStricted && yStricted && (int)(this.transform.localPosition.y) > 0 && mixingBoard.orbs[(int)this.transform.localPosition.x, (int)(this.transform.localPosition.y - 1)] != null) lying = true;
             else lying = false;
 
-            if(!xStricted || !yStricted || !lying) mixingBoard.spinDelay = Math.Max(.05, mixingBoard.spinDelay);
+            if (!xStricted || !yStricted || !lying) mixingBoard.spinDelay = Math.Max(.05, mixingBoard.spinDelay);
 
             if (!falling)
             {
@@ -479,7 +517,7 @@ public abstract class Orb : MonoBehaviour
             {
                 switch (mode)
                 {
-                    
+
                     case CHANNELING_MODES.DOWN:
                         moveDownCombine();
                         break;
@@ -547,14 +585,14 @@ public abstract class Orb : MonoBehaviour
                 currentAppearingTimer -= Time.deltaTime;
                 coreSphereRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(currentAppearingTimer * 2));
 
-                if(symbolRenderer != null)
+                if (symbolRenderer != null)
                 {
                     var tempColor = symbolRenderer.color;
                     tempColor.a = Convert.ToSingle(1 - currentAppearingTimer);
                     symbolRenderer.color = tempColor;
                 }
 
-                
+
             }
         }
         if (transform.parent.gameObject != MixingBoard.StaticInstance.OrbShift && dissolvingAppearing == true) instantAppear();
@@ -563,7 +601,19 @@ public abstract class Orb : MonoBehaviour
             updateCounterString();
             counterTMP.text = counterString;
         }
-
+        if (aetherTimerDelay >= 0)
+        {
+            aetherTimerDelay -= Time.deltaTime;
+        }
+        else
+        {
+            if (aetherFlagDelay)
+            {
+                aetherFlagDelay = false;
+                increaseAether(delayedAether);
+                delayedAether = 0;
+            }
+        }
     }
 
 
@@ -584,8 +634,16 @@ public abstract class Orb : MonoBehaviour
                 else counterString = temperatureCountImpact + "";
                 break;
 
-            case StatBoardView.FILTER_TYPE.AETHER:
+            case StatBoardView.FILTER_TYPE.AETHERNESS:
                 counterString = aetherImpact + "";
+                break;
+
+            case StatBoardView.FILTER_TYPE.VISCOSITY:
+                counterString = viscosityImpact + "";
+                break;
+
+            case StatBoardView.FILTER_TYPE.VOIDNESS:
+                counterString = voidnessImpact + "";
                 break;
         }
     }
@@ -602,12 +660,18 @@ public abstract class Orb : MonoBehaviour
                 if (gameObject.GetComponent<AspectOrb>()) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary[gameObject.GetComponent<AspectOrb>().orbColor + "" + Level].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
                 break;
             case StatBoardView.FILTER_TYPE.TEMPERATURE:
-                if (fiery && frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["Ice"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
-                else if (fiery) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["Red1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
-                else if (frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["Blue1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                if (fiery && frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.iceOrbSample.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                else if (fiery) counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.red1.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                else if (frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.blue1.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
                 break;
-            case StatBoardView.FILTER_TYPE.AETHER:
-                counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary["Green1"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+            case StatBoardView.FILTER_TYPE.AETHERNESS:
+                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.green1.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                break;
+            case StatBoardView.FILTER_TYPE.VISCOSITY:
+                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.yellowCore.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                break;
+            case StatBoardView.FILTER_TYPE.VOIDNESS:
+                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.purpleVoid.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
                 break;
         }
         counter.SetActive(true);
@@ -684,7 +748,7 @@ public abstract class Orb : MonoBehaviour
 
     public void DestroyIn(double time)
     {
-
+        comboAvaliable = false;
         points = 0;
         aetherCount = 0;
         mixingBoard.spinDelay = Math.Max(mixingBoard.spinDelay, .25);
@@ -713,10 +777,11 @@ public abstract class Orb : MonoBehaviour
             particleSphere.Clear();
         }
         if(outerSphereRenderer) outerSphereRenderer.enabled = false;
+        if (archetype == ORB_ARCHETYPES.VOID) coreSphereRenderer.enabled = false;
 
     }
 
-    public abstract void affectWith(EFFECT_TYPES effect);
+    public abstract void affectWith(EFFECT_TYPES effect, int aetherIncreaseOn = 0);
 
     public void startChanneling(float time, CHANNELING_MODES mode)
     {
@@ -754,25 +819,49 @@ public abstract class Orb : MonoBehaviour
         }
     }
 
-    protected void addAether (int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            GameObject particle;
-            if (frozen) particle = Instantiate(MixingBoard.orbDictionary["Ice"].GetComponent<Orb>().aetherParticle, orbit.transform);
-            else particle = Instantiate(aetherParticle, orbit.transform);
+    private bool aetherFlagDelay = false;
+    private double aetherTimerDelay = 0;
+    private int delayedAether = 0;
 
-            aetherParticles.Add(particle);
-        }
-        aetherCount += count;
-        double updatedAngle = 360 / aetherImpact;
-        double countingAngle = updatedAngle*2;
-        foreach (GameObject particle in aetherParticles)
+    protected void increaseAether (int count)
+    {
+        if (aetherTimerDelay >= 0)
         {
-            countingAngle += updatedAngle;
-            double angleDif = particle.GetComponent<AetherParticle>().updatedAngle - countingAngle;
-            particle.GetComponent<AetherParticle>().updatedAngle = countingAngle;
-            iTween.RotateAdd(particle, iTween.Hash("x", -angleDif, "islocal", true));
+            delayedAether += count;
+            aetherFlagDelay = true;
+
+        }
+        else
+        {
+            aetherTimerDelay = 1f;
+            for (int i = 0; i < count; i++)
+            {
+                GameObject particle;
+                if (frozen) particle = Instantiate(MixingBoard.orbDictionary["Ice"].GetComponent<Orb>().aetherParticle, orbit.transform);
+                else particle = Instantiate(aetherParticle, orbit.transform);
+
+                aetherParticles.Add(particle);
+            }
+            aetherCount += count;
+            double updatedAngle = 360 / aetherCount;
+            double countingAngle = updatedAngle * 2;
+            foreach (GameObject particle in aetherParticles)
+            {
+                countingAngle += updatedAngle;
+                //particle.transform.localEulerAngles = new Vector3(0, 0, 0);
+                double angleDif = particle.GetComponent<AetherParticle>().updatedAngle - countingAngle;
+                particle.GetComponent<AetherParticle>().updatedAngle = countingAngle;
+                iTween.RotateAdd(particle, iTween.Hash("x", -angleDif, "islocal", true));
+            }
+        }
+    }
+
+    public void setAether (int count)
+    {
+        if(aetherCount != count)
+        {
+            if (count > aetherCount) increaseAether(count - aetherCount);
+            else decreaseAether(aetherCount - count);
         }
     }
 
@@ -787,14 +876,13 @@ public abstract class Orb : MonoBehaviour
         }
 
         aetherCount -= count;
-        if (aetherImpact <= 0)
+        if (aetherCount <= 0)
         {
             DestroyIn(.5);
             return;
         }
 
-
-        double updatedAngle = 360 / aetherImpact;
+        double updatedAngle = 360 / aetherCount;
         double countingAngle = updatedAngle * 2;
         foreach (GameObject particle in aetherParticles)
         {
@@ -804,6 +892,19 @@ public abstract class Orb : MonoBehaviour
             particle.GetComponent<AetherParticle>().updatedAngle = countingAngle;
             iTween.RotateAdd(particle, iTween.Hash("x", -angleDif, "islocal", true));
         }
+
+       /* double updatedAngle = 360 / aetherCount;
+        double countingAngle = 0;
+        foreach (GameObject particle in aetherParticles)
+        {
+            //iTween.RotateTo(particle, iTween.Hash("x", 0, "islocal", true, "time", 0.01));
+
+            //double angleDif = particle.GetComponent<AetherParticle>().updatedAngle - countingAngle;
+            particle.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            particle.GetComponent<AetherParticle>().updatedAngle = countingAngle;
+            iTween.RotateAdd(particle, iTween.Hash("x", countingAngle, "islocal", true));
+            countingAngle += updatedAngle;
+        }*/
 
     }
     protected void addFire()
@@ -869,7 +970,7 @@ public abstract class Orb : MonoBehaviour
             counter.GetComponent<TextMeshPro>().color = iceOrb.GetComponent<AspectOrb>().counter.GetComponent<TextMeshPro>().color;
         }
 
-        if (aetherImpact != 0)
+        if (aetherCount != 0)
         {
             foreach (GameObject particle in aetherParticles)
             {
@@ -911,10 +1012,14 @@ public abstract class Orb : MonoBehaviour
             GameObject orbObject = Instantiate(replacingOrb.baseOrb, new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0), Quaternion.identity);
             Orb orb = orbObject.GetComponent<Orb>();
             orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
-            if (replacingOrb.fire) orb.addFire();
-            if (replacingOrb.ice) orb.addIce();
+            if(archetype != ORB_ARCHETYPES.VOID)
+            {
+                if (replacingOrb.fire) orb.addFire();
+                if (replacingOrb.ice) orb.addIce();
+                if (replacingOrb.antimatter) orb.addAntimatter();
+            }
             if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
-            if (replacingOrb.antimatter) orb.addAntimatter();
+            if(affectingSystem) affectingSystem.transform.SetParent(orb.transform, false);
             DestroyIn(destroyingTimer);
         }
     }

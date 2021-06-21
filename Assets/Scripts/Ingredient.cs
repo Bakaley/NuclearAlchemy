@@ -15,7 +15,7 @@ public class Ingredient : MonoBehaviour
         Mushroom,
         Magic,
         Plant,
-        Meat,
+        Animal,
         Crystall,
         Lighting,
     }
@@ -25,17 +25,17 @@ public class Ingredient : MonoBehaviour
         COMMON, 
         UNCOMMON,
         RARE,
-        VERY_RARE,
+        EPIC,
         LEGENDARY
     }
 
     public enum CONSTELLATION
     {
         ASPECT,
-        //NEORGANIC,
+        RARE_ASPECT,
+        COLORANTS,
         TEMPERATURE,
         SUPERNOVA,
-        //GOLD_AND_BLACK,
         AETHER,
         VOID
     }
@@ -48,8 +48,7 @@ public class Ingredient : MonoBehaviour
     public ESSENSE essence2;
     [SerializeField]
     public ESSENSE essence3;
-    [SerializeField]
-    public ESSENSE essence4;
+
 
     [SerializeField]
     RARITY rarity;
@@ -62,13 +61,18 @@ public class Ingredient : MonoBehaviour
     [SerializeField]
     public string IngredientName;
     [SerializeField]
+    public string IngredientFileName;
+    [SerializeField]
     public string IngredientDescription;
+
+    [SerializeField]
+    public bool locked;
 
     public ESSENSE[] essenceList
     {
         get
         {
-            return new ESSENSE[] { essence1, essence2, essence3, essence4 };
+            return new ESSENSE[] { essence1, essence2, essence3 };
         }
     }
 
@@ -83,7 +87,7 @@ public class Ingredient : MonoBehaviour
         }
         private set
         {
-
+         //   orbs = value;
         }
     }
 

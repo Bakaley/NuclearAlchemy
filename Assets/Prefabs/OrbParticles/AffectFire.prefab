@@ -9524,7 +9524,7 @@ GameObject:
   - component: {fileID: 2670468703726124605}
   - component: {fileID: 2670468703726124606}
   m_Layer: 0
-  m_Name: AffectParticlesFire
+  m_Name: AffectFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9558,7 +9558,7 @@ ParticleSystem:
   lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 2
-  cullingMode: 1
+  cullingMode: 2
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0

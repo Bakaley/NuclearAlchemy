@@ -117,4 +117,8 @@ public class AddingBoard : MonoBehaviour
         }
         updateOrbList();
     }
+    public void refreshIngredients()
+    {
+        ingredientPanel.refreshIngredients();
+    }
 }

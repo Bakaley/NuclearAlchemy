@@ -17,7 +17,7 @@ public class NeorganicOrb : Orb
         base.Update();
     }
 
-    public override void affectWith(EFFECT_TYPES effect)
+    public override void affectWith(EFFECT_TYPES effect, int aetherToAdd = 0)
     {
         switch (effect)
         {
@@ -28,31 +28,30 @@ public class NeorganicOrb : Orb
                 addFire();
                 break;
             case EFFECT_TYPES.AETHER:
-                addAether(3);
+                increaseAether(aetherToAdd);
                 break;
             case EFFECT_TYPES.LEVEL_UP:
-                if(fiery && frozen)
+                if (fiery && frozen)
                 {
-                    if(Mathf.Round(gameObject.transform.localPosition.y) >= 2)
+                    if (Mathf.Round(gameObject.transform.localPosition.y) >= 2)
                     {
-                        nextLevelOrb = MixingBoard.orbDictionary["BlueCore"];
+                        nextLevelOrb = MixingBoard.StaticInstance.blueCore;
                     }
                     else if (Mathf.Round(gameObject.transform.localPosition.y) <= 1)
                     {
-                        nextLevelOrb = MixingBoard.orbDictionary["RedCore"];
-
+                        nextLevelOrb = MixingBoard.StaticInstance.redCore;
                     }
                 }
-                else if (fiery) nextLevelOrb = MixingBoard.orbDictionary["RedCore"];
-                else if (frozen) nextLevelOrb = MixingBoard.orbDictionary["BlueCore"];
-                else if (aetherCount != 0) nextLevelOrb = MixingBoard.orbDictionary["GreenCore"];
-                else if (antimatter) nextLevelOrb = MixingBoard.orbDictionary["PurpleVoid"];
+                else if (fiery) nextLevelOrb = MixingBoard.StaticInstance.redCore;
+                else if (frozen) nextLevelOrb = MixingBoard.StaticInstance.blueCore;
+                else if (aetherCount != 0) nextLevelOrb = MixingBoard.StaticInstance.greenCore;
+                else if (antimatter) nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
 
                 if (nextLevelOrb)
                 {
+                    Debug.Log(nextLevelOrb);
                     fiery = false;
                     frozen = false;
-                    aetherCount = 0;
                     antimatter = false;
                     Invoke("levelUp", .2f);
                 }
@@ -63,15 +62,15 @@ public class NeorganicOrb : Orb
                 addAntimatter();
                 break;
             case EFFECT_TYPES.GREEN_DYE:
-                nextLevelOrb = MixingBoard.orbDictionary["Green1"];
+                nextLevelOrb = MixingBoard.StaticInstance.green1;
                 Invoke("levelUp", .2f);
                 break;
             case EFFECT_TYPES.BLUE_DYE:
-                nextLevelOrb = MixingBoard.orbDictionary["Blue1"];
+                nextLevelOrb = MixingBoard.StaticInstance.blue1;
                 Invoke("levelUp", .2f);
                 break;
             case EFFECT_TYPES.RED_DYE:
-                nextLevelOrb = MixingBoard.orbDictionary["Red1"];
+                nextLevelOrb = MixingBoard.StaticInstance.red1;
                 Invoke("levelUp", .2f);
                 break;
             case EFFECT_TYPES.DISSOLVE:

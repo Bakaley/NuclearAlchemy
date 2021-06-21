@@ -5,7 +5,7 @@ using System;
 
 public class DropOrb : Orb
 {
-    public override void affectWith(EFFECT_TYPES effect)
+    public override void affectWith(EFFECT_TYPES effect, int aetherCount = 0)
     {
 
     }
@@ -41,13 +41,9 @@ public class DropOrb : Orb
         {
             if (targetedtOrb)
             {
-                if(particleSystemSample)
-                    {
-                        ParticleSystem ps = Instantiate(particleSystemSample, targetedtOrb.gameObject.transform);
-                        ps.gameObject.transform.SetParent(MixingBoard.StaticInstance.gameObject.transform);
-                    }
-
-                    targetedtOrb.affectWith(effectDictionary[type]);
+                ParticleSystem ps = Instantiate(particleSystemSample, targetedtOrb.gameObject.transform);
+                ps.gameObject.transform.SetParent(MixingBoard.StaticInstance.gameObject.transform);
+                targetedtOrb.affectWith(effectDictionary[type], aetherCount);
             }
             DestroyIn(.5);
         }

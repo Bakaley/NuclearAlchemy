@@ -409,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 7562359501055878362, guid: 724751bf8bf96ac4eb05ddea47697d62, type: 3}
     - target: {fileID: 3439786993165594803, guid: 3628e5b6ce0bb94438501a299abd18e6, type: 3}
       propertyPath: orbDescription
-      value: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      value: "- \u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
         \u0432\u043B\u0438\u044F\u043D\u0438\u0435 \u0437\u0435\u043B\u044C\u044F
         \u043D\u0430 \u0442\u0435\u043B\u043E \u043D\u0430 XXX."
       objectReference: {fileID: 0}

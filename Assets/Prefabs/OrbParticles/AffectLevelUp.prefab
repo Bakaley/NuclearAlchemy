@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 782314095831662170}
   - component: {fileID: 782314095831226872}
   m_Layer: 0
-  m_Name: AffectParticlesLevelUp
+  m_Name: AffectLevelUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 2
-  cullingMode: 1
+  cullingMode: 2
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0

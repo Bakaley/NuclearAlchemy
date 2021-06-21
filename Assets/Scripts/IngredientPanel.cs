@@ -33,8 +33,10 @@ public class IngredientPanel : MonoBehaviour
     [SerializeField]
     AddingBoard addingBoard;
 
+    [SerializeField]
+    GameObject ingedientManagerObject;
 
-    Material dissolvingMaterial;
+    IngredientListManager ingredientListManager;
 
     private static IngredientPlace targetedPlace;
 
@@ -45,7 +47,6 @@ public class IngredientPanel : MonoBehaviour
             return targetedPlace.ingredientPreview.ingredient.GetComponent<Ingredient>();
         }
     }
-    GameObject cellJoystick;
 
     void Awake()
     {
@@ -54,12 +55,13 @@ public class IngredientPanel : MonoBehaviour
 
     private void Start()
     {
-        changeIngredient(placeUpLeft);
+        ingredientListManager = ingedientManagerObject.GetComponent<IngredientListManager>();
+        changeTarget(placeUpLeft);
     }
 
     void Update()
     {
-
+        //Debug.Log(ingedientManager.GetComponent<ListOfCommon>().unlockedIngredientList.Count);
     }
 
     public void chooseUpLeft()
@@ -67,7 +69,7 @@ public class IngredientPanel : MonoBehaviour
         UIManager.staticInstance.switchToAddingMode();
         if (targetedPlace != placeUpLeft)
         {
-            changeIngredient(placeUpLeft);
+            changeTarget(placeUpLeft);
             ingredientJoystickTarget.transform.SetParent(buttonUpLeft.transform, false);
         }
     }
@@ -77,7 +79,7 @@ public class IngredientPanel : MonoBehaviour
         UIManager.staticInstance.switchToAddingMode();
         if (targetedPlace != placeUpRight)
         {
-            changeIngredient(placeUpRight);
+            changeTarget(placeUpRight);
             ingredientJoystickTarget.transform.SetParent(buttonUpRight.transform, false);
         }
     }
@@ -87,7 +89,7 @@ public class IngredientPanel : MonoBehaviour
         UIManager.staticInstance.switchToAddingMode();
         if (targetedPlace != placeDownLeft)
         {
-            changeIngredient(placeDownLeft);
+            changeTarget(placeDownLeft);
             ingredientJoystickTarget.transform.SetParent(buttonDownLeft.transform, false);
         }
     }
@@ -97,22 +99,67 @@ public class IngredientPanel : MonoBehaviour
         UIManager.staticInstance.switchToAddingMode();
         if (targetedPlace != placeDownRight)
         {
-            changeIngredient(placeDownRight);
+            changeTarget(placeDownRight);
             ingredientJoystickTarget.transform.SetParent(buttonDownRight.transform, false);
         }
     }
 
-    void changeIngredient(IngredientPlace place)
+    void changeTarget(IngredientPlace place)
     {
         if (targetedPlace != place)
         {
             targetedPlace.untarget();
             targetedPlace = place;
-            addingBoard.ingredientFill(targetedPlace.ingredientPreview.ingredient.GetComponent<Ingredient>());
             targetedPlace.target();
-
-            ingredientPanelName.GetComponentInChildren<TextMeshProUGUI>().text = targetedPlace.ingredientPreview.ingredient.GetComponent<Ingredient>().IngredientName;
+            updateIngredient();
         }
     }
 
+    void updateIngredient()
+    {
+        addingBoard.ingredientFill(targetedPlace.ingredientPreview.ingredient.GetComponent<Ingredient>());
+        ingredientPanelName.GetComponentInChildren<TextMeshProUGUI>().text = targetedPlace.ingredientPreview.ingredient.GetComponent<Ingredient>().IngredientName;
+    }
+
+    public void refreshIngredients()
+    {
+        Destroy(placeUpLeft.ingredientPreview.gameObject);
+        Destroy(placeUpRight.ingredientPreview.gameObject);
+        Destroy(placeDownLeft.ingredientPreview.gameObject);
+        Destroy(placeDownRight.ingredientPreview.gameObject);
+        List<GameObject> newIngredients = ingredientListManager.newIngredients;
+        try
+        {
+            Instantiate(newIngredients[0].GetComponent<Ingredient>().preview, placeUpLeft.transform);
+        }
+        catch
+        {
+            Debug.LogError(newIngredients[0].name);
+        }
+        try
+        {
+            Instantiate(newIngredients[1].GetComponent<Ingredient>().preview, placeUpRight.transform);
+        }
+        catch
+        {
+            Debug.LogError(newIngredients[1].name);
+        }
+        try
+        {
+            Instantiate(newIngredients[2].GetComponent<Ingredient>().preview, placeDownLeft.transform);
+        }
+        catch
+        {
+            Debug.LogError(newIngredients[2].name);
+        }
+        try
+        {
+            Instantiate(newIngredients[3].GetComponent<Ingredient>().preview, placeDownRight.transform);
+        }
+        catch
+        {
+            Debug.LogError(newIngredients[3].name);
+        }
+        Invoke("updateIngredient", .25f);
+    }
 }

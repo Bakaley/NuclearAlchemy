@@ -17,7 +17,7 @@ public class CoreOrb : Orb
 
     static Dictionary<ORB_TYPES, EFFECT_TYPES> effectDictionary;
 
-    public override void affectWith(EFFECT_TYPES effect)
+    public override void affectWith(EFFECT_TYPES effect, int aetherCount = 0)
     {
         switch (effect)
         {
@@ -31,6 +31,9 @@ public class CoreOrb : Orb
                 if (!shouldDestroyed) collapse();
                 break;
             case EFFECT_TYPES.LEVEL_UP:
+                if (!shouldDestroyed) collapse();
+                break;
+            case EFFECT_TYPES.ANTIMATTER:
                 if (!shouldDestroyed) collapse();
                 break;
             case EFFECT_TYPES.GREEN_DYE:
@@ -48,6 +51,7 @@ public class CoreOrb : Orb
     }
     protected override void Start()
     {
+        base.Start();
 
         if (effectDictionary == null)
         {
@@ -61,7 +65,10 @@ public class CoreOrb : Orb
             effectDictionary.Add(ORB_TYPES.GREEN_DYE_CORE, EFFECT_TYPES.GREEN_DYE);
         }
 
-        base.Start();
+        if (type == ORB_TYPES.ICE_CORE || type == ORB_TYPES.ICE_VOID) frozen = true;
+        if (type == ORB_TYPES.FIRE_CORE || type == ORB_TYPES.FIRE_VOID) fiery = true;
+        if (archetype == ORB_ARCHETYPES.VOID) antimatter = true;
+
     }
 
     protected override void Update()
@@ -72,14 +79,18 @@ public class CoreOrb : Orb
     void collapse()
     {
         MixingBoard.StaticInstance.spinDelay += .5;
+        int aetherToIncrease = aetherCount;
+
         DestroyIn(.5f);
+
 
         if ((int)Math.Round(transform.localPosition.x + 1) < MixingBoard.Length && (int)Math.Round(transform.localPosition.y + 1) < MixingBoard.Height)
         {
             Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y + 1)];
             if (orb)
             {
-                orb.affectWith(coreEffect);
+
+                orb.affectWith(coreEffect, aetherToIncrease);
                 orb.addAffectingSystem(particleSystemSample);
             }
             else
@@ -94,7 +105,8 @@ public class CoreOrb : Orb
             Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y + 1)];
             if (orb)
             {
-                orb.affectWith(coreEffect);
+
+                orb.affectWith(coreEffect, aetherToIncrease);
                 orb.addAffectingSystem(particleSystemSample);
             }
             else
@@ -109,7 +121,8 @@ public class CoreOrb : Orb
             Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y - 1)];
             if (orb)
             {
-                orb.affectWith(coreEffect);
+
+                orb.affectWith(coreEffect, aetherToIncrease);
                 orb.addAffectingSystem(particleSystemSample);
             }
             else
@@ -124,7 +137,8 @@ public class CoreOrb : Orb
             Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y - 1)];
             if (orb)
             {
-                orb.affectWith(coreEffect);
+
+                orb.affectWith(coreEffect, aetherToIncrease);
                 orb.addAffectingSystem(particleSystemSample);
             }
             else
@@ -139,7 +153,8 @@ public class CoreOrb : Orb
             Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y)];
             if (orb)
             {
-                orb.affectWith(coreEffect);
+
+                orb.affectWith(coreEffect, aetherToIncrease);
                 orb.addAffectingSystem(particleSystemSample);
             }
             else
@@ -154,7 +169,8 @@ public class CoreOrb : Orb
             Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y)];
             if (orb)
             {
-                orb.affectWith(coreEffect);
+
+                orb.affectWith(coreEffect, aetherToIncrease);
                 orb.addAffectingSystem(particleSystemSample);
             }
             else
@@ -169,7 +185,8 @@ public class CoreOrb : Orb
             Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y + 1)];
             if (orb)
             {
-                orb.affectWith(coreEffect);
+
+                orb.affectWith(coreEffect, aetherToIncrease);
                 orb.addAffectingSystem(particleSystemSample);
             }
             else
@@ -184,7 +201,8 @@ public class CoreOrb : Orb
             Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y - 1)];
             if (orb)
             {
-                orb.affectWith(coreEffect);
+
+                orb.affectWith(coreEffect, aetherToIncrease);
                 orb.addAffectingSystem(particleSystemSample);
             }
             else

@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statBoardText: {fileID: 5341265362555703695}
   statBoardCounter: {fileID: 5341265362317267705}
-  filter: 4
+  filter: 3
   currentShowingPanel: {fileID: 0}
 --- !u!114 &4288498332802121481
 MonoBehaviour:
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statBoardText: {fileID: 5341265362609721125}
   statBoardCounter: {fileID: 5341265362558738856}
-  filter: 0
+  filter: 6
   currentShowingPanel: {fileID: 0}
 --- !u!114 &1692514549487093130
 MonoBehaviour:
@@ -1173,8 +1173,9 @@ GameObject:
   - component: {fileID: 5341265361476924368}
   - component: {fileID: 5341265361476924370}
   - component: {fileID: 5341265361476924371}
+  - component: {fileID: 9069345865970775372}
   m_Layer: 0
-  m_Name: CustomCounter4
+  m_Name: VoidnessCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1296,6 +1297,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!111 &9069345865970775372
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341265361476924369}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5341265361724211917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,8 +1348,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.36, y: 1.339}
-  m_SizeDelta: {x: 52, y: 15}
+  m_AnchoredPosition: {x: -0.29, y: 1.339}
+  m_SizeDelta: {x: 56, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5341265361724211913
 CanvasRenderer:
@@ -1389,8 +1406,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 9.5
+  m_fontSizeBase: 9.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1577,8 +1594,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textScoreCounter: {fileID: 5341265362538243817}
   textTemperatureCounter: {fileID: 5341265362283524250}
-  textAetherCounter: {fileID: 0}
-  textVoidCounter: {fileID: 0}
+  textAetherCounter: {fileID: 5341265362317267705}
+  textPlasmicityCouter: {fileID: 5341265362558738856}
+  textVoidCounter: {fileID: 5341265361476924369}
   left: {fileID: 5341265362106278697}
   right: {fileID: 5341265363403714190}
   middle: {fileID: 5341265361428557610}
@@ -1629,7 +1647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.18, y: -0.2599997}
+  m_AnchoredPosition: {x: 0.27, y: -0.2599997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5341265362106278700
@@ -1747,8 +1765,9 @@ GameObject:
   - component: {fileID: 5341265362283524245}
   - component: {fileID: 5341265362283524247}
   - component: {fileID: 5341265362283524244}
+  - component: {fileID: 2286623514823529726}
   m_Layer: 0
-  m_Name: CustomCounter1
+  m_Name: TemperatureCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1870,6 +1889,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!111 &2286623514823529726
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341265362283524250}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5341265362317267705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,8 +1916,9 @@ GameObject:
   - component: {fileID: 5341265362317267704}
   - component: {fileID: 5341265362317267706}
   - component: {fileID: 5341265362317267707}
+  - component: {fileID: 8232460139201629801}
   m_Layer: 0
-  m_Name: CustomCounter2
+  m_Name: AethernessCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2004,6 +2040,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!111 &8232460139201629801
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341265362317267705}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5341265362385827413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +2069,7 @@ GameObject:
   - component: {fileID: 5341265362385827414}
   - component: {fileID: 5341265362385827415}
   m_Layer: 0
-  m_Name: CustomText4
+  m_Name: VoidnessText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2039,8 +2091,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35999992, y: -0.8220004}
-  m_SizeDelta: {x: 52, y: 15}
+  m_AnchoredPosition: {x: -0.29000053, y: -0.8220004}
+  m_SizeDelta: {x: 56, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5341265362385827409
 CanvasRenderer:
@@ -2070,7 +2122,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0421\u0447\u0451\u0442\u0447\u0438\u043A"
+  m_text: "\u041F\u0443\u0441\u0442\u043E\u0442\u043D\u043E\u0441\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4f0a7b141fa3f1246b5bea5a75b53675, type: 2}
   m_sharedMaterial: {fileID: -2663843995690435127, guid: 4f0a7b141fa3f1246b5bea5a75b53675, type: 2}
@@ -2097,8 +2149,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2239,7 +2291,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &5341265362090796103
@@ -2344,7 +2396,7 @@ GameObject:
   - component: {fileID: 5341265362555703688}
   - component: {fileID: 5341265362555703689}
   m_Layer: 0
-  m_Name: CustomText2
+  m_Name: AethernessText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2366,8 +2418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35999992, y: 0.038}
-  m_SizeDelta: {x: 52, y: 15}
+  m_AnchoredPosition: {x: -0.29000053, y: 0.038}
+  m_SizeDelta: {x: 56, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5341265362555703691
 CanvasRenderer:
@@ -2397,7 +2449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u042D\u0444\u0438\u0440"
+  m_text: "\u042D\u0444\u0438\u0440\u043D\u043E\u0441\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4f0a7b141fa3f1246b5bea5a75b53675, type: 2}
   m_sharedMaterial: {fileID: -2663843995690435127, guid: 4f0a7b141fa3f1246b5bea5a75b53675, type: 2}
@@ -2424,8 +2476,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 9.5
+  m_fontSizeBase: 9.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2518,8 +2570,9 @@ GameObject:
   - component: {fileID: 5341265362558738859}
   - component: {fileID: 5341265362558738853}
   - component: {fileID: 5341265362558738858}
+  - component: {fileID: 7015380854852116119}
   m_Layer: 0
-  m_Name: CustomCounter3
+  m_Name: PasmicityCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2641,6 +2694,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!111 &7015380854852116119
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341265362558738856}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 6bb78d54604d71945978b3a9416d1b6d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5341265362585481066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2654,7 +2723,7 @@ GameObject:
   - component: {fileID: 5341265362585481063}
   - component: {fileID: 5341265362585481060}
   m_Layer: 0
-  m_Name: CustomText1
+  m_Name: TemperatureText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2676,8 +2745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.26749995, y: 0.468}
-  m_SizeDelta: {x: 59.3974, y: 15}
+  m_AnchoredPosition: {x: -0.29000053, y: 0.468}
+  m_SizeDelta: {x: 56, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5341265362585481062
 CanvasRenderer:
@@ -2734,8 +2803,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.47
-  m_fontSizeBase: 9.47
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -2830,7 +2899,7 @@ GameObject:
   - component: {fileID: 5341265362609721126}
   - component: {fileID: 5341265362609721127}
   m_Layer: 0
-  m_Name: CustomText3
+  m_Name: PasmicityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2852,8 +2921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35999992, y: -0.392}
-  m_SizeDelta: {x: 52, y: 15}
+  m_AnchoredPosition: {x: -0.29000053, y: -0.392}
+  m_SizeDelta: {x: 56, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5341265362609721121
 CanvasRenderer:
@@ -2883,7 +2952,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0421\u0447\u0451\u0442\u0447\u0438\u043A"
+  m_text: "\u0412\u044F\u0437\u043A\u043E\u0441\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4f0a7b141fa3f1246b5bea5a75b53675, type: 2}
   m_sharedMaterial: {fileID: -2663843995690435127, guid: 4f0a7b141fa3f1246b5bea5a75b53675, type: 2}
@@ -2910,8 +2979,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 9.5
+  m_fontSizeBase: 9.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3028,8 +3097,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35999992, y: 0.90800023}
-  m_SizeDelta: {x: 52, y: 15}
+  m_AnchoredPosition: {x: -0.29000053, y: 0.90800023}
+  m_SizeDelta: {x: 56, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5341265362859442640
 CanvasRenderer:
@@ -3086,8 +3155,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 9.5
+  m_fontSizeBase: 9.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3207,7 +3276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.12, y: -0.26}
+  m_AnchoredPosition: {x: 0.08, y: -0.26}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5341265363403714189
@@ -3454,7 +3523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statBoardText: {fileID: 5341265362385827413}
   statBoardCounter: {fileID: 5341265361476924369}
-  filter: 0
+  filter: 5
   currentShowingPanel: {fileID: 0}
 --- !u!114 &6235790813426002267
 MonoBehaviour:

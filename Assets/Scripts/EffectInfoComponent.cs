@@ -10,18 +10,24 @@ public class EffectInfoComponent : MonoBehaviour
     public GameObject iceLevel12Desrcription;
     [SerializeField]
     public GameObject iceLevel3Desrcription;
+    [SerializeField]
+    public GameObject iceVoidCoreDesrcription;
 
 
     [SerializeField]
     public GameObject fireLevel12Desrcription;
     [SerializeField]
     public GameObject fireLevel3Desrcription;
+    [SerializeField]
+    public GameObject fireVoidCoreDesrcription;
 
 
     [SerializeField]
     public GameObject aetherLevel12Desrcription;
     [SerializeField]
     public GameObject aetherLevel3Desrcription;
+    [SerializeField]
+    public GameObject aetherVoidCoreDesrcription;
 
 
     [SerializeField]

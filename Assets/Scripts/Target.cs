@@ -839,13 +839,13 @@ public class Target : MonoBehaviour
 
                 if (spinCore)
                 {
+                    int aetherToIncrease = spinCore.aetherCount;
                     spinCore.DestroyIn(0.5);
-
                     foreach (Orb orb in spinLeftOrbsAffected)
                     {
                         if(orb)
                         {
-                            orb.affectWith(spinCore.coreEffect);
+                            orb.affectWith(spinCore.coreEffect, aetherToIncrease);
                         }
                     }
                     if (spinCore.type == Orb.ORB_TYPES.GREEN_DYE_CORE || spinCore.type == Orb.ORB_TYPES.RED_DYE_CORE || spinCore.type == Orb.ORB_TYPES.BLUE_DYE_CORE) addDyeParticles(spinCore.particleSystemSample);
@@ -859,7 +859,7 @@ public class Target : MonoBehaviour
                     {
                         if (orb)
                         {
-                            orb.affectWith(spinVoid.voidEffect);
+                            orb.affectWith(spinVoid.voidEffect, spinVoid.aetherCount);
                         }
                     }
                     if (leftOrbToDissolve) leftOrbToDissolve.affectWith(Orb.EFFECT_TYPES.DISSOLVE);
@@ -872,7 +872,7 @@ public class Target : MonoBehaviour
                     upLeftOrb.moveDown();
                     if (upLeftOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(upLeftOrb);
                     if (upLeftOrb.aetherImpact != 0) {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upLeftOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upLeftOrb.Level == 3 || upLeftOrb.type == Orb.ORB_TYPES.AETHER_CORE || upLeftOrb.type == Orb.ORB_TYPES.AETHER_VOID || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
                            
                         }
@@ -887,7 +887,7 @@ public class Target : MonoBehaviour
                     upRightOrb.moveLeft();
                     if (upRightOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(upRightOrb);
                     if (upRightOrb.aetherImpact != 0)
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upRightOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upRightOrb.Level == 3 || upRightOrb.type == Orb.ORB_TYPES.AETHER_CORE || upRightOrb.type == Orb.ORB_TYPES.AETHER_VOID || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -901,7 +901,7 @@ public class Target : MonoBehaviour
                     if (downLeftOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(downLeftOrb);
                     if (downLeftOrb.aetherImpact != 0)
                     {
-                    if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downLeftOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
+                    if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downLeftOrb.Level == 3 || downLeftOrb.type == Orb.ORB_TYPES.AETHER_CORE || downLeftOrb.type == Orb.ORB_TYPES.AETHER_VOID || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                     {
 
                         }
@@ -915,7 +915,7 @@ public class Target : MonoBehaviour
                     if (downRightOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(downRightOrb);
                     if (downRightOrb.aetherImpact != 0)
                     {
-                    if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downRightOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
+                    if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downRightOrb.Level == 3 || downRightOrb.type == Orb.ORB_TYPES.AETHER_CORE || downRightOrb.type == Orb.ORB_TYPES.AETHER_VOID  || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                     {
 
                         }
@@ -935,12 +935,13 @@ public class Target : MonoBehaviour
             {
                 if (spinCore)
                 {
+                    int aetherToIncrease = spinCore.aetherCount;
                     spinCore.DestroyIn(0.5);
                     foreach (Orb orb in spinRightOrbsAffected)
                     {
-                        if (orb)
+                        if(orb)
                         {
-                            orb.affectWith(spinCore.coreEffect);
+                            orb.affectWith(spinCore.coreEffect, aetherToIncrease);
                         }
                     }
                     if (spinCore.type == Orb.ORB_TYPES.GREEN_DYE_CORE || spinCore.type == Orb.ORB_TYPES.RED_DYE_CORE || spinCore.type == Orb.ORB_TYPES.BLUE_DYE_CORE) addDyeParticles(spinCore.particleSystemSample);
@@ -954,7 +955,7 @@ public class Target : MonoBehaviour
                     {
                         if (orb)
                         {
-                            orb.affectWith(spinVoid.voidEffect);
+                            orb.affectWith(spinVoid.voidEffect, spinVoid.aetherCount);
                         }
                     }
                     if (rightOrbToDissolve) rightOrbToDissolve.affectWith(Orb.EFFECT_TYPES.DISSOLVE);
@@ -968,7 +969,7 @@ public class Target : MonoBehaviour
                     if (upLeftOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(upLeftOrb);
                     if (upLeftOrb.aetherImpact != 0)
                     {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upLeftOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upLeftOrb.Level == 3 || upLeftOrb.type == Orb.ORB_TYPES.AETHER_CORE || upLeftOrb.type == Orb.ORB_TYPES.AETHER_VOID || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -982,7 +983,7 @@ public class Target : MonoBehaviour
                     if (upRightOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(upRightOrb);
                     if (upRightOrb.aetherImpact != 0)
                     {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upRightOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || upRightOrb.Level == 3 || upRightOrb.type == Orb.ORB_TYPES.AETHER_CORE || upRightOrb.type == Orb.ORB_TYPES.AETHER_VOID || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -996,7 +997,7 @@ public class Target : MonoBehaviour
                     if (downLeftOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(downLeftOrb);
                     if (downLeftOrb.aetherImpact != 0)
                     {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downLeftOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downLeftOrb.Level == 3 || downLeftOrb.type == Orb.ORB_TYPES.AETHER_CORE || downLeftOrb.type == Orb.ORB_TYPES.AETHER_VOID || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }
@@ -1010,7 +1011,7 @@ public class Target : MonoBehaviour
                     if (downRightOrb.channeling) MixingBoard.StaticInstance.breakReactionsWith(downRightOrb);
                     if (downRightOrb.aetherImpact != 0)
                     {
-                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downRightOrb.Level == 3 || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
+                        if ((spinCore && spinCore.type == Orb.ORB_TYPES.AETHER_CORE) || downRightOrb.Level == 3 || downRightOrb.type == Orb.ORB_TYPES.AETHER_CORE || downRightOrb.type == Orb.ORB_TYPES.AETHER_VOID || (spinVoid && spinVoid.type == Orb.ORB_TYPES.AETHER_VOID))
                         {
 
                         }

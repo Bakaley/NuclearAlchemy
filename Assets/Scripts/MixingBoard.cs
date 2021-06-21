@@ -454,7 +454,7 @@ public class MixingBoard : MonoBehaviour
             {
                 essencePanel.addEssence(IngredientPanel.currentIngredient.essence1);
             }
-
+            addingBoard.refreshIngredients();
         }
     }
 
@@ -596,17 +596,23 @@ public class MixingBoard : MonoBehaviour
                 {
                     if (reaction_counter >= semiplasma_counter)
                     {
+                        int aether = 0;
                         bool antimatterFlag = false;
                         List<GameObject> coreList = new List<GameObject>();
                         foreach (Orb orb in reagents)
                         {
                             if (orb.fiery && !coreList.Contains(board.redCore)) coreList.Add(board.redCore);
                             if (orb.frozen && !coreList.Contains(board.blueCore)) coreList.Add(board.blueCore);
-                            if (orb.aetherCount != 0 && !coreList.Contains(board.greenCore)) coreList.Add(board.greenCore);
+                            if (orb.aetherCount != 0) aether += orb.aetherCount;
                             if (orb.antimatter) antimatterFlag = true;
                         }
                         Reaction reaction = null;
                         if (antimatterFlag) reaction = new Reaction(dimension, reagents, coreList, board.purpleVoid, 0, false);
+                        else if (aether != 0)
+                        {
+                            coreList.Add(board.yellowCore);
+                            reaction = new Reaction(dimension, reagents, coreList, board.greenCore, aether, false);
+                        }
                         else reaction = new Reaction(dimension, reagents, coreList, board.yellowCore, 0, false);
 
                         if (!reactionList.Contains(reaction))
@@ -665,10 +671,41 @@ public class MixingBoard : MonoBehaviour
                         }
                         else
                         {
-                            Reaction reaction = new Reaction(dimension, reagents, new List<GameObject>(), nextLevelOrb, aether, antimatter);
-                            if (!reactionList.Contains(reaction))
+                            if (antimatter)
                             {
-                                reactionList.Add(reaction);
+                                bool fiery = false;
+                                bool frozen = false;
+                                bool aetherFlag = false;
+                                foreach (Orb orb in reagents)
+                                {
+                                    if (orb.fiery) fiery = true;
+                                    if (orb.frozen) frozen = true;
+                                    if (orb.aetherCount != 0) aetherFlag = true;
+                                }
+
+                                if (fiery && frozen)
+                                {
+                                    if (dimension == REACTION_DIMENSIONS.HORIZONTAL) nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                                    else nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                                }
+                                else if (fiery) nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                                else if (frozen) nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                                else if (aetherFlag) nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
+                                else nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
+
+                                Reaction reaction = new Reaction(dimension, reagents, new List<GameObject>(), nextLevelOrb, 0, false);
+                                if (!reactionList.Contains(reaction))
+                                {
+                                    reactionList.Add(reaction);
+                                }
+                            }
+                            else
+                            {
+                                Reaction reaction = new Reaction(dimension, reagents, new List<GameObject>(), nextLevelOrb, aether, antimatter);
+                                if (!reactionList.Contains(reaction))
+                                {
+                                    reactionList.Add(reaction);
+                                }
                             }
                         }
                     }
@@ -749,11 +786,43 @@ public class MixingBoard : MonoBehaviour
                         }
                         else
                         {
-                            Reaction reaction = new Reaction(dimension, reagents, coreList, nextLevelOrb, aether, antimatter);
-                            if (!reactionList.Contains(reaction))
+                            if (antimatter)
                             {
-                                reactionList.Add(reaction);
-                                reactionReset();
+                                bool fiery = false;
+                                bool frozen = false;
+                                bool aetherFlag = false;
+                                foreach (Orb orb in reagents)
+                                {
+                                    if (orb.fiery) fiery = true;
+                                    if (orb.frozen) frozen = true;
+                                    if (orb.aetherCount != 0) aetherFlag = true;
+                                }
+
+                                if (fiery && frozen)
+                                {
+                                    if (dimension == REACTION_DIMENSIONS.HORIZONTAL) nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                                    else nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                                }
+                                else if (fiery) nextLevelOrb = MixingBoard.StaticInstance.redVoid;
+                                else if (frozen) nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
+                                else if (aetherFlag) nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
+                                else nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
+
+                                Reaction reaction = new Reaction(dimension, reagents, coreList, nextLevelOrb, 0, false);
+                                if (!reactionList.Contains(reaction))
+                                {
+                                    reactionList.Add(reaction);
+                                    reactionReset();
+                                }
+                            }
+                            else
+                            {
+                                Reaction reaction = new Reaction(dimension, reagents, coreList, nextLevelOrb, aether, antimatter);
+                                if (!reactionList.Contains(reaction))
+                                {
+                                    reactionList.Add(reaction);
+                                    reactionReset();
+                                }
                             }
                         }
                     }

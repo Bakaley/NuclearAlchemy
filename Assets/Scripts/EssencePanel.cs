@@ -45,7 +45,7 @@ public class EssencePanel : MonoBehaviour
         essenceIcons.Add(Ingredient.ESSENSE.Mushroom, BoneEssence);
         essenceIcons.Add(Ingredient.ESSENSE.Magic, MagicEssence);
         essenceIcons.Add(Ingredient.ESSENSE.Plant, PlantEssence);
-        essenceIcons.Add(Ingredient.ESSENSE.Meat, MeatEssence);
+        essenceIcons.Add(Ingredient.ESSENSE.Animal, MeatEssence);
         essenceIcons.Add(Ingredient.ESSENSE.Crystall, CrystallEssence);
         essenceIcons.Add(Ingredient.ESSENSE.Lighting, LightingEssence);
 
@@ -56,7 +56,7 @@ public class EssencePanel : MonoBehaviour
         essenceScores.Add(Ingredient.ESSENSE.Mushroom, 0);
         essenceScores.Add(Ingredient.ESSENSE.Magic, 0);
         essenceScores.Add(Ingredient.ESSENSE.Plant, 0);
-        essenceScores.Add(Ingredient.ESSENSE.Meat, 0);
+        essenceScores.Add(Ingredient.ESSENSE.Animal, 0);
         essenceScores.Add(Ingredient.ESSENSE.Crystall, 0);
         essenceScores.Add(Ingredient.ESSENSE.Lighting, 0);
     }
