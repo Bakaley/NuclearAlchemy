@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7891942943686656493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7891942943686656495}
+  - component: {fileID: 7891942943686656494}
+  m_Layer: 0
+  m_Name: ResonatingOil
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7891942943686656495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891942943686656493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7891942943686656494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891942943686656493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  recipeName: "\u0420\u0435\u0437\u043E\u043D\u0438\u0440\u0443\u044E\u0449\u0435\u0435
+    \u043C\u0430\u0441\u043B\u043E"
+  icon: {fileID: 21300000, guid: b44208223735bf04a82294de3001df73, type: 3}
+  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  basePoints: 47
+  aspect: 11
+  temperature: 0
+  aether: 4
+  visctosity: 0
+  voidness: 0
+  currentLevel: 1
+  potionType: 19
+  basePointsLVL2: 52
+  basePointsLVL3: 56
+  price: 163

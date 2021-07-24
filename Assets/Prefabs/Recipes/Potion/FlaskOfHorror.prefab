@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1685900159944280656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685900159944280658}
+  - component: {fileID: 1685900159944280659}
+  m_Layer: 0
+  m_Name: FlaskOfHorror
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1685900159944280658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685900159944280656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1685900159944280659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685900159944280656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  recipeName: "\u041A\u043E\u043B\u0431\u0430 \u0443\u0436\u0430\u0441\u0430"
+  icon: {fileID: 21300000, guid: 9f2ab90fe4436234790bfc3593cb645f, type: 3}
+  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  basePoints: 55
+  aspect: 3
+  temperature: 0
+  aether: 0
+  visctosity: 3
+  voidness: 2
+  currentLevel: 1
+  potionType: 24
+  basePointsLVL2: 61
+  basePointsLVL3: 66
+  price: 165

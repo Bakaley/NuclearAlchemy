@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2124780927215146177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124780927215146179}
+  - component: {fileID: 2124780927215146176}
+  - component: {fileID: 6571396162600299652}
+  m_Layer: 0
+  m_Name: PotionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2124780927215146179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124780927215146177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124780927215146176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124780927215146177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a5a253cbc97f04992722705a6dcde9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic1: {fileID: 8976928248972189992, guid: 6d2dbb9dcb335c64d8a4ee41b45e04ea, type: 3}
+  basic2: {fileID: 1848732523579007507, guid: c0eca8405aa43954b8092c0fcf6c06b3, type: 3}
+  basic3: {fileID: 4153322984637104481, guid: 8234e974957a4de4aa92bc588e71e462, type: 3}
+  basic4: {fileID: 4488460687196716387, guid: 9dff222553cf6594a9a31763b02572f0, type: 3}
+  basic5: {fileID: 6529153578803393224, guid: 346b296b570b0cc45b4293d5c667114e, type: 3}
+  basic6: {fileID: 8927523653512031564, guid: 8a5b911909785f84fa6404a5e7021d3b, type: 3}
+  basic7: {fileID: 855117255401208664, guid: 6edc5628e68c11c4984e21f0259525c5, type: 3}
+  basic8: {fileID: 8419485909938556229, guid: 7dc31159e33b2b849bfec76cba41f05b, type: 3}
+  basic9: {fileID: 4740757532555511556, guid: 451534f374ed33b499a883c331af69c0, type: 3}
+  progressing_standard_plus1: {fileID: 4625686675716869292, guid: 1a5df6c132b88864e8987730b86ed949, type: 3}
+  progressing_standard_plus2: {fileID: 2534457661787534466, guid: b4321c75eb8b1f14e89358a5473654dd, type: 3}
+  progressing_standard_plus3: {fileID: 4493815249611243157, guid: 5de3baea270f1b74aa0aba50e8e8a8aa, type: 3}
+  standard_plus1: {fileID: 1627579709726725323, guid: b5de5c7890c4cc94aa6ccdc1b5f30cf0, type: 3}
+  standard_plus2: {fileID: 2005089999855614659, guid: 4a66e60ec6feb5446a96be929a3e22df, type: 3}
+  standard_plus3: {fileID: 8468409944796046193, guid: 2c92d78ec9c524a4690f3012d733ac3d, type: 3}
+  progressing_colorant1: {fileID: 1347128962984816616, guid: ccee3d5341422d747be494eaa009437a, type: 3}
+  progressing_colorant2: {fileID: 2657662059595063072, guid: b84aa85f4891d1c4286a547a0465b107, type: 3}
+  progressing_colorant3: {fileID: 5975362573691263850, guid: dec83d3b254e1d8439a6a2cb7674c6a1, type: 3}
+  progressing_temperature1: {fileID: 1438921129301644355, guid: 7d40097b52c12df43af78811f371b1ec, type: 3}
+  progressing_temperature2: {fileID: 5269624919710111521, guid: c65aeddd29edf614faac82eebf5b6300, type: 3}
+  progressing_temperature3: {fileID: 4627853410475994518, guid: 5b34e9a568af6a142bea3592b3855a4d, type: 3}
+  progressing_aether1: {fileID: 8945428757382138108, guid: b45178e045616d548934121b82e84eef, type: 3}
+  progressing_aether2: {fileID: 783567816064059466, guid: 00129dc508c2d21468f19b5d6ee5c4c7, type: 3}
+  progressing_aether3: {fileID: 3039300071273701540, guid: a986f86980d26fe48aa65b5025b3b679, type: 3}
+  progressing_supernova1: {fileID: 7317100585653565720, guid: 1e05323637f60dd4e98503b750126997, type: 3}
+  progressing_supernova2: {fileID: 1131703085410468334, guid: a57997615f3d6be48ba98847e78ed9b2, type: 3}
+  progressing_supernova3: {fileID: 3431443329910973468, guid: 10f3317fd44bf9645b5033a504c525d5, type: 3}
+  progressing_voids1: {fileID: 1009929458059518781, guid: e9878842ae0bc0b43a32b854e7d5edd2, type: 3}
+  progressing_voids2: {fileID: 4594822899060450137, guid: b965fb2bf13bbd94c93ec23cc28e9c00, type: 3}
+  progressing_voids3: {fileID: 4103381229358137229, guid: 0e4bd517e31ab804e83ded77038cfc67, type: 3}
+  colorant1: {fileID: 6662667446578394347, guid: ff3bfbaef5533a84da1db8e8b4c7e4d3, type: 3}
+  colorant2: {fileID: 1054940533149342468, guid: edb9885f563f83847a81d1434f7ad6c0, type: 3}
+  colorant3: {fileID: 3236233237980543370, guid: b7fe10f209d52734b95186992decdf5b, type: 3}
+  temperature1: {fileID: 5993570738156532440, guid: 8f45260b23f5f6345b5b47b9ea5c5654, type: 3}
+  temperature2: {fileID: 2301477465284039615, guid: 265890021badd4f438b5635619b59dc3, type: 3}
+  temperature3: {fileID: 7978376473567185366, guid: e0803892574ada74e8036a13086dcae3, type: 3}
+  aether1: {fileID: 1475190008713766111, guid: f06f51d0f3a4542459a99f419e5fad87, type: 3}
+  aether2: {fileID: 8484494193070252296, guid: 9bef6145a92e71a4d8b8d1df94e5d9a9, type: 3}
+  aether3: {fileID: 3934672389154232196, guid: 26d01e62185459c41a0b4391b704b34f, type: 3}
+  supernova1: {fileID: 3373771542051305316, guid: b7eb151ebaca39a46863be9994507da8, type: 3}
+  supernova2: {fileID: 932880323745884545, guid: 17979c0e85f39cb449b3fec6344adfe1, type: 3}
+  supernova3: {fileID: 4116675870829833644, guid: ad9e8a790afea054fb00724bbbb4e165, type: 3}
+  voids1: {fileID: 6722866658564146378, guid: f54bfea0f009c104299c4f9b83075fef, type: 3}
+  voids2: {fileID: 2871443807711366956, guid: 8dc8fe389eeb210438eb68b4bff41108, type: 3}
+  voids3: {fileID: 1981614051010485188, guid: 06cbb5a10e1d66442bf01cf4f06452cf, type: 3}
+  colorant_plus1: {fileID: 3076278906453389566, guid: 9726a9b70d9925f4b83b91bbf9309793, type: 3}
+  colorant_plus2: {fileID: 8497514555403021090, guid: 7651ca42274ed6b4e8fd19286ad9199e, type: 3}
+  colorant_plus3: {fileID: 4345896159354551798, guid: c65d72dda74cc1d4e86ed750cfc4044c, type: 3}
+  temperature_plus1: {fileID: 8154759020706589112, guid: 4d9fd9d23f0a0c146b9c8c694a000e2e, type: 3}
+  temperature_plus2: {fileID: 3342736149822260323, guid: 809e608f87c75974288f86198a435894, type: 3}
+  temperature_plus3: {fileID: 209944691604908816, guid: 784d915810352584b85c6438362b06cc, type: 3}
+  aether_plus1: {fileID: 7433041151469775784, guid: 038502acdcc293f43879be70bf8f6849, type: 3}
+  aether_plus2: {fileID: 6711767653998326680, guid: f3a615d2cb9b9114386bd278221cacc9, type: 3}
+  aether_plus3: {fileID: 6867048950727597938, guid: e5ab1153e2413fa4ea232d869648f480, type: 3}
+  supernova_plus1: {fileID: 7462969304535806295, guid: 31c3057d0954e8a45a9c01492df1c011, type: 3}
+  supernova_plus2: {fileID: 7886585883152868939, guid: ec1493347a33efa489e106eb072afab7, type: 3}
+  supernova_plus3: {fileID: 8112480074151616133, guid: bc49eab0f7c1dab4d8c43dbff47e236d, type: 3}
+  voids_plus1: {fileID: 7346626208432423753, guid: 977f095a2f0601649a33b4bdbba9a999, type: 3}
+  voids_plus2: {fileID: 3237188756785539755, guid: eefd522105e65064e89d9c05487a5173, type: 3}
+  voids_plus3: {fileID: 7632941729421922064, guid: 4a5aebbed9de1384f91c976e07216ca2, type: 3}
+  temperature_colorant1: {fileID: 8073820294705230612, guid: f27a9a3d55893f440832660cabe7edd2, type: 3}
+  temperature_colorant2: {fileID: 8588973006382218330, guid: 070b8e05dd73bd9429ab4003bfcbb3e3, type: 3}
+  temperature_colorant3: {fileID: 7342343138271457350, guid: 6196692f3a2bc9942b2dff505d711c65, type: 3}
+  temperature_aether1: {fileID: 8898781507357519981, guid: d84d7b764c2a89443a68d831c428205e, type: 3}
+  temperature_aether2: {fileID: 9190880822020527105, guid: b15aa3de8f17c614399937b8d6b9fb41, type: 3}
+  temperature_aether3: {fileID: 3668124157898023392, guid: ece26bd77279a3e4094e0fabe4d7fc34, type: 3}
+  colorant_aether1: {fileID: 1761226432086978680, guid: 3f739c6e583e11a479a424cdf514373d, type: 3}
+  colorant_aether2: {fileID: 2150158746929453363, guid: 3baffb971e1b47447ae7c343eeaafb26, type: 3}
+  colorant_aether3: {fileID: 7891942943686656493, guid: 28440dcf0b8c3834e88434ee8150cf00, type: 3}
+  temperature_supernova1: {fileID: 192352302605316963, guid: 649efccf36a642748b3ac18022f995b9, type: 3}
+  temperature_supernova2: {fileID: 4635986786724440668, guid: 506fc3ce746f6cf4cacd799317ff07fa, type: 3}
+  temperature_supernova3: {fileID: 2234334180068293899, guid: 0a089a6af84f5754690c2a5afe4ec5b6, type: 3}
+  colorant_supernova1: {fileID: 6150024408447484762, guid: 75ffd96da6cbabd44a6f3acc526a8cd9, type: 3}
+  colorant_supernova2: {fileID: 6319933837423773627, guid: c5b9c4874679fec448db1b1ed7a1db96, type: 3}
+  colorant_supernova3: {fileID: 2523603430690544312, guid: 3ae8bae495243a54982f31fcac52ecd6, type: 3}
+  aether_voids1: {fileID: 5715375930348610566, guid: 24679b975c4036448a6cc1951c286568, type: 3}
+  aether_voids2: {fileID: 5257998820378303805, guid: 652a1850c369c5248b5789c190f8e91c, type: 3}
+  aether_voids3: {fileID: 2236487635979351191, guid: c111a81812e520c4780b2c7d7ea1a372, type: 3}
+  colorants_voids1: {fileID: 8989565976819535456, guid: 120dae9fdf0743d4e9ce2f8efdda7364, type: 3}
+  colorants_voids2: {fileID: 7843401188995365145, guid: 6ae68e340bc9809468dbb79be0597575, type: 3}
+  colorants_voids3: {fileID: 437877228315230606, guid: a0cc611edcc2eb14fbe911331fa0f465, type: 3}
+  aether_supernova1: {fileID: 3990712936552710717, guid: cd6fb9face5c6f342a006c863ebc5bf2, type: 3}
+  aether_supernova2: {fileID: 2207557622730554796, guid: 6f7f59c900e0595449aa0654a0fbf52e, type: 3}
+  aether_supernova3: {fileID: 2058188115139355622, guid: f12780249fb524c47b8b0720ed3182c3, type: 3}
+  voids_supernova1: {fileID: 452531146199971437, guid: 93d6e4a0cb8efc941b11b784bd19d984, type: 3}
+  voids_supernova2: {fileID: 3618046905301370903, guid: 85a7da6e26d7e5c49b78640c686fe906, type: 3}
+  voids_supernova3: {fileID: 1685900159944280656, guid: f73a9703068270e42894282dfbb3458d, type: 3}
+  temperature_voids1: {fileID: 4830709308191331170, guid: 459c76c9c3b06d64097fb95df415ebb3, type: 3}
+  temperature_voids2: {fileID: 1794287618816887427, guid: 354bf524562341e4c901e5c44fb191c9, type: 3}
+  temperature_voids3: {fileID: 8500423105986255374, guid: c455399cf8cad334fb7a9a012ad2e9f7, type: 3}
+--- !u!114 &6571396162600299652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124780927215146177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beedbbe0973b4bc4097f7525e1afd1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
