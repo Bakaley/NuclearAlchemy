@@ -332,9 +332,9 @@ public class MixingBoard : MonoBehaviour
                     {
                         if (_orb)
                         {
-                            if (_orb.gameObject.transform.localPosition.x == i)
+                            if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
                             {
-                                if (_orb.gameObject.transform.localPosition.y > targetY)
+                                if ((int)Math.Round(_orb.gameObject.transform.localPosition.y) > targetY)
                                 {
                                     targetY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
                                     tartgetedOrb = _orb;
@@ -362,9 +362,9 @@ public class MixingBoard : MonoBehaviour
                     {
                         if (_orb)
                         {
-                            if (_orb.gameObject.transform.localPosition.x == i)
+                            if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
                             {
-                                if (_orb.gameObject.transform.localPosition.y > maxY) maxY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
+                                if ((int)Math.Round(_orb.gameObject.transform.localPosition.y) > maxY) maxY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
                             }
                         }
                     }
@@ -372,7 +372,7 @@ public class MixingBoard : MonoBehaviour
                     {
                         if (_orb)
                         {
-                            if (_orb.gameObject.transform.localPosition.x == i)
+                            if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
                             {
                                 columnSize++;
                             }
@@ -419,10 +419,10 @@ public class MixingBoard : MonoBehaviour
                     if (_orb)
                     {
 
-                        if (minY == 0) minY = _orb.gameObject.transform.localPosition.y;
-                        if (_orb.gameObject.transform.localPosition.x == i)
+                        if (minY == 0) minY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
+                        if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
                         {
-                            if (_orb.gameObject.transform.localPosition.y < minY) minY = _orb.gameObject.transform.localPosition.y;
+                            if ((int)Math.Round(_orb.gameObject.transform.localPosition.y) < minY) minY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
                         }
                     }
                 }
@@ -435,9 +435,9 @@ public class MixingBoard : MonoBehaviour
                 {
                     if (_orb)
                     {
-                        if (_orb.gameObject.transform.localPosition.x == i)
+                        if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
                         {
-                            iTween.MoveTo(_orb.gameObject, iTween.Hash("position", new Vector3(_orb.gameObject.transform.localPosition.x, _orb.gameObject.transform.localPosition.y - fallDistances[i], _orb.transform.localPosition.z), "islocal", true, "time", Orb.movingTime * fallDistances[i] / 2, "easetype", iTween.EaseType.easeInSine));
+                            iTween.MoveTo(_orb.gameObject, iTween.Hash("position", new Vector3((int)Math.Round(_orb.gameObject.transform.localPosition.x), (int)Math.Round(_orb.gameObject.transform.localPosition.y) - fallDistances[i], _orb.transform.localPosition.z), "islocal", true, "time", Orb.movingTime * fallDistances[i] / 2, "easetype", iTween.EaseType.easeInSine));
                             spinDelay = Math.Max(spinDelay,  Orb.movingTime * fallDistances[i] * 1.05f);
                             ingredientMovementDelay = Orb.movingTime * fallDistances[i] * 1.05f;
                             deployDelay = 4 * Orb.movingTime * 1.05f;
@@ -446,14 +446,11 @@ public class MixingBoard : MonoBehaviour
                     }
                 }
             }
-            if (IngredientPanel.currentIngredient.essence2 != Ingredient.ESSENSE.None)
+            foreach (Ingredient.ESSENSE essence in IngredientPanel.currentIngredient.essenceList)
             {
-                essencePanel.addEssence(IngredientPanel.currentIngredient.essence1, IngredientPanel.currentIngredient.essence2);
+               if(essence != Ingredient.ESSENSE.None) essencePanel.addEssence(essence);
             }
-            else if (IngredientPanel.currentIngredient.essence1 != Ingredient.ESSENSE.None)
-            {
-                essencePanel.addEssence(IngredientPanel.currentIngredient.essence1);
-            }
+          
             addingBoard.refreshIngredients();
         }
     }
@@ -693,7 +690,7 @@ public class MixingBoard : MonoBehaviour
                                 else if (aetherFlag) nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
                                 else nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
 
-                                Reaction reaction = new Reaction(dimension, reagents, new List<GameObject>(), nextLevelOrb, 0, false);
+                                Reaction reaction = new Reaction(dimension, reagents, new List<GameObject>(), nextLevelOrb, aether, false);
                                 if (!reactionList.Contains(reaction))
                                 {
                                     reactionList.Add(reaction);
@@ -808,7 +805,7 @@ public class MixingBoard : MonoBehaviour
                                 else if (aetherFlag) nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
                                 else nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
 
-                                Reaction reaction = new Reaction(dimension, reagents, coreList, nextLevelOrb, 0, false);
+                                Reaction reaction = new Reaction(dimension, reagents, coreList, nextLevelOrb, aether, false);
                                 if (!reactionList.Contains(reaction))
                                 {
                                     reactionList.Add(reaction);

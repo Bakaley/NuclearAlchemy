@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
+  - component: {fileID: -154882024605172059}
   m_Layer: 0
   m_Name: LicoriceDragonfly
   m_TagString: Untagged
@@ -60,6 +61,27 @@ MonoBehaviour:
   IngredientName: "\u041B\u0430\u043A\u0440\u0438\u0447\u043D\u0430\u044F \u0441\u0442\u0440\u0435\u043A\u043E\u0437\u0430"
   IngredientFileName: LicoriceDragonfly
   IngredientDescription: 
+  locked: 0
+--- !u!114 &-154882024605172059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34802641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc7915ffb4f4b40b2c435750204d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  recipeName: 
+  basePoints: 31
+  aspect: 2
+  temperature: 0
+  aether: 0
+  visctosity: 0
+  voidness: 0
 --- !u!1001 &5468139885334768751
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class EssencePanel : MonoBehaviour
     GameObject LightingEssence;
 
 
-    GameObject[] dissolvingArray = new GameObject[2];
+    List<GameObject> dissolvingArray = new List<GameObject>();
 
     Dictionary<Ingredient.ESSENSE, GameObject> essenceIcons;
     Dictionary<Ingredient.ESSENSE, int> essenceScores;
@@ -87,7 +87,7 @@ public class EssencePanel : MonoBehaviour
         essenceScores[essence]++;
         if(essenceScores[essence] == 1)
         {
-            dissolvingArray[0] = essenceIcons[essence];
+            dissolvingArray.Add(essenceIcons[essence]);
             dissolveTimer = .3;
             getNumberSpriteRenderer(essenceIcons[essence]).color = new Color32(154, 154, 154, 255);
             getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();
@@ -99,41 +99,6 @@ public class EssencePanel : MonoBehaviour
             getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();
         }
         else getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();
-    }
-
-    public void addEssence(Ingredient.ESSENSE essence1, Ingredient.ESSENSE essence2)
-    {
-        essenceScores[essence1]++;
-        if (essenceScores[essence1] == 1)
-        {
-            dissolvingArray[0] = essenceIcons[essence1];
-            dissolveTimer = .3;
-            getNumberSpriteRenderer(essenceIcons[essence1]).color = new Color32(154, 154, 154, 255);
-            getNumberSpriteRenderer(essenceIcons[essence1]).GetComponent<Animation>().Play();
-        }
-        else if (essenceScores[essence1] < 10)
-        {
-            Sprite loadedNumber = Resources.Load<Sprite>("Numbers/numberIcon" + essenceScores[essence1]) as Sprite;
-            getNumberSpriteRenderer(essenceIcons[essence1]).sprite = loadedNumber;
-            getNumberSpriteRenderer(essenceIcons[essence1]).GetComponent<Animation>().Play();
-        }
-        else getNumberSpriteRenderer(essenceIcons[essence1]).GetComponent<Animation>().Play();
-
-        essenceScores[essence2]++;
-        if (essenceScores[essence2] == 1)
-        {
-            dissolvingArray[1] = essenceIcons[essence2];
-            dissolveTimer = .3;
-            getNumberSpriteRenderer(essenceIcons[essence2]).color = new Color32(154, 154, 154, 255);
-            getNumberSpriteRenderer(essenceIcons[essence2]).GetComponent<Animation>().Play();
-        }
-        else if (essenceScores[essence2] < 10)
-        {
-            Sprite loadedNumber = Resources.Load<Sprite>("Numbers/numberIcon" + essenceScores[essence2]) as Sprite;
-            getNumberSpriteRenderer(essenceIcons[essence2]).sprite = loadedNumber;
-            getNumberSpriteRenderer(essenceIcons[essence2]).GetComponent<Animation>().Play();
-        }
-        else getNumberSpriteRenderer(essenceIcons[essence2]).GetComponent<Animation>().Play();
     }
 
     SpriteRenderer getNumberSpriteRenderer (GameObject icon)

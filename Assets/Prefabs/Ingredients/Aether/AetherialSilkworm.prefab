@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d6d4f9604344a49be9cc36f1f5fc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preview: {fileID: 0}
+  preview: {fileID: 9166333676392656549, guid: cd51eedbbd9eaa346a03de9af1fe4779, type: 3}
   essence1: 3
   essence2: 8
   essence3: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   IngredientName: "\u042D\u0444\u0438\u0440\u043D\u044B\u0439 \u0448\u0435\u043B\u043A\u043E\u043F\u0440\u044F\u0434"
   IngredientFileName: AetherialSilkworm
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &254474033145838985
 PrefabInstance:
   m_ObjectHideFlags: 0

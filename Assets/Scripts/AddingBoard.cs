@@ -119,6 +119,6 @@ public class AddingBoard : MonoBehaviour
     }
     public void refreshIngredients()
     {
-        ingredientPanel.refreshIngredients();
+        ingredientPanel.refreshIngredientsWithDelay();
     }
 }

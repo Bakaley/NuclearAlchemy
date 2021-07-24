@@ -5273,7 +5273,7 @@ MonoBehaviour:
   targetedEssenceMaterial: {fileID: 2100000, guid: f495b2c3b0c2989489a3f0f5ff36a9df, type: 2}
   ingredientIcon: {fileID: 0}
   ingredientIconColor: {r: 0, g: 0, b: 0, a: 0}
-  ingredient: {fileID: 0}
+  ingredient: {fileID: 34802641, guid: ef504b25289e0c445956343a10f44b3c, type: 3}
 --- !u!1 &5953064644032654132
 GameObject:
   m_ObjectHideFlags: 0

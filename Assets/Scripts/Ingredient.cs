@@ -29,7 +29,7 @@ public class Ingredient : MonoBehaviour
         LEGENDARY
     }
 
-    public enum CONSTELLATION
+    public enum INGREDIENT_CONSTELLATION
     {
         ASPECT,
         RARE_ASPECT,
@@ -53,10 +53,10 @@ public class Ingredient : MonoBehaviour
     [SerializeField]
     RARITY rarity;
     [SerializeField]
-    CONSTELLATION constellation;
+    INGREDIENT_CONSTELLATION constellation;
 
     public RARITY Rarity { get { return rarity; } }
-    public CONSTELLATION Constellation { get { return constellation; } }
+    public INGREDIENT_CONSTELLATION Constellation { get { return constellation; } }
 
     [SerializeField]
     public string IngredientName;

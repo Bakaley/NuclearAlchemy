@@ -845,7 +845,7 @@ public class Target : MonoBehaviour
                     {
                         if(orb)
                         {
-                            orb.affectWith(spinCore.coreEffect, aetherToIncrease);
+                            orb.affectWith(spinCore.coreEffect, aetherToIncrease, spinCore.archetype);
                         }
                     }
                     if (spinCore.type == Orb.ORB_TYPES.GREEN_DYE_CORE || spinCore.type == Orb.ORB_TYPES.RED_DYE_CORE || spinCore.type == Orb.ORB_TYPES.BLUE_DYE_CORE) addDyeParticles(spinCore.particleSystemSample);
@@ -859,7 +859,7 @@ public class Target : MonoBehaviour
                     {
                         if (orb)
                         {
-                            orb.affectWith(spinVoid.voidEffect, spinVoid.aetherCount);
+                            orb.affectWith(spinVoid.voidEffect, spinVoid.aetherCount, spinVoid.archetype);
                         }
                     }
                     if (leftOrbToDissolve) leftOrbToDissolve.affectWith(Orb.EFFECT_TYPES.DISSOLVE);
@@ -941,7 +941,7 @@ public class Target : MonoBehaviour
                     {
                         if(orb)
                         {
-                            orb.affectWith(spinCore.coreEffect, aetherToIncrease);
+                            orb.affectWith(spinCore.coreEffect, aetherToIncrease, spinCore.archetype);
                         }
                     }
                     if (spinCore.type == Orb.ORB_TYPES.GREEN_DYE_CORE || spinCore.type == Orb.ORB_TYPES.RED_DYE_CORE || spinCore.type == Orb.ORB_TYPES.BLUE_DYE_CORE) addDyeParticles(spinCore.particleSystemSample);
@@ -955,7 +955,7 @@ public class Target : MonoBehaviour
                     {
                         if (orb)
                         {
-                            orb.affectWith(spinVoid.voidEffect, spinVoid.aetherCount);
+                            orb.affectWith(spinVoid.voidEffect, spinVoid.aetherCount, spinVoid.archetype);
                         }
                     }
                     if (rightOrbToDissolve) rightOrbToDissolve.affectWith(Orb.EFFECT_TYPES.DISSOLVE);

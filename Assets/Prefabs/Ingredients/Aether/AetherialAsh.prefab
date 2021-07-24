@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d6d4f9604344a49be9cc36f1f5fc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preview: {fileID: 0}
+  preview: {fileID: 611747691792743458, guid: 05318109f28899c44ad14be23b8c4242, type: 3}
   essence1: 1
   essence2: 6
   essence3: 0
@@ -59,6 +59,7 @@ MonoBehaviour:
   IngredientName: "\u042D\u0444\u0438\u0440\u043D\u044B\u0439 \u043F\u0435\u043F\u0435\u043B"
   IngredientFileName: AetherialAsh
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &125624598380143017
 PrefabInstance:
   m_ObjectHideFlags: 0

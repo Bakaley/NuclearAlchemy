@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
+  - component: {fileID: -7708301774939545}
   m_Layer: 0
   m_Name: DryWater
   m_TagString: Untagged
@@ -61,6 +62,27 @@ MonoBehaviour:
   IngredientName: "\u0421\u0443\u0445\u0430\u044F \u0432\u043E\u0434\u0430"
   IngredientFileName: DryWater
   IngredientDescription: 
+  locked: 0
+--- !u!114 &-7708301774939545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34802641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc7915ffb4f4b40b2c435750204d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  recipeName: 
+  basePoints: 43
+  aspect: 1
+  temperature: 0
+  aether: 0
+  visctosity: 0
+  voidness: 0
 --- !u!1001 &4269376182799515296
 PrefabInstance:
   m_ObjectHideFlags: 0

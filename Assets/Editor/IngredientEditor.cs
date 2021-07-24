@@ -131,8 +131,8 @@ public class IngredientEditor : Editor
 
                 ingredient.gameObject.name = ingredient.IngredientFileName;
 
-                PrefabUtility.SaveAsPrefabAsset(ingredient.gameObject, "Assets/Prefabs/Ingredients/Voids/" + ingredient.IngredientFileName + ".prefab");
-                PrefabUtility.SaveAsPrefabAsset(ingredientPreview, "Assets/Prefabs/Ingredients/Voids/" + ingredient.IngredientFileName + "Preview.prefab");
+                PrefabUtility.SaveAsPrefabAsset(ingredient.gameObject, "Assets/Prefabs/Ingredients/Temperature/" + ingredient.IngredientFileName + ".prefab");
+                PrefabUtility.SaveAsPrefabAsset(ingredientPreview, "Assets/Prefabs/Ingredients/Temperature/" + ingredient.IngredientFileName + "Preview.prefab");
 
                 /*GameObject loadedPreview = Resources.Load("Ingredients/Common/" + ingredient.IngredientName + "Preview") as GameObject;
                 GameObject loadedIngredient = Resources.Load("Ingredients/Common/" + ingredient.IngredientName) as GameObject;

@@ -5,9 +5,14 @@ using UnityEngine;
 public class FPS : MonoBehaviour
 {
 	float deltaTime = 0.0f;
+	float timer = 0.0f;
+
+	float timer2 = 0.0f;
+	int ingredientsCount = 0;
 
 	void Update()
 	{
+		timer = Time.time;
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
 	}
 
@@ -25,5 +30,19 @@ public class FPS : MonoBehaviour
 		float fps = 1.0f / deltaTime;
 		string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
 		GUI.Label(rect, text, style);
+		GUI.Label(rect, "\n" + (timer - timer2) + "", style);
+		GUI.Label(rect, "\n\n" + ingredientsCount + "", style);
+
 	}
+
+	public void TimerReset()
+    {
+		timer2 = timer;
+		ingredientsCount = 0;
+	}
+
+	public void IngredientsIncrease()
+    {
+		ingredientsCount++;
+    }
 }

@@ -121,7 +121,19 @@ public class IngredientPanel : MonoBehaviour
         ingredientPanelName.GetComponentInChildren<TextMeshProUGUI>().text = targetedPlace.ingredientPreview.ingredient.GetComponent<Ingredient>().IngredientName;
     }
 
-    public void refreshIngredients()
+    public void refreshIngredientsWithDelay()
+    {
+        refresh();
+        Invoke("updateIngredient", .25f);
+    }
+
+    public void refreshIngredientsNoDelay()
+    {
+        refresh();
+        Invoke("updateIngredient", .01f);
+    }
+
+    public void refresh()
     {
         Destroy(placeUpLeft.ingredientPreview.gameObject);
         Destroy(placeUpRight.ingredientPreview.gameObject);
@@ -160,6 +172,5 @@ public class IngredientPanel : MonoBehaviour
         {
             Debug.LogError(newIngredients[3].name);
         }
-        Invoke("updateIngredient", .25f);
     }
 }

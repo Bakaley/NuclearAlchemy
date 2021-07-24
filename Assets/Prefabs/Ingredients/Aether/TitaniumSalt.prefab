@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d6d4f9604344a49be9cc36f1f5fc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preview: {fileID: 0}
+  preview: {fileID: 7548385941815283781, guid: 5213540c43c5d7447bb5f81ffa179474, type: 3}
   essence1: 3
   essence2: 10
   essence3: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   IngredientName: "\u0422\u0438\u0442\u0430\u043D\u043E\u0432\u0430\u044F \u0441\u043E\u043B\u044C"
   IngredientFileName: TitaniumSalt
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &1616020875616185508
 PrefabInstance:
   m_ObjectHideFlags: 0

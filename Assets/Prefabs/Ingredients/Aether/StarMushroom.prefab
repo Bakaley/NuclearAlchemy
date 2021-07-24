@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
+  - component: {fileID: 7149967882741339708}
   m_Layer: 0
   m_Name: StarMushroom
   m_TagString: Untagged
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d6d4f9604344a49be9cc36f1f5fc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preview: {fileID: 0}
+  preview: {fileID: 2306835870455003448, guid: 05554c5a93ce597478caec5029050f9c, type: 3}
   essence1: 10
   essence2: 5
   essence3: 2
@@ -61,6 +62,27 @@ MonoBehaviour:
   IngredientName: "\u0417\u0432\u0451\u0437\u0434\u043D\u044B\u0439 \u0433\u0440\u0438\u0431"
   IngredientFileName: StarMushroom
   IngredientDescription: 
+  locked: 0
+--- !u!114 &7149967882741339708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34802641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc7915ffb4f4b40b2c435750204d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  recipeName: 
+  basePoints: 66
+  aspect: 3
+  temperature: 0
+  aether: 6
+  visctosity: 0
+  voidness: 0
 --- !u!1001 &786868631703311950
 PrefabInstance:
   m_ObjectHideFlags: 0

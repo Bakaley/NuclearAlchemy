@@ -69,7 +69,12 @@ public class StatBoardView : MonoBehaviour
         mind_body,
         mind_soul,
         body_soul,
-        amass
+        mind_and_no_body,
+        mind_and_no_soul,
+        body_and_no_mind,
+        body_and_no_soul,
+        soul_and_no_body,
+        soul_and_no_mind
     }
 
     public Aspect potionAspect;
@@ -190,7 +195,7 @@ public class StatBoardView : MonoBehaviour
         }
         else if (mindCounter == bodyCounter && mindCounter == soulCounter && mindCounter > 0)
         {
-            potionAspect = Aspect.amass;
+            potionAspect = Aspect.aspectless;
         }
 
         switch (potionAspect)
@@ -239,12 +244,6 @@ public class StatBoardView : MonoBehaviour
                 left.sprite = mindSprite;
                 right.sprite = soulSprite;
                 middle.enabled = false;
-                break;
-            case Aspect.amass:
-                left.enabled = false;
-                right.enabled = false;
-                middle.enabled = true;  
-                middle.sprite = amassSprite;
                 break;
         }
            if(oldAspect != potionAspect)
