@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c152af323329cb44dae7c707ef9de336
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mainQuestReward: {fileID: 34802641, guid: 0d2d85d64d469e44ca7781124c2e3dac, type: 3}
+  - extraPotionReward1: {fileID: 34802641, guid: 2dd243744d586604d93ba4396682b532, type: 3}
+  - extraPotionReward2: {fileID: 34802641, guid: 7e15d4717cae47949a7e742cea24be15, type: 3}
+  - extraPotionReward3: {fileID: 34802641, guid: 9eda8b2d5db933f4e9375ba38a0a7daf, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

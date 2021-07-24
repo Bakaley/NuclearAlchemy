@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: cdcaacc4997300d47b837b8922beb3a4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mainQuestReward: {fileID: 34802641, guid: dfc9a0483adfd464a84e05ee4b2b93cc, type: 3}
+  - extraPotionReward1: {fileID: 34802641, guid: f534d7ee91085df4daad71d33b76b438, type: 3}
+  - extraPotionReward2: {fileID: 34802641, guid: 8aaddcb1f1c69f840bc1dc49c5cd0b82, type: 3}
+  - extraPotionReward3: {fileID: 34802641, guid: c7e17a97a363b634596ddc2ffec492df, type: 3}
+  - epicIngrRecipeStandart: {fileID: 34802641, guid: fdefd29f2531c8144b5448b13510d84e, type: 3}
+  - epicIngrRecipeColorant: {fileID: 34802641, guid: 98889c8e285456d4b8f668bad5d43d4a, type: 3}
+  - epicIngrRecipeTemperature: {fileID: 34802641, guid: bc38b5484293b964b97f069fd71457d9, type: 3}
+  - epicIngrRecipeAether: {fileID: 34802641, guid: 011ed0cba2b0dc04185f0c388ed3296a, type: 3}
+  - epicIngrRecipeSupernova: {fileID: 34802641, guid: 471198af357ecc6408b87438c69d5f99, type: 3}
+  - epicIngrRecipeVoids: {fileID: 34802641, guid: 487fec4aee19d3647ae20a2b3ba37535, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
