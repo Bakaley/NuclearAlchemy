@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GeyserChampagne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u0413\u0435\u0439\u0437\u0435\u0440\u043D\u043E\u0435 \u0448\u0430\u043C\u043F\u0430\u043D\u0441\u043A\u043E\u0435"
   IngredientFileName: GeyserChampagne
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &2201266473083288349
 PrefabInstance:
   m_ObjectHideFlags: 0

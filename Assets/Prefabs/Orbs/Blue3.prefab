@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504604985067249817}
   - component: {fileID: 3439786993165594803}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Blue3
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
   comboAvaliable: 1
   orbDescription: "- \u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0432\u043B\u0438\u044F\u043D\u0438\u0435 \u0437\u0435\u043B\u044C\u044F \u043D\u0430
-    \u0440\u0430\u0437\u0443\u043C \u043D\u0430 XXX."
+    \u0440\u0430\u0437\u0443\u043C \u043D\u0430 1."
   nextLevelOrb: {fileID: 0}
   level: 3
   points: 25
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 917374171636855821}
   - component: {fileID: 3400273091840497990}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 2950952454576482923}
   - component: {fileID: 3036046499791229213}
   - component: {fileID: 3035955801112398855}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4954,7 +4954,7 @@ GameObject:
   - component: {fileID: 2948929578964919709}
   - component: {fileID: 3036499795848861657}
   - component: {fileID: 3037149023840794725}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9769,7 +9769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2950462637562051617}
   - component: {fileID: 3484345196995272221}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FIreParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9819,7 +9819,7 @@ GameObject:
   - component: {fileID: 2949198077034842813}
   - component: {fileID: 3036084644701329433}
   - component: {fileID: 3035797237081384127}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14635,7 +14635,7 @@ GameObject:
   - component: {fileID: 1433461607976949945}
   - component: {fileID: 5929192844851498872}
   - component: {fileID: 5352692579206423837}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14734,7 +14734,7 @@ GameObject:
   - component: {fileID: 6345957026009353631}
   - component: {fileID: 7166116892038236079}
   - component: {fileID: 3092959126254077767}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParticleSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19609,7 +19609,7 @@ GameObject:
   - component: {fileID: 5106788525029507584}
   - component: {fileID: 315232559763528397}
   - component: {fileID: 2990504759230414686}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19707,7 +19707,7 @@ GameObject:
   - component: {fileID: 4953491415105694840}
   - component: {fileID: 682932474134964787}
   - component: {fileID: 8924813781427290318}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OutSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19789,7 +19789,7 @@ GameObject:
   - component: {fileID: 2391218593407808330}
   - component: {fileID: 2907296535326573116}
   - component: {fileID: 5532659560269220620}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AntimatterSymbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19903,6 +19903,10 @@ PrefabInstance:
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_Name
       value: Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_IsActive
@@ -20027,6 +20031,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1504604985067249817}
     m_Modifications:
+    - target: {fileID: 4059097924872438462, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4059097925177810239, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -20080,8 +20088,36 @@ PrefabInstance:
       value: IceParticles
       objectReference: {fileID: 0}
     - target: {fileID: 4059097925177810240, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097925177810240, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097925202376021, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097925428463264, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097926357484889, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097926438267989, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097926471339695, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097926830505099, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2798405b35f247340a65411f207dc181, type: 3}

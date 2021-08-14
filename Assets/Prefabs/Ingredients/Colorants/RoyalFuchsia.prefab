@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RoyalFuchsia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,6 +60,7 @@ MonoBehaviour:
     \u0444\u0443\u043A\u0441\u0438\u044F"
   IngredientFileName: RoyalFuchsia
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &3054579336190486980
 PrefabInstance:
   m_ObjectHideFlags: 0

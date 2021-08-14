@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MilledRuby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u0422\u043E\u043B\u0447\u0451\u043D\u044B\u0439 \u0440\u0443\u0431\u0438\u043D"
   IngredientFileName: MilledRuby
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &5562704762657490956
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SoaringBeetle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u0416\u0443\u043A-\u043B\u0435\u0442\u044F\u0433\u0430"
   IngredientFileName: SoaringBeetle
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &1525855346316597251
 PrefabInstance:
   m_ObjectHideFlags: 0

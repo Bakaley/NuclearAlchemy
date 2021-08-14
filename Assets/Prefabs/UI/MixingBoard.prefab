@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4388593181309960458}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OrbShift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4388593182014585681}
   - component: {fileID: 4388593182014585687}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MixingBoard
   m_TagString: MixingBoard
   m_Icon: {fileID: 0}
@@ -119,11 +119,13 @@ MonoBehaviour:
   greenVoid: {fileID: 7097016394040653353, guid: 75e27676038e37e46b6b117ba5cc3a5b, type: 3}
   yellowVoid: {fileID: 97255993474857610, guid: 62f0f5c084c02b14cae2b6cbbf5e08f9, type: 3}
   iceOrbSample: {fileID: 257155884682648962, guid: 3fb42c0190724984aba1615aafabb7f1, type: 3}
+  uncertaintyOrb: {fileID: 7116440750988074556, guid: 2ca10e794006f4d4ba66b96f4824487f, type: 3}
   targetGameObject: {fileID: 293584729384575890}
   orbShift: {fileID: 4388593181309960459}
   statBoardView: {fileID: 0}
   addingBoard: {fileID: 0}
   essencePanel: {fileID: 0}
+  changeOnDeployment: 1
 --- !u!1 &7226765213662856986
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7657669596646560654}
   - component: {fileID: 2491579727499027280}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DefaultPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

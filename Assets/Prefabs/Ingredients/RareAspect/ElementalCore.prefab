@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
   - component: {fileID: 6896023948612400361}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ElementalCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preview: {fileID: 8148581386859584914, guid: 32c17d49e94d5804ba34531c26304533, type: 3}
   essence1: 4
-  essence2: 4
+  essence2: 2
   essence3: 0
   rarity: 1
   constellation: 1

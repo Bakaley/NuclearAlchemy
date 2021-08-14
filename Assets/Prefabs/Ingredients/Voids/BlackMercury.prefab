@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BlackMercury
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u0427\u0451\u0440\u043D\u0430\u044F \u0440\u0442\u0443\u0442\u044C"
   IngredientFileName: BlackMercury
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &967475513489777562
 PrefabInstance:
   m_ObjectHideFlags: 0

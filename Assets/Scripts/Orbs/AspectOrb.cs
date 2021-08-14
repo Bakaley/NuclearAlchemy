@@ -4,11 +4,15 @@ using UnityEngine;
 using System;
 using TMPro;
 using UnityEditor;
+using Random = UnityEngine.Random;
 
-public class AspectOrb : Orb
+public class AspectOrb : Orb, AspectImpactInterface
 {
 
-    static Dictionary <ORB_TYPES, ORB_COLOR> colorDictionary;
+    public static Dictionary<Orb.ORB_TYPES, ORB_COLOR> colorDictionary
+    {
+        get; private set;
+    }
 
     public enum ORB_COLOR
     {
@@ -29,10 +33,8 @@ public class AspectOrb : Orb
     {
         get
         {
-            int counter = 1;
-            counter = (int)(counter + counter * .2 * aetherCount);
-            if (antimatter) counter = -counter;
-            return counter;
+            if (Level == 3) return 1;
+            return 0;
         }
     }
 
@@ -53,51 +55,53 @@ public class AspectOrb : Orb
             case EFFECT_TYPES.LEVEL_UP:
                 if(Level == 2 && antimatter)
                 {
-                    if (fiery && frozen)
-                    {
-                        if (Mathf.Round(gameObject.transform.localPosition.y) >= 2)
-                        {
-                            nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
-                        }
-                        else if (Mathf.Round(gameObject.transform.localPosition.y) <= 1)
-                        {
-                            nextLevelOrb = MixingBoard.StaticInstance.redVoid;
-                        }
-                    }
-                    else if (fiery) nextLevelOrb = MixingBoard.StaticInstance.redVoid;
-                    else if (frozen) nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
-                    else if (aetherCount != 0) nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
-                    else nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
+                    List<ReplacingOrbStruct> uncertaintList = new List<ReplacingOrbStruct>();
 
-                    fiery = false;
-                    frozen = false;
-                    antimatter = false;
+                    if (fiery) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.redVoid));
+                    if (frozen) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.blueVoid));
+                    if (aetherCount != 0) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.greenVoid, false, false, aetherCount));
+
+                    if (nextLevelOrb.gameObject == MixingBoard.StaticInstance.blue3) nextLevelOrb = MixingBoard.StaticInstance.bluePulsar;
+                    if (nextLevelOrb.gameObject == MixingBoard.StaticInstance.red3) nextLevelOrb = MixingBoard.StaticInstance.redPulsar;
+                    if (nextLevelOrb.gameObject == MixingBoard.StaticInstance.green3) nextLevelOrb = MixingBoard.StaticInstance.greenPulsar;
+
+                    if (uncertaintList.Count != 0)
+                    {
+                        uncertaintList.Add(new Orb.ReplacingOrbStruct(nextLevelOrb));
+                        nextLevelOrb = MixingBoard.StaticInstance.uncertaintyOrb;
+                        replacingOrb = new Orb.ReplacingOrbStruct(nextLevelOrb, false, false, 0, false, uncertaintList);
+                    }
+                    else
+                    {
+                        replacingOrb = new Orb.ReplacingOrbStruct(nextLevelOrb);
+                    }
                 }
-                Invoke("levelUp", .2f);
+                if (replacingOrb.baseOrb == null) Invoke("levelUp", .25f);
+                else Invoke("replace", .25f);
                 break;
             case EFFECT_TYPES.ANTIMATTER:
                 if(Level == 3)
                 {
-                    if (fiery && frozen)
-                    {
-                        if (Mathf.Round(gameObject.transform.localPosition.y) >= 2)
-                        {
-                            nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
-                        }
-                        else if (Mathf.Round(gameObject.transform.localPosition.y) <= 1)
-                        {
-                            nextLevelOrb = MixingBoard.StaticInstance.redVoid;
-                        }
-                    }
-                    else if (fiery) nextLevelOrb = MixingBoard.StaticInstance.redVoid;
-                    else if (frozen) nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
-                    else if (aetherCount != 0) nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
-                    else nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
+                    List<ReplacingOrbStruct> uncertaintList = new List<ReplacingOrbStruct>();
 
-                    fiery = false;
-                    frozen = false;
-                    antimatter = false;
-                    Invoke("levelUp", .2f);
+                    if (fiery) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.redVoid));
+                    if (frozen) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.blueVoid));
+                    if (aetherCount != 0) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.greenVoid, false, false, aetherCount));
+
+                    if (orbColor == ORB_COLOR.Blue) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.bluePulsar));
+                    if (orbColor == ORB_COLOR.Red) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.redPulsar));
+                    if (orbColor == ORB_COLOR.Green) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.greenPulsar));
+
+                    if (uncertaintList.Count == 1)
+                    {
+                        replacingOrb = uncertaintList[0];
+                    }
+                    else
+                    {
+                        replacingOrb = new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.uncertaintyOrb, false, false, 0, false, uncertaintList);
+
+                    }
+                    Invoke("replace", .25f);
                 }
                 else addAntimatter();
                 break;
@@ -201,6 +205,11 @@ public class AspectOrb : Orb
         colorDictionary.Add(ORB_TYPES.MIND_ASPECT, ORB_COLOR.Blue);
         colorDictionary.Add(ORB_TYPES.BODY_ASPECT, ORB_COLOR.Red);
         colorDictionary.Add(ORB_TYPES.SOUL_ASPECT, ORB_COLOR.Green);
+
+        colorDictionary.Add(ORB_TYPES.BLUE_PULSAR, ORB_COLOR.Blue);
+        colorDictionary.Add(ORB_TYPES.RED_PULSAR, ORB_COLOR.Red);
+        colorDictionary.Add(ORB_TYPES.GREEN_PULSAR, ORB_COLOR.Green);
+
 
         counterTMP = counter.GetComponent<TextMeshPro>();
     }

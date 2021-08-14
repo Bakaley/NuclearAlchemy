@@ -8,7 +8,7 @@ public class PotionRecipe : Recipe
     [SerializeField]
     int currentLevel = 1;
 
-    enum POTION_TYPE
+    public enum POTION_TYPE
     {
         BASIC,
         TEMPERATURE,
@@ -43,8 +43,24 @@ public class PotionRecipe : Recipe
     [SerializeField]
     POTION_TYPE potionType;
 
+    public POTION_TYPE Potion_Type
+    {
+        get
+        {
+            return potionType;
+        }
+    }
+
     [SerializeField]
-    protected Sprite icon;
+    Sprite icon;
+
+    public Sprite Icon
+    {
+        get
+        {
+            return icon;
+        }
+    }
 
     [SerializeField]
     protected Color iconColor;
@@ -72,19 +88,41 @@ public class PotionRecipe : Recipe
     [SerializeField]
     int basePointsLVL3;
 
-    [SerializeField]
-    double potionAmount
+    public static double PotionCountlvl1
+    {
+        get
+        {
+            return 1.25;
+        }
+    }
+    public static double PotionCountlvl2
+    {
+        get
+        {
+            return 1.5;
+        }
+    }
+    public static double PotionCountlvl3
+    {
+        get
+        {
+            return 1.75;
+        }
+    }
+
+
+    public double PotionCount
     {
         get
         {
             switch (currentLevel)
             {
                 case 1:
-                    return 1.25;
+                    return PotionCountlvl1;
                 case 2:
-                    return 1.5;
+                    return PotionCountlvl2;
                 case 3:
-                    return 1.75;
+                    return PotionCountlvl3;
             }
             return 0;
         }
@@ -92,6 +130,14 @@ public class PotionRecipe : Recipe
 
     [SerializeField]
     int price;
+
+    public int LunarCount
+    {
+        get
+        {
+            return price;
+        }
+    }
 
     protected override void firstReward()
     {

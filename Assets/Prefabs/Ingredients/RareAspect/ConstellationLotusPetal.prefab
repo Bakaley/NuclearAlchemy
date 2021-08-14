@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ConstellationLotusPetal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
     \u0441\u043E\u0437\u0432\u0435\u0437\u0434\u0438\u0439"
   IngredientFileName: ConstellationLotusPetal
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &283416418955850187
 PrefabInstance:
   m_ObjectHideFlags: 0

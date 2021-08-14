@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
   - component: {fileID: 3646306188404601593}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SulfurCuttlefish
   m_TagString: Untagged
   m_Icon: {fileID: 0}

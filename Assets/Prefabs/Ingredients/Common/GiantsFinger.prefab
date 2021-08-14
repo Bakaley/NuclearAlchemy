@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GiantsFinger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,6 +60,7 @@ MonoBehaviour:
   IngredientName: "\u041F\u0430\u043B\u0435\u0446 \u0432\u0435\u043B\u0438\u043A\u0430\u043D\u0430"
   IngredientFileName: GiantsFinger
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &1766514584468516814
 PrefabInstance:
   m_ObjectHideFlags: 0

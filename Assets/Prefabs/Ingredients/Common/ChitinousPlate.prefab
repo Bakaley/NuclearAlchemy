@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ChitinousPlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u0425\u0438\u0442\u0438\u043D\u043E\u0432\u0430\u044F \u043F\u043B\u0430\u0441\u0438\u043D\u043A\u0430"
   IngredientFileName: ChitinousPlate
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &1680694260094129464
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SunDriedFlyAgaric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,6 +60,7 @@ MonoBehaviour:
   IngredientName: "\u0412\u044F\u043B\u0435\u043D\u044B\u0439 \u043C\u0443\u0445\u043E\u043C\u043E\u0440"
   IngredientFileName: SunDriedFlyAgaric
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &816978344
 PrefabInstance:
   m_ObjectHideFlags: 0

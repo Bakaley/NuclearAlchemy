@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Monkshroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,6 +60,7 @@ MonoBehaviour:
   IngredientName: "\u0413\u0440\u0438\u0431-\u043C\u043E\u043D\u0430\u0445"
   IngredientFileName: Monkshroom
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &2060127997583930499
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6405289107557095291}
   - component: {fileID: 4343255605445509628}
-  m_Layer: 0
-  m_Name: infoPanelHead
+  m_Layer: 5
+  m_Name: InfoPanelHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

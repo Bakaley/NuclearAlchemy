@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7576440671994936571}
   - component: {fileID: 4278501346756500475}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.05
   movingSpeed: 0
-  rotationSpeed: 50
+  rotationSpeed: 20
 --- !u!1001 &2831485039187808105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8e3eeee7bde424f4c91771ce7808cc67, type: 2}
     - target: {fileID: 1986119550013035008, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3970994192073260537, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
       propertyPath: m_IsActive
@@ -163,11 +163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4147006520223254290, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5301502343156340531, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6628982094913904828, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
       propertyPath: orbit
@@ -183,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 2138087117003599599, guid: 7db74136a427efd40b50f3ee3debad29, type: 3}
     - target: {fileID: 6628982094913904828, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
       propertyPath: aetherCount
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6628982094913904828, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
       propertyPath: aetherParticle

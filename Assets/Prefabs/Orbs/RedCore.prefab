@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6903966472904148952}
   - component: {fileID: 2761676038978339117}
   - component: {fileID: 1831529603615565002}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 2936422439526206720}
   - component: {fileID: 1028656776271584686}
   - component: {fileID: 8915093519103745576}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9641,7 +9641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3233641576262447630}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FIreParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9676,7 +9676,7 @@ GameObject:
   - component: {fileID: 2703661219313331851}
   - component: {fileID: 43180748860259399}
   - component: {fileID: 276260444908142702}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

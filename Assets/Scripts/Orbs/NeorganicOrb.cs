@@ -31,30 +31,27 @@ public class NeorganicOrb : Orb
                 increaseAether(aetherToAdd);
                 break;
             case EFFECT_TYPES.LEVEL_UP:
-                if (fiery && frozen)
-                {
-                    if (Mathf.Round(gameObject.transform.localPosition.y) >= 2)
-                    {
-                        nextLevelOrb = MixingBoard.StaticInstance.blueCore;
-                    }
-                    else if (Mathf.Round(gameObject.transform.localPosition.y) <= 1)
-                    {
-                        nextLevelOrb = MixingBoard.StaticInstance.redCore;
-                    }
-                }
-                else if (fiery) nextLevelOrb = MixingBoard.StaticInstance.redCore;
-                else if (frozen) nextLevelOrb = MixingBoard.StaticInstance.blueCore;
-                else if (aetherCount != 0) nextLevelOrb = MixingBoard.StaticInstance.greenCore;
-                else if (antimatter) nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
+                List<ReplacingOrbStruct> uncertaintList = new List<ReplacingOrbStruct>();
 
-                if (nextLevelOrb)
+                if (fiery) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.redCore));
+                if (frozen) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.blueCore));
+                if (aetherCount != 0) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.greenCore, false, false, aetherCount));
+                if (antimatter) uncertaintList.Add(new ReplacingOrbStruct(MixingBoard.StaticInstance.purpleVoid));
+
+                if(uncertaintList.Count == 0)
                 {
-                    fiery = false;
-                    frozen = false;
-                    antimatter = false;
-                    Invoke("levelUp", .2f);
+                    DestroyIn(.5);
                 }
-                else DestroyIn(.5);
+                else if(uncertaintList.Count == 1)
+                {
+                    replacingOrb = uncertaintList[0];
+                    Invoke("replace", .25f);
+                }
+                else
+                {
+                    replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.uncertaintyOrb, false, false, 0, false, uncertaintList);
+                    Invoke("replace", .25f);
+                }
 
                 break;
             case EFFECT_TYPES.ANTIMATTER:

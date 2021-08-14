@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DragonScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,13 +52,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preview: {fileID: 3644897812204954475, guid: 0d6b4b5aa0a48f74dbd472064132c19a, type: 3}
   essence1: 1
-  essence2: 1
+  essence2: 8
   essence3: 0
   rarity: 1
   constellation: 1
   IngredientName: "\u0427\u0435\u0448\u0443\u044F \u0434\u0440\u0430\u043A\u043E\u043D\u0430"
   IngredientFileName: DragonScale
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &7446348708379673136
 PrefabInstance:
   m_ObjectHideFlags: 0

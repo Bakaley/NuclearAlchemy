@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VoidOrb : Orb
+public class VoidOrb : Orb, AspectImpactInterface
 {
     public override void affectWith(EFFECT_TYPES effect, int aetherIncreaseOn = 0, Orb.ORB_ARCHETYPES archetype = ORB_ARCHETYPES.NONE)
     {
@@ -13,22 +13,16 @@ public class VoidOrb : Orb
                 case EFFECT_TYPES.FROZE:
                     if (affectTimer <= 0)
                     {
-                        if (fiery) fiery = false;
-                        frozen = true;
-                        if (aetherIncreaseOn != 0) aetherCount = 0;
-                        nextLevelOrb = MixingBoard.StaticInstance.blueVoid;
-                        Invoke("levelUp", .2f);
+                        replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.blueVoid);
+                        Invoke("replace", .2f);
                         affectTimer = .5f;
                     }
                     break;
                 case EFFECT_TYPES.FIRE:
                     if (affectTimer <= 0)
                     {
-                        fiery = true;
-                        if (frozen) frozen = false;
-                        if (aetherIncreaseOn != 0) aetherCount = 0;
-                        nextLevelOrb = MixingBoard.StaticInstance.redVoid;
-                        Invoke("levelUp", .2f);
+                        replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.redVoid);
+                        Invoke("replace", .2f);
                         affectTimer = .5f;
                     }
                     break;
@@ -38,67 +32,50 @@ public class VoidOrb : Orb
                         if (aetherCount != 0) increaseAether(aetherIncreaseOn);
                         else
                         {
-                            if (frozen) frozen = false;
-                            if (fiery) fiery = false;
-                            aetherCount = aetherIncreaseOn;
-                            nextLevelOrb = MixingBoard.StaticInstance.greenVoid;
-                            Invoke("levelUp", .2f);
+                            replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.greenVoid, false, false, aetherIncreaseOn);
+                            Invoke("replace", .2f);
                             affectTimer = .5f;
                         }
                     }
+                    else replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.greenVoid, false, false, replacingOrb.aether + aetherIncreaseOn);
                     break;
                 case EFFECT_TYPES.LEVEL_UP:
                     if (affectTimer <= 0)
                     {
-                        if (frozen) frozen = false;
-                        if (fiery) fiery = false;
-                        if (aetherIncreaseOn != 0) aetherCount = 0;
-                        nextLevelOrb = MixingBoard.StaticInstance.yellowVoid;
-                        Invoke("levelUp", .2f);
+                        replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.yellowVoid);
+                        Invoke("replace", .2f);
                         affectTimer = .5f;
                     }
                     break;
                 case EFFECT_TYPES.ANTIMATTER:
                     if (affectTimer <= 0)
                     {
-                        if (frozen) frozen = false;
-                        if (fiery) fiery = false;
-                        if (aetherIncreaseOn != 0) aetherCount = 0;
-                        nextLevelOrb = MixingBoard.StaticInstance.purpleVoid;
-                        Invoke("levelUp", .2f);
+                        replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.purpleVoid);
+                        Invoke("replace", .2f);
                         affectTimer = .5f;
                     }
                     break;
                 case EFFECT_TYPES.BLUE_DYE:
                     if (affectTimer <= 0)
                     {
-                        if (frozen) frozen = false;
-                        if (fiery) fiery = false;
-                        if (aetherIncreaseOn != 0) aetherCount = 0;
-                        nextLevelOrb = MixingBoard.StaticInstance.bluePulsar;
-                        Invoke("levelUp", .2f);
+                        replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.bluePulsar);
+                        Invoke("replace", .2f);
                         affectTimer = .5f;
                     }
                     break;
                 case EFFECT_TYPES.RED_DYE:
                     if (affectTimer <= 0)
                     {
-                        if (frozen) frozen = false;
-                        if (fiery) fiery = false;
-                        if (aetherIncreaseOn != 0) aetherCount = 0;
-                        nextLevelOrb = MixingBoard.StaticInstance.redPulsar;
-                        Invoke("levelUp", .2f);
+                        replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.redPulsar);
+                        Invoke("replace", .2f);
                         affectTimer = .5f;
                     }
                     break;
                 case EFFECT_TYPES.GREEN_DYE:
                     if (affectTimer <= 0)
                     {
-                        if (frozen) frozen = false;
-                        if (fiery) fiery = false;
-                        if (aetherIncreaseOn != 0) aetherCount = 0;
-                        nextLevelOrb = MixingBoard.StaticInstance.greenPulsar;
-                        Invoke("levelUp", .2f);
+                        replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.greenPulsar);
+                        Invoke("replace", .2f);
                         affectTimer = .5f;
                     }
                     break;
@@ -113,6 +90,18 @@ public class VoidOrb : Orb
         get
         {
             return effectDictionary[type];
+        }
+    }
+
+    public int aspectImpact
+    {
+        get
+        {
+            if (type == ORB_TYPES.BLUE_PULSAR || type == ORB_TYPES.RED_PULSAR || type == ORB_TYPES.GREEN_PULSAR)
+            {
+                return 1;
+            }
+            else return 0;
         }
     }
 

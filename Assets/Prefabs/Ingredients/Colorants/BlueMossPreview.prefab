@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336542966757339777}
   - component: {fileID: 5237634092783086689}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Essense3
   m_TagString: EssenceIcon
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4381635193479382237}
   - component: {fileID: 3767514897896806240}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f579daf13132a5543b60f18a696e0f85, type: 3}
   m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
   m_FlipX: 0
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2421283618486816287}
   - component: {fileID: 6480525717607714217}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DemoDropBlue(Clone)
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7474504914203876158}
   - component: {fileID: 2008175557825849885}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Essense2
   m_TagString: EssenceIcon
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5001962910270590873}
   - component: {fileID: 5533227611544711160}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Essense1
   m_TagString: EssenceIcon
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 986944983767066337}
   - component: {fileID: 1110065073938803913}
   - component: {fileID: 3941827565329214032}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

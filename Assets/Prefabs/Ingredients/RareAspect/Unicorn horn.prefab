@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
   - component: {fileID: -197683229119080524}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Unicorn horn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preview: {fileID: 1464643616409590643, guid: ced09e2ac609a934798d70229bc89ca0, type: 3}
   essence1: 6
-  essence2: 6
+  essence2: 9
   essence3: 0
   rarity: 1
   constellation: 1

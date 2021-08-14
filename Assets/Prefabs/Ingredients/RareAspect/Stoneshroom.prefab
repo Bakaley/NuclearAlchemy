@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
   - component: {fileID: 7855251853683480359}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Stoneshroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

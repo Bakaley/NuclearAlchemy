@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MinerBeetle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u0416\u0443\u043A-\u0448\u0430\u0445\u0451\u0442\u0440"
   IngredientFileName: MinerBeetle
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &970458886220305051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979698373603712602, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8979698373603712602, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -140,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8147189446047299873, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8147189446047299873, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
       propertyPath: m_LocalPosition.y
@@ -202,7 +203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8147189446047299873, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8147189446047299873, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
       propertyPath: m_LocalPosition.y
@@ -260,7 +261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2287140787577431366, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2287140787577431366, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -268,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2287140787577431366, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2287140787577431366, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
       propertyPath: m_LocalRotation.w

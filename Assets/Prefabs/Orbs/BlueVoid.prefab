@@ -59,8 +59,16 @@ PrefabInstance:
         \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0435."
       objectReference: {fileID: 0}
     - target: {fileID: 2993409501378650934, guid: 557793a727ea876478380245e1ca0801, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993409501378650934, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319897097097792282, guid: 557793a727ea876478380245e1ca0801, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5670861901860375949, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.b
@@ -118,6 +126,10 @@ PrefabInstance:
       propertyPath: channelParticleColor.r
       value: 0.31764707
       objectReference: {fileID: 0}
+    - target: {fileID: 6961355736751612035, guid: 557793a727ea876478380245e1ca0801, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7474884593832896138, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: m_fontColor.b
       value: 0.8392157
@@ -130,9 +142,17 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 0.105882354
       objectReference: {fileID: 0}
+    - target: {fileID: 7718392372575593755, guid: 557793a727ea876478380245e1ca0801, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9146637536519389713, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: m_Name
       value: BlueVoid
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146637536519389713, guid: 557793a727ea876478380245e1ca0801, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9146637536519389726, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: m_RootOrder
@@ -144,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9146637536519389726, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9146637536519389726, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: m_LocalPosition.z
@@ -182,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0aafba6e824682c489175f66d8cd0807, type: 2}
+    - target: {fileID: 9146637536527318394, guid: 557793a727ea876478380245e1ca0801, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9146637536744416356, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -197,6 +221,10 @@ PrefabInstance:
     - target: {fileID: 9146637536744416356, guid: 557793a727ea876478380245e1ca0801, type: 3}
       propertyPath: m_Color.r
       value: 0.3150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146637536744416358, guid: 557793a727ea876478380245e1ca0801, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 557793a727ea876478380245e1ca0801, type: 3}

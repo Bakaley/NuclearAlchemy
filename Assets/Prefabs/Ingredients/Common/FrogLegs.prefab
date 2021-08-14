@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FrogLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,8 +58,9 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u041B\u044F\u0433\u0443\u0448\u0430\u0447\u044C\u0438 \u043B\u0430\u043F\u043A\u0438"
-  IngredientFileName: ForgLegs
+  IngredientFileName: FrogLegs
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &1179335553116232554
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
   - component: {fileID: -2378068383361691161}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LunarLemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preview: {fileID: 710370782270257530, guid: e3ef46bbbdd0d3d45b8f1af5f1934686, type: 3}
   essence1: 2
-  essence2: 2
+  essence2: 7
   essence3: 0
   rarity: 1
   constellation: 1

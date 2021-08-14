@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1404504475824767971}
   - component: {fileID: 1404504475824767964}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ShroudPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2839573695811484881}
   - component: {fileID: 7209535036031687891}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 8370988502948133404}
   - component: {fileID: 6022137159632511101}
   - component: {fileID: 6153454321973250978}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cleaning
   m_TagString: Untagged
   m_Icon: {fileID: 0}

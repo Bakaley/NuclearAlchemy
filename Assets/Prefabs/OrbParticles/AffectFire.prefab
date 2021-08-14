@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2670468703329356942}
   - component: {fileID: 2670468703329356940}
   - component: {fileID: 2670468703329356941}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ingredient-CandleType-Flash2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4767,7 +4767,7 @@ GameObject:
   - component: {fileID: 2670468703666663154}
   - component: {fileID: 2670468703666663152}
   - component: {fileID: 2670468703666663153}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ingredient-CandleType-Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9523,7 +9523,7 @@ GameObject:
   - component: {fileID: 2670468703726124607}
   - component: {fileID: 2670468703726124605}
   - component: {fileID: 2670468703726124606}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AffectFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14336,7 +14336,7 @@ GameObject:
   - component: {fileID: 2670468704650465311}
   - component: {fileID: 2670468704650465309}
   - component: {fileID: 2670468704650465310}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ingredient-CandleType-Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

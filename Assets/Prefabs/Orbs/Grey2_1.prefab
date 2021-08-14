@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2631840202043729940}
   - component: {fileID: 7289701062831882197}
   - component: {fileID: 5932512870005592310}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2559152105456307923}
   - component: {fileID: 2559152105456307921}
   - component: {fileID: 2559152105456307922}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParticleSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4983,7 +4983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2559152105608695860}
   - component: {fileID: 3193839883572161238}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Grey2_1
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -5023,28 +5023,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbType: 6
-  orbPreview: {fileID: 777746179825977637, guid: f279a1fce9aa97d479624d08578f57da, type: 3}
+  OrbPreview: {fileID: 0}
   countOfReactionsIn: 0
   dissolvingAppearing: 1
   coreSphereRenderer: {fileID: 3692229672333961824}
   outerSphereRenderer: {fileID: 5528678569203789923}
   particleSphere: {fileID: 2559152105456307921}
   symbolRenderer: {fileID: 7289701062831882197}
+  antimatterSymbolRenderer: {fileID: 0}
   counter: {fileID: 0}
   movingSeed: 0
   particleSystemSample: {fileID: 5438421190355463264, guid: f76a1f33c3ba95241981c9e86ad46d34, type: 3}
-  particleColor: {r: 0.9292453, g: 0.97697, b: 1, a: 1}
+  channelParticleColor: {r: 0, g: 0, b: 0, a: 0}
   channeling: 0
   frozen: 0
   fiery: 0
-  aetherCounter: 0
+  aetherCount: 0
   antimatter: 0
   comboAvaliable: 0
+  orbDescription: 
   nextLevelOrb: {fileID: 6583435648782796497, guid: 7ede3601d676b704aa9650673169c113, type: 3}
   level: 2
   points: -5
   iceParticles: {fileID: 0}
-  unstable: 0
+  fireParticles: {fileID: 0}
+  aetherParticle: {fileID: 0}
+  orbit: {fileID: 0}
+  aetherParticles: []
 --- !u!1 &2630193998610194195
 GameObject:
   m_ObjectHideFlags: 0
@@ -5056,7 +5061,7 @@ GameObject:
   - component: {fileID: 1182478375598693342}
   - component: {fileID: 2348658594745971488}
   - component: {fileID: 4952234062532707693}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9873,7 +9878,7 @@ GameObject:
   - component: {fileID: 4185507714800359323}
   - component: {fileID: 5958604759179912634}
   - component: {fileID: 328951388575190822}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9953,7 +9958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7745336739985832200}
   - component: {fileID: 55065518764280650}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10002,7 +10007,7 @@ GameObject:
   - component: {fileID: 8348784437938003157}
   - component: {fileID: 4474540030792850078}
   - component: {fileID: 5528678569203789923}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OutSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10084,7 +10089,7 @@ GameObject:
   - component: {fileID: 8195553101145715373}
   - component: {fileID: 3692229672333961824}
   - component: {fileID: 5419272292977558619}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10180,6 +10185,10 @@ PrefabInstance:
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_Name
       value: Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_IsActive

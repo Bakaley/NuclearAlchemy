@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
   - component: {fileID: -2846233746609820004}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WaterStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preview: {fileID: 4239853153452720039, guid: d8d06ba3d3d874a4da80a43edded03ad, type: 3}
   essence1: 10
-  essence2: 10
+  essence2: 5
   essence3: 0
   rarity: 1
   constellation: 1

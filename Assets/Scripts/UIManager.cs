@@ -19,15 +19,18 @@ public class UIManager : MonoBehaviour
     GameObject boardCross;
     [SerializeField]
     GameObject deployButton;
+
     [SerializeField]
-    GameObject addingBoardPlane;
+    GameObject addingPlane;
     [SerializeField]
-    GameObject mixingBoardPlane;
+    GameObject mixingPlane;
+
+    [SerializeField]
+    GameObject target;
     [SerializeField]
     Sprite defaultBoardSample;
     [SerializeField]
     Sprite selectedBoardSample;
-
 
     public static UIManager staticInstance
     {
@@ -35,31 +38,51 @@ public class UIManager : MonoBehaviour
         private set;
     }
 
+    public static GameObject cameraObject
+    {
+        get
+        {
+            return staticInstance.GetComponent<Canvas>().worldCamera.gameObject;
+        }
+    }
+
     static bool addingMode = false;
 
-    static List<DissolvingUIElement> addingElementsList;
-    static List<DissolvingUIElement>  mixingElementsList;
+    static List<DissolvingSprite> addingElementsList;
+    static List<DissolvingSprite>  mixingElementsList;
 
     private void Awake()
     {
-        addingElementsList = new List<DissolvingUIElement>();
-        mixingElementsList = new List<DissolvingUIElement>();
+        addingElementsList = new List<DissolvingSprite>();
+        mixingElementsList = new List<DissolvingSprite>();
 
         staticInstance = this;
     }
 
     GameObject statBoard;
     void Start()
-    {        
-        addingElementsList.Add(choosingCross.GetComponent<DissolvingUIElement>());
-        addingElementsList.Add(boardCross.GetComponent<DissolvingUIElement>());
-        addingElementsList.Add(mixingModeButton.GetComponent<DissolvingUIElement>());
-        addingElementsList.Add(deployButton.GetComponent<DissolvingUIElement>());
+    {
+        addingElementsList.Add(choosingCross.GetComponent<DissolvingSprite>());
+        addingElementsList.Add(boardCross.GetComponent<DissolvingSprite>());
+        addingElementsList.Add(mixingModeButton.GetComponent<DissolvingSprite>());
+        addingElementsList.Add(deployButton.GetComponent<DissolvingSprite>());
 
 
-        mixingElementsList.Add(movingCross.GetComponent<DissolvingUIElement>());
-        mixingElementsList.Add(spinningCross.GetComponent<DissolvingUIElement>());
-        mixingElementsList.Add(addingModeButton.GetComponent<DissolvingUIElement>());
+        mixingElementsList.Add(movingCross.GetComponent<DissolvingSprite>());
+        mixingElementsList.Add(spinningCross.GetComponent<DissolvingSprite>());
+        mixingElementsList.Add(addingModeButton.GetComponent<DissolvingSprite>());
+        DissolvingSprite[] targets = target.GetComponentsInChildren<DissolvingSprite>();
+        foreach (DissolvingSprite element in targets) mixingElementsList.Add(element);
+    }
+
+    public void openCookingUI()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void closeCookingUI()
+    {
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -67,42 +90,49 @@ public class UIManager : MonoBehaviour
         
     }
 
-
-
     public void switchToAddingMode()
     {
-
         if (!addingMode)
         {
-            foreach (DissolvingUIElement element in mixingElementsList)
+            addingPlane.GetComponent<SpriteRenderer>().sprite = selectedBoardSample;
+            mixingPlane.GetComponent<SpriteRenderer>().sprite = defaultBoardSample;
+            foreach (DissolvingSprite element in mixingElementsList)
             {
-                element.dissolve();
+                element.disappear();
+                element.gameObject.SetActive(false);
             }
-            foreach (DissolvingUIElement element in addingElementsList)
+            foreach (DissolvingSprite element in addingElementsList)
             {
                 element.appear();
+                element.gameObject.SetActive(true);
+
             }
-            mixingBoardPlane.GetComponent<SpriteRenderer>().sprite = defaultBoardSample;
-            addingBoardPlane.GetComponent<SpriteRenderer>().sprite = selectedBoardSample;
+
             addingMode = true;
         }
+        
     }
 
     public void switchToMixingMode()
     {
         if (addingMode)
         {
-            foreach (DissolvingUIElement element in mixingElementsList)
+            addingPlane.GetComponent<SpriteRenderer>().sprite = defaultBoardSample;
+            mixingPlane.GetComponent<SpriteRenderer>().sprite = selectedBoardSample;
+            foreach (DissolvingSprite element in mixingElementsList)
             {
                 element.appear();
+                element.gameObject.SetActive(true);
+
             }
-            foreach (DissolvingUIElement element in addingElementsList)
+            foreach (DissolvingSprite element in addingElementsList)
             {
-                element.dissolve();
+                element.disappear();
+                element.gameObject.SetActive(false);
+
             }
             addingMode = false;
-            addingBoardPlane.GetComponent<SpriteRenderer>().sprite = defaultBoardSample;
-            mixingBoardPlane.GetComponent<SpriteRenderer>().sprite = selectedBoardSample;
+
         }
 
     }

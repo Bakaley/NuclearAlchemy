@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ExtremelyStrangeBerry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,14 +53,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preview: {fileID: 519083802231556322, guid: 1e197b588d50f9a4fb656b35e4a930c5, type: 3}
   essence1: 5
-  essence2: 5
-  essence3: 5
+  essence2: 6
+  essence3: 10
   rarity: 3
   constellation: 1
   IngredientName: "\u041F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u043E \u0441\u0442\u0440\u0430\u043D\u043D\u0430\u044F
     \u044F\u0433\u043E\u0434\u0430"
   IngredientFileName: ExtremelyStrangeBerry
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &1692213737546972077
 PrefabInstance:
   m_ObjectHideFlags: 0

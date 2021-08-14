@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 782314095850975892}
   - component: {fileID: 782314095831662170}
   - component: {fileID: 782314095831226872}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AffectLevelUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4825,7 +4825,7 @@ GameObject:
   - component: {fileID: 782314095851013208}
   - component: {fileID: 782314095831647500}
   - component: {fileID: 782314095831601354}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ingredient-Unite(Last)-Flash3(Slow)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9581,7 +9581,7 @@ GameObject:
   - component: {fileID: 782314095850948350}
   - component: {fileID: 782314095831549014}
   - component: {fileID: 782314095831233066}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ingredient-CoreType(Last)-Flash5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14346,7 +14346,7 @@ GameObject:
   - component: {fileID: 1477677719473979995}
   - component: {fileID: 2843308685027213947}
   - component: {fileID: 321714088876997925}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ingredient-CoreType(Last)-Flash5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19111,7 +19111,7 @@ GameObject:
   - component: {fileID: 2871345363542964230}
   - component: {fileID: 5028705502609262822}
   - component: {fileID: 2861997849414477745}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ingredient-Unite(Last)-Flash3(Slow) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3655848084186582935}
   - component: {fileID: 3655848084186582929}
   - component: {fileID: 4637469022027086037}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3655848084883171947}
   - component: {fileID: 3655848084883171946}
   - component: {fileID: 7186175988373131885}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PotionTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,8 +241,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   recipeName: 
-  icon: {fileID: 0}
-  iconColor: {r: 0, g: 0, b: 0, a: 0}
   basePoints: 0
   aspect: 0
   temperature: 0
@@ -251,8 +249,11 @@ MonoBehaviour:
   voidness: 0
   currentLevel: 1
   potionType: 0
+  icon: {fileID: 0}
+  iconColor: {r: 0, g: 0, b: 0, a: 0}
   basePointsLVL2: 0
   basePointsLVL3: 0
+  price: 0
 --- !u!1 &3655848085149720265
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2758971502564300924}
   - component: {fileID: 3655848085149720267}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3655848085530339719}
   - component: {fileID: 3655848085530339718}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Taste (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +439,7 @@ GameObject:
   - component: {fileID: 3655848085677058237}
   - component: {fileID: 5653424027066560886}
   - component: {fileID: 926885524967097716}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3655848085687136066}
   - component: {fileID: 3655848085687136077}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Aspect3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

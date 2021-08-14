@@ -12,6 +12,7 @@ public class AddingBoard : MonoBehaviour
     [SerializeField]
     GameObject orbShift;
 
+
     void updateOrbList()
     {
         orbs = new Orb[length, height];

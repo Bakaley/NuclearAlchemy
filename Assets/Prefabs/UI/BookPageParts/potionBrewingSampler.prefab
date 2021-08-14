@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8316945040827274534}
   - component: {fileID: 8316945040827274535}
-  m_Layer: 0
+  - component: {fileID: 8831504678181192703}
+  m_Layer: 5
   m_Name: LunarIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1f7c9a3143a75264ab801c486ea6377b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,6 +88,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8831504678181192703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316945040827274553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daef309ea1eba64489649ecaff7a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolvingMaterialSample: {fileID: 2100000, guid: 1f7c9a3143a75264ab801c486ea6377b, type: 2}
+  defaultEdgesParam: 0
+  random: 0
+  variant2: {fileID: 0}
+  variant3: {fileID: 0}
+  variant4: {fileID: 0}
+  timeModifier: 1
 --- !u!1 &8316945041037087742
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +117,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8316945041037087743}
   - component: {fileID: 8316945041037087740}
-  m_Layer: 0
+  - component: {fileID: 1918275204223931825}
+  m_Layer: 5
   m_Name: PotionCountIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +163,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1f7c9a3143a75264ab801c486ea6377b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,6 +195,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1918275204223931825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316945041037087742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daef309ea1eba64489649ecaff7a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolvingMaterialSample: {fileID: 2100000, guid: 1f7c9a3143a75264ab801c486ea6377b, type: 2}
+  defaultEdgesParam: 0
+  random: 0
+  variant2: {fileID: 0}
+  variant3: {fileID: 0}
+  variant4: {fileID: 0}
+  timeModifier: 1
 --- !u!1 &8316945041594383433
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +225,8 @@ GameObject:
   - component: {fileID: 8316945041594383542}
   - component: {fileID: 8316945041594383540}
   - component: {fileID: 8316945041594383543}
-  m_Layer: 0
+  - component: {fileID: 2727199576045525159}
+  m_Layer: 5
   m_Name: LunarCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,8 +322,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290032820
-  m_fontColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+    rgba: 11842740
+  m_fontColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 0}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -344,6 +385,19 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!114 &2727199576045525159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316945041594383433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37299bfb4e50114419016d6c30ae534b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textApperingTimer: 0.4
 --- !u!1 &8316945041767479567
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +409,8 @@ GameObject:
   - component: {fileID: 8316945041767479564}
   - component: {fileID: 8316945041767479562}
   - component: {fileID: 8316945041767479565}
-  m_Layer: 0
+  - component: {fileID: 22998829667965233}
+  m_Layer: 5
   m_Name: PotionCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,8 +506,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290032820
-  m_fontColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+    rgba: 11842740
+  m_fontColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 0}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -514,6 +569,19 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!114 &22998829667965233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316945041767479567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37299bfb4e50114419016d6c30ae534b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textApperingTimer: 0.4
 --- !u!1 &8316945042266124595
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +592,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8316945042266124592}
   - component: {fileID: 8316945042266124593}
-  m_Layer: 0
+  - component: {fileID: 5000372445200644542}
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +638,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1f7c9a3143a75264ab801c486ea6377b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -591,7 +660,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 12979e50a8972ab4abb0c59f85bbefe3, type: 3}
-  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  m_Color: {r: 0.109647535, g: 0.60297054, b: 0.754717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -601,6 +670,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5000372445200644542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316945042266124595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daef309ea1eba64489649ecaff7a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolvingMaterialSample: {fileID: 2100000, guid: 1f7c9a3143a75264ab801c486ea6377b, type: 2}
+  defaultEdgesParam: 0
+  random: 0
+  variant2: {fileID: 0}
+  variant3: {fileID: 0}
+  variant4: {fileID: 0}
+  timeModifier: 1
 --- !u!1 &8725249709033840211
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,8 +698,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6152040180095420740}
-  m_Layer: 0
-  m_Name: PotionReward
+  - component: {fileID: 1474285626350388408}
+  m_Layer: 5
+  m_Name: potionBrewingSampler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,3 +730,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1474285626350388408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8725249709033840211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004245755b490444abb171acaa3dc51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionIcon: {fileID: 8316945042266124595}
+  potionCount: {fileID: 8316945041767479567}
+  lunarCount: {fileID: 8316945041594383433}
+  recipeIcon: {fileID: 0}

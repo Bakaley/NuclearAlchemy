@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
   - component: {fileID: -8649504052672007798}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SaltOfRebirth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +31,7 @@ RectTransform:
   m_Children:
   - {fileID: 6106062435330713805}
   - {fileID: 5202749086221755011}
+  - {fileID: 6297274473847875150}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -204,4 +205,70 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 937572511047807677, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
   m_PrefabInstance: {fileID: 4985781113324605502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8213490722249687382
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 34802642}
+    m_Modifications:
+    - target: {fileID: 1074474479751048939, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 448962243956012965, guid: 37acc9d8f85ba2a44ae68934db145552, type: 3}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325017, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_Name
+      value: Grey1 (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+--- !u!4 &6297274473847875150 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+  m_PrefabInstance: {fileID: 8213490722249687382}
   m_PrefabAsset: {fileID: 0}

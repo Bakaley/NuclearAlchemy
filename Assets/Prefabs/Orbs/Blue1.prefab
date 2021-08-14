@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 556512141188642978}
   - component: {fileID: 7485336415800792495}
   - component: {fileID: 7380097505850458963}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AntimatterSymbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8597127656021722652}
   - component: {fileID: 1076396941370756894}
   - component: {fileID: 1805807818155639217}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 2287140787492322209}
   - component: {fileID: 2287140787492322211}
   - component: {fileID: 2287140787492322208}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParticleSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5082,7 +5082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2287140787577431366}
   - component: {fileID: 227071283492124307}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Blue1
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -5167,7 +5167,7 @@ GameObject:
   - component: {fileID: 5585049809121167327}
   - component: {fileID: 1081724250076520210}
   - component: {fileID: 8134177805893548740}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5265,7 +5265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2951249944512674919}
   - component: {fileID: 2606049259184126308}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5312,7 +5312,7 @@ GameObject:
   - component: {fileID: 5756363505908935079}
   - component: {fileID: 154990840552337388}
   - component: {fileID: 8108642032476947729}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OutSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5397,6 +5397,10 @@ PrefabInstance:
       propertyPath: useRigidbodyForVelocity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4059097924872438462, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4059097924886154806, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 0
@@ -5466,6 +5470,10 @@ PrefabInstance:
       value: IceParticles
       objectReference: {fileID: 0}
     - target: {fileID: 4059097925177810240, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097925177810240, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5481,6 +5489,10 @@ PrefabInstance:
       propertyPath: useRigidbodyForVelocity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4059097925202376021, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4059097925428463263, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: ForceModule.enabled
       value: 1
@@ -5492,6 +5504,10 @@ PrefabInstance:
     - target: {fileID: 4059097925428463263, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097925428463264, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4059097926172079614, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: ForceModule.enabled
@@ -5509,9 +5525,17 @@ PrefabInstance:
       propertyPath: useRigidbodyForVelocity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4059097926357484889, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4059097926438267984, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097926438267989, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4059097926471339690, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: ForceModule.enabled
@@ -5525,9 +5549,17 @@ PrefabInstance:
       propertyPath: useRigidbodyForVelocity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4059097926471339695, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4059097926830505094, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059097926830505099, guid: 2798405b35f247340a65411f207dc181, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2798405b35f247340a65411f207dc181, type: 3}
@@ -5551,6 +5583,10 @@ PrefabInstance:
     - target: {fileID: 883869092277819075, guid: f76a1f33c3ba95241981c9e86ad46d34, type: 3}
       propertyPath: m_Name
       value: ChannelingParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 883869092277819075, guid: f76a1f33c3ba95241981c9e86ad46d34, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 883869092277819075, guid: f76a1f33c3ba95241981c9e86ad46d34, type: 3}
       propertyPath: m_IsActive
@@ -5758,9 +5794,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2025487629833839534, guid: 7a17c6d44e8e60f44a11793dac03fae8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2025633001237672648, guid: 7a17c6d44e8e60f44a11793dac03fae8, type: 3}
       propertyPath: m_Name
       value: FIreParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025633001237672648, guid: 7a17c6d44e8e60f44a11793dac03fae8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025832547234988154, guid: 7a17c6d44e8e60f44a11793dac03fae8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026246372578112200, guid: 7a17c6d44e8e60f44a11793dac03fae8, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a17c6d44e8e60f44a11793dac03fae8, type: 3}
@@ -5784,6 +5836,10 @@ PrefabInstance:
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_Name
       value: Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_IsActive

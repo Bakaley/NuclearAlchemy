@@ -121,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416680366174157162, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: m_Name
-      value: A2
+      value: Grey2
       objectReference: {fileID: 0}
     - target: {fileID: 4416680366174157163, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: m_RootOrder

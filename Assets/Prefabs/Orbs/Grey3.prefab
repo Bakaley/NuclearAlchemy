@@ -29,28 +29,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbType: 8
-  orbPreview: {fileID: 1930977106848394879, guid: 2f25cb0cdb698ba419157744840ef692, type: 3}
+  OrbPreview: {fileID: 0}
   countOfReactionsIn: 0
   dissolvingAppearing: 1
   coreSphereRenderer: {fileID: 5468372441769655428}
   outerSphereRenderer: {fileID: 3776038823169664647}
   particleSphere: {fileID: 3228879502779949542}
   symbolRenderer: {fileID: 2158588642347051313}
+  antimatterSymbolRenderer: {fileID: 0}
   counter: {fileID: 0}
   movingSeed: 0
   particleSystemSample: {fileID: 5438421190355463264, guid: f76a1f33c3ba95241981c9e86ad46d34, type: 3}
-  particleColor: {r: 0.9292453, g: 0.97697, b: 1, a: 1}
+  channelParticleColor: {r: 0, g: 0, b: 0, a: 0}
   channeling: 0
   frozen: 0
   fiery: 0
-  aetherCounter: 0
+  aetherCount: 0
   antimatter: 0
   comboAvaliable: 0
+  orbDescription: 
   nextLevelOrb: {fileID: 97255993474857610, guid: 62f0f5c084c02b14cae2b6cbbf5e08f9, type: 3}
   level: 3
   points: 35
   iceParticles: {fileID: 0}
-  unstable: 0
+  fireParticles: {fileID: 0}
+  aetherParticle: {fileID: 0}
+  orbit: {fileID: 0}
+  aetherParticles: []
 --- !u!114 &2613579995802681599
 MonoBehaviour:
   m_ObjectHideFlags: 0

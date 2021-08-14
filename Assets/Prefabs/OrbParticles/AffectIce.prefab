@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5939602617963726932}
   - component: {fileID: 5939602617963726930}
   - component: {fileID: 5939602617963726931}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ef_SnowFlakes04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4935,7 +4935,7 @@ GameObject:
   - component: {fileID: 5939602618188194405}
   - component: {fileID: 5939602618188194403}
   - component: {fileID: 5939602618188194404}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ef_SnowFlakes05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9859,7 +9859,7 @@ GameObject:
   - component: {fileID: 5939602619006414971}
   - component: {fileID: 5939602619006414969}
   - component: {fileID: 5939602619006414970}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ef_SnowFlakes02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14783,7 +14783,7 @@ GameObject:
   - component: {fileID: 5939602619132030171}
   - component: {fileID: 5939602619132030169}
   - component: {fileID: 5939602619132030170}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ef_SnowFlakes01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19707,7 +19707,7 @@ GameObject:
   - component: {fileID: 5939602619704301743}
   - component: {fileID: 5939602619704301741}
   - component: {fileID: 5939602619704301742}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ef_SnowFlakes03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24631,7 +24631,7 @@ GameObject:
   - component: {fileID: 7654260170414602133}
   - component: {fileID: 7654260170414602132}
   - component: {fileID: 7654260170414602135}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ef_FrostSmokeA1_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29483,7 +29483,7 @@ GameObject:
   - component: {fileID: 7654260170646104087}
   - component: {fileID: 2503638901051092732}
   - component: {fileID: 138299503909309411}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AffectIce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34334,7 +34334,7 @@ GameObject:
   - component: {fileID: 7654260171257285024}
   - component: {fileID: 7654260171257285038}
   - component: {fileID: 7654260171257285025}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ef_IceGlowCircles01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39177,7 +39177,7 @@ GameObject:
   - component: {fileID: 7654260171596083326}
   - component: {fileID: 7654260171596083324}
   - component: {fileID: 7654260171596083327}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ef_IceGlowCircles02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

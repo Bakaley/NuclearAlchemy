@@ -25,15 +25,17 @@ public class EssencePanel : MonoBehaviour
     [SerializeField]
     GameObject LightingEssence;
 
+    public static Dictionary<Ingredient.ESSENSE, GameObject> essenceIcons
+    {
+        get; private set;
+    }
+    public static Dictionary<Ingredient.ESSENSE, int> essenceScores
+    {
+        get; private set;
+    }
 
-    List<GameObject> dissolvingArray = new List<GameObject>();
 
-    Dictionary<Ingredient.ESSENSE, GameObject> essenceIcons;
-    Dictionary<Ingredient.ESSENSE, int> essenceScores;
-
-    double dissolveTimer = 0;
-
-    void Start()
+    void Awake()
     {
         essenceIcons = new Dictionary<Ingredient.ESSENSE, GameObject>();
         essenceScores = new Dictionary<Ingredient.ESSENSE, int>();
@@ -63,23 +65,7 @@ public class EssencePanel : MonoBehaviour
 
     void Update()
     {
-        if (dissolveTimer >= 0)
-        {
-            dissolveTimer -= Time.deltaTime;
-            foreach (GameObject essenceIcon in dissolvingArray)
-                if(essenceIcon!= null)
-                {
-                    essenceIcon.GetComponent<SpriteRenderer>().material.SetFloat("Shading_Vector", essenceIcon.GetComponent<SpriteRenderer>().material.GetFloat("Shading_Vector") + Time.deltaTime*4);
 
-                    if (essenceIcon.GetComponent<SpriteRenderer>().material.GetFloat("Shading_Vector") >= 1)
-                    {
-                        dissolveTimer = 0;
-                        essenceIcon.GetComponent<SpriteRenderer>().material.SetFloat("Shading_Vector", 1);
-                        
-                    }
-                }
-        }
-        //else gameObject.GetComponent<Material>().SetFloat("Shading_Vector", 1);
     }
 
     public void addEssence(Ingredient.ESSENSE essence)
@@ -87,21 +73,21 @@ public class EssencePanel : MonoBehaviour
         essenceScores[essence]++;
         if(essenceScores[essence] == 1)
         {
-            dissolvingArray.Add(essenceIcons[essence]);
-            dissolveTimer = .3;
-            getNumberSpriteRenderer(essenceIcons[essence]).color = new Color32(154, 154, 154, 255);
-            getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();
+            essenceIcons[essence].GetComponent<DissolvingElement>().appear();
+
+           /* getNumberSpriteRenderer(essenceIcons[essence]).color = new Color32(154, 154, 154, 255);
+            getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();*/
         }
-        else if(essenceScores[essence] < 10)
+       /* else if(essenceScores[essence] < 10)
         {
             Sprite loadedNumber = Resources.Load<Sprite>("Numbers/numberIcon" + essenceScores[essence]) as Sprite;
             getNumberSpriteRenderer(essenceIcons[essence]).sprite = loadedNumber;
             getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();
         }
-        else getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();
+        else getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();*/
     }
 
-    SpriteRenderer getNumberSpriteRenderer (GameObject icon)
+    public static SpriteRenderer getNumberSpriteRenderer (GameObject icon)
     {
         foreach (Transform childTransform in icon.transform)
         {

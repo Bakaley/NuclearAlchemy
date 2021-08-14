@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1573161217411725560}
   - component: {fileID: 1509298152206384140}
-  m_Layer: 0
-  m_Name: AetherParticleBlue
+  m_Layer: 5
+  m_Name: AetherBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 7164052029757649898}
   - component: {fileID: 3049009789387975991}
   - component: {fileID: 1644737777567418397}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

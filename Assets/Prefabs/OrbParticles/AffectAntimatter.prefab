@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1400135986996958993}
   - component: {fileID: 6359780067562188448}
   - component: {fileID: 6526300213776732225}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AffectAntimatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

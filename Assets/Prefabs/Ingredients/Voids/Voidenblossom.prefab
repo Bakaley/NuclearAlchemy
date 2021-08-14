@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Voidenblossom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,6 +59,7 @@ MonoBehaviour:
   IngredientName: "\u041F\u0443\u0441\u0442\u043E\u0446\u0432\u0435\u0442"
   IngredientFileName: Voidenblossom
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &2690351090078602759
 PrefabInstance:
   m_ObjectHideFlags: 0

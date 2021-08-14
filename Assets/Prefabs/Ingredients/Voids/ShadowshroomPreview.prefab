@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7430473616126858974}
   - component: {fileID: 3125991047606277120}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DemoG1Antimatter(Clone)
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22397de89a556e740ba34d8d2593c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &99827201889127743
+--- !u!1 &168687594480004756
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,23 +53,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2669467995001477085}
-  - component: {fileID: 7593817640046132430}
-  - component: {fileID: 1705913809766177285}
-  m_Layer: 0
+  - component: {fileID: 4919980392143816737}
+  - component: {fileID: 5733704853417229063}
+  - component: {fileID: 8404963499468926192}
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2669467995001477085
+--- !u!4 &4919980392143816737
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99827201889127743}
+  m_GameObject: {fileID: 168687594480004756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
@@ -77,21 +77,21 @@ Transform:
   m_Father: {fileID: 3200752393122646132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7593817640046132430
+--- !u!33 &5733704853417229063
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99827201889127743}
+  m_GameObject: {fileID: 168687594480004756}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1705913809766177285
+--- !u!23 &8404963499468926192
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99827201889127743}
+  m_GameObject: {fileID: 168687594480004756}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3796437731010489165}
   - component: {fileID: 7824851681536610163}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Essense3
   m_TagString: EssenceIcon
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ RectTransform:
   m_AnchoredPosition: {x: -0.5, y: -0.63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2653214005174794572
+--- !u!1 &2955856067732806794
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,22 +258,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6929831052646420818}
-  - component: {fileID: 5976438557175599807}
-  m_Layer: 0
+  - component: {fileID: 1979343609779010229}
+  - component: {fileID: 3363184306494973661}
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6929831052646420818
+--- !u!4 &1979343609779010229
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2653214005174794572}
+  m_GameObject: {fileID: 2955856067732806794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.311}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
@@ -281,13 +281,13 @@ Transform:
   m_Father: {fileID: 3200752393122646132}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5976438557175599807
+--- !u!212 &3363184306494973661
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2653214005174794572}
+  m_GameObject: {fileID: 2955856067732806794}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -320,7 +320,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e7877793fc6a4a94fa6c4d2fcd029378, type: 3}
   m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
   m_FlipX: 0
@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1563182320977712635}
   - component: {fileID: 4048829716881625875}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Essense2
   m_TagString: EssenceIcon
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4305535211460303643}
   - component: {fileID: 2234292066873885824}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Essense1
   m_TagString: EssenceIcon
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 1371568124605784068}
   - component: {fileID: 4797249552258026712}
   - component: {fileID: 5778059837733134478}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 769220071484574943}
   - component: {fileID: 5741111793633737199}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f1bffdd1a4ced2b40941e43e18b82e6d, type: 3}
   m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
   m_FlipX: 0
@@ -739,7 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3200752393122646132}
   - component: {fileID: 2492059264028636175}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DemoB2Antimatter(Clone)
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -757,8 +757,8 @@ Transform:
   m_LocalPosition: {x: 1.5, y: 2, z: 0}
   m_LocalScale: {x: 1.665, y: 1.665, z: 1.665}
   m_Children:
-  - {fileID: 2669467995001477085}
-  - {fileID: 6929831052646420818}
+  - {fileID: 4919980392143816737}
+  - {fileID: 1979343609779010229}
   m_Father: {fileID: 7991449967864411681}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

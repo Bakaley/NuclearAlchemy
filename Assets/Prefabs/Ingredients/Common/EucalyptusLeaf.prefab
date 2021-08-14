@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EucalyptusLeaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u041B\u0438\u0441\u0442 \u044D\u0432\u043A\u0430\u043B\u0438\u043F\u0442\u0430"
   IngredientFileName: EucalyptusLeaf
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &6189046683428951730
 PrefabInstance:
   m_ObjectHideFlags: 0

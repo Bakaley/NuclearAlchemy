@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4793115635376258240, guid: d60256840e70de446b70432273b77861, type: 3}
       propertyPath: m_Name
-      value: AetherParticleIce
+      value: AetherIce
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d60256840e70de446b70432273b77861, type: 3}

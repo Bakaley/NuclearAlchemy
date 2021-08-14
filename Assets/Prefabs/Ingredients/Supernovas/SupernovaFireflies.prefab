@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SupernovaFireflies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,6 +30,7 @@ RectTransform:
   m_Children:
   - {fileID: 649090899504512505}
   - {fileID: 241709503759587175}
+  - {fileID: 5179481926209464932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59,6 +60,7 @@ MonoBehaviour:
   IngredientName: "\u0421\u0432\u0435\u0440\u0445\u043D\u043E\u0432\u044B\u0435 \u0441\u0432\u0435\u0442\u043B\u044F\u0447\u043A\u0438"
   IngredientFileName: SupernovaFireflies
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &3430141157002779361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,6 +126,72 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
   m_PrefabInstance: {fileID: 3430141157002779361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7023769133308956028
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 34802642}
+    m_Modifications:
+    - target: {fileID: 1074474479751048939, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 448962243956012965, guid: 37acc9d8f85ba2a44ae68934db145552, type: 3}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781051447318325017, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+      propertyPath: m_Name
+      value: Grey1 (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+--- !u!4 &5179481926209464932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2781051447318325016, guid: 10380a958a9517b4681d9870ad7dab8b, type: 3}
+  m_PrefabInstance: {fileID: 7023769133308956028}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9206753586243979581
 PrefabInstance:

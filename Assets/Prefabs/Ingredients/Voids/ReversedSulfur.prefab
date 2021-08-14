@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ReversedSulfur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,6 +59,7 @@ MonoBehaviour:
   IngredientName: "\u041E\u0431\u0440\u0430\u0442\u043D\u0430\u044F \u0441\u0435\u0440\u0430"
   IngredientFileName: ReversedSulfur
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &4365037353689002176
 PrefabInstance:
   m_ObjectHideFlags: 0

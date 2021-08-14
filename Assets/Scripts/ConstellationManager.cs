@@ -33,10 +33,13 @@ public class ConstellationManager : MonoBehaviour
     {
         int n1 = UnityEngine.Random.Range(1, 7);
         CONSTELLATION1 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), n1);
+        //rigging constellations
+        //CONSTELLATION1 = CONSTELLATION.AETHER;
         Debug.Log(CONSTELLATION1);
         int n2 = UnityEngine.Random.Range(1, 7);
-        while (n1 == n2) n2 = UnityEngine.Random.Range(1, 7);
-        CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), n2);
+        CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), UnityEngine.Random.Range(1, 7));
+        //CONSTELLATION2 = CONSTELLATION.LENSING;
+        while (CONSTELLATION1 == CONSTELLATION2) CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), UnityEngine.Random.Range(1, 7));
         Debug.Log(CONSTELLATION2);
         sortConstellations();
 
@@ -61,7 +64,6 @@ public class ConstellationManager : MonoBehaviour
             CONSTELLATION constellation = CONSTELLATION1;
             CONSTELLATION1 = CONSTELLATION2;
             CONSTELLATION2 = constellation;
-            Debug.Log(CONSTELLATION1 + " " + CONSTELLATION2);
         }
     }
 }

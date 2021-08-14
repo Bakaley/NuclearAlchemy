@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 abstract public class Recipe : MonoBehaviour
 {
 
-    protected enum RECIPE_TYPE
+    public enum RECIPE_TYPE
     {
         POTION_BREWING,
         NEW_RECIPE,
@@ -25,7 +26,6 @@ abstract public class Recipe : MonoBehaviour
     [SerializeField]
     protected string recipeName;
 
-
     [SerializeField]
     protected int basePoints;
 
@@ -44,21 +44,100 @@ abstract public class Recipe : MonoBehaviour
     [SerializeField]
     protected int voidness;
 
-    // Start is called before the first frame update
-    void Start()
+    //поля с аксессорами не могут быть SerializeField, поэтому для каждого делаем своё поле с get
+
+    public RECIPE_TYPE Type
     {
-        
+        get
+        {
+            return type;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public string RecipeName
     {
-        
+        get
+        {
+            return recipeName;
+        }
     }
+
+    public StatBoardView.Aspect Aspect
+    {
+        get
+        {
+            return aspect;
+        }
+    }
+
+    public int Temperature
+    {
+        get
+        {
+            return temperature;
+        }
+    }
+
+    public int Aether
+    {
+        get
+        {
+            return aether;
+        }
+    }
+
+    public int Viscosity
+    {
+        get
+        {
+            return visctosity;
+        }
+    }
+
+    public int Voidness
+    {
+        get
+        {
+            return voidness;
+        }
+    }
+
 
     abstract public int Points
     {
         get;
+    }
+
+
+    public struct EssenceRequirement
+    {
+        public Ingredient.ESSENSE essence;
+        public int count;
+        public EssenceRequirement(Ingredient.ESSENSE ess, int n)
+        {
+            essence = ess;
+            count = n;
+        }
+
+    }
+
+    public EssenceRequirement essence1;
+    public EssenceRequirement essence2;
+
+    public EssenceRequirement[] essences
+    {
+        get
+        {
+            if (essence1.essence == Ingredient.ESSENSE.None || essence2.essence == Ingredient.ESSENSE.None)
+            {
+                int n1 = UnityEngine.Random.Range(1, 11);
+                essence1 = new EssenceRequirement((Ingredient.ESSENSE)Enum.ToObject(typeof(Ingredient.ESSENSE), n1), UnityEngine.Random.Range(1, 3));
+                int n2 = UnityEngine.Random.Range(1, 11);
+                essence2 = new EssenceRequirement((Ingredient.ESSENSE)Enum.ToObject(typeof(Ingredient.ESSENSE), n2), UnityEngine.Random.Range(1, 3));
+                while (essence1.essence == essence2.essence) essence2 = new EssenceRequirement((Ingredient.ESSENSE)Enum.ToObject(typeof(Ingredient.ESSENSE), UnityEngine.Random.Range(1, 11)), UnityEngine.Random.Range(1, 3));
+            }
+            return new EssenceRequirement[] { essence1, essence2 };
+        }
     }
 
     abstract protected void firstReward();

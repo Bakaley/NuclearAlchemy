@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3272047194612729882}
   - component: {fileID: 7523428851883462039}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.05
   movingSpeed: 0
-  rotationSpeed: 50
+  rotationSpeed: 20
 --- !u!1001 &2058928637609292856
 PrefabInstance:
   m_ObjectHideFlags: 0

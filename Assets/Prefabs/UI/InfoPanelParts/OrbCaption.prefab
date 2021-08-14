@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8989255164889195066}
   - component: {fileID: 3610453890539137680}
   - component: {fileID: 1671033201025365771}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OrbCaption
   m_TagString: Untagged
   m_Icon: {fileID: 0}

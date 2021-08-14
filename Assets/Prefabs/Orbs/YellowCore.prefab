@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2478086643594459567}
   - component: {fileID: 2478086643594459537}
   - component: {fileID: 2478086643594459566}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4814,7 +4814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2478086644389152175}
   - component: {fileID: 2478086644389152174}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4897,7 +4897,7 @@ GameObject:
   - component: {fileID: 6074228304592675493}
   - component: {fileID: 6288115801217181127}
   - component: {fileID: 6170424235983670205}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9801,7 +9801,7 @@ GameObject:
   - component: {fileID: 3735578914777529326}
   - component: {fileID: 3735578914777529324}
   - component: {fileID: 3735578914777529325}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9883,7 +9883,7 @@ GameObject:
   - component: {fileID: 3735578914803517750}
   - component: {fileID: 3735578914803517751}
   - component: {fileID: 5998904114606727613}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9980,7 +9980,7 @@ GameObject:
   - component: {fileID: 3735578915082947355}
   - component: {fileID: 3735578915082947353}
   - component: {fileID: 3735578915082947354}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OutSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10061,7 +10061,7 @@ GameObject:
   - component: {fileID: 3735578915163596575}
   - component: {fileID: 3735578915163596573}
   - component: {fileID: 3735578915163596574}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParticleSphereDiag1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14876,7 +14876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3735578915791664300}
   - component: {fileID: 4918615195117697561}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: YellowCore
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -14964,7 +14964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3735578915950094630}
   - component: {fileID: 3735578915950094629}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15013,7 +15013,7 @@ GameObject:
   - component: {fileID: 3735578916040338526}
   - component: {fileID: 3735578916040338524}
   - component: {fileID: 3735578916040338525}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19830,7 +19830,7 @@ GameObject:
   - component: {fileID: 3735578916224559463}
   - component: {fileID: 3735578916224559461}
   - component: {fileID: 3735578916224559462}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19929,7 +19929,7 @@ GameObject:
   - component: {fileID: 2221761200944371262}
   - component: {fileID: 8773345723330949190}
   - component: {fileID: 8571727840267826376}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParticleSphereDiag2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24745,7 +24745,7 @@ GameObject:
   - component: {fileID: 6246829562216817281}
   - component: {fileID: 1240026924360202192}
   - component: {fileID: 3248751010426854749}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParticleSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29619,7 +29619,7 @@ GameObject:
   - component: {fileID: 559553012147933330}
   - component: {fileID: 8800614038643161150}
   - component: {fileID: 3606427840263703184}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34522,6 +34522,10 @@ PrefabInstance:
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_Name
       value: Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_IsActive

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4144683935522925}
   - component: {fileID: 3923946349078653158}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,6 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3923946349512073926}
+  - component: {fileID: 6917783541734918943}
   m_Layer: 5
   m_Name: Deploying
   m_TagString: Untagged
@@ -124,6 +125,25 @@ RectTransform:
   m_AnchoredPosition: {x: -545, y: 150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6917783541734918943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3923946349512073927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daef309ea1eba64489649ecaff7a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolvingMaterialSample: {fileID: 2100000, guid: d75ac9724878e754aa00c85e08b15f1b, type: 2}
+  defaultEdgesParam: 0
+  random: 0
+  variant2: {fileID: 0}
+  variant3: {fileID: 0}
+  variant4: {fileID: 0}
+  timeModifier: 1
 --- !u!1 &3923946350619312095
 GameObject:
   m_ObjectHideFlags: 0

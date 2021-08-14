@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dissolvingMaterialSample: {fileID: 2100000, guid: d75ac9724878e754aa00c85e08b15f1b, type: 2}
   defaultEdgesParam: 0.1
+  random: 0
+  variant2: {fileID: 0}
+  variant3: {fileID: 0}
+  variant4: {fileID: 0}
   timeModifier: 1
 --- !u!114 &6824546433527378451
 MonoBehaviour:
@@ -29,6 +33,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dissolvingMaterialSample: {fileID: 2100000, guid: 6f2c5fa6d98bb644685037046bcbfd93, type: 2}
   defaultEdgesParam: 0.1
+  random: 0
+  variant2: {fileID: 0}
+  variant3: {fileID: 0}
+  variant4: {fileID: 0}
   timeModifier: 1
 --- !u!1 &6824546433561192725
 GameObject:
@@ -40,7 +48,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6396916909938679987}
   - component: {fileID: 6824546433561192731}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RightCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134190499428, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134323402983, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Material
@@ -176,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134323402986, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134562109040, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Pivot.x
@@ -280,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134562109041, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
@@ -351,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134190499428, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134323402983, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Sprite
@@ -387,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134323402986, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134562109040, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Pivot.x
@@ -491,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134562109041, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6730076134562109041, guid: a49805708e9c7e140ae4fd534c6d8da1, type: 3}
       propertyPath: m_IsActive

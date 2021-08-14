@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1050576612510287849}
   - component: {fileID: 5438421190355463264}
   - component: {fileID: 1949801329035981949}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ChannelingParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

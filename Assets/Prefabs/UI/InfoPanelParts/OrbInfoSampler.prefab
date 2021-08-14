@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6066807192648547691}
   - component: {fileID: 1504042966398783811}
   - component: {fileID: 2424432744173401487}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OrbDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8562762491817474625}
   - component: {fileID: 8029052310262682283}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParamsCaptions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 66.5898, y: 71.416}
+  m_SizeDelta: {x: 73.1728, y: 71.416}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8029052310262682283
 MonoBehaviour:
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 1390729877786239097}
   - component: {fileID: 430884001932557497}
   - component: {fileID: 8630153499611360011}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PointsCaption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 64.9, y: 17.88}
+  m_SizeDelta: {x: 72.5633, y: 17.88}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &430884001932557497
 CanvasRenderer:
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 1005244796732328419}
   - component: {fileID: 7717326453864016246}
   - component: {fileID: 5714259002527703592}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OrbInfoSampler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,6 +416,10 @@ MonoBehaviour:
   typeCounter: {fileID: 3122453206400660736}
   descriptionCounter: {fileID: 144523602634747396}
   pointsCounter: {fileID: 3697661394417602274}
+  archetypeCaption: {fileID: 6048266187237476801}
+  typeCaption: {fileID: 8633103826753490911}
+  levelCaption: {fileID: 1823014888224542427}
+  pointsCaption: {fileID: 446564848854550968}
 --- !u!1 &1823014888224542427
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +431,7 @@ GameObject:
   - component: {fileID: 1827954579861663984}
   - component: {fileID: 1253650797362648938}
   - component: {fileID: 8238378179221271885}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LevelCaption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +455,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 64.9, y: 17.88}
+  m_SizeDelta: {x: 72.5633, y: 17.88}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1253650797362648938
 CanvasRenderer:
@@ -561,7 +565,7 @@ GameObject:
   - component: {fileID: 1068791902754366877}
   - component: {fileID: 3425874592804160135}
   - component: {fileID: 2910062061125541971}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TypeCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1290322835555597556}
   - component: {fileID: 1522417468935515421}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OrbParams
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +763,7 @@ GameObject:
   - component: {fileID: 4213599656356924585}
   - component: {fileID: 2369296012746308619}
   - component: {fileID: 5783980104557126759}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PointsCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,7 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5841502501676184495}
   - component: {fileID: 2502309633543495631}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParamsCounters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +963,7 @@ GameObject:
   - component: {fileID: 8691911796719569222}
   - component: {fileID: 7234876898940072913}
   - component: {fileID: 3364517947421819935}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LevelCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1097,7 @@ GameObject:
   - component: {fileID: 1434543125625897596}
   - component: {fileID: 5520647865228267947}
   - component: {fileID: 302661108425112189}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArchetypeCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1231,7 @@ GameObject:
   - component: {fileID: 5419031987906085943}
   - component: {fileID: 2240742681147283122}
   - component: {fileID: 6086807303398281267}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArchetypeCaption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1255,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 64.9, y: 17.88}
+  m_SizeDelta: {x: 72.5633, y: 17.88}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2240742681147283122
 CanvasRenderer:
@@ -1361,7 +1365,7 @@ GameObject:
   - component: {fileID: 8016583098218662472}
   - component: {fileID: 2464457483267067297}
   - component: {fileID: 8552282684962789012}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TypeCaption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,7 +1389,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 64.9, y: 17.88}
+  m_SizeDelta: {x: 72.5633, y: 17.88}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2464457483267067297
 CanvasRenderer:

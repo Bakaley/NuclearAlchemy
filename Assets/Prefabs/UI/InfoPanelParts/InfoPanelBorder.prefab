@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5783841555213791475}
   - component: {fileID: 3183459196895334680}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InfoPanelBorder
   m_TagString: ResizibleWindow
   m_Icon: {fileID: 0}

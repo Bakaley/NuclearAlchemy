@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6560340602836459644}
   - component: {fileID: 5342333972310421474}
   - component: {fileID: 3306139176018958741}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6249028652593717149}
   - component: {fileID: 6565709402388260415}
   - component: {fileID: 4549178071898169129}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 7312172864624970294}
   - component: {fileID: 5680956637443747038}
   - component: {fileID: 4634216405470162031}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 7063389048368398818}
   - component: {fileID: 7063389048368398828}
   - component: {fileID: 7063389048368398819}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5123,7 +5123,7 @@ GameObject:
   - component: {fileID: 7063389048404245703}
   - component: {fileID: 7063389048404245702}
   - component: {fileID: 7063389048404245721}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5219,7 +5219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7063389048430732634}
   - component: {fileID: 5881752266012178371}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BlueDye
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -5305,7 +5305,7 @@ GameObject:
   - component: {fileID: 7063389049040020200}
   - component: {fileID: 7063389049040020202}
   - component: {fileID: 7063389049040020201}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10122,7 +10122,7 @@ GameObject:
   - component: {fileID: 7063389049664026496}
   - component: {fileID: 7063389049664026498}
   - component: {fileID: 7063389049664026497}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10202,7 +10202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7063389049757182038}
   - component: {fileID: 7063389049757182032}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10285,7 +10285,7 @@ GameObject:
   - component: {fileID: 7063389049799478406}
   - component: {fileID: 7063389049799478400}
   - component: {fileID: 7063389049799478407}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10365,7 +10365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7063389049958869664}
   - component: {fileID: 7063389049958869665}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Orbit (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10414,7 +10414,7 @@ GameObject:
   - component: {fileID: 7063389050071101666}
   - component: {fileID: 7063389050071101676}
   - component: {fileID: 7063389050071101667}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sphere (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10495,7 +10495,7 @@ GameObject:
   - component: {fileID: 7063389050140187449}
   - component: {fileID: 7063389050140187451}
   - component: {fileID: 7063389050140187450}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParticleSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15368,7 +15368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7063389050181325868}
   - component: {fileID: 7063389050181325869}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15417,7 +15417,7 @@ GameObject:
   - component: {fileID: 7063389050328285337}
   - component: {fileID: 7063389050328285339}
   - component: {fileID: 7063389050328285338}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OutSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15498,7 +15498,7 @@ GameObject:
   - component: {fileID: 7063389050338256503}
   - component: {fileID: 7063389050338256497}
   - component: {fileID: 7063389050338256496}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Ingredient-CoreType(Last)-Flash6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20268,7 +20268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1223327484735639272}
   - component: {fileID: 8964526742176577228}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphereList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20321,7 +20321,7 @@ GameObject:
   - component: {fileID: 7674180698559514633}
   - component: {fileID: 7674180698559514678}
   - component: {fileID: 7674180698559514679}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20419,7 +20419,7 @@ GameObject:
   - component: {fileID: 7674180698759150501}
   - component: {fileID: 7674180698759150498}
   - component: {fileID: 7674180698759150499}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20514,7 +20514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7674180698955928771}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20547,7 +20547,7 @@ GameObject:
   - component: {fileID: 7674180699057469550}
   - component: {fileID: 7674180699057469551}
   - component: {fileID: 7674180699057469548}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20645,7 +20645,7 @@ GameObject:
   - component: {fileID: 7674180700114310822}
   - component: {fileID: 7674180700114310823}
   - component: {fileID: 7674180700114310820}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20741,6 +20741,10 @@ PrefabInstance:
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_Name
       value: Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_IsActive

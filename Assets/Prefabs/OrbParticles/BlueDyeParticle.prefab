@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4249935754116077194}
   - component: {fileID: 4249935754116077189}
   - component: {fileID: 4249935754116077188}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BlueDyeParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

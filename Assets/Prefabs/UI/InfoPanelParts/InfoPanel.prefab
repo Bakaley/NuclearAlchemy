@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 826614102523893128}
   - component: {fileID: 2983280820218698268}
   - component: {fileID: 3516849277262721705}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InfoPanelMainLayout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6735167285317788312}
   - component: {fileID: 2203636932092488010}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InfoPanelBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7005443096733230464}
   - component: {fileID: 3921305239035835467}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InfoPanelHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}

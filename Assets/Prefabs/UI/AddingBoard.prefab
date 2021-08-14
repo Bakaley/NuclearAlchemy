@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186229298276264507}
   - component: {fileID: 6095386744937030635}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DefaultPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7548570732402148588}
   - component: {fileID: 7548570732402148589}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AddingBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7548570733275084873}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AddingOrbShift
   m_TagString: Untagged
   m_Icon: {fileID: 0}

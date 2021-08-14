@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DepthsLotusPetal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +62,7 @@ MonoBehaviour:
     \u0433\u043B\u0443\u0431\u0438\u043D"
   IngredientFileName: DepthsLotusPetal
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &470560920897083827
 PrefabInstance:
   m_ObjectHideFlags: 0

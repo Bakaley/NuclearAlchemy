@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5030647017656551208}
   - component: {fileID: 352059011243099495}
   - component: {fileID: 2434836046378510376}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CellEffectsCaption
   m_TagString: Untagged
   m_Icon: {fileID: 0}

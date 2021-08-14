@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4487129988651484619}
   - component: {fileID: 6618718067048723470}
   - component: {fileID: 2544926063073333305}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4873,7 +4873,7 @@ GameObject:
   - component: {fileID: 5888235422578469117}
   - component: {fileID: 5888235422578469118}
   - component: {fileID: 918551742995707435}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5888235422822223492}
   - component: {fileID: 7460122502540951912}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BluePulsar
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -4986,7 +4986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5888235422822223499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5888235422831096289}
@@ -5054,7 +5054,7 @@ GameObject:
   - component: {fileID: 5888235422831096291}
   - component: {fileID: 5888235422831096290}
   - component: {fileID: 4300263986909343227}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoreSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5152,7 +5152,7 @@ GameObject:
   - component: {fileID: 1270437460816471360}
   - component: {fileID: 7055634633871966487}
   - component: {fileID: 8168268511547358813}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10013,6 +10013,10 @@ PrefabInstance:
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_Name
       value: Counter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 640748671459208338, guid: 11e6c7ec14de2f64a8c1a4d4112232d5, type: 3}
       propertyPath: m_IsActive

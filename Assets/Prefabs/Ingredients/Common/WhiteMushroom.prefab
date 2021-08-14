@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WhiteMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u0411\u0435\u043B\u044B\u0439 \u0433\u0440\u0438\u0431"
   IngredientFileName: WhiteMushroom
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &4909903690655359248
 PrefabInstance:
   m_ObjectHideFlags: 0

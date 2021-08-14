@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SilverHareFur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +62,7 @@ MonoBehaviour:
     \u0437\u0430\u0439\u0446\u0430"
   IngredientFileName: SilverHareFur
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &3633555267525983357
 PrefabInstance:
   m_ObjectHideFlags: 0

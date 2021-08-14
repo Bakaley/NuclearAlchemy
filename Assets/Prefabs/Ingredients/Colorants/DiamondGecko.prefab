@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DiamondGecko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   IngredientName: "\u0410\u043B\u043C\u0430\u0437\u043D\u044B\u0439 \u0433\u0435\u043A\u043A\u043E\u043D"
   IngredientFileName: DiamondGecko
   IngredientDescription: 
+  locked: 0
 --- !u!1001 &5713392469902333134
 PrefabInstance:
   m_ObjectHideFlags: 0

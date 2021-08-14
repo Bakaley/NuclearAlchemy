@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using TMPro;
 
+using UnityEditor;
+
 public abstract class Orb : MonoBehaviour
 {
 
@@ -64,7 +66,8 @@ public abstract class Orb : MonoBehaviour
         ICE_DROP,
         AETHER_DROP,
         ANTIMATTER_DROP,
-        SUPERNOVA_DROP
+        SUPERNOVA_DROP,
+        UNCERTAINTY
     }
 
     public enum ORB_ARCHETYPES
@@ -74,7 +77,8 @@ public abstract class Orb : MonoBehaviour
         NEORGANIC,
         CORE,
         VOID,
-        DROP
+        DROP,
+        UNCERTAINTY
     }
 
     public static Dictionary <ORB_TYPES, ORB_ARCHETYPES> typeArchetypeDictionary { get; private set; }
@@ -87,6 +91,7 @@ public abstract class Orb : MonoBehaviour
     double currentAppearingTimer = 0;
     double channelingTime = 0;
 
+    public static float aetherMultiplier = .25f;
 
     ParticleSystem affectingSystem;
 
@@ -216,7 +221,7 @@ public abstract class Orb : MonoBehaviour
             if (!shouldDestroyed && archetype == ORB_ARCHETYPES.VOID)
             {
                 if (aetherCount == 0) return 1;
-                else return (int)(1 + 1 * aetherCount * .2);
+                else return (int)(1 + 1 * aetherCount * aetherMultiplier);
 
             }
             else return 0;
@@ -226,7 +231,8 @@ public abstract class Orb : MonoBehaviour
     {
         get
         {
-            return Level;
+            if (Level >= 3) return 1;
+            else return 0;
         }
     }
     public int viscosityImpact
@@ -235,7 +241,7 @@ public abstract class Orb : MonoBehaviour
         {
             if (!shouldDestroyed)
             {
-                return (int)(basicViscosity + basicViscosity * aetherCount * .2);
+                return (int)(basicViscosity + basicViscosity * aetherCount * aetherMultiplier);
             }
             else return 0;
         }
@@ -245,6 +251,9 @@ public abstract class Orb : MonoBehaviour
 
     [SerializeField]
     public string orbDescription;
+
+    [SerializeField]
+    public string orbDescriptionEN;
 
     public struct ReplacingOrbStruct
     {
@@ -269,18 +278,23 @@ public abstract class Orb : MonoBehaviour
             get; private set;
         }
 
-        public ReplacingOrbStruct(GameObject orbToReplace, bool fireFlag = false, bool iceFlag = false, int aetherCounter = 0, bool antimatterFlag = false)
+        public List<ReplacingOrbStruct> uncertainList
+        {
+            get; private set;
+        }
+
+        public ReplacingOrbStruct(GameObject orbToReplace, bool fireFlag = false, bool iceFlag = false, int aetherCounter = 0, bool antimatterFlag = false, List<ReplacingOrbStruct> list = null)
         {
             baseOrb = orbToReplace;
             fire = fireFlag;
             ice = iceFlag;
             aether = aetherCounter;
             antimatter = antimatterFlag;
+            uncertainList = list;
         }
     }
 
-    ReplacingOrbStruct replacingOrb;
-
+    protected ReplacingOrbStruct replacingOrb;
 
     [SerializeField]
     protected GameObject nextLevelOrb;
@@ -321,7 +335,7 @@ public abstract class Orb : MonoBehaviour
         get
         {
             if (!shouldDestroyed)
-                return (int)(points + aetherCount * points * .2);
+                return (int)(points + aetherCount * points * aetherMultiplier);
             else return 0;
         }
     }
@@ -348,9 +362,9 @@ public abstract class Orb : MonoBehaviour
                 {
                     if ((int)Math.Round(transform.localPosition.y) + 1 < MixingBoard.Height)
                     {
-                        if (fiery && mixingBoard.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y) + 1]) count += Level + (int)Math.Round(Level * .2 * aetherCount);
+                        if (fiery && mixingBoard.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y) + 1]) count += Level + (int)Math.Round(Level * aetherMultiplier * aetherCount);
                     }
-                    if (frozen && (int)Math.Round(transform.localPosition.y) != 0) count -= Level + (int)Math.Round(Level * .2 * aetherCount);
+                    if (frozen && (int)Math.Round(transform.localPosition.y) != 0) count -= Level + (int)Math.Round(Level * aetherMultiplier * aetherCount);
                 }
                 return count;
             }
@@ -378,6 +392,7 @@ public abstract class Orb : MonoBehaviour
     {
         if (typeArchetypeDictionary == null)
         {
+           
             typeArchetypeDictionary = new Dictionary<ORB_TYPES, ORB_ARCHETYPES>();
 
             typeArchetypeDictionary.Add(ORB_TYPES.NONE, ORB_ARCHETYPES.NONE);
@@ -415,15 +430,30 @@ public abstract class Orb : MonoBehaviour
             typeArchetypeDictionary.Add(ORB_TYPES.AETHER_DROP, ORB_ARCHETYPES.DROP);
             typeArchetypeDictionary.Add(ORB_TYPES.ANTIMATTER_DROP, ORB_ARCHETYPES.DROP);
 
+            typeArchetypeDictionary.Add(ORB_TYPES.UNCERTAINTY, ORB_ARCHETYPES.UNCERTAINTY);
         }
-        if (type == ORB_TYPES.AETHER_CORE) aetherCount = 3;
-        if (type == ORB_TYPES.AETHER_DROP) aetherCount = 5;
 
         aetherParticles = new List<GameObject>();
         orbArchetype = typeArchetypeDictionary[type];
         dissolvingAppearing = true;
-        counterTMP = counter.GetComponent<TextMeshPro>();
+        if (type != ORB_TYPES.UNCERTAINTY) counterTMP = counter.GetComponent<TextMeshPro>();
 
+        if (type == ORB_TYPES.AETHER_CORE) aetherCount = 4;
+        if (type == ORB_TYPES.AETHER_DROP) aetherCount = 5;
+        Invoke("delayedAetherParticles", .05f);
+    }
+
+    void delayedAetherParticles()
+    {
+        if (aetherCount != 0)
+        {
+            instaintiateAetherParticles();
+        }
+    }
+
+    public void setStartAether (int count)
+    {
+        aetherCount = count;
     }
 
     virtual protected void Start()
@@ -441,12 +471,7 @@ public abstract class Orb : MonoBehaviour
 
         if (symbolRenderer != null) Invoke("synchronizeSymbolSeed", .01f);
 
-        if(aetherCount != 0)
-        {
-            int aetherIncreaseOn = aetherCount;
-            aetherCount = 0;
-            increaseAether(aetherIncreaseOn);
-        }
+
     }
 
     void synchronizeSymbolSeed()
@@ -544,6 +569,8 @@ public abstract class Orb : MonoBehaviour
                         if (replacingOrb.ice) orb.addIce();
                         if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
                         if (replacingOrb.antimatter) orb.addAntimatter();
+                        if (replacingOrb.uncertainList != null) orb.GetComponent<UncertaintyOrb>().uncertainOrbsList = replacingOrb.uncertainList;
+
                         DestroyIn(destroyingTimer);
                         break;
                 }
@@ -642,7 +669,7 @@ public abstract class Orb : MonoBehaviour
                 break;
 
             case StatBoardView.FILTER_TYPE.ASPECT:
-                counterString = GetComponent<AspectOrb>().aspectImpact + "";
+                counterString = GetComponent<AspectImpactInterface>().aspectImpact + "";
                 break;
 
             case StatBoardView.FILTER_TYPE.TEMPERATURE:
@@ -674,6 +701,7 @@ public abstract class Orb : MonoBehaviour
                 break;
             case StatBoardView.FILTER_TYPE.ASPECT:
                 if (gameObject.GetComponent<AspectOrb>()) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary[gameObject.GetComponent<AspectOrb>().orbColor + "" + Level].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                else if (gameObject.GetComponent<VoidOrb>()) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary[AspectOrb.colorDictionary[type] + "3"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
                 break;
             case StatBoardView.FILTER_TYPE.TEMPERATURE:
                 if (fiery && frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.iceOrbSample.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
@@ -840,6 +868,28 @@ public abstract class Orb : MonoBehaviour
     private int delayedAether = 0;
 
     private double levelupTimerDelay = 0;
+
+    void instaintiateAetherParticles()
+    {
+        for (int i = 0; i < aetherCount; i++)
+        {
+            GameObject particle;
+            if (frozen) particle = Instantiate(MixingBoard.orbDictionary["Ice"].GetComponent<Orb>().aetherParticle, orbit.transform);
+            else particle = Instantiate(aetherParticle, orbit.transform);
+
+            aetherParticles.Add(particle);
+        }
+        double updatedAngle = 360 / aetherCount;
+        double countingAngle = updatedAngle * 2;
+        foreach (GameObject particle in aetherParticles)
+        {
+            countingAngle += updatedAngle;
+            double angleDif = particle.GetComponent<AetherParticle>().updatedAngle - countingAngle;
+            particle.GetComponent<AetherParticle>().updatedAngle = countingAngle;
+            iTween.RotateAdd(particle, iTween.Hash("x", -angleDif, "islocal", true));
+        }
+    }
+
     protected void increaseAether (int count)
     {
         if (aetherTimerDelay >= 0)
@@ -874,7 +924,7 @@ public abstract class Orb : MonoBehaviour
 
     public void setAether (int count)
     {
-        if(aetherCount != count)
+        if (aetherCount != count)
         {
             if (count > aetherCount) increaseAether(count - aetherCount);
             else decreaseAether(aetherCount - count);
@@ -909,20 +959,19 @@ public abstract class Orb : MonoBehaviour
             iTween.RotateAdd(particle, iTween.Hash("x", -angleDif, "islocal", true));
         }
 
-       /* double updatedAngle = 360 / aetherCount;
-        double countingAngle = 0;
-        foreach (GameObject particle in aetherParticles)
-        {
-            //iTween.RotateTo(particle, iTween.Hash("x", 0, "islocal", true, "time", 0.01));
-
-            //double angleDif = particle.GetComponent<AetherParticle>().updatedAngle - countingAngle;
-            particle.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            particle.GetComponent<AetherParticle>().updatedAngle = countingAngle;
-            iTween.RotateAdd(particle, iTween.Hash("x", countingAngle, "islocal", true));
-            countingAngle += updatedAngle;
-        }*/
-
     }
+
+    public void setAetherParticlesRenderingOrder(int number)
+    {
+        ParticleSystemRenderer[] particles = orbit.GetComponentsInChildren<ParticleSystemRenderer>();
+        foreach (ParticleSystemRenderer particle in particles)
+        {
+            particle.sortingOrder = number;
+        }
+    }
+
+
+
     protected void addFire()
     {
         fireParticles.gameObject.SetActive(true);
@@ -1051,9 +1100,48 @@ public abstract class Orb : MonoBehaviour
         }
     }
 
+    public void replace (ReplacingOrbStruct replacingOrbStruct)
+    {
+        replacingOrb = replacingOrbStruct;
+
+        newOrb = Instantiate(replacingOrb.baseOrb, new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0), Quaternion.identity);
+        Orb orb = newOrb.GetComponent<Orb>();
+        orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
+        if (archetype != ORB_ARCHETYPES.VOID)
+        {
+            if (replacingOrb.fire) orb.addFire();
+            if (replacingOrb.ice) orb.addIce();
+            if (replacingOrb.antimatter) orb.addAntimatter();
+        }
+        if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
+        if (affectingSystem) affectingSystem.transform.SetParent(orb.transform, false);
+        if (replacingOrb.uncertainList != null) orb.GetComponent<UncertaintyOrb>().uncertainOrbsList = replacingOrb.uncertainList;
+        if (GetComponent<UncertaintyOrb>()) DestroyIn(.01);
+        else DestroyIn(destroyingTimer);
+        
+    }
+
+    void replace()
+    {
+        newOrb = Instantiate(replacingOrb.baseOrb, new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0), Quaternion.identity);
+        Orb orb = newOrb.GetComponent<Orb>();
+        orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
+        if (archetype != ORB_ARCHETYPES.VOID)
+        {
+            if (replacingOrb.fire) orb.addFire();
+            if (replacingOrb.ice) orb.addIce();
+            if (replacingOrb.antimatter) orb.addAntimatter();
+        }
+        if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
+        if (affectingSystem) affectingSystem.transform.SetParent(orb.transform, false);
+        if (replacingOrb.uncertainList != null) orb.GetComponent<UncertaintyOrb>().uncertainOrbsList = replacingOrb.uncertainList;
+        if (GetComponent<UncertaintyOrb>()) DestroyIn(.01);
+        else DestroyIn(destroyingTimer);
+    }
+
     void levelUpNewOrb()
     {
-        newOrb.GetComponent<Orb>().levelUp();
+        newOrb.GetComponent<Orb>().affectWith(EFFECT_TYPES.LEVEL_UP);
     }
 
     public void chanellingBreak()
