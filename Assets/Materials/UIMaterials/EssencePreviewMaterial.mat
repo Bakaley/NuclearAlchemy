@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: EssencePreviewMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 0128ba412f05a954f866edf2cd5af4ca,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 0128ba412f05a954f866edf2cd5af4ca, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -53,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Particle_Vector: 0
+    - Particle_Vector: 4
     - PixelSnap: 0
     - Shading_Vector: 1
     - Vector1_DE8B0A7: 50

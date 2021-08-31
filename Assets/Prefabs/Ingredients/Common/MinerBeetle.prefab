@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0416\u0443\u043A-\u0448\u0430\u0445\u0451\u0442\u0440"
+  EnglishName: Beetle-miner
   IngredientFileName: MinerBeetle
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &970458886220305051
 PrefabInstance:

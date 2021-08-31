@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0426\u0432\u0435\u0442\u043E\u043A \u043A\u0430\u043A\u0442\u0443\u0441\u0430"
+  EnglishName: Cactus flower
   IngredientFileName: CactusFlower
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &1823824528152537853
 PrefabInstance:

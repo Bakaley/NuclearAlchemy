@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 2
   constellation: 1
   IngredientName: "\u0413\u043E\u0432\u044F\u0436\u0438\u0439 \u043A\u0430\u043C\u0435\u043D\u044C"
+  EnglishName: Beef stone
   IngredientFileName: BeefStone
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 0cfbb4adf0b1df3469d62a45a3f57d31, type: 3}
+  IngredientIconColor: {r: 0.8666667, g: 0.19215685, b: 0.47672018, a: 1}
   locked: 0
 --- !u!1001 &4223088339299776832
 PrefabInstance:

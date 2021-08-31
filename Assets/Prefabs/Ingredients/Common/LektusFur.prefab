@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0428\u0435\u0440\u0441\u0442\u044C \u043B\u0435\u043A\u0442\u0443\u0441\u0430"
+  EnglishName: Lektus fur
   IngredientFileName: LektusFur
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &905726186
 PrefabInstance:

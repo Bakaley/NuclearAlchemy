@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 2
   constellation: 4
   IngredientName: "\u0418\u0441\u043A\u0440\u044F\u0449\u0430\u044F\u0441\u044F \u043B\u044F\u0433\u0443\u0448\u043A\u0430"
+  EnglishName: Sparkling frog
   IngredientFileName: SparklingFrog
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: e5289063c102c594db50b00f1a679b16, type: 3}
+  IngredientIconColor: {r: 0.7454854, g: 0.754717, b: 0, a: 1}
   locked: 0
 --- !u!1001 &639611746285252663
 PrefabInstance:

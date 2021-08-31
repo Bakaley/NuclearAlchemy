@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 3
   constellation: 3
   IngredientName: "\u0422\u0440\u043E\u0439\u043D\u043E\u0439 \u043B\u0451\u0434"
+  EnglishName: Triple ice
   IngredientFileName: TripleIce
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: fc00377a1c177284eaa35207b216ea22, type: 3}
+  IngredientIconColor: {r: 0, g: 0.573104, b: 0.7254902, a: 1}
   locked: 0
 --- !u!1001 &769171843036654793
 PrefabInstance:

@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 1
   IngredientName: "\u0412\u043E\u043B\u0447\u0438\u0439 \u043A\u043B\u044B\u043A"
+  EnglishName: Wolf fang
   IngredientFileName: WolfFang
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 24c86a18f52cbd546b10eadcf837dd48, type: 3}
+  IngredientIconColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
   locked: 0
 --- !u!114 &-4742072905657158779
 MonoBehaviour:

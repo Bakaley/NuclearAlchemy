@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
+  - component: {fileID: 5890446552418220112}
   m_Layer: 5
   m_Name: ThornspitterExtract
   m_TagString: Untagged
@@ -59,9 +60,32 @@ MonoBehaviour:
   rarity: 3
   constellation: 3
   IngredientName: "\u042D\u043A\u0441\u0442\u0440\u0430\u043A\u0442 \u0448\u0438\u043F\u043E\u043F\u043B\u044E\u044F"
+  EnglishName: Thornspitter extract
   IngredientFileName: ThornspitterExtract
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: b44028c95628e224e8998df1ea9c8fcb, type: 3}
+  IngredientIconColor: {r: 0.6792453, g: 0.13713063, b: 0.4399432, a: 1}
   locked: 0
+--- !u!114 &5890446552418220112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34802641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc7915ffb4f4b40b2c435750204d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  recipeName: 
+  basePoints: 54
+  aspect: 1
+  temperature: 3
+  aether: 0
+  visctosity: 0
+  voidness: 0
 --- !u!1001 &1078390144986932849
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -57,8 +57,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 2
   IngredientName: "\u0421\u043E\u0441\u043D\u043E\u0432\u0430\u044F \u043C\u044F\u0442\u0430"
+  EnglishName: Pine mint
   IngredientFileName: PineMint
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 391382bd856429b4d9c3db69e40c0b36, type: 3}
+  IngredientIconColor: {r: 0, g: 0.7814451, b: 0.83137256, a: 1}
   locked: 0
 --- !u!1001 &1124153684867698483
 PrefabInstance:

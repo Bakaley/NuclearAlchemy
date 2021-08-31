@@ -59,8 +59,11 @@ MonoBehaviour:
   constellation: 1
   IngredientName: "\u041B\u0435\u043F\u0435\u0441\u0442\u043E\u043A \u043B\u043E\u0442\u043E\u0441\u0430
     \u0441\u043E\u0437\u0432\u0435\u0437\u0434\u0438\u0439"
+  EnglishName: Constellation lotus petal
   IngredientFileName: ConstellationLotusPetal
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: b52009f5fb1b1d54bae4825f9b92bbc6, type: 3}
+  IngredientIconColor: {r: 0.8679245, g: 0.61387306, b: 0.1915984, a: 1}
   locked: 0
 --- !u!1001 &283416418955850187
 PrefabInstance:

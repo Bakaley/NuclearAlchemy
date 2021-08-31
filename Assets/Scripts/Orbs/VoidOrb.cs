@@ -130,9 +130,9 @@ public class VoidOrb : Orb, AspectImpactInterface
     private double affectTimer = 0;
 
     // Update is called once per frame
-    override protected void Update()
+    override protected void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
 
         if (affectTimer >= 0) affectTimer -= Time.deltaTime;
     }

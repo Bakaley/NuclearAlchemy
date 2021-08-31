@@ -7,9 +7,16 @@ public class Floating : MonoBehaviour
     Vector3 newPosition;
     float y0;
     float x0;
-    public float amplitude = 0.01f;
-    public float movingSpeed = 5;
-    public float rotationSpeed = 0f;
+    [SerializeField]
+    float amplitude = 0.01f;
+    [SerializeField]
+    float movingSpeed = 5;
+    [SerializeField]
+    float rotationSpeedX = 0f;
+    [SerializeField]
+    float rotationSpeedY = 0f;
+    [SerializeField]
+    float rotationSpeedZ = 0f;
 
     public float seedShift = 0;
     void Start()
@@ -23,6 +30,6 @@ public class Floating : MonoBehaviour
     {      
         newPosition = new Vector3(amplitude * Mathf.Sin(movingSpeed/2 * Time.time + seedShift) + x0, amplitude * Mathf.Sin(movingSpeed * Time.time + seedShift) + y0, transform.localPosition.z);
         transform.localPosition = newPosition;
-        transform.Rotate(0, 0, Time.deltaTime * rotationSpeed);
+        transform.Rotate(Time.deltaTime * rotationSpeedX, Time.deltaTime * rotationSpeedY, Time.deltaTime * rotationSpeedZ, Space.World);
     }
 }

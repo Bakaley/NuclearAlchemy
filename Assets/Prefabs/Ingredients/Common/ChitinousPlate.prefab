@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0425\u0438\u0442\u0438\u043D\u043E\u0432\u0430\u044F \u043F\u043B\u0430\u0441\u0438\u043D\u043A\u0430"
+  EnglishName: Chitinous plate
   IngredientFileName: ChitinousPlate
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &1680694260094129464
 PrefabInstance:

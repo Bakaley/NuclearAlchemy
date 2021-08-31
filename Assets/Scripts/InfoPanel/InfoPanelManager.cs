@@ -143,13 +143,11 @@ public class InfoPanelManager : MonoBehaviour
         orbArchetypeDicrionaryEN.Add(Orb.ORB_ARCHETYPES.VOID, "Void");
         orbArchetypeDicrionaryEN.Add(Orb.ORB_ARCHETYPES.DROP, "Drop");
         orbArchetypeDicrionaryEN.Add(Orb.ORB_ARCHETYPES.UNCERTAINTY, "???");
-
-
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !DraftWindow.opened)
+        if (Input.GetMouseButtonDown(0) && !DraftModule.opened && !CancelMenu.Opened)
         {
             if (infoPanel != null) Destroy(infoPanel);
             if (infoTarget != null)
@@ -163,6 +161,8 @@ public class InfoPanelManager : MonoBehaviour
                     Destroy(infoTarget);
                 }
             }
+
+
 
             Vector3 clickedPosition = UIManager.cameraObject.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
             Vector3 clickedPositionMixing = mixingBoard.gameObject.transform.InverseTransformPoint(clickedPosition);
@@ -438,7 +438,6 @@ public class InfoPanelManager : MonoBehaviour
                 }
                 if (clickedOrb.aetherImpact != 0)
                 {
-                    Debug.Log(clickedOrb.aetherCount);
                     if (clickedOrb.archetype == Orb.ORB_ARCHETYPES.VOID || clickedOrb.archetype == Orb.ORB_ARCHETYPES.CORE)
                     {
                         GameObject aetherVoidCoreDesrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherVoidCoreDesrcription, infoPanelTransorm);

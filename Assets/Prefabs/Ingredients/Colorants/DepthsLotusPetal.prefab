@@ -60,8 +60,11 @@ MonoBehaviour:
   constellation: 2
   IngredientName: "\u041B\u0435\u043F\u0435\u0441\u0442\u043E\u043A \u043B\u043E\u0442\u043E\u0441\u0430
     \u0433\u043B\u0443\u0431\u0438\u043D"
+  EnglishName: Depths lotus petal
   IngredientFileName: DepthsLotusPetal
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: b52009f5fb1b1d54bae4825f9b92bbc6, type: 3}
+  IngredientIconColor: {r: 0.31783548, g: 0.555369, b: 0.8773585, a: 1}
   locked: 0
 --- !u!1001 &470560920897083827
 PrefabInstance:

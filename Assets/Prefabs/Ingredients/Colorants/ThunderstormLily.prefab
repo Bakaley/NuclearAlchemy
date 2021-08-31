@@ -60,8 +60,11 @@ MonoBehaviour:
   rarity: 4
   constellation: 2
   IngredientName: "\u0413\u0440\u043E\u0437\u043E\u0432\u0430\u044F \u043B\u0438\u043B\u0438\u044F"
+  EnglishName: Thunderstorm lily
   IngredientFileName: ThunderstormLily
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 2fe4ff2a21d9fce408eaecd5fcc06729, type: 3}
+  IngredientIconColor: {r: 0, g: 0.83137256, b: 0.7811021, a: 1}
   locked: 0
 --- !u!114 &-8413160926904096100
 MonoBehaviour:

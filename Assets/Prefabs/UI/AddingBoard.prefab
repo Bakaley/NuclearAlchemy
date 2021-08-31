@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7548570732402148588}
   - component: {fileID: 7548570732402148589}
+  - component: {fileID: 3146198199574029928}
   m_Layer: 5
   m_Name: AddingBoard
   m_TagString: Untagged
@@ -138,7 +139,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientPanel: {fileID: 0}
-  orbShift: {fileID: 0}
+  orbShift: {fileID: 7548570733275084872}
+--- !u!223 &3146198199574029928
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548570732402148579}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &7548570733275084872
 GameObject:
   m_ObjectHideFlags: 0

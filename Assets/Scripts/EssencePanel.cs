@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EssencePanel : MonoBehaviour
 {
@@ -87,11 +88,11 @@ public class EssencePanel : MonoBehaviour
         else getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();*/
     }
 
-    public static SpriteRenderer getNumberSpriteRenderer (GameObject icon)
+    public static Image getNumberSpriteRenderer (GameObject icon)
     {
         foreach (Transform childTransform in icon.transform)
         {
-            return childTransform.GetComponent<SpriteRenderer>();
+            return childTransform.GetComponent<Image>();
         }
         return null;
     }

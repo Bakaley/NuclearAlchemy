@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 3
   constellation: 1
   IngredientName: "\u041C\u043E\u043B\u043D\u0438\u0435\u0432\u044B\u0439 \u0441\u0432\u0435\u0442\u043B\u044F\u0447\u043E\u043A"
+  EnglishName: Lightning firefly
   IngredientFileName: LightningFirefly
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: bdeac93c06b403d4fb5b74236730a86d, type: 3}
+  IngredientIconColor: {r: 0.8679245, g: 0.61387306, b: 0.1915984, a: 1}
   locked: 0
 --- !u!114 &8891727772499278034
 MonoBehaviour:

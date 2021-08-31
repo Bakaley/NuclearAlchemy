@@ -61,8 +61,11 @@ MonoBehaviour:
   constellation: 3
   IngredientName: "\u0416\u0451\u043B\u0443\u0434\u044C \u0440\u0443\u0431\u0438\u043D\u043E\u0433\u043E
     \u0434\u0443\u0431\u0430"
+  EnglishName: Ruby oak acorn
   IngredientFileName: RubyOakAcorn
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 9046b8e7f67ef124ba1c8f29eeb9acf8, type: 3}
+  IngredientIconColor: {r: 0.8867924, g: 0.13720179, b: 0.1825414, a: 1}
   locked: 0
 --- !u!114 &-3576059353851883392
 MonoBehaviour:

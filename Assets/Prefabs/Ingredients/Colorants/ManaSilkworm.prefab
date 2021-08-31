@@ -60,8 +60,11 @@ MonoBehaviour:
   rarity: 2
   constellation: 2
   IngredientName: "\u041C\u0430\u043D\u043E\u0432\u044B\u0439 \u0448\u0435\u043B\u043A\u043E\u043F\u0440\u044F\u0434"
+  EnglishName: Mana silkworm
   IngredientFileName: ManaSilkworm
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 3a8044dcd68fc3d48a894ff2f756b61f, type: 3}
+  IngredientIconColor: {r: 0.015806315, g: 0.60704243, b: 0.6981132, a: 1}
   locked: 0
 --- !u!114 &-4532268467388462562
 MonoBehaviour:

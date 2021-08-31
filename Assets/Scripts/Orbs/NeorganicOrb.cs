@@ -12,9 +12,9 @@ public class NeorganicOrb : Orb
     }
 
     // Update is called once per frame
-    protected override void Update()
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
     }
 
     public override void affectWith(EFFECT_TYPES effect, int aetherToAdd = 0, Orb.ORB_ARCHETYPES archetype = ORB_ARCHETYPES.NONE)

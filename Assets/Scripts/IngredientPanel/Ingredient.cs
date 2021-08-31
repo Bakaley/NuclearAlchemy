@@ -49,6 +49,22 @@ public class Ingredient : MonoBehaviour
     [SerializeField]
     public ESSENSE essence3;
 
+    public enum INGREDIENT_STATE
+    {
+        UNKNOWN_WITH_NO_BLUEPRINT,
+        LEARNED_WITH_NO_BLUEPRINT,
+        UNKNOWN_BLUEPRINT,
+        KNOWN_BLUEPRINT,
+        LEARNED_BLUEPRINT,
+    }
+
+    public INGREDIENT_STATE state
+    {
+        get
+        {
+            return IngredientListManager.blueprintsAvailability[gameObject];
+        }
+    }
 
     [SerializeField]
     RARITY rarity;
@@ -59,11 +75,15 @@ public class Ingredient : MonoBehaviour
     public INGREDIENT_CONSTELLATION Constellation { get { return constellation; } }
 
     [SerializeField]
-    public string IngredientName;
+    public string IngredientName, EnglishName;
     [SerializeField]
     public string IngredientFileName;
     [SerializeField]
     public string IngredientDescription;
+    [SerializeField]
+    public Sprite IngredientIcon;
+    [SerializeField]
+    public Color IngredientIconColor;
 
     [SerializeField]
     public bool locked;

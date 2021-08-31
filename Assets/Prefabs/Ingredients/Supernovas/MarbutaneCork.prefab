@@ -59,8 +59,11 @@ MonoBehaviour:
   constellation: 4
   IngredientName: "\u041C\u0443\u0440\u0431\u0443\u0442\u0430\u043D\u043E\u0432\u0430\u044F
     \u043F\u0440\u043E\u0431\u043A\u0430"
+  EnglishName: Marbutane cork
   IngredientFileName: MarbutaneCork
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: f6cff80eb2fac784188f50a44631082f, type: 3}
+  IngredientIconColor: {r: 0.7529412, g: 0, b: 0.11190257, a: 1}
   locked: 0
 --- !u!1001 &6284830993566863967
 PrefabInstance:

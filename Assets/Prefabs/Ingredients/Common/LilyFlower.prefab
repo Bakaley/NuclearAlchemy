@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0426\u0432\u0435\u0442\u043E\u043A \u043B\u0438\u043B\u0438\u0438"
+  EnglishName: Lily flower
   IngredientFileName: LilyFlower
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &1073966483048913677
 PrefabInstance:

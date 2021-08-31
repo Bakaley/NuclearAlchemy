@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DissolvingEssence : MonoBehaviour, DissolvingElement
 {
@@ -28,10 +29,11 @@ public class DissolvingEssence : MonoBehaviour, DissolvingElement
         throw new System.NotImplementedException();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    Material material;
+    private void Awake()
     {
-        
+        material = Instantiate<Material>(GetComponent<Image>().material);
+        GetComponent<Image>().material = material;
     }
 
     // Update is called once per frame
@@ -44,12 +46,12 @@ public class DissolvingEssence : MonoBehaviour, DissolvingElement
             {
                 case STANCE.APPEARING:
 
-                    GetComponent<SpriteRenderer>().material.SetFloat("Shading_Vector", GetComponent<SpriteRenderer>().material.GetFloat("Shading_Vector") + Time.deltaTime * 4);
+                    material.SetFloat("Shading_Vector", material.GetFloat("Shading_Vector") + Time.deltaTime * 4);
 
-                    if (GetComponent<SpriteRenderer>().material.GetFloat("Shading_Vector") >= 1)
+                    if (material.GetFloat("Shading_Vector") >= 1)
                     {
                         dissolveTimer = 0;
-                        GetComponent<SpriteRenderer>().material.SetFloat("Shading_Vector", 1);
+                        material.SetFloat("Shading_Vector", 1);
 
                     }
                     break;

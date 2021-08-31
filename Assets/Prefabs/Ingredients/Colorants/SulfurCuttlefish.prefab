@@ -60,8 +60,11 @@ MonoBehaviour:
   rarity: 3
   constellation: 2
   IngredientName: "\u0421\u0435\u0440\u043D\u0430\u044F \u043A\u0430\u0440\u0430\u043A\u0430\u0442\u0438\u0446\u0430"
+  EnglishName: Sulfur cuttlefish
   IngredientFileName: SulfurCuttlefish
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 63247d37f54272342bb0bfc8b682c858, type: 3}
+  IngredientIconColor: {r: 0.83137256, g: 0.58463234, b: 0, a: 1}
   locked: 0
 --- !u!114 &3646306188404601593
 MonoBehaviour:

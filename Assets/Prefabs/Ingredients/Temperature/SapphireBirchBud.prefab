@@ -60,8 +60,11 @@ MonoBehaviour:
   constellation: 3
   IngredientName: "\u0411\u0443\u0442\u043E\u043D \u0441\u0430\u043F\u0444\u0438\u0440\u043E\u0432\u043E\u0439
     \u0431\u0435\u0440\u0451\u0437\u044B"
+  EnglishName: Sapphire birch bud
   IngredientFileName: SapphireBirchBud
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: d18f88ac849b2be4b94b6336e77ba36b, type: 3}
+  IngredientIconColor: {r: 0, g: 0.50131756, b: 0.7254902, a: 1}
   locked: 0
 --- !u!1001 &2188977420719429645
 PrefabInstance:

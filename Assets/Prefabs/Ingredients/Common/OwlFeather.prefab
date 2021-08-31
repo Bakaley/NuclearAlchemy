@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u041F\u0435\u0440\u043E \u0441\u043E\u0432\u044B"
+  EnglishName: Owl feather
   IngredientFileName: OwlFeather
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &2641103573254098515
 PrefabInstance:

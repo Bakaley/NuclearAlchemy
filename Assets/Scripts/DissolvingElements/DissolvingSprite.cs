@@ -77,7 +77,7 @@ public class DissolvingSprite : MonoBehaviour, DissolvingElement
 
     void Update()
     {
-        if (currentDissolvingTimer >= 0)
+        if (currentDissolvingTimer > 0)
         {
             currentDissolvingTimer -= Time.deltaTime;
             if (dissolving)

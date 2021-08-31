@@ -59,8 +59,11 @@ MonoBehaviour:
   constellation: 6
   IngredientName: "\u0413\u0440\u0430\u0432\u0438\u0442\u0430\u0446\u0438\u043E\u043D\u043D\u044B\u0439
     \u0433\u0440\u0438\u0431"
+  EnglishName: Gravityshroom
   IngredientFileName: Gravityshroom
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 06ffa56387acc1642bb5a61413c89181, type: 3}
+  IngredientIconColor: {r: 0.4245283, g: 0.07769666, b: 0.33868286, a: 1}
   locked: 0
 --- !u!1001 &1528936573703565626
 PrefabInstance:

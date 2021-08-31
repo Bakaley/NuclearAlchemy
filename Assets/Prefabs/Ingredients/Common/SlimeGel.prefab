@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0416\u0435\u043B\u0435 \u0441\u043B\u0438\u0437\u043D\u044F"
+  EnglishName: Slime gel
   IngredientFileName: SlimeGel
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &743482122794295916
 PrefabInstance:

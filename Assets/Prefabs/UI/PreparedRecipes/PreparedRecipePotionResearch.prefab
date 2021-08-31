@@ -655,7 +655,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8978964976509789804}
   - component: {fileID: 1740772232119269603}
-  - component: {fileID: 7198725391465112012}
   - component: {fileID: 4675185638504527577}
   m_Layer: 5
   m_Name: Background
@@ -734,25 +733,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7198725391465112012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3385759828591766274}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3daef309ea1eba64489649ecaff7a63f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dissolvingMaterialSample: {fileID: 2100000, guid: ae936c8e9c60c214194d4fc8e998728a, type: 2}
-  defaultEdgesParam: 0
-  random: 0
-  variant2: {fileID: 0}
-  variant3: {fileID: 0}
-  variant4: {fileID: 0}
-  timeModifier: 1
 --- !u!114 &4675185638504527577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,7 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3daef309ea1eba64489649ecaff7a63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissolvingMaterialSample: {fileID: 0}
+  dissolvingMaterialSample: {fileID: 2100000, guid: 1f7c9a3143a75264ab801c486ea6377b, type: 2}
   defaultEdgesParam: 0
   random: 0
   variant2: {fileID: 0}

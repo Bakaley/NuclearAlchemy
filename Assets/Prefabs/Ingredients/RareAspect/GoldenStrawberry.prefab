@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 2
   constellation: 1
   IngredientName: "\u0417\u043E\u043B\u043E\u0442\u0430\u044F \u043A\u043B\u0443\u0431\u043D\u0438\u043A\u0430"
+  EnglishName: Golden strawberry
   IngredientFileName: GoldenStrawberry
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 434c8ae514776a249b2f5787abf3e48b, type: 3}
+  IngredientIconColor: {r: 0.8679245, g: 0.61387306, b: 0.1915984, a: 1}
   locked: 0
 --- !u!1001 &271476674238329962
 PrefabInstance:

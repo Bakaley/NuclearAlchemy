@@ -59,8 +59,11 @@ MonoBehaviour:
   constellation: 2
   IngredientName: "\u0410\u043B\u044C\u043D\u0435\u0437\u0438\u0439\u0441\u043A\u0438\u0439
     \u0442\u043E\u043C\u0430\u0442"
+  EnglishName: Alnesian tomato
   IngredientFileName: AlnesianTomato
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: a206dfabd684dc14e8e9589f22a48806, type: 3}
+  IngredientIconColor: {r: 0.25717336, g: 0.46169055, b: 0.7924528, a: 1}
   locked: 0
 --- !u!1001 &1435706508736758440
 PrefabInstance:

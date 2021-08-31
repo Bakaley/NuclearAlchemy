@@ -5,12 +5,12 @@ using UnityEngine;
 public class IngredientSampler : MonoBehaviour
 {
     [SerializeField]
-    GameObject orbShift;
+    public GameObject orbShift;
 
     [SerializeField]
-    GameObject essence1;
+    public GameObject essence1;
     [SerializeField]
-    GameObject essence2;
+    public GameObject essence2;
     [SerializeField]
-    GameObject essence3;
+    public GameObject essence3;
 }

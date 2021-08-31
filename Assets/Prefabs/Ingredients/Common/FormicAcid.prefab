@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u041C\u0443\u0440\u0430\u0432\u044C\u0438\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430"
+  EnglishName: Formic acid
   IngredientFileName: FormicAcid
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &2358084885402669827
 PrefabInstance:

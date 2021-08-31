@@ -60,8 +60,11 @@ MonoBehaviour:
   constellation: 6
   IngredientName: "\u0421\u0442\u0440\u0435\u043B\u044C\u0447\u0430\u0442\u044B\u0435
     \u0433\u0440\u0438\u0431\u044B"
+  EnglishName: Lancet mushrooms
   IngredientFileName: LancetMushrooms
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 56e4b7e1863815541ac815f2900052c0, type: 3}
+  IngredientIconColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
   locked: 0
 --- !u!1001 &400889290964625492
 PrefabInstance:

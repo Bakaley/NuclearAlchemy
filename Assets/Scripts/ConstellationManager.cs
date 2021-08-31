@@ -31,15 +31,19 @@ public class ConstellationManager : MonoBehaviour
 
     private void Awake()
     {
-        int n1 = UnityEngine.Random.Range(1, 7);
+        int n1 = UnityEngine.Random.Range(0, 7);
         CONSTELLATION1 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), n1);
         //rigging constellations
-        //CONSTELLATION1 = CONSTELLATION.AETHER;
+        //CONSTELLATION1 = CONSTELLATION.NONE;
         Debug.Log(CONSTELLATION1);
-        int n2 = UnityEngine.Random.Range(1, 7);
-        CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), UnityEngine.Random.Range(1, 7));
-        //CONSTELLATION2 = CONSTELLATION.LENSING;
-        while (CONSTELLATION1 == CONSTELLATION2) CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), UnityEngine.Random.Range(1, 7));
+        int n2 = UnityEngine.Random.Range(0, 7);
+        CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), UnityEngine.Random.Range(0, 7));
+        //CONSTELLATION2 = CONSTELLATION.NONE;
+        while (CONSTELLATION1 == CONSTELLATION2)
+        {
+            if (CONSTELLATION1 == CONSTELLATION.NONE) break;
+            CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), UnityEngine.Random.Range(0, 7));
+        }
         Debug.Log(CONSTELLATION2);
         sortConstellations();
 

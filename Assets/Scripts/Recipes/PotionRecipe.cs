@@ -5,8 +5,13 @@ using UnityEngine;
 public class PotionRecipe : Recipe
 {
 
-    [SerializeField]
-    int currentLevel = 1;
+    public int currentLevel
+    {
+        get
+        {
+            return PotionListManager.potionLevelDictionary[gameObject];
+        }
+    }
 
     public enum POTION_TYPE
     {
@@ -62,25 +67,76 @@ public class PotionRecipe : Recipe
         }
     }
 
-    [SerializeField]
-    protected Color iconColor;
+    Color32 lvl1color = new Color32(31, 114, 176, 255);
+    Color32 lvl2color = new Color32(162, 39, 97, 255);
+    Color32 lvl3color = new Color32(150, 117, 24, 255);
+
+    public Color32 IconColor
+    {
+        get
+        {
+            switch (Type)
+            {
+                case RECIPE_TYPE.POTION_BLUEPRINT:
+                    return lvl1color;
+                case RECIPE_TYPE.POTION_LEVEL_UP:
+                    switch (currentLevel)
+                    {
+                        case 1:
+                            return lvl2color;
+                        case 2:
+                            return lvl3color;
+                    }
+                    return new Color(183, 183, 183, 255);
+                case RECIPE_TYPE.POTION_BREWING:
+                    switch (currentLevel)
+                    {
+                        case 1:
+                            return lvl1color;
+                        case 2:
+                            return lvl2color;
+                        case 3:
+                            return lvl3color;
+                    }
+                    return new Color(183, 183, 183, 255);
+            }
+            return new Color(183, 183, 183, 255);
+        }
+    }
 
     public override int Points
     {
         get
         {
-            switch (currentLevel)
+            switch (Type)
             {
-                case 1:
+                case RECIPE_TYPE.POTION_BLUEPRINT:
                     return basePoints;
-                case 2:
-                    return basePointsLVL2;
-                case 3:
-                    return basePointsLVL3;
+                case RECIPE_TYPE.POTION_LEVEL_UP:
+                    switch (currentLevel)
+                    {
+                        case 1:
+                            return basePointsLVL2;
+                        case 2:
+                            return basePointsLVL3;
+                    }
+                    return 0;
+                case RECIPE_TYPE.POTION_BREWING:
+                    switch (currentLevel)
+                    {
+                        case 1:
+                            return basePoints;
+                        case 2:
+                            return basePointsLVL2;
+                        case 3:
+                            return basePointsLVL3;
+                    }
+                    return 0;
             }
             return 0;
         }
     }
+
 
     [SerializeField]
     int basePointsLVL2;
@@ -88,21 +144,21 @@ public class PotionRecipe : Recipe
     [SerializeField]
     int basePointsLVL3;
 
-    public static double PotionCountlvl1
+    static double PotionCountlvl1
     {
         get
         {
             return 1.25;
         }
     }
-    public static double PotionCountlvl2
+    static double PotionCountlvl2
     {
         get
         {
             return 1.5;
         }
     }
-    public static double PotionCountlvl3
+    static double PotionCountlvl3
     {
         get
         {
@@ -122,6 +178,21 @@ public class PotionRecipe : Recipe
                 case 2:
                     return PotionCountlvl2;
                 case 3:
+                    return PotionCountlvl3;
+            }
+            return 0;
+        }
+    }
+
+    public double nextLvLPotionCount
+    {
+        get
+        {
+            switch (currentLevel)
+            {
+                case 1:
+                    return PotionCountlvl2;
+                case 2:
                     return PotionCountlvl3;
             }
             return 0;

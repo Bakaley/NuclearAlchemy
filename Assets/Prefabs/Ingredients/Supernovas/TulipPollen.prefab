@@ -60,8 +60,11 @@ MonoBehaviour:
   constellation: 4
   IngredientName: "\u0422\u044E\u043B\u044C\u043F\u0430\u043D\u043E\u0432\u0430\u044F
     \u043F\u044B\u043B\u044C\u0446\u0430"
+  EnglishName: Tulip pollen
   IngredientFileName: TulipPollen
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: be07610173ce002468c056959c401140, type: 3}
+  IngredientIconColor: {r: 0.6981132, g: 0.23314342, b: 0.6521504, a: 1}
   locked: 0
 --- !u!1001 &98930315607994936
 PrefabInstance:

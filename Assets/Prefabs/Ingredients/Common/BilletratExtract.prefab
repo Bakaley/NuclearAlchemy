@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u042D\u043A\u0441\u0442\u0440\u0430\u043A\u0442 \u0411\u0438\u043B\u043B\u0435\u0442\u0440\u0430\u0442\u0430"
+  EnglishName: Billetrat extract
   IngredientFileName: BilletratExtract
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &450025849472894943
 PrefabInstance:

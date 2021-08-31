@@ -58,8 +58,11 @@ MonoBehaviour:
   constellation: 2
   IngredientName: "\u041A\u043E\u0440\u043E\u043B\u0435\u0432\u0441\u043A\u0430\u044F
     \u0444\u0443\u043A\u0441\u0438\u044F"
+  EnglishName: Royal fuchsia
   IngredientFileName: RoyalFuchsia
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 93450906be2d2cb4f99a6bc0d70df033, type: 3}
+  IngredientIconColor: {r: 0.8113208, g: 0.07194728, b: 0.47632, a: 1}
   locked: 0
 --- !u!1001 &3054579336190486980
 PrefabInstance:

@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 1
   IngredientName: "\u0413\u0440\u0438\u0431-\u0432\u043E\u0434\u043E\u043C\u0435\u0440"
+  EnglishName: Water stridershroom
   IngredientFileName: WaterStridershroom
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 56e4b7e1863815541ac815f2900052c0, type: 3}
+  IngredientIconColor: {r: 0.19215685, g: 0.59834284, b: 0.8666667, a: 1}
   locked: 0
 --- !u!114 &5314601840315642333
 MonoBehaviour:

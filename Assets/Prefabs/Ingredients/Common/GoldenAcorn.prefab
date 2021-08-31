@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0417\u043E\u043B\u043E\u0442\u043E\u0439 \u0436\u0451\u043B\u0443\u0434\u044C"
+  EnglishName: Golden acorn
   IngredientFileName: GoldenAcorn
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &655484009539670337
 PrefabInstance:

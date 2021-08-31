@@ -57,8 +57,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 2
   IngredientName: "\u041C\u043E\u0440\u0441\u043A\u0430\u044F \u0431\u0440\u0443\u0441\u043D\u0438\u043A\u0430"
+  EnglishName: Sea lingonberry
   IngredientFileName: SeaLingonberry
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 10223e54b7eb4fb4e8b84aaa6a0daa40, type: 3}
+  IngredientIconColor: {r: 0, g: 0.6753752, b: 0.83137256, a: 1}
   locked: 0
 --- !u!1001 &971650392189292063
 PrefabInstance:

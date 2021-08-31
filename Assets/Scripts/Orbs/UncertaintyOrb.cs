@@ -17,9 +17,9 @@ public class UncertaintyOrb : Orb
     }
 
     // Update is called once per frame
-    override protected void Update()
+    override protected void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
     }
 
     List<GameObject> orbVariants;

@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0413\u043E\u0440\u043D\u044B\u0439 \u0448\u0438\u043F\u043E\u0432\u043D\u0438\u043A"
+  EnglishName: Mountain rose hip
   IngredientFileName: MountainRoseHip
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &1989675198576637154
 PrefabInstance:

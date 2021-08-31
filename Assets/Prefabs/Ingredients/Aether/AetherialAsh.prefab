@@ -57,8 +57,11 @@ MonoBehaviour:
   rarity: 2
   constellation: 5
   IngredientName: "\u042D\u0444\u0438\u0440\u043D\u044B\u0439 \u043F\u0435\u043F\u0435\u043B"
+  EnglishName: Aetherial ash
   IngredientFileName: AetherialAsh
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 8b015457b4f6c31448f20bdd3a1deb97, type: 3}
+  IngredientIconColor: {r: 0.2518988, g: 0.5754717, b: 0, a: 1}
   locked: 0
 --- !u!1001 &125624598380143017
 PrefabInstance:

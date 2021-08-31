@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 2
   constellation: 1
   IngredientName: "\u0413\u0435\u0439\u0437\u0435\u0440\u043D\u043E\u0435 \u0448\u0430\u043C\u043F\u0430\u043D\u0441\u043A\u043E\u0435"
+  EnglishName: Geyser champagne
   IngredientFileName: GeyserChampagne
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 3d041e2d67d22e148b5d4cc48c652c2a, type: 3}
+  IngredientIconColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   locked: 0
 --- !u!1001 &2201266473083288349
 PrefabInstance:

@@ -12,7 +12,4 @@ public class PotionBrewSampler : MonoBehaviour
 
     [SerializeField]
     public GameObject lunarCount;
-
-    [SerializeField]
-    public GameObject recipeIcon;
 }

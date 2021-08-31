@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34802642}
   - component: {fileID: 34802643}
+  - component: {fileID: -394019791630438314}
   m_Layer: 5
   m_Name: GoldenMushroomSpores
   m_TagString: Untagged
@@ -58,9 +59,32 @@ MonoBehaviour:
   constellation: 4
   IngredientName: "\u0421\u043F\u043E\u0440\u044B \u0437\u043E\u043B\u043E\u0442\u043E\u0433\u043E
     \u0433\u0440\u0438\u0431\u0430"
+  EnglishName: GoldenM mushroom spores
   IngredientFileName: GoldenMushroomSpores
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: be07610173ce002468c056959c401140, type: 3}
+  IngredientIconColor: {r: 0.7454854, g: 0.754717, b: 0, a: 1}
   locked: 0
+--- !u!114 &-394019791630438314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34802641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc7915ffb4f4b40b2c435750204d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  recipeName: 
+  basePoints: 47
+  aspect: 3
+  temperature: 0
+  aether: 0
+  visctosity: 3
+  voidness: 0
 --- !u!1001 &3409838055847849067
 PrefabInstance:
   m_ObjectHideFlags: 0

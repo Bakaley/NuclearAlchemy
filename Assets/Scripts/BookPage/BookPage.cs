@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BookPage : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class BookPage : MonoBehaviour
     GameObject potionLevelUpSampler;
     [SerializeField]
     GameObject ingredientSampler;
+    [SerializeField]
+    GameObject potionBlueprintSampler;
 
     [SerializeField]
     GameObject recipeTypeString;
@@ -23,28 +26,14 @@ public class BookPage : MonoBehaviour
     GameObject secondParamsBlock;
 
     [SerializeField]
-    GameObject rewardPlace;
+    GameObject IngredientCell;
+    [SerializeField]
+    GameObject IngredientIcon;
+    [SerializeField]
+    GameObject blueprintIngrIcon;
 
     [SerializeField]
-    GameObject WaterEssence;
-    [SerializeField]
-    GameObject FireEssence;
-    [SerializeField]
-    GameObject StoneEssence;
-    [SerializeField]
-    GameObject AirEssence;
-    [SerializeField]
-    GameObject Mushroom;
-    [SerializeField]
-    GameObject MagicEssence;
-    [SerializeField]
-    GameObject PlantEssence;
-    [SerializeField]
-    GameObject AnimalEssence;
-    [SerializeField]
-    GameObject CrystallEssence;
-    [SerializeField]
-    GameObject LightingEssence;
+    GameObject rewardPlace;
 
     public Recipe recipe
     {
@@ -56,29 +45,36 @@ public class BookPage : MonoBehaviour
         this.recipe = recipe;
 
         PotionParamList potionParamList = GetComponentInChildren<PotionParamList>();
-        string str = "";
+        string constellationCaption = "";
+        string recipeNameCaption = "";
         switch (recipe.Type)
         {
             case Recipe.RECIPE_TYPE.POTION_BREWING:
-                str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье": "Potion";
+                constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье": "Potion";
+                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeName;
                 break;
-            case Recipe.RECIPE_TYPE.NEW_RECIPE:
-                str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Новое зелье" : "New potion";
+            case Recipe.RECIPE_TYPE.POTION_BLUEPRINT:
+                constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Новое зелье" : "New potion";
+                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeName;
                 break;
-            case Recipe.RECIPE_TYPE.RECIPE_UPGRADE:
-                str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Улучшение зелья" : "Potion improvement";
+            case Recipe.RECIPE_TYPE.POTION_LEVEL_UP:
+                constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Улучшение зелья" : "Potion upgrade";
+                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeName;
                 break;
             case Recipe.RECIPE_TYPE.NEW_INGREDIENT:
-                str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Новый ингредиент" : "New ingredient";
+                constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Новый ингредиент" : "New ingredient";
+                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.GetComponent<Ingredient>().IngredientName : recipe.GetComponent<Ingredient>().EnglishName;
                 break;
             case Recipe.RECIPE_TYPE.CONSUMABLE:
-                str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Расходник" : "Consumable";
+                constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Расходник" : "Consumable";
+                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.GetComponent<Ingredient>().IngredientName : recipe.GetComponent<Ingredient>().EnglishName;
                 break;
         }
-        recipeTypeString.GetComponent<TextMeshPro>().text = str;
-        recipeNameString.GetComponent<TextMeshPro>().text = recipe.RecipeName;
+        recipeTypeString.GetComponent<TextMeshPro>().text = constellationCaption;
+        recipeNameString.GetComponent<TextMeshPro>().text = recipeNameCaption;
 
-        potionParamList.points.GetComponent<TextMeshPro>().text = recipe.Points + "";
+        if(recipe.Type == Recipe.RECIPE_TYPE.POTION_LEVEL_UP) potionParamList.points.GetComponent<TextMeshPro>().text = recipe.GetComponent<PotionRecipe>().Points + "";
+        else potionParamList.points.GetComponent<TextMeshPro>().text = recipe.Points + "";
 
         switch (recipe.Aspect)
         {
@@ -217,101 +213,210 @@ public class BookPage : MonoBehaviour
         switch (recipe.Type)
         {
             case Recipe.RECIPE_TYPE.POTION_BREWING:
-
-                GameObject reward = Instantiate(potionBrewingSampler, rewardPlace.transform);
-                PotionBrewSampler potionBrewReward = reward.GetComponent<PotionBrewSampler>();
+                GameObject rewaredBrewGameobject = Instantiate(potionBrewingSampler, rewardPlace.transform);
+                PotionBrewSampler potionBrewReward = rewaredBrewGameobject.GetComponent<PotionBrewSampler>();
                 potionBrewReward.potionIcon.GetComponent<SpriteRenderer>().sprite = recipe.GetComponent<PotionRecipe>().Icon;
+                potionBrewReward.potionIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<PotionRecipe>().IconColor;
                 potionBrewReward.potionCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<PotionRecipe>().PotionCount + "";
                 potionBrewReward.lunarCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<PotionRecipe>().LunarCount + "";
-
-                constellationString.SetActive(true);
-                switch (recipe.GetComponent<PotionRecipe>().Potion_Type)
-                {
-                    case PotionRecipe.POTION_TYPE.BASIC:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Базовые" : "Potion";
-                        break;
-                    case PotionRecipe.POTION_TYPE.TEMPERATURE:
-                    case PotionRecipe.POTION_TYPE.TEMPERATURE_PROGRESSING:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура" : "Temperature";
-                        break;
-                    case PotionRecipe.POTION_TYPE.COLORANTS:
-                    case PotionRecipe.POTION_TYPE.COLORANTS_PROGRESSING:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители" : "Coloratns";
-                        break;
-                    case PotionRecipe.POTION_TYPE.AETHER:
-                    case PotionRecipe.POTION_TYPE.AETHER_PROGRESSING:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир" : "Aether";
-                        break;
-                    case PotionRecipe.POTION_TYPE.SUPERNOVA:
-                    case PotionRecipe.POTION_TYPE.SUPERNOVA_PROGRESSING:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Сверхновые" : "Supernovas";
-                        break;
-                    case PotionRecipe.POTION_TYPE.VOIDS:
-                    case PotionRecipe.POTION_TYPE.VOIDS_PROGRESSING:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Пустоты" : "Voids";
-                        break;
-                    case PotionRecipe.POTION_TYPE.BASIC_PLUS:
-                    case PotionRecipe.POTION_TYPE.BASIC_PLUS_PROGRESSING:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Линзирование" : "Lensing";
-                        break;
-                    case PotionRecipe.POTION_TYPE.TEMPERATURE_COLORANTS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, температура" : "Colorants, temperature";
-                        break;
-                    case PotionRecipe.POTION_TYPE.COLORANTS_AETHER:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, эфир" : "Colorants, aether";
-                        break;
-                    case PotionRecipe.POTION_TYPE.COLORANTS_SUPERNOVA:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, сверхновые" : "Colorants, supernovas";
-                        break;
-                    case PotionRecipe.POTION_TYPE.COLORANTS_VOIDS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, пустоты" : "Colorants, voids";
-                        break;
-                    case PotionRecipe.POTION_TYPE.TEMPERATURE_AETHER:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура, эфир" : "Temperature, aether";
-                        break;
-                    case PotionRecipe.POTION_TYPE.TEMPERATURE_SUPERNOVA:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура, сверхновые" : "Temperature, supernovas";
-                        break;
-                    case PotionRecipe.POTION_TYPE.TEMPERATURE_VOIDS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура, пустоты" : "Temperature, voids";
-                        break;
-                    case PotionRecipe.POTION_TYPE.AETHER_SUPERNOVA:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир, сверхновые" : "Aether, supernovas";
-                        break;
-                    case PotionRecipe.POTION_TYPE.AETHER_VOIDS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир, пустоты" : "Aether, voids";
-                        break;
-                    case PotionRecipe.POTION_TYPE.VOIDS_SUPERNOVA:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Сверхновые, пустоты" : "Supernovas, voids";
-                        break;
-                    case PotionRecipe.POTION_TYPE.COLORANTS_PLUS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, линзирование" : "Colorants, lensing";
-                        break;
-                    case PotionRecipe.POTION_TYPE.TEMPERATURE_PLUS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура, линзирование" : "Temperature, lensing";
-                        break;
-                    case PotionRecipe.POTION_TYPE.AETHER_PLUS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир, линзирование" : "Aether, lensing";
-                        break;
-                    case PotionRecipe.POTION_TYPE.SUPERNOVA_PLUS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Сверхновые, линзирование" : "Supernovas, lensing";
-                        break;
-                    case PotionRecipe.POTION_TYPE.VOIDS_PLUS:
-                        str = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Пустоты, линзирование" : "Voids, lensing";
-                        break;
-
-                }
-                constellationString.GetComponent<TextMeshPro>().text = str;
+                setConstellationPotionString();
                 break;
+
+            case Recipe.RECIPE_TYPE.NEW_INGREDIENT:
+                fillIngredientReward();
+                blueprintIngrIcon.SetActive(true);
+                IngredientIcon.transform.localScale = new Vector3(1, 1, 1);
+                break;
+
+            case Recipe.RECIPE_TYPE.CONSUMABLE:
+                fillIngredientReward();
+                break;
+
+            case Recipe.RECIPE_TYPE.POTION_LEVEL_UP:
+                setConstellationPotionString();
+                GameObject rewardLevelUPGameObject = Instantiate(potionLevelUpSampler, rewardPlace.transform);
+                PotionLevelUpSampler potionLevelUpReward = rewardLevelUPGameObject.GetComponent<PotionLevelUpSampler>();
+                potionLevelUpReward.potionIcon.GetComponent<SpriteRenderer>().sprite = recipe.GetComponent<PotionRecipe>().Icon;
+                potionLevelUpReward.potionIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<PotionRecipe>().IconColor;
+                potionLevelUpReward.oldCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<PotionRecipe>().PotionCount + "";
+                potionLevelUpReward.newCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<PotionRecipe>().nextLvLPotionCount + "";
+                break;
+
+            case Recipe.RECIPE_TYPE.POTION_BLUEPRINT:
+                GameObject rewaredPotBlueprintGameobject = Instantiate(potionBlueprintSampler, rewardPlace.transform);
+                PotionBlueprintSampler potionBlueprintReward = rewaredPotBlueprintGameobject.GetComponent<PotionBlueprintSampler>();
+                potionBlueprintReward.backgroundBlueprint.SetActive(true);
+                potionBlueprintReward.potionIcon.transform.localScale = new Vector3(.75f, .75f, .75f);
+                potionBlueprintReward.potionIcon.GetComponent<SpriteRenderer>().sprite = recipe.GetComponent<PotionRecipe>().Icon;
+                potionBlueprintReward.potionIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<PotionRecipe>().IconColor;
+                potionBlueprintReward.potionCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<PotionRecipe>().PotionCount + "";
+                potionBlueprintReward.lunarCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<PotionRecipe>().LunarCount + "";
+                setConstellationPotionString();
+                break;
+        }
+
+        void setConstellationPotionString()
+        {
+            switch (recipe.GetComponent<PotionRecipe>().Potion_Type)
+            {
+                case PotionRecipe.POTION_TYPE.BASIC:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Базовые" : "Potion";
+                    break;
+                case PotionRecipe.POTION_TYPE.TEMPERATURE:
+                case PotionRecipe.POTION_TYPE.TEMPERATURE_PROGRESSING:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура" : "Temperature";
+                    break;
+                case PotionRecipe.POTION_TYPE.COLORANTS:
+                case PotionRecipe.POTION_TYPE.COLORANTS_PROGRESSING:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители" : "Coloratns";
+                    break;
+                case PotionRecipe.POTION_TYPE.AETHER:
+                case PotionRecipe.POTION_TYPE.AETHER_PROGRESSING:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир" : "Aether";
+                    break;
+                case PotionRecipe.POTION_TYPE.SUPERNOVA:
+                case PotionRecipe.POTION_TYPE.SUPERNOVA_PROGRESSING:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Сверхновые" : "Supernovas";
+                    break;
+                case PotionRecipe.POTION_TYPE.VOIDS:
+                case PotionRecipe.POTION_TYPE.VOIDS_PROGRESSING:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Пустоты" : "Voids";
+                    break;
+                case PotionRecipe.POTION_TYPE.BASIC_PLUS:
+                case PotionRecipe.POTION_TYPE.BASIC_PLUS_PROGRESSING:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Линзирование" : "Lensing";
+                    break;
+                case PotionRecipe.POTION_TYPE.TEMPERATURE_COLORANTS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, температура" : "Colorants, temperature";
+                    break;
+                case PotionRecipe.POTION_TYPE.COLORANTS_AETHER:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, эфир" : "Colorants, aether";
+                    break;
+                case PotionRecipe.POTION_TYPE.COLORANTS_SUPERNOVA:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, сверхновые" : "Colorants, supernovas";
+                    break;
+                case PotionRecipe.POTION_TYPE.COLORANTS_VOIDS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, пустоты" : "Colorants, voids";
+                    break;
+                case PotionRecipe.POTION_TYPE.TEMPERATURE_AETHER:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура, эфир" : "Temperature, aether";
+                    break;
+                case PotionRecipe.POTION_TYPE.TEMPERATURE_SUPERNOVA:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура, сверхновые" : "Temperature, supernovas";
+                    break;
+                case PotionRecipe.POTION_TYPE.TEMPERATURE_VOIDS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура, пустоты" : "Temperature, voids";
+                    break;
+                case PotionRecipe.POTION_TYPE.AETHER_SUPERNOVA:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир, сверхновые" : "Aether, supernovas";
+                    break;
+                case PotionRecipe.POTION_TYPE.AETHER_VOIDS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир, пустоты" : "Aether, voids";
+                    break;
+                case PotionRecipe.POTION_TYPE.VOIDS_SUPERNOVA:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Сверхновые, пустоты" : "Supernovas, voids";
+                    break;
+                case PotionRecipe.POTION_TYPE.COLORANTS_PLUS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители, линзирование" : "Colorants, lensing";
+                    break;
+                case PotionRecipe.POTION_TYPE.TEMPERATURE_PLUS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура, линзирование" : "Temperature, lensing";
+                    break;
+                case PotionRecipe.POTION_TYPE.AETHER_PLUS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир, линзирование" : "Aether, lensing";
+                    break;
+                case PotionRecipe.POTION_TYPE.SUPERNOVA_PLUS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Сверхновые, линзирование" : "Supernovas, lensing";
+                    break;
+                case PotionRecipe.POTION_TYPE.VOIDS_PLUS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Пустоты, линзирование" : "Voids, lensing";
+                    break;
+            }
+            constellationString.SetActive(true);
+            constellationString.GetComponent<TextMeshPro>().text = constellationCaption;
+        }
+
+        void fillIngredientReward()
+        {
+            GameObject ingrReward = Instantiate(ingredientSampler, rewardPlace.transform);
+            IngredientSampler ingrSampler = ingrReward.GetComponent<IngredientSampler>();
+            foreach (PreviewOrb orb in recipe.GetComponent<Ingredient>().preview.GetComponentsInChildren<PreviewOrb>())
+            {
+                Instantiate(orb.gameObject, ingrSampler.orbShift.transform);
+            }
+
+            if (recipe.GetComponent<Ingredient>().essence2 == Ingredient.ESSENSE.None)
+            {
+                ingrSampler.essence3.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().sprite;
+                ingrSampler.essence3.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().color;
+                ingrSampler.essence3.gameObject.transform.localPosition = new Vector3(ingrSampler.essence3.gameObject.transform.localPosition.x, (ingrSampler.essence3.gameObject.transform.localPosition.y + ingrSampler.essence1.gameObject.transform.localPosition.y) / 2, ingrSampler.essence3.gameObject.transform.localPosition.z);
+                ingrSampler.essence3.gameObject.SetActive(true);
+            }
+            else if (recipe.GetComponent<Ingredient>().essence3 == Ingredient.ESSENSE.None)
+            {
+                ingrSampler.essence1.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().sprite;
+                ingrSampler.essence1.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().color;
+                ingrSampler.essence2.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<Image>().sprite;
+                ingrSampler.essence2.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<Image>().color;
+
+                ingrSampler.essence1.gameObject.transform.localPosition = new Vector3(ingrSampler.essence1.gameObject.transform.localPosition.x, (ingrSampler.essence1.gameObject.transform.localPosition.y + ingrSampler.essence3.gameObject.transform.localPosition.y) / 2, ingrSampler.essence1.gameObject.transform.localPosition.z);
+                ingrSampler.essence2.gameObject.transform.localPosition = new Vector3(ingrSampler.essence2.gameObject.transform.localPosition.x, (ingrSampler.essence2.gameObject.transform.localPosition.y + ingrSampler.essence3.gameObject.transform.localPosition.y) / 2, ingrSampler.essence2.gameObject.transform.localPosition.z);
+
+                ingrSampler.essence1.gameObject.SetActive(true);
+                ingrSampler.essence2.gameObject.SetActive(true);
+            }
+            else
+            {
+                ingrSampler.essence1.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().sprite;
+                ingrSampler.essence1.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().color;
+                ingrSampler.essence2.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<Image>().sprite;
+                ingrSampler.essence2.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<Image>().color;
+                ingrSampler.essence3.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence3].GetComponent<Image>().sprite;
+                ingrSampler.essence3.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence3].GetComponent<Image>().color;
+                ingrSampler.essence1.gameObject.SetActive(true);
+                ingrSampler.essence2.gameObject.SetActive(true);
+                ingrSampler.essence3.gameObject.SetActive(true);
+            }
+
+            IngredientCell.SetActive(true);
+            IngredientIcon.GetComponent<SpriteRenderer>().sprite = recipe.GetComponent<Ingredient>().IngredientIcon;
+            IngredientIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<Ingredient>().IngredientIconColor;
+
+
+            switch (recipe.GetComponent<Ingredient>().Constellation)
+            {
+                case Ingredient.INGREDIENT_CONSTELLATION.ASPECT:
+                case Ingredient.INGREDIENT_CONSTELLATION.RARE_ASPECT:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Базовые" : "Базовые";
+                    break;
+                case Ingredient.INGREDIENT_CONSTELLATION.COLORANTS:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Красители" : "Colorants";
+                    break;
+                case Ingredient.INGREDIENT_CONSTELLATION.TEMPERATURE:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Температура" : "Temperature";
+                    break;
+                case Ingredient.INGREDIENT_CONSTELLATION.AETHER:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Эфир" : "Aether";
+                    break;
+                case Ingredient.INGREDIENT_CONSTELLATION.SUPERNOVA:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Сверхновые" : "Supernovas";
+                    break;
+                case Ingredient.INGREDIENT_CONSTELLATION.VOID:
+                    constellationCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Пустоты" : "Voids";
+                    break;
+            }
+
+            constellationString.SetActive(true);
+            constellationString.GetComponent<TextMeshPro>().text = constellationCaption;
         }
 
         Recipe.EssenceRequirement[] ess = recipe.essences;
 
-        potionParamList.essence1.GetComponent<SpriteRenderer>().sprite = EssencePanel.essenceIcons[ess[0].essence].GetComponent<SpriteRenderer>().sprite;
-        potionParamList.essence1.GetComponent<SpriteRenderer>().color = EssencePanel.essenceIcons[ess[0].essence].GetComponent<SpriteRenderer>().color;
+        potionParamList.essence1.GetComponent<Image>().sprite = EssenceList.essenceIcons[ess[0].essence].GetComponent<Image>().sprite;
+        potionParamList.essence1.GetComponent<Image>().color = EssenceList.essenceIcons[ess[0].essence].GetComponent<Image>().color;
 
-        potionParamList.essence2.GetComponent<SpriteRenderer>().sprite = EssencePanel.essenceIcons[ess[1].essence].GetComponent<SpriteRenderer>().sprite;
-        potionParamList.essence2.GetComponent<SpriteRenderer>().color = EssencePanel.essenceIcons[ess[1].essence].GetComponent<SpriteRenderer>().color;
+        potionParamList.essence2.GetComponent<Image>().sprite = EssenceList.essenceIcons[ess[1].essence].GetComponent<Image>().sprite;
+        potionParamList.essence2.GetComponent<Image>().color = EssenceList.essenceIcons[ess[1].essence].GetComponent<Image>().color;
 
         /*Sprite loadedNumber = Resources.Load<Sprite>("Numbers/numberIcon" + ess[0].count) as Sprite;
         EssencePanel.getNumberSpriteRenderer(potionParamList.essence1).sprite = loadedNumber;
@@ -331,7 +436,7 @@ public class BookPage : MonoBehaviour
 
     public void pick()
     {
-        DraftWindow.clean();
-        CookingModule.pick(recipe);
+        DraftModule.clean();
+        DraftModule.pick(recipe);
     }
 }

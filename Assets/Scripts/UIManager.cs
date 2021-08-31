@@ -32,6 +32,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     Sprite selectedBoardSample;
 
+    [SerializeField]
+    GameObject cookingUI;
+    [SerializeField]
+    GameObject movingUI;
+
+
     public static UIManager staticInstance
     {
         get;
@@ -42,9 +48,14 @@ public class UIManager : MonoBehaviour
     {
         get
         {
-            return staticInstance.GetComponent<Canvas>().worldCamera.gameObject;
+            return staticInstance.cookingUI.GetComponent<Canvas>().worldCamera.gameObject;
         }
     }
+
+    public static bool cookingMode
+    {
+        get; private set;
+    } = false;
 
     static bool addingMode = false;
 
@@ -77,12 +88,16 @@ public class UIManager : MonoBehaviour
 
     public void openCookingUI()
     {
-        gameObject.SetActive(true);
+        cookingMode = true;
+        movingUI.SetActive(false);
+        cookingUI.SetActive(true);
     }
 
     public void closeCookingUI()
     {
-        gameObject.SetActive(false);
+        cookingMode = false;
+        cookingUI.SetActive(false);
+        movingUI.SetActive(true);
     }
 
     void Update()

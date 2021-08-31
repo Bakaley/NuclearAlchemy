@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 4
   IngredientName: "\u0417\u0443\u0431 \u0433\u0438\u0434\u0440\u044B"
+  EnglishName: Hydra's tooth
   IngredientFileName: HydrasTrooth
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 24c86a18f52cbd546b10eadcf837dd48, type: 3}
+  IngredientIconColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   locked: 0
 --- !u!1001 &772814242
 PrefabInstance:

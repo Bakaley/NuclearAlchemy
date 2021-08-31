@@ -57,8 +57,11 @@ MonoBehaviour:
   rarity: 3
   constellation: 1
   IngredientName: "\u041E\u0441\u043A\u043E\u043B\u043A\u0438 \u043C\u043E\u043B\u043D\u0438\u0438"
+  EnglishName: Lightning shards
   IngredientFileName: LightningShards
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 06b77568ac6c1f24ca7b672eb962b64d, type: 3}
+  IngredientIconColor: {r: 0.8679245, g: 0.7934408, b: 0.5109291, a: 1}
   locked: 0
 --- !u!1001 &1847644168
 PrefabInstance:

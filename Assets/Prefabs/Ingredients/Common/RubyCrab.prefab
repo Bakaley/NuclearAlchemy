@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0420\u0443\u0431\u0438\u043D\u043E\u0432\u044B\u0439 \u043A\u0440\u0430\u0431"
+  EnglishName: Ruby crab
   IngredientFileName: RubyCrab
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &663408311632844005
 PrefabInstance:

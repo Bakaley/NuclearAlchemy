@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 1
   IngredientName: "\u0416\u0435\u043B\u0435\u0437\u043D\u044B\u0439 \u0441\u043B\u0438\u0442\u043E\u043A"
+  EnglishName: Iron bar
   IngredientFileName: IronBar
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: b5d8ca612205e7649851a7f241a0c8f2, type: 3}
+  IngredientIconColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   locked: 0
 --- !u!114 &6103776833064443547
 MonoBehaviour:

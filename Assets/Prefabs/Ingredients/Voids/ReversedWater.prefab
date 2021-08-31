@@ -60,8 +60,11 @@ MonoBehaviour:
   rarity: 4
   constellation: 6
   IngredientName: "\u041E\u0431\u0440\u0430\u0442\u043D\u0430\u044F \u0432\u043E\u0434\u0430"
+  EnglishName: Reversed water
   IngredientFileName: ReversedWater
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 4964efc786ac9e24995d453476397cef, type: 3}
+  IngredientIconColor: {r: 0.7075472, g: 0.18956922, b: 0.54282904, a: 1}
   locked: 0
 --- !u!114 &8284084161523177202
 MonoBehaviour:

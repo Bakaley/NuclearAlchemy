@@ -59,8 +59,11 @@ MonoBehaviour:
   constellation: 0
   IngredientName: "\u041A\u0440\u044B\u043B\u043E \u043B\u0435\u0442\u0443\u0447\u0435\u0439
     \u043C\u044B\u0448\u0438"
+  EnglishName: Bat wing
   IngredientFileName: BatWing
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &1687259752723522156
 PrefabInstance:

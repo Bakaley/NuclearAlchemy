@@ -4790,7 +4790,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -9654,7 +9654,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -9734,6 +9734,10 @@ PrefabInstance:
     - target: {fileID: 186830399614291611, guid: 7e97487facdae384b81e017c9b858072, type: 3}
       propertyPath: m_Name
       value: DemoG1Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7666653934425058752, guid: 7e97487facdae384b81e017c9b858072, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.46115014
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e97487facdae384b81e017c9b858072, type: 3}

@@ -60,8 +60,11 @@ MonoBehaviour:
   rarity: 3
   constellation: 2
   IngredientName: "\u0416\u0435\u043C\u0447\u0443\u0436\u043D\u044B\u0439 \u0433\u0440\u0438\u0431"
+  EnglishName: Pearl mushroom
   IngredientFileName: PearlMushroom
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 06ffa56387acc1642bb5a61413c89181, type: 3}
+  IngredientIconColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
   locked: 0
 --- !u!114 &5684641388359967405
 MonoBehaviour:

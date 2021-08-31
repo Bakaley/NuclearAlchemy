@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 1
   IngredientName: "\u0416\u0430\u043B\u043E \u0441\u043A\u043E\u0440\u043F\u0438\u043E\u043D\u0430"
+  EnglishName: Scorpion sting
   IngredientFileName: ScorpionSting
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 10b35894bf6f2184c81445834ef08d7f, type: 3}
+  IngredientIconColor: {r: 0.8666667, g: 0.7902403, b: 0.19215685, a: 1}
   locked: 0
 --- !u!114 &8409123992436466450
 MonoBehaviour:

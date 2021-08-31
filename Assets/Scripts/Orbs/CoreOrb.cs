@@ -73,9 +73,9 @@ public class CoreOrb : Orb
 
     }
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
     }
 
     void collapse()

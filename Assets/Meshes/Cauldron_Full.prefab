@@ -11,14 +11,12 @@ GameObject:
   - component: {fileID: 2749333313949401688}
   - component: {fileID: 3270623658312546576}
   - component: {fileID: 7033311064699929646}
-  - component: {fileID: 515337301802421446}
-  - component: {fileID: 2749333313949401684}
   m_Layer: 0
   m_Name: Cauldron_Full
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &2749333313949401688
 Transform:
@@ -85,33 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &515337301802421446
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2749333313949401685}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 1dfcafeaf18a4e546b371252addce9da, type: 3}
---- !u!114 &2749333313949401684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2749333313949401685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57329f093ae78a5479fbca78873117af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 0.05
-  movingSpeed: 2
-  rotationSpeed: 10
-  seedShift: 0

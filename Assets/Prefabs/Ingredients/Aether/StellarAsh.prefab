@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 3
   constellation: 5
   IngredientName: "\u0417\u0432\u0451\u0437\u0434\u043D\u044B\u0439 \u043F\u0435\u043F\u0435\u043B"
+  EnglishName: Stellar ash
   IngredientFileName: StellarAsh
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 00692c38668671049b3cbe1ac796466c, type: 3}
+  IngredientIconColor: {r: 0.9433962, g: 0.8279899, b: 0.27945885, a: 1}
   locked: 0
 --- !u!114 &3300572388242279163
 MonoBehaviour:

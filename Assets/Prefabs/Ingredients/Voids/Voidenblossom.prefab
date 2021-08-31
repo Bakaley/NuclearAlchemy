@@ -57,8 +57,11 @@ MonoBehaviour:
   rarity: 2
   constellation: 6
   IngredientName: "\u041F\u0443\u0441\u0442\u043E\u0446\u0432\u0435\u0442"
+  EnglishName: Voidenblossom
   IngredientFileName: Voidenblossom
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 93450906be2d2cb4f99a6bc0d70df033, type: 3}
+  IngredientIconColor: {r: 0.5471698, g: 0.16208613, b: 0.52574533, a: 1}
   locked: 0
 --- !u!1001 &2690351090078602759
 PrefabInstance:

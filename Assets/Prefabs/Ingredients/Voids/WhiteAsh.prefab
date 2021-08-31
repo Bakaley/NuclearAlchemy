@@ -59,8 +59,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 6
   IngredientName: "\u0411\u0435\u043B\u044B\u0439 \u043F\u0435\u043F\u0435\u043B"
+  EnglishName: White ash
   IngredientFileName: WhiteAsh
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: c79b99fc72344444aa0cebb09f05544d, type: 3}
+  IngredientIconColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   locked: 0
 --- !u!1001 &1487961951837336045
 PrefabInstance:

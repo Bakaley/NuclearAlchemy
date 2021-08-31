@@ -60,8 +60,11 @@ MonoBehaviour:
   rarity: 3
   constellation: 3
   IngredientName: "\u0413\u0440\u0438\u0431-\u043C\u0443\u0445\u043E\u0441\u0442\u0440\u0435\u043B"
+  EnglishName: Mushroom flyshooter
   IngredientFileName: MushroomFlyshooter
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 56e4b7e1863815541ac815f2900052c0, type: 3}
+  IngredientIconColor: {r: 0.7254902, g: 0.29925704, b: 0, a: 1}
   locked: 0
 --- !u!114 &3543960018685617427
 MonoBehaviour:

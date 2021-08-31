@@ -481,7 +481,7 @@ public abstract class Orb : MonoBehaviour
         if(antimatterSymbolRenderer) if (antimatterSymbolRenderer.gameObject.GetComponent<Floating>() != null) antimatterSymbolRenderer.gameObject.GetComponent<Floating>().seedShift = movingSeed;
     }
 
-    virtual protected void Update()
+    virtual protected void FixedUpdate()
     {
         if (transform.parent.gameObject == MixingBoard.StaticInstance.OrbShift)
         {

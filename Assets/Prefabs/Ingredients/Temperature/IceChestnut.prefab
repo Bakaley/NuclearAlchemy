@@ -57,8 +57,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 3
   IngredientName: "\u041B\u0435\u0434\u044F\u043D\u043E\u0439 \u043A\u0430\u0448\u0442\u0430\u043D"
+  EnglishName: Ice chestnut
   IngredientFileName: IceChestnut
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 9046b8e7f67ef124ba1c8f29eeb9acf8, type: 3}
+  IngredientIconColor: {r: 0.2984336, g: 0.7585321, b: 0.7830189, a: 1}
   locked: 0
 --- !u!1001 &549700818384500913
 PrefabInstance:

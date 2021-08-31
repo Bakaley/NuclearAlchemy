@@ -60,8 +60,11 @@ MonoBehaviour:
   constellation: 4
   IngredientName: "\u0424\u0438\u043B\u043E\u0441\u043E\u0444\u0441\u043A\u0438\u0439
     \u043A\u0430\u043C\u0435\u043D\u044C"
+  EnglishName: Philosophers stone
   IngredientFileName: PhilosophersStone
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 0cfbb4adf0b1df3469d62a45a3f57d31, type: 3}
+  IngredientIconColor: {r: 0.7454854, g: 0.754717, b: 0, a: 1}
   locked: 0
 --- !u!114 &-5510121314031366286
 MonoBehaviour:

@@ -60,8 +60,11 @@ MonoBehaviour:
   constellation: 0
   IngredientName: "\u041C\u0430\u0440\u0433\u0430\u043D\u0446\u0435\u0432\u0430\u044F
     \u0441\u043E\u043B\u044C"
+  EnglishName: Manganese salt
   IngredientFileName: ManganeseSalt
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &2682021624106193142
 PrefabInstance:

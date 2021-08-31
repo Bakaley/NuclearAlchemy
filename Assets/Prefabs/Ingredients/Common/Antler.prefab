@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u041E\u043B\u0435\u043D\u0438\u0439 \u0440\u043E\u0433"
+  EnglishName: Antler
   IngredientFileName: Antler
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &678617673192687389
 PrefabInstance:

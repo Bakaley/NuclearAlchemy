@@ -56,8 +56,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 2
   IngredientName: "\u0412\u0438\u0448\u043D\u0451\u0432\u044B\u0439 \u0433\u0440\u0438\u0431"
+  EnglishName: Cherry mushroom
   IngredientFileName: CherryMushroom
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 4fb3d8b7cfe8ad640a66e9093adfdc9e, type: 3}
+  IngredientIconColor: {r: 0.8113208, g: 0.2173727, b: 0.2173727, a: 1}
   locked: 0
 --- !u!1001 &4322519319909454716
 PrefabInstance:

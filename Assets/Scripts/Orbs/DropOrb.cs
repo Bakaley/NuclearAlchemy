@@ -36,9 +36,9 @@ public class DropOrb : Orb
     }
 
     // Update is called once per frame
-    override protected void Update()
+    override protected void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         if(transform.parent.gameObject == MixingBoard.StaticInstance.OrbShift && (int)Math.Round(gameObject.transform.localPosition.y) == targetY && !shouldDestroyed)
         {
             if (targetedtOrb)

@@ -150,7 +150,7 @@ public class StatBoardView : MonoBehaviour
         else aetherCaption.GetComponent<TextMeshProUGUI>().text = "Aether";
         if (GameSettings.CurrentLanguage == GameSettings.Language.RU) viscosityCaption.GetComponent<TextMeshProUGUI>().text = "Вязкость";
         else viscosityCaption.GetComponent<TextMeshProUGUI>().text = "Viscosity";
-        if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidsCaption.GetComponent<TextMeshProUGUI>().text = "Пустотны";
+        if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidsCaption.GetComponent<TextMeshProUGUI>().text = "Пустоты";
         else voidsCaption.GetComponent<TextMeshProUGUI>().text = "Voids";
 
         board = MixingBoard.StaticInstance;
@@ -158,8 +158,6 @@ public class StatBoardView : MonoBehaviour
         blocks.Add(aetherBlock, ConstellationManager.CONSTELLATION.AETHER);
         blocks.Add(viscosityBlock, ConstellationManager.CONSTELLATION.SUPERNOVA);
         blocks.Add(voidnessBlock, ConstellationManager.CONSTELLATION.VOIDS);
-
-        Debug.Log(ConstellationManager.CONSTELLATION1 + " " + ConstellationManager.CONSTELLATION2);
 
         foreach (KeyValuePair <GameObject, ConstellationManager.CONSTELLATION> pair in blocks){
             if (!(pair.Value == ConstellationManager.CONSTELLATION1 || pair.Value == ConstellationManager.CONSTELLATION2)) pair.Key.SetActive(false);

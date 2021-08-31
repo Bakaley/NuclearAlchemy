@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 1
   IngredientName: "\u041A\u0440\u044B\u043B\u044C\u044F \u043A\u0443\u0437\u043D\u0435\u0447\u0438\u043A\u0430"
+  EnglishName: Grasshopper wings
   IngredientFileName: GrasshopperWings
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 5efcf80cb4e03984f8bed869f42f4238, type: 3}
+  IngredientIconColor: {r: 0.22874844, g: 0.6698113, b: 0.07203627, a: 1}
   locked: 0
 --- !u!114 &5428101985030895368
 MonoBehaviour:

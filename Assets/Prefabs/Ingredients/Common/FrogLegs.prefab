@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u041B\u044F\u0433\u0443\u0448\u0430\u0447\u044C\u0438 \u043B\u0430\u043F\u043A\u0438"
+  EnglishName: Frog legs
   IngredientFileName: FrogLegs
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &1179335553116232554
 PrefabInstance:

@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 5
   IngredientName: "\u042D\u0444\u0438\u0440\u043D\u044B\u0435 \u0433\u0440\u0438\u0431\u044B"
+  EnglishName: Aetherial mushrooms
   IngredientFileName: AetherialMushrooms
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 06ffa56387acc1642bb5a61413c89181, type: 3}
+  IngredientIconColor: {r: 0.2518988, g: 0.5754717, b: 0, a: 1}
   locked: 0
 --- !u!1001 &200701132
 PrefabInstance:

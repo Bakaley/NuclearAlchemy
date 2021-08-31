@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 3
   IngredientName: "\u041B\u0435\u0434\u044F\u043D\u043E\u0439 \u0443\u043A\u0440\u043E\u043F"
+  EnglishName: Ice dill
   IngredientFileName: IceDill
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 391382bd856429b4d9c3db69e40c0b36, type: 3}
+  IngredientIconColor: {r: 0.27725163, g: 0.58147866, b: 0.8301887, a: 1}
   locked: 0
 --- !u!1001 &327402497939949549
 PrefabInstance:

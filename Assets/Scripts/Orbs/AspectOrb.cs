@@ -214,9 +214,9 @@ public class AspectOrb : Orb, AspectImpactInterface
         counterTMP = counter.GetComponent<TextMeshPro>();
     }
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
     }
 
 }

@@ -57,8 +57,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 1
   IngredientName: "\u0418\u0437\u0443\u043C\u0440\u0443\u0434\u043D\u044B\u0439 \u043A\u0430\u0440\u0430\u0441\u044C"
+  EnglishName: Emerald carp
   IngredientFileName: EmeraldCarp
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 995f398581a862042ab1acbd4952492b, type: 3}
+  IngredientIconColor: {r: 0.09195439, g: 0.5943396, b: 0.29916382, a: 1}
   locked: 0
 --- !u!1001 &2027266240408704611
 PrefabInstance:

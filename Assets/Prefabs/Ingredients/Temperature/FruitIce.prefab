@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 3
   IngredientName: "\u0424\u0440\u0443\u043A\u0442\u043E\u0432\u044B\u0439 \u043B\u0451\u0434"
+  EnglishName: Fruit ice
   IngredientFileName: FruitIce
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: a8dc799fe4db9e246b130033de740703, type: 3}
+  IngredientIconColor: {r: 0.7254902, g: 0, b: 0.48471963, a: 1}
   locked: 0
 --- !u!1001 &1281859066024278336
 PrefabInstance:

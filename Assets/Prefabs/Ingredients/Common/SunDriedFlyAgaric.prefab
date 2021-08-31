@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 0
   constellation: 0
   IngredientName: "\u0412\u044F\u043B\u0435\u043D\u044B\u0439 \u043C\u0443\u0445\u043E\u043C\u043E\u0440"
+  EnglishName: Sundried fly agaric
   IngredientFileName: SunDriedFlyAgaric
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &816978344
 PrefabInstance:

@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 2
   constellation: 5
   IngredientName: "\u0420\u0443\u0434\u043D\u044B\u0439 \u0446\u0432\u0435\u0442\u043E\u043A"
+  EnglishName: Ore flower
   IngredientFileName: OreFlower
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 93450906be2d2cb4f99a6bc0d70df033, type: 3}
+  IngredientIconColor: {r: 0.2539141, g: 0.6037736, b: 0.047846165, a: 1}
   locked: 0
 --- !u!1001 &3919036534938661919
 PrefabInstance:

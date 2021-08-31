@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 3
   constellation: 6
   IngredientName: "\u041F\u0443\u0441\u0442\u043E\u0442\u043D\u044B\u0439 \u0436\u0435\u043C\u0447\u0443\u0433"
+  EnglishName: Void pearl
   IngredientFileName: VoidPearl
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 75dca8383bb429d4bb6dc1087601c52e, type: 3}
+  IngredientIconColor: {r: 0.5377358, g: 0.37742966, b: 0.48548898, a: 1}
   locked: 0
 --- !u!1001 &2210738623115031485
 PrefabInstance:

@@ -183,7 +183,6 @@ public class MixingBoard : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 60;
 
     }
 

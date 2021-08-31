@@ -60,8 +60,11 @@ MonoBehaviour:
   constellation: 0
   IngredientName: "\u041C\u0435\u0445 \u0441\u0435\u0440\u0435\u0431\u0440\u044F\u043D\u043E\u0433\u043E
     \u0437\u0430\u0439\u0446\u0430"
+  EnglishName: Silver hare fur
   IngredientFileName: SilverHareFur
   IngredientDescription: 
+  IngredientIcon: {fileID: 0}
+  IngredientIconColor: {r: 0, g: 0, b: 0, a: 0}
   locked: 0
 --- !u!1001 &3633555267525983357
 PrefabInstance:

@@ -58,8 +58,11 @@ MonoBehaviour:
   rarity: 1
   constellation: 3
   IngredientName: "\u0412\u0437\u0440\u044B\u0432\u043D\u043E\u0439 \u0447\u0435\u0441\u043D\u043E\u043A"
+  EnglishName: Boom garlick
   IngredientFileName: BoomGarlick
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 8226eb432f43fec48a3303d1a7f9d73a, type: 3}
+  IngredientIconColor: {r: 0.7254902, g: 0.24135636, b: 0, a: 1}
   locked: 0
 --- !u!1001 &1715456443
 PrefabInstance:

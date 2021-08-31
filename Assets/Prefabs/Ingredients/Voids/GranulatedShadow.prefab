@@ -59,8 +59,11 @@ MonoBehaviour:
   constellation: 6
   IngredientName: "\u0413\u0440\u0430\u043D\u0443\u043B\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u0430\u044F
     \u0442\u0435\u043D\u044C"
+  EnglishName: Granulated shadow
   IngredientFileName: GranulatedShadow
   IngredientDescription: 
+  IngredientIcon: {fileID: 21300000, guid: 75dca8383bb429d4bb6dc1087601c52e, type: 3}
+  IngredientIconColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
   locked: 0
 --- !u!114 &4725452980743995548
 MonoBehaviour:

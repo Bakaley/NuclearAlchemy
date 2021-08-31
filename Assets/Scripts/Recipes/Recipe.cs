@@ -9,8 +9,8 @@ abstract public class Recipe : MonoBehaviour
     public enum RECIPE_TYPE
     {
         POTION_BREWING,
-        NEW_RECIPE,
-        RECIPE_UPGRADE,
+        POTION_BLUEPRINT,
+        POTION_LEVEL_UP,
         NEW_INGREDIENT,
         CONSUMABLE,
         RESEARCH,
@@ -44,12 +44,17 @@ abstract public class Recipe : MonoBehaviour
     [SerializeField]
     protected int voidness;
 
+
+
     //поля с аксессорами не могут быть SerializeField, поэтому для каждого делаем своё поле с get
 
     public RECIPE_TYPE Type
     {
         get
         {
+            if (GetComponent<Ingredient>() && GetComponent<Ingredient>().state == Ingredient.INGREDIENT_STATE.LEARNED_BLUEPRINT) return RECIPE_TYPE.CONSUMABLE;
+            else if (GetComponent<PotionRecipe>() && PotionListManager.LevelUPpingList.Contains(GetComponent<PotionRecipe>())) return RECIPE_TYPE.POTION_LEVEL_UP;
+            else if (GetComponent<PotionRecipe>() && PotionListManager.potionLevelDictionary[gameObject] == 0) return RECIPE_TYPE.POTION_BLUEPRINT;
             return type;
         }
     }
