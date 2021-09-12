@@ -4,30 +4,36 @@ using UnityEngine;
 
 public class IngredientListManager : MonoBehaviour
 {
-    List<GameObject> commonList;
-    List<GameObject> uncommonList;
+    static List<GameObject> commonList;
+    static List<GameObject> uncommonList;
     // Start is called before the first frame update
+
 
     void Start()
     {
+        refreshLists();
+    }
+
+    public static void refreshLists()
+    {
         List<GameObject> firstList = null;
-        
+
         switch (ConstellationManager.CONSTELLATION1)
         {
             case ConstellationManager.CONSTELLATION.COLORANT:
-                firstList = GetComponent<ListOfColorants>().unlockedIngredientList;
+                firstList = staticInstance.GetComponent<ListOfColorants>().unlockedIngredientList;
                 break;
             case ConstellationManager.CONSTELLATION.TEMPERATURE:
-                firstList = GetComponent<ListOfTemperature>().unlockedIngredientList;
+                firstList = staticInstance.GetComponent<ListOfTemperature>().unlockedIngredientList;
                 break;
             case ConstellationManager.CONSTELLATION.AETHER:
-                firstList = GetComponent<ListOfAether>().unlockedIngredientList;
+                firstList = staticInstance.GetComponent<ListOfAether>().unlockedIngredientList;
                 break;
             case ConstellationManager.CONSTELLATION.SUPERNOVA:
-                firstList = GetComponent<ListOfSuperovas>().unlockedIngredientList;
+                firstList = staticInstance.GetComponent<ListOfSuperovas>().unlockedIngredientList;
                 break;
             case ConstellationManager.CONSTELLATION.VOIDS:
-                firstList = GetComponent<ListOfVoids>().unlockedIngredientList;
+                firstList = staticInstance.GetComponent<ListOfVoids>().unlockedIngredientList;
                 break;
         }
 
@@ -36,26 +42,26 @@ public class IngredientListManager : MonoBehaviour
         switch (ConstellationManager.CONSTELLATION2)
         {
             case ConstellationManager.CONSTELLATION.COLORANT:
-                secondList = GetComponent<ListOfColorants>().unlockedIngredientList;
+                secondList = staticInstance.GetComponent<ListOfColorants>().unlockedIngredientList;
                 break;
             case ConstellationManager.CONSTELLATION.TEMPERATURE:
-                secondList = GetComponent<ListOfTemperature>().unlockedIngredientList;
+                secondList = staticInstance.GetComponent<ListOfTemperature>().unlockedIngredientList;
                 break;
             case ConstellationManager.CONSTELLATION.AETHER:
-                secondList = GetComponent<ListOfAether>().unlockedIngredientList;
+                secondList = staticInstance.GetComponent<ListOfAether>().unlockedIngredientList;
                 break;
             case ConstellationManager.CONSTELLATION.SUPERNOVA:
-                secondList = GetComponent<ListOfSuperovas>().unlockedIngredientList;
+                secondList = staticInstance.GetComponent<ListOfSuperovas>().unlockedIngredientList;
                 break;
             case ConstellationManager.CONSTELLATION.VOIDS:
-                secondList = GetComponent<ListOfVoids>().unlockedIngredientList;
+                secondList = staticInstance.GetComponent<ListOfVoids>().unlockedIngredientList;
                 break;
         }
 
-        commonList = new List<GameObject>(GetComponent<ListOfCommon>().unlockedIngredientList);
-        uncommonList = new List<GameObject>(GetComponent<ListOfRareAspect>().unlockedIngredientList);
-        if(firstList != null && firstList.Count != 0) foreach(GameObject gameObject in firstList) uncommonList.Add(gameObject);
-        if(secondList != null && secondList.Count != 0)  foreach (GameObject gameObject in secondList) uncommonList.Add(gameObject);
+        commonList = new List<GameObject>(staticInstance.GetComponent<ListOfCommon>().unlockedIngredientList);
+        uncommonList = new List<GameObject>(staticInstance.GetComponent<ListOfRareAspect>().unlockedIngredientList);
+        if (firstList != null && firstList.Count != 0) foreach (GameObject gameObject in firstList) uncommonList.Add(gameObject);
+        if (secondList != null && secondList.Count != 0) foreach (GameObject gameObject in secondList) uncommonList.Add(gameObject);
 
     }
 
@@ -96,6 +102,8 @@ public class IngredientListManager : MonoBehaviour
 
     private void Awake()
     {
+        staticInstance = this;
+
         constellationDictionary = new Dictionary<Ingredient.INGREDIENT_CONSTELLATION, ConstellationManager.CONSTELLATION>();
         constellationDictionary.Add(Ingredient.INGREDIENT_CONSTELLATION.ASPECT, ConstellationManager.CONSTELLATION.NONE);
         constellationDictionary.Add(Ingredient.INGREDIENT_CONSTELLATION.RARE_ASPECT, ConstellationManager.CONSTELLATION.NONE);
@@ -138,6 +146,8 @@ public class IngredientListManager : MonoBehaviour
 
 
     }
+
+    static IngredientListManager staticInstance;
 
     public static Dictionary<ConstellationManager.CONSTELLATION, List<Recipe>> constellationKnownLists
     {

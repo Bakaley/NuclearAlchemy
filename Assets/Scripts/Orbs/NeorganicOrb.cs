@@ -45,12 +45,12 @@ public class NeorganicOrb : Orb
                 else if(uncertaintList.Count == 1)
                 {
                     replacingOrb = uncertaintList[0];
-                    Invoke("replace", .25f);
+                    replace(replacingOrb);
                 }
                 else
                 {
                     replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.uncertaintyOrb, false, false, 0, false, uncertaintList);
-                    Invoke("replace", .25f);
+                    replace(replacingOrb);
                 }
 
                 break;
@@ -58,16 +58,16 @@ public class NeorganicOrb : Orb
                 addAntimatter();
                 break;
             case EFFECT_TYPES.GREEN_DYE:
-                nextLevelOrb = MixingBoard.StaticInstance.green1;
-                Invoke("levelUp", .2f);
+                replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.green1, fiery, frozen, aetherCount, antimatter);
+                replace(replacingOrb);
                 break;
             case EFFECT_TYPES.BLUE_DYE:
-                nextLevelOrb = MixingBoard.StaticInstance.blue1;
-                Invoke("levelUp", .2f);
+                replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.blue1, fiery, frozen, aetherCount, antimatter);
+                replace(replacingOrb);
                 break;
             case EFFECT_TYPES.RED_DYE:
-                nextLevelOrb = MixingBoard.StaticInstance.red1;
-                Invoke("levelUp", .2f);
+                replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.red1, fiery, frozen, aetherCount, antimatter);
+                replace(replacingOrb);
                 break;
             case EFFECT_TYPES.DISSOLVE:
                 DestroyIn(.5);

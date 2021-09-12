@@ -128,6 +128,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green2
       objectReference: {fileID: 0}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 5690020847987716059, guid: d495b6aef30a6824683d59a3df36777e, type: 3}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: aetherCount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
 --- !u!4 &8885563193474055804 stripped
@@ -189,6 +197,14 @@ PrefabInstance:
     - target: {fileID: 937572511047807677, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 7271995760296293701, guid: ea872a4ede011304abfc1e0c8b73da52, type: 3}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: aetherCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6878960685523084225, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
       propertyPath: OrbPreview
@@ -259,6 +275,14 @@ PrefabInstance:
     - target: {fileID: 4416680366174157163, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 4876869844348111529, guid: 8aac5540f8c7458418eeeaafcd61ae4d, type: 3}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: aetherCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8016165527176570903, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: OrbPreview

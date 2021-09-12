@@ -43,6 +43,11 @@ public class IngredientPanel : MonoBehaviour
 
     private static IngredientPlace targetedPlace;
 
+    public static IngredientPanel staticInstance
+    {
+        get; private set;
+    }
+
     public static Ingredient currentIngredient
     {
         get
@@ -53,6 +58,7 @@ public class IngredientPanel : MonoBehaviour
 
     void Awake()
     {
+        staticInstance = this;
         targetedPlace = placeUpLeft;
     }
 
@@ -130,16 +136,19 @@ public class IngredientPanel : MonoBehaviour
         ingredientPanelName.GetComponentInChildren<TextMeshProUGUI>().text = targetedPlace.ingredientPreview.ingredient.GetComponent<Ingredient>().IngredientName;
     }
 
-    public void refreshIngredientsWithDelay()
+    public static void refreshIngredientsWithDelay()
     {
-        refresh();
-        Invoke("updateIngredient", .25f);
+        staticInstance.refresh();
+        staticInstance.Invoke("updateIngredient", .25f);
     }
 
-    public void refreshIngredientsNoDelay()
+    public static void refreshIngredientsNoDelay()
     {
-        refresh();
-        Invoke("updateIngredient", .01f);
+        if(staticInstance!= null)
+        {
+            staticInstance.refresh();
+            staticInstance.Invoke("updateIngredient", .01f);
+        }
     }
 
     public void refresh()

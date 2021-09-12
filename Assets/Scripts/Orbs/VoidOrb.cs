@@ -14,7 +14,7 @@ public class VoidOrb : Orb, AspectImpactInterface
                     if (affectTimer <= 0)
                     {
                         replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.blueVoid);
-                        Invoke("replace", .2f);
+                        replace(replacingOrb);
                         affectTimer = .5f;
                     }
                     break;
@@ -22,7 +22,7 @@ public class VoidOrb : Orb, AspectImpactInterface
                     if (affectTimer <= 0)
                     {
                         replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.redVoid);
-                        Invoke("replace", .2f);
+                        replace(replacingOrb);
                         affectTimer = .5f;
                     }
                     break;
@@ -33,7 +33,7 @@ public class VoidOrb : Orb, AspectImpactInterface
                         else
                         {
                             replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.greenVoid, false, false, aetherIncreaseOn);
-                            Invoke("replace", .2f);
+                            replace(replacingOrb);
                             affectTimer = .5f;
                         }
                     }
@@ -43,7 +43,7 @@ public class VoidOrb : Orb, AspectImpactInterface
                     if (affectTimer <= 0)
                     {
                         replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.yellowVoid);
-                        Invoke("replace", .2f);
+                        replace(replacingOrb);
                         affectTimer = .5f;
                     }
                     break;
@@ -51,7 +51,7 @@ public class VoidOrb : Orb, AspectImpactInterface
                     if (affectTimer <= 0)
                     {
                         replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.purpleVoid);
-                        Invoke("replace", .2f);
+                        replace(replacingOrb);
                         affectTimer = .5f;
                     }
                     break;
@@ -59,7 +59,7 @@ public class VoidOrb : Orb, AspectImpactInterface
                     if (affectTimer <= 0)
                     {
                         replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.bluePulsar);
-                        Invoke("replace", .2f);
+                        replace(replacingOrb);
                         affectTimer = .5f;
                     }
                     break;
@@ -67,7 +67,7 @@ public class VoidOrb : Orb, AspectImpactInterface
                     if (affectTimer <= 0)
                     {
                         replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.redPulsar);
-                        Invoke("replace", .2f);
+                        replace(replacingOrb);
                         affectTimer = .5f;
                     }
                     break;
@@ -75,7 +75,7 @@ public class VoidOrb : Orb, AspectImpactInterface
                     if (affectTimer <= 0)
                     {
                         replacingOrb = new ReplacingOrbStruct(MixingBoard.StaticInstance.greenPulsar);
-                        Invoke("replace", .2f);
+                        replace(replacingOrb);
                         affectTimer = .5f;
                     }
                     break;

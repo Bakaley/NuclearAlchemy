@@ -18,6 +18,9 @@ public class Floating : MonoBehaviour
     [SerializeField]
     float rotationSpeedZ = 0f;
 
+    [SerializeField]
+    UnityEngine.Space rotationSpace = Space.World;
+
     public float seedShift = 0;
     void Start()
     {
@@ -30,6 +33,6 @@ public class Floating : MonoBehaviour
     {      
         newPosition = new Vector3(amplitude * Mathf.Sin(movingSpeed/2 * Time.time + seedShift) + x0, amplitude * Mathf.Sin(movingSpeed * Time.time + seedShift) + y0, transform.localPosition.z);
         transform.localPosition = newPosition;
-        transform.Rotate(Time.deltaTime * rotationSpeedX, Time.deltaTime * rotationSpeedY, Time.deltaTime * rotationSpeedZ, Space.World);
+        transform.Rotate(Time.deltaTime * rotationSpeedX, Time.deltaTime * rotationSpeedY, Time.deltaTime * rotationSpeedZ, rotationSpace);
     }
 }

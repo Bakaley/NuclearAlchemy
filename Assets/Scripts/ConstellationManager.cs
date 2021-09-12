@@ -18,6 +18,7 @@ public class ConstellationManager : MonoBehaviour
         LENSING
     }
 
+
     public static CONSTELLATION CONSTELLATION1
     {
         get;
@@ -29,39 +30,43 @@ public class ConstellationManager : MonoBehaviour
         private set;
     }
 
+    public static bool CONTAINS(CONSTELLATION constellation)
+    {
+        return (CONSTELLATION1 == constellation || CONSTELLATION2 == constellation);
+    }
+
+    public static void setConstellations (List<CONSTELLATION> list)
+    {
+        CONSTELLATION1 = list[0];
+        CONSTELLATION2 = list[1];
+        sortConstellations();
+        RecipeDrafter.draftersRefresh();
+        IngredientListManager.refreshLists();
+        StatBoardView.blocksRefresh();
+        IngredientPanel.refreshIngredientsNoDelay();
+        MixingBoard.cleanUpBoard();
+        DraftModule.cancelAllRecipes();
+    }
+
     private void Awake()
     {
         int n1 = UnityEngine.Random.Range(0, 7);
         CONSTELLATION1 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), n1);
         //rigging constellations
-        //CONSTELLATION1 = CONSTELLATION.NONE;
-        Debug.Log(CONSTELLATION1);
+        CONSTELLATION1 = CONSTELLATION.NONE;
         int n2 = UnityEngine.Random.Range(0, 7);
         CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), UnityEngine.Random.Range(0, 7));
-        //CONSTELLATION2 = CONSTELLATION.NONE;
+        CONSTELLATION2 = CONSTELLATION.NONE;
         while (CONSTELLATION1 == CONSTELLATION2)
         {
             if (CONSTELLATION1 == CONSTELLATION.NONE) break;
             CONSTELLATION2 = (CONSTELLATION)Enum.ToObject(typeof(CONSTELLATION), UnityEngine.Random.Range(0, 7));
         }
-        Debug.Log(CONSTELLATION2);
         sortConstellations();
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void sortConstellations()
+    static void sortConstellations()
     {
         if((int)CONSTELLATION1 > (int)CONSTELLATION2)
         {
@@ -69,5 +74,7 @@ public class ConstellationManager : MonoBehaviour
             CONSTELLATION1 = CONSTELLATION2;
             CONSTELLATION2 = constellation;
         }
+        Debug.Log(CONSTELLATION1);
+        Debug.Log(CONSTELLATION2);
     }
 }

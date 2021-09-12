@@ -8,6 +8,18 @@ public class RecipeDrafter : MonoBehaviour
 {
     static List<RecipeDrafter> drafters;
 
+    public static void draftersRefresh()
+    {
+        foreach (RecipeDrafter recipeDrafter in drafters)
+        {
+            recipeDrafter.recipesList = new List<Recipe>();
+            recipeDrafter.variant1 = null;
+            recipeDrafter.variant2 = null;
+            recipeDrafter.variant3 = null;
+            recipeDrafter.refreshCounter();
+        }
+    }
+
     public enum DRAFT_TYPE
     {
         POTION_BREWING,
@@ -100,6 +112,7 @@ public class RecipeDrafter : MonoBehaviour
 
     public void beginDraft()
     {
+        if (draft != DRAFT_TYPE.POTION_BREWING && UIManager.cookingMode) return;
         switch (draft)
         {
             case DRAFT_TYPE.POTION_BREWING:
@@ -321,29 +334,29 @@ public class RecipeDrafter : MonoBehaviour
 
                 if (variant2 == null)
                 {
-                    if (basicConsumableList.Count != 0)
-                    {
-                        variant2 = basicConsumableList[Random.Range(0, basicConsumableList.Count)];
-                        basicConsumableList.Remove(variant2);
-                    }
-                    else if (constConsumableList2.Count != 0)
+                    if (constConsumableList2.Count != 0)
                     {
                         variant2 = constConsumableList2[Random.Range(0, constConsumableList2.Count)];
                         constConsumableList2.Remove(variant2);
+                    }
+                    else if (basicConsumableList.Count != 0)
+                    {
+                        variant2 = basicConsumableList[Random.Range(0, basicConsumableList.Count)];
+                        basicConsumableList.Remove(variant2);
                     }
                 }
 
                 if (variant3 == null)
                 {
-                    if (basicConsumableList.Count != 0)
-                    {
-                        variant3 = basicConsumableList[Random.Range(0, basicConsumableList.Count)];
-                        basicConsumableList.Remove(variant3);
-                    }
-                    else if (constConsumableList1.Count != 0)
+                    if (constConsumableList1.Count != 0)
                     {
                         variant3 = constConsumableList1[Random.Range(0, constConsumableList1.Count)];
                         constConsumableList1.Remove(variant3);
+                    }
+                    else if (basicConsumableList.Count != 0)
+                    {
+                        variant3 = basicConsumableList[Random.Range(0, basicConsumableList.Count)];
+                        basicConsumableList.Remove(variant3);
                     }
                 }
                 break;
@@ -351,8 +364,11 @@ public class RecipeDrafter : MonoBehaviour
 
             case DRAFT_TYPE.POTION_LEVEL_UP:
                 List<Recipe> constlvlUPList1 = new List<Recipe>(PotionListManager.Const1ToLevelUP);
+                Debug.Log(constlvlUPList1.Count);
                 List<Recipe> constlvlUPList2 = new List<Recipe>(PotionListManager.Const2ToLevelUP);
+                Debug.Log(constlvlUPList2.Count);
                 List<Recipe> constlvlUPCombo = new List<Recipe>(PotionListManager.ConstComboToLevelUP);
+                Debug.Log(constlvlUPCombo.Count);
                 List<Recipe> basilvlUPcList = new List<Recipe>(PotionListManager.BasicToLevelUP);
                 foreach (Recipe recipe in DraftModule.pickedRecipes)
                 {
@@ -436,20 +452,20 @@ public class RecipeDrafter : MonoBehaviour
 
                 if (variant3 == null)
                 {
-                    if (constlvlUPList1.Count != 0)
+                    if (basilvlUPcList.Count != 0)
+                    {
+                        variant3 = basilvlUPcList[Random.Range(0, basilvlUPcList.Count)];
+                        basilvlUPcList.Remove(variant3);
+                    }
+                    else if (constlvlUPList1.Count != 0)
                     {
                         variant3 = constlvlUPList1[Random.Range(0, constlvlUPList1.Count)];
                         constlvlUPList1.Remove(variant3);
                     }
-                    else if (constlvlUPCombo.Count != 0)
+                    else if (constlvlUPList2.Count != 0)
                     {
                         variant3 = constlvlUPList2[Random.Range(0, constlvlUPList2.Count)];
                         constlvlUPList2.Remove(variant3);
-                    }
-                    else if (basilvlUPcList.Count != 0)
-                    {
-                        variant3 = basilvlUPcList[Random.Range(0, basilvlUPcList.Count)];
-                        basilvlUPcList.Remove(variant3);
                     }
                 }
 

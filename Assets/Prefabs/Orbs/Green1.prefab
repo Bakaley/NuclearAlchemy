@@ -119,6 +119,38 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4edab79e1105bdb4bb3b355e719b42a1, type: 2}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: orbType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 186830399614291611, guid: 7e97487facdae384b81e017c9b858072, type: 3}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: nextLevelOrb
+      value: 
+      objectReference: {fileID: 8112359752912516959, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: aetherParticle
+      value: 
+      objectReference: {fileID: 9199250702057443516, guid: 4e853be0596c4074093ccf10318d30da, type: 3}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: channelParticleColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.3815303
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.8113207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.26406193
+      objectReference: {fileID: 0}
     - target: {fileID: 2011135639404022877, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.3815303

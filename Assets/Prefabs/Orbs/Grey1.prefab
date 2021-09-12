@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1074474479751048939
+--- !u!114 &4295484224818904294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2781051447318325017}
+  m_GameObject: {fileID: 425195923035721375}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7362d261b5b7124d9032cc3b308f9b0, type: 3}
@@ -32,10 +32,14 @@ MonoBehaviour:
   antimatter: 0
   comboAvaliable: 1
   orbDescription: "- \u041E\u0431\u044A\u0435\u0434\u0438\u043D\u0438\u0442\u0435
-    \u0441 \u0442\u0440\u0435\u043C\u044F \u0434\u0440\u0443\u0433\u0438\u043C\u0438
-    \u0441\u0444\u0435\u0440\u0430\u043C\u0438 \u043F\u043E\u043B\u0443\u043F\u043B\u0430\u0437\u043C\u044B,
+    \u0441 \u0442\u0440\u0435\u043C\u044F \u0434\u0440\u0443\u0433\u0438\u043C\u0438,
     \u0447\u0442\u043E\u0431\u044B \u0441\u0438\u043D\u0442\u0435\u0437\u0438\u0440\u043E\u0432\u0430\u0442\u044C
-    \u0441\u0432\u0435\u0440\u0445\u043D\u043E\u0432\u0443\u044E."
+    \u0441\u0432\u0435\u0440\u0445\u043D\u043E\u0432\u0443\u044E.\\n - \u0421\u0444\u0435\u0440\u0430
+    \u0440\u0430\u0441\u0442\u0432\u043E\u0440\u044F\u0435\u0442\u0441\u044F \u043F\u0440\u0438
+    \u043F\u043E\u0432\u044B\u0448\u0435\u043D\u0438\u0438 \u0443\u0440\u043E\u0432\u043D\u044F,
+    \u0435\u0441\u043B\u0438 \u043D\u0430 \u043D\u0435\u0439 \u043D\u0435\u0442 \u043D\u0438\u043A\u0430\u043A\u043E\u0433\u043E
+    \u044D\u0444\u0444\u0435\u0442\u0430."
+  orbDescriptionEN: 
   nextLevelOrb: {fileID: 0}
   level: 1
   points: -10
@@ -213,10 +217,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 46da917d89830424498b965b9afd03fa, type: 2}
     m_RemovedComponents:
     - {fileID: 227071283492124307, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+    - {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
---- !u!1 &2781051447318325017 stripped
+--- !u!1 &425195923035721375 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2287140787577431367, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4378431856129838273, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
   m_PrefabInstance: {fileID: 4117919411927679582}
   m_PrefabAsset: {fileID: 0}
 --- !u!198 &2781051447736531453 stripped

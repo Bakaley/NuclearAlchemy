@@ -58,37 +58,37 @@ public class IngredientEditor : Editor
                     essense1.enabled = false;
                     essense3.enabled = false;
                     GameObject essenceIcon1 = Resources.Load("EssenceIcons/" + ingredient.essence1.ToString() + "Essence") as GameObject;
-                    essense2.sprite = essenceIcon1.GetComponent<SpriteRenderer>().sprite;
-                    essense2.color = essenceIcon1.GetComponent<SpriteRenderer>().color;
+                    essense2.sprite = essenceIcon1.GetComponent<Image>().sprite;
+                    essense2.color = essenceIcon1.GetComponent<Image>().color;
                 }
                 else if (ingredient.essence3 == Ingredient.ESSENSE.None)
                 {
                     essense2.enabled = false;
 
                     GameObject essenceIcon1 = Resources.Load("EssenceIcons/" + ingredient.essence1.ToString() + "Essence") as GameObject;
-                    essense1.sprite = essenceIcon1.GetComponent<SpriteRenderer>().sprite;
-                    essense1.color = essenceIcon1.GetComponent<SpriteRenderer>().color;
+                    essense1.sprite = essenceIcon1.GetComponent<Image>().sprite;
+                    essense1.color = essenceIcon1.GetComponent<Image>().color;
                     essense1.GetComponent<RectTransform>().localPosition = new Vector3(Convert.ToSingle(-.25), essense1.GetComponent<RectTransform>().localPosition.y, essense1.GetComponent<RectTransform>().localPosition.z);
 
                     GameObject essenceIcon2 = Resources.Load("EssenceIcons/" + ingredient.essence2.ToString() + "Essence") as GameObject;
-                    essense3.sprite = essenceIcon2.GetComponent<SpriteRenderer>().sprite;
-                    essense3.color = essenceIcon2.GetComponent<SpriteRenderer>().color;
+                    essense3.sprite = essenceIcon2.GetComponent<Image>().sprite;
+                    essense3.color = essenceIcon2.GetComponent<Image>().color;
                     essense3.GetComponent<RectTransform>().localPosition = new Vector3(Convert.ToSingle(.25), essense3.GetComponent<RectTransform>().localPosition.y, essense3.GetComponent<RectTransform>().localPosition.z);
 
                 }
                 else
                 {
                     GameObject essenceIcon1 = Resources.Load("EssenceIcons/" + ingredient.essence1.ToString() + "Essence") as GameObject;
-                    essense1.sprite = essenceIcon1.GetComponent<SpriteRenderer>().sprite;
-                    essense1.color = essenceIcon1.GetComponent<SpriteRenderer>().color;
+                    essense1.sprite = essenceIcon1.GetComponent<Image>().sprite;
+                    essense1.color = essenceIcon1.GetComponent<Image>().color;
 
                     GameObject essenceIcon2 = Resources.Load("EssenceIcons/" + ingredient.essence2.ToString() + "Essence") as GameObject;
-                    essense2.sprite = essenceIcon2.GetComponent<SpriteRenderer>().sprite;
-                    essense2.color = essenceIcon2.GetComponent<SpriteRenderer>().color;
+                    essense2.sprite = essenceIcon2.GetComponent<Image>().sprite;
+                    essense2.color = essenceIcon2.GetComponent<Image>().color;
 
                     GameObject essenceIcon3 = Resources.Load("EssenceIcons/" + ingredient.essence3.ToString() + "Essence") as GameObject;
-                    essense3.sprite = essenceIcon3.GetComponent<SpriteRenderer>().sprite;
-                    essense3.color = essenceIcon3.GetComponent<SpriteRenderer>().color;
+                    essense3.sprite = essenceIcon3.GetComponent<Image>().sprite;
+                    essense3.color = essenceIcon3.GetComponent<Image>().color;
                 }
 
                 int minX = (int)Math.Round(orbs[0].gameObject.transform.localPosition.x);
@@ -131,8 +131,8 @@ public class IngredientEditor : Editor
 
                 ingredient.gameObject.name = ingredient.IngredientFileName;
 
-                PrefabUtility.SaveAsPrefabAsset(ingredient.gameObject, "Assets/Prefabs/Ingredients/Temperature/" + ingredient.IngredientFileName + ".prefab");
-                PrefabUtility.SaveAsPrefabAsset(ingredientPreview, "Assets/Prefabs/Ingredients/Temperature/" + ingredient.IngredientFileName + "Preview.prefab");
+                PrefabUtility.SaveAsPrefabAsset(ingredient.gameObject, "Assets/Prefabs/Ingredients/Supernovas/" + ingredient.IngredientFileName + ".prefab");
+                PrefabUtility.SaveAsPrefabAsset(ingredientPreview, "Assets/Prefabs/Ingredients/Supernovas/" + ingredient.IngredientFileName + "Preview.prefab");
 
                 /*GameObject loadedPreview = Resources.Load("Ingredients/Common/" + ingredient.IngredientName + "Preview") as GameObject;
                 GameObject loadedIngredient = Resources.Load("Ingredients/Common/" + ingredient.IngredientName) as GameObject;

@@ -327,6 +327,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green2
       objectReference: {fileID: 0}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: frozen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 7420700960406469182, guid: 29748cbecb2d46b41bdf526f85400f1a, type: 3}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
     - target: {fileID: 8874005875351614099, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -428,6 +448,26 @@ PrefabInstance:
     - target: {fileID: 4445366604192212466, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: frozen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 7721224167828188825, guid: 794dccd209cc49b48933b24fc3d0a0a0, type: 3}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.8679245
       objectReference: {fileID: 0}
     - target: {fileID: 7533426866878500006, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

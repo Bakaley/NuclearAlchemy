@@ -194,6 +194,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green2
       objectReference: {fileID: 0}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: fiery
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226397893470355242, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 1076813546095612061, guid: 8309629e5a7efe24d8a7be2cc6d3abd6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a6077fb1f2b9d6458f447b258caefc4, type: 3}
 --- !u!4 &1833197034975662432 stripped

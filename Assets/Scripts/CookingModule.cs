@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class CookingModule : MonoBehaviour
 {
@@ -78,32 +79,33 @@ public class CookingModule : MonoBehaviour
         {
             case Recipe.RECIPE_TYPE.POTION_BREWING:
                 sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedPotionSampler, staticInstance.preparingPanel.transform);
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().sprite = recipe.gameObject.GetComponent<PotionRecipe>().Icon;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<PotionRecipe>().Icon;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<PotionRecipe>().IconColor;
                 sampler.GetComponent<PreparedRecipe>().recipe = recipe;
                 sampler.GetComponent<PreparedRecipe>().counter.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<PotionRecipe>().PotionCount + "";
                 break;
             case Recipe.RECIPE_TYPE.NEW_INGREDIENT:
                 sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedIngrResearchSampler, staticInstance.preparingPanel.transform);
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().sprite = recipe.gameObject.GetComponent<Ingredient>().IngredientIcon;
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().color = recipe.gameObject.GetComponent<Ingredient>().IngredientIconColor;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Ingredient>().IngredientIcon;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Ingredient>().IngredientIconColor;
                 sampler.GetComponent<PreparedRecipe>().recipe = recipe;
                 break;
             case Recipe.RECIPE_TYPE.CONSUMABLE:
                 sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedRecipeConsumableSampler, staticInstance.preparingPanel.transform);
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().sprite = recipe.gameObject.GetComponent<Ingredient>().IngredientIcon;
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().color = recipe.gameObject.GetComponent<Ingredient>().IngredientIconColor;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Ingredient>().IngredientIcon;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Ingredient>().IngredientIconColor;
                 sampler.GetComponent<PreparedRecipe>().recipe = recipe;
                 break;
             case Recipe.RECIPE_TYPE.POTION_LEVEL_UP:
                 sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedPotLvlUpSampler, staticInstance.preparingPanel.transform);
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().sprite = recipe.gameObject.GetComponent<PotionRecipe>().Icon;
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().color = recipe.gameObject.GetComponent<PotionRecipe>().IconColor;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<PotionRecipe>().Icon;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<PotionRecipe>().IconColor;
                 sampler.GetComponent<PreparedRecipe>().recipe = recipe;
                 break;
             case Recipe.RECIPE_TYPE.POTION_BLUEPRINT:
                 sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedPotResearchSampler, staticInstance.preparingPanel.transform);
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().sprite = recipe.gameObject.GetComponent<PotionRecipe>().Icon;
-                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<SpriteRenderer>().color = recipe.gameObject.GetComponent<PotionRecipe>().IconColor;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<PotionRecipe>().Icon;
+                sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<PotionRecipe>().IconColor;
                 sampler.GetComponent<PreparedRecipe>().recipe = recipe;
                 break;
         }
@@ -111,16 +113,16 @@ public class CookingModule : MonoBehaviour
 
         if(preparedRecipesCount == 1)
         {
-            DissolvingElement[] elems = staticInstance.preparingDisslovingModule.GetComponentsInChildren<DissolvingElement>(true);
-            foreach (DissolvingElement elem in elems)
+            IDissolving[] elems = staticInstance.preparingDisslovingModule.GetComponentsInChildren<IDissolving>(true);
+            foreach (IDissolving elem in elems)
             {
                 elem.appear();
             }
         }
         else
         {
-            DissolvingElement[] elems = sampler.GetComponentsInChildren<DissolvingElement>(true);
-            foreach (DissolvingElement elem in elems)
+            IDissolving[] elems = sampler.GetComponentsInChildren<IDissolving>(true);
+            foreach (IDissolving elem in elems)
             {
                 elem.appear();
             }
@@ -136,8 +138,8 @@ public class CookingModule : MonoBehaviour
         if (preparedRecipesCount == 0)
         {
             preparedRecipe.dissolveIn(.4f);
-            DissolvingElement[] elems = staticInstance.preparingDisslovingModule.GetComponentsInChildren<DissolvingElement>(true);
-            foreach (DissolvingElement elem in elems)
+            IDissolving[] elems = staticInstance.preparingDisslovingModule.GetComponentsInChildren<IDissolving>(true);
+            foreach (IDissolving elem in elems)
             {
                 elem.disappear();
             }
@@ -174,5 +176,42 @@ public class CookingModule : MonoBehaviour
         {
             rec.unprepare();
         }
+    }
+
+    public static void cancelRecipe(Recipe recipe)
+    {
+        if(staticInstance != null)
+        {
+            List<GameObject> recipesToUnprepare = new List<GameObject>(preparedRecipes[recipe]);
+            foreach (GameObject prepRecipe in recipesToUnprepare)
+            {
+                prepRecipe.GetComponent<PreparedRecipe>().unprepare();
+            }
+            preparedRecipes.Remove(recipe);
+        }
+        if (recipesToAddOnAwake != null && recipesToAddOnAwake.Contains(recipe)) recipesToAddOnAwake.Remove(recipe);
+    }
+
+    [SerializeField]
+    GameObject inconsistenciesPanel, inconsistenciesCaption, inconsistencyContainer, inconsistencyStringSampler;
+    public static void showInconsistencyPanel (List<string> inconsistancies)
+    {
+        staticInstance.inconsistenciesPanel.SetActive(true);
+        string caption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Несоответствия" : "Inconsistencies";
+        staticInstance.inconsistenciesCaption.GetComponent<TextMeshProUGUI>().text = caption;
+        foreach (string incons in inconsistancies)
+        {
+            GameObject inconsGameObject = Instantiate(staticInstance.inconsistencyStringSampler, staticInstance.inconsistencyContainer.transform);
+            inconsGameObject.GetComponent<TextMeshProUGUI>().text = incons;
+        }
+    }
+
+    public static void hideInconsistencyPanel()
+    {
+        foreach (Transform child in staticInstance.inconsistencyContainer.transform)
+        {
+            if (child != staticInstance.inconsistencyContainer.transform) Destroy(child.gameObject);
+        }
+        staticInstance.inconsistenciesPanel.SetActive(false);
     }
 }

@@ -200,6 +200,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: frozen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 5429275860351525869, guid: 32d69feb67174464ea5964cecc8c6b55, type: 3}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
     - target: {fileID: 2142707575316826345, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

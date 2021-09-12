@@ -427,8 +427,8 @@ public class BookPage : MonoBehaviour
 
     public void activateElements()
     {
-        DissolvingElement[] list = GetComponentsInChildren<DissolvingElement>();
-        foreach (DissolvingElement elem in list)
+        IDissolving[] list = GetComponentsInChildren<IDissolving>();
+        foreach (IDissolving elem in list)
         {
             elem.appear();
         }

@@ -80,6 +80,14 @@ PrefabInstance:
       propertyPath: aetherCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 2277701810289210746, guid: 5c0db22bb72f1d54b88ca898baf0283f, type: 3}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: aetherCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8979698373603712602, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -147,6 +155,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5412830380994334498, guid: 38c47031f081ade4e94c69255f917a17, type: 3}
     - target: {fileID: 227071283492124307, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: aetherCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 5412830380994334498, guid: 38c47031f081ade4e94c69255f917a17, type: 3}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
       propertyPath: aetherCount
       value: 3
       objectReference: {fileID: 0}
@@ -220,6 +236,14 @@ PrefabInstance:
       propertyPath: aetherCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 5412830380994334498, guid: 38c47031f081ade4e94c69255f917a17, type: 3}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: aetherCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2287140787577431366, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -287,6 +311,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2277701810289210746, guid: 5c0db22bb72f1d54b88ca898baf0283f, type: 3}
     - target: {fileID: 6919070905887624591, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: aetherCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 2277701810289210746, guid: 5c0db22bb72f1d54b88ca898baf0283f, type: 3}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: aetherCount
       value: 3
       objectReference: {fileID: 0}

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DissolvingEssence : MonoBehaviour, DissolvingElement
+public class DissolvingEssence : MonoBehaviour, IDissolving
 {
 
     double currentDissolvingTimer = 0;
-    double dissolveTimer = .3;
+    static readonly double dissolveTimer = .3;
 
     enum STANCE
     {
@@ -26,7 +26,8 @@ public class DissolvingEssence : MonoBehaviour, DissolvingElement
 
     public void disappear()
     {
-        throw new System.NotImplementedException();
+        currentDissolvingTimer = dissolveTimer;
+        stance = STANCE.DISAPPEARING;
     }
 
     Material material;
@@ -39,7 +40,7 @@ public class DissolvingEssence : MonoBehaviour, DissolvingElement
     // Update is called once per frame
     void Update()
     {
-        if (currentDissolvingTimer >= 0)
+        if (currentDissolvingTimer > 0)
         {
             currentDissolvingTimer -= Time.deltaTime;
             switch (stance)
@@ -50,9 +51,19 @@ public class DissolvingEssence : MonoBehaviour, DissolvingElement
 
                     if (material.GetFloat("Shading_Vector") >= 1)
                     {
-                        dissolveTimer = 0;
+                        currentDissolvingTimer = 0;
                         material.SetFloat("Shading_Vector", 1);
-
+                        stance = STANCE.NONE;
+                    }
+                    break;
+                case STANCE.DISAPPEARING:
+                    
+                    material.SetFloat("Shading_Vector", material.GetFloat("Shading_Vector") - Time.deltaTime * 4);
+                    if (material.GetFloat("Shading_Vector") <= 0)
+                    {
+                        currentDissolvingTimer = 0;
+                        material.SetFloat("Shading_Vector", 0);
+                        stance = STANCE.NONE;
                     }
                     break;
 

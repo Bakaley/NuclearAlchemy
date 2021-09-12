@@ -216,6 +216,26 @@ PrefabInstance:
       propertyPath: channelParticleColor.r
       value: 221
       objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 4150928430534246107, guid: 44ee54a9b778a7b4d88b291e9dc9bb19, type: 3}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: antimatter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722890713020362147, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 221
+      objectReference: {fileID: 0}
     - target: {fileID: 2102692504864550128, guid: 1dd31f8e35c436c4a9d7dd737e5285bb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -357,6 +377,22 @@ PrefabInstance:
     - target: {fileID: 8352035545986251297, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738601993025368516, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 8910360922567646889, guid: d428490148eddfb4cab6c86c1dbac633, type: 3}
+    - target: {fileID: 8738601993025368516, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
+      propertyPath: antimatter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738601993025368516, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738601993025368516, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 221
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ce848c77cd93242ac1b4f67d18ee17, type: 3}

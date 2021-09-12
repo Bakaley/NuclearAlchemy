@@ -135,6 +135,19 @@ public class StatBoardView : MonoBehaviour
         blocks = new Dictionary<GameObject, ConstellationManager.CONSTELLATION>();
     }
 
+    public static void blocksRefresh()
+    {
+        if (staticInstance != null)
+        {
+            foreach (KeyValuePair<GameObject, ConstellationManager.CONSTELLATION> pair in blocks)
+            {
+                if (!(pair.Value == ConstellationManager.CONSTELLATION1 || pair.Value == ConstellationManager.CONSTELLATION2)) pair.Key.SetActive(false);
+                else pair.Key.SetActive(true);
+            }
+        }
+
+    }
+
     static Dictionary<GameObject, ConstellationManager.CONSTELLATION> blocks;
 
     // Start is called before the first frame update
@@ -188,31 +201,27 @@ public class StatBoardView : MonoBehaviour
         bodyCounter = 0;
         soulCounter = 0;
 
-        foreach (Transform child in board.OrbShift.transform)
+        foreach (Orb orb in MixingBoard.StaticInstance.orbs)
         {
-            if (child.gameObject.CompareTag("Orb"))
+            if (orb)
             {
-                Orb orb = child.gameObject.GetComponent<Orb>();
-                if(orb)
+                pointsCounter += orb.pointsImpact;
+                if (orb.Level == 3)
                 {
-                    pointsCounter += orb.pointsImpact;
-                    if (orb.Level == 3)
-                    {
-                        if (orb.type == Orb.ORB_TYPES.MIND_ASPECT) mindCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
-                        if (orb.type == Orb.ORB_TYPES.BODY_ASPECT) bodyCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
-                        if (orb.type == Orb.ORB_TYPES.SOUL_ASPECT) soulCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
-                    }
-                    if(orb.archetype == Orb.ORB_ARCHETYPES.VOID)
-                    {
-                        if (orb.type == Orb.ORB_TYPES.BLUE_PULSAR) mindCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
-                        if (orb.type == Orb.ORB_TYPES.RED_PULSAR) bodyCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
-                        if (orb.type == Orb.ORB_TYPES.GREEN_PULSAR) soulCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
-                    }
-                    temperatureCounter += orb.temperatureCountImpact;
-                    aetherCoutner += orb.aetherImpact;
-                    viscosityCounter += orb.viscosityImpact;
-                    voidnessCounter += orb.voidnessImpact;
+                    if (orb.type == Orb.ORB_TYPES.MIND_ASPECT) mindCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
+                    if (orb.type == Orb.ORB_TYPES.BODY_ASPECT) bodyCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
+                    if (orb.type == Orb.ORB_TYPES.SOUL_ASPECT) soulCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
                 }
+                if (orb.archetype == Orb.ORB_ARCHETYPES.VOID)
+                {
+                    if (orb.type == Orb.ORB_TYPES.BLUE_PULSAR) mindCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
+                    if (orb.type == Orb.ORB_TYPES.RED_PULSAR) bodyCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
+                    if (orb.type == Orb.ORB_TYPES.GREEN_PULSAR) soulCounter += orb.GetComponent<AspectImpactInterface>().aspectImpact;
+                }
+                temperatureCounter += orb.temperatureCountImpact;
+                aetherCoutner += orb.aetherImpact;
+                viscosityCounter += orb.viscosityImpact;
+                voidnessCounter += orb.voidnessImpact;
             }
         }
 

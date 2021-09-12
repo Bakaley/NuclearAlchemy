@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DissolvingSprite : MonoBehaviour, DissolvingElement
+public class DissolvingSprite : MonoBehaviour, IDissolving
 {
     static double dissolvingTimer = .5f;
     //public static Material defaultSpriteMaterial;
@@ -35,7 +35,8 @@ public class DissolvingSprite : MonoBehaviour, DissolvingElement
 
     double currentDissolvingTimer = 0;
 
-    void Awake()
+
+    void initialize()
     {
         buttonlist = GetComponentsInChildren<Button>(true);
         spritelist = GetComponentsInChildren<SpriteRenderer>(true);
@@ -67,23 +68,23 @@ public class DissolvingSprite : MonoBehaviour, DissolvingElement
                 spriteRenderer.material = material;
             }
         }
-
     }
 
-    private void Start()
+    void Awake()
     {
-        
+        if(buttonlist== null) initialize();
     }
 
     void Update()
     {
         if (currentDissolvingTimer > 0)
         {
+            
             currentDissolvingTimer -= Time.deltaTime;
             if (dissolving)
             {
-                material.SetFloat("_Level", material.GetFloat("_Level") + Time.deltaTime*3 /timeModifier);
-                if (material.GetFloat("_Level") >= 1)
+                material.SetFloat("_Level", material.GetFloat("_Level") + Time.deltaTime * 3 / timeModifier);
+                if (material.GetFloat("_Level") > 1)
                 {
                     material.SetFloat("_Edges", 0f);
                     material.SetFloat("_Level", 1f);
@@ -92,20 +93,19 @@ public class DissolvingSprite : MonoBehaviour, DissolvingElement
 
             else
             {
-                material.SetFloat("_Level", material.GetFloat("_Level") - Time.deltaTime*3 / timeModifier);
-                if (material.GetFloat("_Level") >= 1.001)
+                material.SetFloat("_Level", material.GetFloat("_Level") - Time.deltaTime * 3 / timeModifier);
+                if (material.GetFloat("_Level") < 0)
                 {
                     material.SetFloat("_Edges", 0f);
                 }
             }
-
         }
-        else material.SetFloat("_Edges", 0f);
     }
 
     public void appear()
     {
-        foreach(Transform transform in GetComponentInChildren<Transform>(true))
+        if(buttonlist == null) initialize();
+        foreach (Transform transform in GetComponentInChildren<Transform>(true))
         {
             transform.gameObject.SetActive(true);
         }
@@ -122,24 +122,14 @@ public class DissolvingSprite : MonoBehaviour, DissolvingElement
 
     public void disappear()
     {
+        if (buttonlist == null) initialize();
         dissolving = true;
-        if (buttonlist != null) foreach (Button button in buttonlist)
-            {
-                button.interactable = false;
-            }
-
-        try
-        {
-            material.SetFloat("_Edges", defaultEdgesParam);
-            material.SetFloat("_Level", 0f);
-            currentDissolvingTimer = dissolvingTimer * timeModifier;
-
+        foreach (Button button in buttonlist)
+        {button.interactable = false;
         }
-        catch
-        {
-            Debug.LogError(gameObject.name);
-        }
-        //if(buttonlist.Length !=0) Invoke("deactivate", .3f);
+        material.SetFloat("_Edges", defaultEdgesParam);
+        material.SetFloat("_Level", 0f);
+        currentDissolvingTimer = dissolvingTimer * timeModifier;
     }
 
     void deactivate()

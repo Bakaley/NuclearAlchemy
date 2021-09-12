@@ -189,6 +189,26 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3773585
       objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: frozen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 4889695807378775043, guid: c97bc345281ce514aab623a4a3be23a2, type: 3}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
     - target: {fileID: 8803489235263503021, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -383,6 +403,26 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3773585
       objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: frozen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 4889695807378775043, guid: c97bc345281ce514aab623a4a3be23a2, type: 3}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
     - target: {fileID: 8803489235263503021, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -576,6 +616,26 @@ PrefabInstance:
     - target: {fileID: 7913918719240827906, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: m_Color.r
       value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: frozen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 4889695807378775043, guid: c97bc345281ce514aab623a4a3be23a2, type: 3}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.8679245
       objectReference: {fileID: 0}
     - target: {fileID: 8803489235263503021, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: m_Enabled

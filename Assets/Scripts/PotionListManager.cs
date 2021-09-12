@@ -1268,6 +1268,7 @@ public class PotionListManager : MonoBehaviour
     {
         get
         {
+            setupPotionLists();
             List<Recipe> list = new List<Recipe>();
             foreach (GameObject obj in constellationLearn1)
             {
@@ -1281,6 +1282,7 @@ public class PotionListManager : MonoBehaviour
     {
         get
         {
+            setupPotionLists();
             List<Recipe> list = new List<Recipe>();
             foreach (GameObject obj in constellationLearn2)
             {
@@ -1294,6 +1296,7 @@ public class PotionListManager : MonoBehaviour
     {
         get
         {
+            setupPotionLists();
             List<Recipe> list = new List<Recipe>();
             foreach (GameObject obj in constellationLearnCombo)
             {

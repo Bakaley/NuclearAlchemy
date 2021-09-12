@@ -203,6 +203,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: fiery
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 7794500198689608617, guid: 4a1b39ca85737c04aab7c6a81c328c8a, type: 3}
     - target: {fileID: 6485502433215269354, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -238,6 +246,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6919070905887624591, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 8198108461699316569, guid: f50607ad563401a47a04dd20d97b23df, type: 3}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: fiery
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: OrbPreview
       value: 
       objectReference: {fileID: 8198108461699316569, guid: f50607ad563401a47a04dd20d97b23df, type: 3}
@@ -312,6 +328,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6919070905887624591, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 8198108461699316569, guid: f50607ad563401a47a04dd20d97b23df, type: 3}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: fiery
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: OrbPreview
       value: 
       objectReference: {fileID: 8198108461699316569, guid: f50607ad563401a47a04dd20d97b23df, type: 3}

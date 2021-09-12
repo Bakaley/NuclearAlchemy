@@ -111,6 +111,24 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2283738997950790718, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
+      propertyPath: orbType
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283738997950790718, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 4956378181288296964, guid: a5a39cadc493c704aabee6292aeaaae3, type: 3}
+    - target: {fileID: 2283738997950790718, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
+      propertyPath: orbDescription
+      value: "- \u041A\u0430\u043F\u043D\u0438\u0442\u0435 \u043D\u0430 \u0434\u0440\u0443\u0433\u0443\u044E
+        \u0441\u0444\u0435\u0440\u0443, \u0447\u0442\u043E\u0431\u044B \u043E\u043A\u0440\u0430\u0441\u0438\u0442\u044C
+        \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u0438\u0442\u044C \u0435\u0451."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283738997950790718, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
+      propertyPath: particleSystemSample
+      value: 
+      objectReference: {fileID: 138299503909309411, guid: 4eba4a4b938e35b499aad2745b8d3023, type: 3}
     - target: {fileID: 2408318255037616930, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -171,9 +189,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
---- !u!4 &4114146829761427280 stripped
+--- !u!4 &8696290700679801737 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1134747762692985037, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5622854071721118740, guid: 7d37079b15b5fd446aa8f022de22bc21, type: 3}
   m_PrefabInstance: {fileID: 3938131438209509277}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6650848338566048138
@@ -181,7 +199,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4114146829761427280}
+    m_TransformParent: {fileID: 8696290700679801737}
     m_Modifications:
     - target: {fileID: 4059097924872438462, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: m_Layer

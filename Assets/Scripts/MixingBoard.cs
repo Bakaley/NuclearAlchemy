@@ -6,14 +6,12 @@ using System.Linq;
 
 public class MixingBoard : MonoBehaviour
 {
-    public static int Length { get; private set; } = 4;
+    public static int Width { get; private set; } = 4;
     public static int Height { get; private set; } = 4;
-    public bool stricted { get; private set; }
-    public double targetDelay { get; private set; } = Orb.movingTime;
-    public bool stable { get; private set; }
+    public double targetDelay { get; private set; } = OrbBox.movingTime;
 
-    public static double ingredientMovementDelay = .5;
-    public static double deployDelay = .5;
+    public static double ingredientMovementDelay;
+    public static double deployDelay;
 
     [HideInInspector]
     public double moveDelay = .2;
@@ -113,10 +111,6 @@ public class MixingBoard : MonoBehaviour
         {
             return orbShift;
         }
-        private set
-        {
-            orbShift = value;
-        }
     }
 
     [SerializeField]
@@ -138,10 +132,13 @@ public class MixingBoard : MonoBehaviour
 
     ComboManager comboManager;
 
-    public Orb[,] orbs = new Orb[Length, Height];
+    public Orb[,] orbs = new Orb[Width, Height];
+
+    OrbBox[] orbBoxes;
 
     private void Awake()
     {
+        orbBoxes = new OrbBox[Width * Height];
 
         staticBoard = this;
 
@@ -196,60 +193,33 @@ public class MixingBoard : MonoBehaviour
         if (deployDelay > 0) deployDelay -= Time.deltaTime;
 
         orbListUpdate();
-        strictedCheck();
-        stableCheck();
+
+
 
         comboManager.reactionCheck();
     }
 
-    void strictedCheck()
+    public bool stricted { get; private set; }
+    public bool stable { get; private set; }
+
+    public void orbListUpdate()
     {
+        orbs = new Orb[Width, Height];
+        orbBoxes = GetComponentsInChildren<OrbBox>();
+        foreach (OrbBox orbBox in orbBoxes)
+        {
+            if((int)Math.Round(orbBox.transform.localPosition.y) < Height && orbBox.GetComponent<OrbBox>().Orb.archetype != Orb.ORB_ARCHETYPES.DROP) orbs[(int)Math.Round(orbBox.transform.localPosition.x), (int)Math.Round(orbBox.transform.localPosition.y)] = orbBox.GetComponent<OrbBox>().Orb;
+        }
         stricted = true;
-        foreach (Orb orb in orbs)
+        foreach (OrbBox orbBox in orbBoxes)
         {
-            if (orb)
-            {
-                if (!orb.xStricted || !orb.yStricted)
-                {
-                   stricted = false;
-                   break;
-                }
-            }
+            if (!orbBox.xStricted || !orbBox.yStricted) stricted = false;
         }
-    }
 
-    void stableCheck()
-    {
-        if (stricted)
+        stable = true;
+        foreach (OrbBox orbBox in orbBoxes)
         {
-            stable = true;
-            foreach (Orb orb in orbs)
-            {
-                if (orb)
-                {
-                    if (orb.lying == false)
-                    {
-                        stable = false;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-
-    void orbListUpdate()
-    {
-        if (deployDelay <= 0)
-        {
-            orbs = new Orb[Length, Height];
-            foreach (Transform child in orbShift.transform)
-            {
-                if (child.tag == "Orb")
-                {
-                    orbs[(int)Math.Round(child.transform.localPosition.x), (int)Math.Round(child.transform.localPosition.y)] = child.gameObject.GetComponent<Orb>();
-                }
-            }
+            if (!orbBox.lying) stable = false;
         }
     }
 
@@ -285,7 +255,6 @@ public class MixingBoard : MonoBehaviour
                 comboManager.reactionList.Remove(reaction);
             }
         }
-        //spinDelay = Math.Max(spinDelay, 1);
         foreach (SpriteRenderer spriteRenderer in targetSquares)
         {
             spriteRenderer.color = new Color32(91, 104, 114, 255);
@@ -311,50 +280,47 @@ public class MixingBoard : MonoBehaviour
     {
         if (ingredientMovementDelay <= 0 && spinDelay <= 0 && deployDelay <= 0)
         {
-            Orb[,] ingredientOrbs = new Orb[Length, Height];
+            OrbBox[,] ingredientOrbs = new OrbBox[Width, Height];
 
             ingredientMovementDelay = .5;
             deployDelay = .5;
 
-            int[] places = new int[Length];
+            int[] places = new int[Width];
            
-            foreach (Transform child in addingBoard.OrbShift.transform)
+            foreach (OrbBox orbBox in addingBoard.orbBoxes)
             {
-                if (child.tag == "Orb")
-                {
-                    ingredientOrbs[(int)Math.Round(child.transform.localPosition.x), (int)Math.Round(child.transform.localPosition.y)] = child.gameObject.GetComponent<Orb>();
-                }
+                ingredientOrbs[(int)Math.Round(orbBox.transform.localPosition.x), (int)Math.Round(orbBox.transform.localPosition.y)] = orbBox;
             }
 
-            for (int i = 0; i < Length; i++)
+            for (int i = 0; i < Width; i++)
             {
-                if (ingredientOrbs[i, 0] && ingredientOrbs[i, 0].archetype == Orb.ORB_ARCHETYPES.DROP)
+                if (ingredientOrbs[i, 0] && ingredientOrbs[i, 0].Orb.archetype == Orb.ORB_ARCHETYPES.DROP)
                 {
-                    Orb tartgetedOrb = null;
+                    OrbBox tartgetedOrb = null;
                     int targetY = -1;
                     foreach (Orb _orb in orbs)
                     {
                         if (_orb)
                         {
-                            if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
+                            if ((int)Math.Round(_orb.Box.transform.localPosition.x) == i)
                             {
-                                if ((int)Math.Round(_orb.gameObject.transform.localPosition.y) > targetY)
+                                if ((int)Math.Round(_orb.Box.transform.localPosition.y) > targetY)
                                 {
-                                    targetY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
-                                    tartgetedOrb = _orb;
+                                    targetY = (int)Math.Round(_orb.Box.transform.localPosition.y);
+                                    tartgetedOrb = _orb.Box;
                                 }
                             }
                         }
                     }
                     if (tartgetedOrb)
                     {
-                        ingredientOrbs[i, 0].GetComponent<DropOrb>().targetedtOrb = tartgetedOrb;
-                        ingredientOrbs[i, 0].GetComponent<DropOrb>().targetY = (int)Math.Round(tartgetedOrb.gameObject.transform.localPosition.y);
+                        ingredientOrbs[i, 0].GetComponentInChildren<DropOrb>().targetedtOrb = tartgetedOrb;
+                        ingredientOrbs[i, 0].GetComponentInChildren<DropOrb>().targetY = (int)Math.Round(tartgetedOrb.gameObject.transform.localPosition.y);
                         places[i] = (int)Math.Round(tartgetedOrb.gameObject.transform.localPosition.y);
                     }
                     else
                     {
-                        ingredientOrbs[i, 0].GetComponent<DropOrb>().targetY = 0;
+                        ingredientOrbs[i, 0].GetComponentInChildren<DropOrb>().targetY = 0;
                         places[i] = 0;
                     }
                 }
@@ -366,13 +332,13 @@ public class MixingBoard : MonoBehaviour
                     {
                         if (_orb)
                         {
-                            if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
+                            if ((int)Math.Round(_orb.Box.transform.localPosition.x) == i)
                             {
-                                if ((int)Math.Round(_orb.gameObject.transform.localPosition.y) > maxY) maxY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
+                                if ((int)Math.Round(_orb.Box.transform.localPosition.y) > maxY) maxY = (int)Math.Round(_orb.Box.transform.localPosition.y);
                             }
                         }
                     }
-                    foreach (Orb _orb in ingredientOrbs)
+                    foreach (OrbBox _orb in ingredientOrbs)
                     {
                         if (_orb)
                         {
@@ -382,13 +348,13 @@ public class MixingBoard : MonoBehaviour
                             }
                         }
                     }
-                    if (maxY + columnSize >= MixingBoard.Length)
+                    if (maxY + columnSize >= MixingBoard.Width)
                     {
-                        foreach (Orb orb in ingredientOrbs)
+                        foreach (OrbBox orbBox in ingredientOrbs)
                         {
-                            if (orb)
+                            if (orbBox)
                             {
-                                orb.shakeRight();
+                                orbBox.Orb.shakeRight();
                             }
                         }
                         return;
@@ -398,13 +364,12 @@ public class MixingBoard : MonoBehaviour
                 }
             }
 
-            for (int i = 0; i < Length; i++)
+            for (int i = 0; i < Width; i++)
             {
-                foreach (Orb _orb in ingredientOrbs)
+                foreach (OrbBox _orb in ingredientOrbs)
                 {
                     if (_orb)
                     {
-                        //int oldX = (int)Math.Round_orb.transform.localPosition.x;
                         _orb.transform.SetParent(orbShift.transform, true);
                         _orb.transform.localPosition = new Vector3(Mathf.Round(_orb.transform.localPosition.x), Mathf.Round(_orb.transform.localPosition.y), 0);
 
@@ -412,40 +377,42 @@ public class MixingBoard : MonoBehaviour
                 }
             }
 
-            float[] fallDistances = new float[Length];
+            float[] fallDistances = new float[Width];
 
 
-            for (int i = 0; i < Length; i++)
+            for (int i = 0; i < Width; i++)
             {
                 float minY = 0;
-                foreach (Orb _orb in ingredientOrbs)
+                foreach (OrbBox _orb in ingredientOrbs)
                 {
                     if (_orb)
                     {
 
-                        if (minY == 0) minY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
-                        if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
+                        if (minY == 0) minY = (int)Math.Round(_orb.transform.localPosition.y);
+                        if ((int)Math.Round(_orb.transform.localPosition.x) == i)
                         {
-                            if ((int)Math.Round(_orb.gameObject.transform.localPosition.y) < minY) minY = (int)Math.Round(_orb.gameObject.transform.localPosition.y);
+                            if ((int)Math.Round(_orb.transform.localPosition.y) < minY) minY = (int)Math.Round(_orb.transform.localPosition.y);
                         }
                     }
                 }
                 fallDistances[i] = minY - places[i];
             }
 
-            for (int i = 0; i < Length; i++)
+            for (int i = 0; i < Width; i++)
             {
-                foreach (Orb _orb in ingredientOrbs)
+                foreach (OrbBox _orb in ingredientOrbs)
                 {
                     if (_orb)
                     {
                         if ((int)Math.Round(_orb.gameObject.transform.localPosition.x) == i)
                         {
-                            iTween.MoveTo(_orb.gameObject, iTween.Hash("position", new Vector3((int)Math.Round(_orb.gameObject.transform.localPosition.x), (int)Math.Round(_orb.gameObject.transform.localPosition.y) - fallDistances[i], _orb.transform.localPosition.z), "islocal", true, "time", Orb.movingTime * fallDistances[i] / 2, "easetype", iTween.EaseType.easeInSine));
-                            spinDelay = Math.Max(spinDelay,  Orb.movingTime * fallDistances[i] * 1.05f);
-                            ingredientMovementDelay = Orb.movingTime * fallDistances[i] * 1.05f;
-                            deployDelay = 4 * Orb.movingTime * 1.05f;
-                            currentCombiningTimer = 4 * Orb.movingTime * 1.05f;
+                            _orb.falling = true;
+                            iTween.MoveTo(_orb.gameObject, iTween.Hash("position", new Vector3((int)Math.Round(_orb.gameObject.transform.localPosition.x), (int)Math.Round(_orb.gameObject.transform.localPosition.y) - fallDistances[i], _orb.transform.localPosition.z), "islocal", true, "time", OrbBox.movingTime * fallDistances[i] / 2, "easetype", iTween.EaseType.easeInSine));
+                            spinDelay = Math.Max(spinDelay, OrbBox.movingTime * fallDistances[i] * 1.05f);
+                            ingredientMovementDelay = OrbBox.movingTime * fallDistances[i] * 1.05f;
+                            deployDelay = 4 * OrbBox.movingTime * 1.05f;
+                            currentCombiningTimer = 4 * OrbBox.movingTime * 1.05f;
+                            _orb.Invoke("fallingReset", Convert.ToSingle(4f * OrbBox.movingTime * 1.05));
                         }
                     }
                 }
@@ -455,15 +422,35 @@ public class MixingBoard : MonoBehaviour
                if(essence != Ingredient.ESSENSE.None) essencePanel.addEssence(essence);
             }
           
-            if(changeOnDeployment) addingBoard.refreshIngredients();
+            if(changeOnDeployment) IngredientPanel.refreshIngredientsWithDelay();
         }
     }
 
-    public void cleanUpBoard()
+    public static void cleanUpBoard()
     {
-        foreach (Orb orb in orbs)
+        if (StaticInstance != null)
         {
-            if(orb) orb.DestroyIn(.5f);
+            foreach (Orb orb in StaticInstance.orbs)
+            {
+                if (orb) orb.DestroyIn(.25f);
+            }
+            EssencePanel.clearEssences();
+        }
+    }
+
+    public static bool isEmpty
+    {
+        get
+        {
+            if (StaticInstance == null)
+            {
+                return true;
+            }
+            else foreach (Orb orb in StaticInstance.orbs)
+                {
+                    if (orb) return false;
+                }
+            return true;
         }
     }
 
@@ -509,7 +496,7 @@ public class MixingBoard : MonoBehaviour
                 for (int j = 0; j < Height; j++)
                 {
                     reactionMinimumCheck(REACTION_DIMENSIONS.HORIZONTAL);
-                    for (int i = 0; i < Length; i++)
+                    for (int i = 0; i < Width; i++)
                     {
                         if (board.orbs[i, j] != null && board.orbs[i, j].comboAvaliable)
                         {
@@ -545,7 +532,7 @@ public class MixingBoard : MonoBehaviour
                     }
                 }
                 reactionMinimumCheck(REACTION_DIMENSIONS.HORIZONTAL);
-                for (int i = 0; i < Length; i++)
+                for (int i = 0; i < Width; i++)
                 {
                     reactionMinimumCheck(REACTION_DIMENSIONS.VERTICAL);
 
@@ -612,7 +599,6 @@ public class MixingBoard : MonoBehaviour
                             if (orb.antimatter) antimatterFlag = true;
                         }
 
-                        products.Add(new Orb.ReplacingOrbStruct(board.yellowCore));
                         if (fireFlag) products.Add(new Orb.ReplacingOrbStruct(board.redCore));
                         if (iceFlag) products.Add(new Orb.ReplacingOrbStruct(board.blueCore));
                         if (aether != 0) products.Add(new Orb.ReplacingOrbStruct(board.greenCore, false, false, aether, false, null));
@@ -631,12 +617,21 @@ public class MixingBoard : MonoBehaviour
                 {
                     if (reaction_counter == min_1lvl_counter)
                     {
+                        List<Orb.ReplacingOrbStruct> products = new List<Orb.ReplacingOrbStruct>();
                         GameObject nextLevelOrb = null;
                         int aether = 0;
                         bool antimatter = false;
 
                         foreach (Orb orb in reagents)
                         {
+                            if(orb.type == Orb.ORB_TYPES.SEMIPLASMA)
+                            {
+                                products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.yellowCore));
+                                if (orb.fiery) products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.redCore));
+                                if (orb.frozen) products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.blueCore));
+                                if (orb.aetherCount != 0) products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.greenCore, false, false, orb.aetherCount));
+                                if (orb.antimatter) products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.purpleVoid));
+                            }
                             if (!orb.frozen) nextLevelOrb = orb.NextLevelOrb;
                             aether += orb.aetherImpact;
                             if (orb.antimatter) antimatter = true;
@@ -647,7 +642,7 @@ public class MixingBoard : MonoBehaviour
                         }
                         else
                         {
-                            List<Orb.ReplacingOrbStruct> products = new List<Orb.ReplacingOrbStruct>();
+                            
                             products.Add(new Orb.ReplacingOrbStruct(nextLevelOrb, false, false, aether, antimatter, null));
                             Reaction reaction = new Reaction(dimension, reagents, products);
                             if (!reactionList.Contains(reaction))
@@ -782,17 +777,25 @@ public class MixingBoard : MonoBehaviour
                         int aether = 0;
                         bool antimatter = false;
                         GameObject coreToAdd = null;
+                        List<Orb.ReplacingOrbStruct> products = new List<Orb.ReplacingOrbStruct>();
+
                         foreach (Orb orb in reagents)
                         {
+                            if (orb.type == Orb.ORB_TYPES.SEMIPLASMA)
+                            {
+                                if (orb.fiery) products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.redCore));
+                                if (orb.frozen) products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.blueCore));
+                                if (orb.aetherCount != 0) products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.greenCore, false, false, orb.aetherCount));
+                                if (orb.antimatter) products.Add(new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.purpleVoid));
+                            }
                             if (!orb.frozen)
                             {
                                 nextLevelOrb = orb.NextLevelOrb;
-                                if (nextLevelOrb.GetComponent<AspectOrb>()) coreToAdd = MixingBoard.orbDictionary[nextLevelOrb.GetComponent<AspectOrb>().orbColor + "Dye"];
+                                if (nextLevelOrb.GetComponentInChildren<AspectOrb>()) coreToAdd = MixingBoard.orbDictionary[nextLevelOrb.GetComponentInChildren<AspectOrb>().orbColor + "Dye"];
                             }
                             aether += orb.aetherImpact;
                             if (orb.antimatter) antimatter = true;
                         }
-                        List<Orb.ReplacingOrbStruct> products = new List<Orb.ReplacingOrbStruct>();
                         products.Add(new Orb.ReplacingOrbStruct(coreToAdd));
                         products.Add(new Orb.ReplacingOrbStruct(nextLevelOrb, false, false, aether, antimatter));
                         if (nextLevelOrb == null)
@@ -827,7 +830,7 @@ public class MixingBoard : MonoBehaviour
                             if (!orb.frozen)
                             {
                                 nextLevelOrb = orb.NextLevelOrb;
-                                if (nextLevelOrb.GetComponent<AspectOrb>()) coreToAdd = MixingBoard.orbDictionary[nextLevelOrb.GetComponent<AspectOrb>().orbColor + "Dye"];
+                                if (nextLevelOrb.GetComponentInChildren<AspectOrb>()) coreToAdd = MixingBoard.orbDictionary[nextLevelOrb.GetComponentInChildren<AspectOrb>().orbColor + "Dye"];
                             }
                             aether += orb.aetherImpact;
                             if (orb.antimatter) antimatter = true;

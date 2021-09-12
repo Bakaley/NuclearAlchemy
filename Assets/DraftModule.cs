@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class DraftModule : MonoBehaviour
 {
@@ -52,6 +53,12 @@ public class DraftModule : MonoBehaviour
         }
     }
 
+    public static void cancelAllRecipes()
+    {
+        List<Recipe> recipes = new List<Recipe>(pickedRecipes);
+        foreach (Recipe rec in recipes) cancelRecipe(rec);
+    }
+
     public static bool opened
     {
         get;
@@ -91,8 +98,8 @@ public class DraftModule : MonoBehaviour
         else if (page3 == null) page3 = page;
 
         page.GetComponentInChildren<TextMeshPro>().text = limitText;
-        DissolvingElement[] dissolvingElements = page.GetComponentsInChildren<DissolvingElement>();
-        foreach (DissolvingElement elem in dissolvingElements) elem.appear();
+        IDissolving[] dissolvingElements = page.GetComponentsInChildren<IDissolving>();
+        foreach (IDissolving elem in dissolvingElements) elem.appear();
     }
     public static void clean()
     {
@@ -158,8 +165,8 @@ public class DraftModule : MonoBehaviour
 
         GameObject recipeTable = Instantiate(staticInstance.recipeTableSampler, staticInstance.recipePanel.transform);
         recipeTable.GetComponent<RecipeTable>().fillPage(recipe);
-        DissolvingElement[] dissolvingList = recipeTable.GetComponentsInChildren<DissolvingElement>();
-        foreach (DissolvingElement elem in dissolvingList)
+        IDissolving[] dissolvingList = recipeTable.GetComponentsInChildren<IDissolving>();
+        foreach (IDissolving elem in dissolvingList)
         {
             elem.appear();
         }
@@ -180,5 +187,11 @@ public class DraftModule : MonoBehaviour
 
         if (recipe.Type == Recipe.RECIPE_TYPE.POTION_BREWING) Destroy(openedDrafter.gameObject);
         openedDrafter = null;
+    }
+    public static void cancelRecipe(Recipe recipe)
+    {
+        CookingModule.cancelRecipe(recipe);
+        Destroy(recipeTables[recipe]);
+        recipeTables.Remove(recipe);
     }
 }

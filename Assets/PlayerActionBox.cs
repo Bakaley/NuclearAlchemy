@@ -29,7 +29,7 @@ public class PlayerActionBox : MonoBehaviour
         if (other.GetComponent<Workplace>())
         {
             currentWorkplace.untarget();
-            rightCircle.SetActive(false);
+        //    rightCircle.SetActive(false);
         }
     }
 

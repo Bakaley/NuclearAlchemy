@@ -57,31 +57,34 @@ public class StatBoardPanel : MonoBehaviour
 
         foreach (Orb orb in MixingBoard.StaticInstance.orbs)
         {
-            switch (filter)
+            if (orb && orb.type != Orb.ORB_TYPES.UNCERTAINTY)
             {
-                case StatBoardView.FILTER_TYPE.POINTS:
-                    if (orb) orb.enableCounter(filter);
-                    break;
+                switch (filter)
+                {
+                    case StatBoardView.FILTER_TYPE.POINTS:
+                        if (orb) orb.enableCounter(filter);
+                        break;
 
-                case StatBoardView.FILTER_TYPE.ASPECT:
-                    if(orb && (orb.Level == 3 || orb.type == Orb.ORB_TYPES.BLUE_PULSAR || orb.type == Orb.ORB_TYPES.RED_PULSAR || orb.type == Orb.ORB_TYPES.GREEN_PULSAR)) orb.enableCounter(filter);
-                    break;
+                    case StatBoardView.FILTER_TYPE.ASPECT:
+                        if (orb && (orb.Level == 3 || orb.type == Orb.ORB_TYPES.BLUE_PULSAR || orb.type == Orb.ORB_TYPES.RED_PULSAR || orb.type == Orb.ORB_TYPES.GREEN_PULSAR)) orb.enableCounter(filter);
+                        break;
 
-                case StatBoardView.FILTER_TYPE.TEMPERATURE:
-                    if (orb && (orb.frozen || orb.fiery)) orb.enableCounter(filter);
-                    break;
+                    case StatBoardView.FILTER_TYPE.TEMPERATURE:
+                        if (orb && (orb.frozen || orb.fiery)) orb.enableCounter(filter);
+                        break;
 
-                case StatBoardView.FILTER_TYPE.AETHERNESS:
-                    if (orb && orb.aetherImpact != 0) orb.enableCounter(filter);
-                    break;
+                    case StatBoardView.FILTER_TYPE.AETHERNESS:
+                        if (orb && orb.aetherImpact != 0) orb.enableCounter(filter);
+                        break;
 
-                case StatBoardView.FILTER_TYPE.VISCOSITY:
-                    if (orb && (orb.Level >= 3)) orb.enableCounter(filter);
-                    break;
+                    case StatBoardView.FILTER_TYPE.VISCOSITY:
+                        if (orb && (orb.Level >= 3)) orb.enableCounter(filter);
+                        break;
 
-                case StatBoardView.FILTER_TYPE.VOIDNESS:
-                    if(orb && orb.archetype == Orb.ORB_ARCHETYPES.VOID) orb.enableCounter(filter);
-                    break;
+                    case StatBoardView.FILTER_TYPE.VOIDNESS:
+                        if (orb && orb.archetype == Orb.ORB_ARCHETYPES.VOID) orb.enableCounter(filter);
+                        break;
+                }
             }
         }
     }

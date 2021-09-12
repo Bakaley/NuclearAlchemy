@@ -80,15 +80,15 @@ public class CoreOrb : Orb
 
     void collapse()
     {
-        MixingBoard.StaticInstance.spinDelay += .5;
+        MixingBoard.StaticInstance.spinDelay = Math.Max(MixingBoard.StaticInstance.spinDelay, .35);
         int aetherToIncrease = aetherCount;
 
-        DestroyIn(.5f);
+        DestroyIn(.35f);
 
 
-        if ((int)Math.Round(transform.localPosition.x + 1) < MixingBoard.Length && (int)Math.Round(transform.localPosition.y + 1) < MixingBoard.Height)
+        if ((int)Math.Round(Box.transform.localPosition.x + 1) < MixingBoard.Width && (int)Math.Round(Box.transform.localPosition.y + 1) < MixingBoard.Height)
         {
-            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y + 1)];
+            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(Box.transform.localPosition.x + 1), (int)Math.Round(Box.transform.localPosition.y + 1)];
             if (orb)
             {
 
@@ -98,13 +98,13 @@ public class CoreOrb : Orb
             else
             {
                 ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-                particleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y + 1), Convert.ToSingle(-1));
+                particleSystem.transform.localPosition = new Vector3((int)Math.Round(Box.transform.localPosition.x + 1), (int)Math.Round(Box.transform.localPosition.y + 1), Convert.ToSingle(-1));
             }
         }
 
-        if ((int)Math.Round(transform.localPosition.x - 1) >= 0 && (int)Math.Round(transform.localPosition.y + 1) < MixingBoard.Height)
+        if ((int)Math.Round(Box.transform.localPosition.x - 1) >= 0 && (int)Math.Round(Box.transform.localPosition.y + 1) < MixingBoard.Height)
         {
-            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y + 1)];
+            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(Box.transform.localPosition.x - 1), (int)Math.Round(Box.transform.localPosition.y + 1)];
             if (orb)
             {
 
@@ -114,13 +114,13 @@ public class CoreOrb : Orb
             else
             {
                 ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-                particleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y + 1), Convert.ToSingle(-1));
+                particleSystem.transform.localPosition = new Vector3((int)Math.Round(Box.transform.localPosition.x - 1), (int)Math.Round(Box.transform.localPosition.y + 1), Convert.ToSingle(-1));
             }
         }
 
-        if ((int)Math.Round(transform.localPosition.x + 1) < MixingBoard.Length && (int)Math.Round(transform.localPosition.y - 1) >= 0)
+        if ((int)Math.Round(Box.transform.localPosition.x + 1) < MixingBoard.Width && (int)Math.Round(Box.transform.localPosition.y - 1) >= 0)
         {
-            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y - 1)];
+            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(Box.transform.localPosition.x + 1), (int)Math.Round(Box.transform.localPosition.y - 1)];
             if (orb)
             {
 
@@ -130,13 +130,13 @@ public class CoreOrb : Orb
             else
             {
                 ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-                particleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y - 1), Convert.ToSingle(-1));
+                particleSystem.transform.localPosition = new Vector3((int)Math.Round(Box.transform.localPosition.x + 1), (int)Math.Round(Box.transform.localPosition.y - 1), Convert.ToSingle(-1));
             }
         }
 
-        if ((int)Math.Round(transform.localPosition.x - 1) >= 0 && (int)Math.Round(transform.localPosition.y - 1) >= 0)
+        if ((int)Math.Round(Box.transform.localPosition.x - 1) >= 0 && (int)Math.Round(Box.transform.localPosition.y - 1) >= 0)
         {
-            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y - 1)];
+            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(Box.transform.localPosition.x - 1), (int)Math.Round(Box.transform.localPosition.y - 1)];
             if (orb)
             {
 
@@ -146,13 +146,13 @@ public class CoreOrb : Orb
             else
             {
                 ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-                particleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y - 1), Convert.ToSingle(-1));
+                particleSystem.transform.localPosition = new Vector3((int)Math.Round(Box.transform.localPosition.x - 1), (int)Math.Round(Box.transform.localPosition.y - 1), Convert.ToSingle(-1));
             }
         }
 
-        if ((int)Math.Round(transform.localPosition.x + 1) < MixingBoard.Length)
+        if ((int)Math.Round(Box.transform.localPosition.x + 1) < MixingBoard.Width)
         {
-            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y)];
+            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(Box.transform.localPosition.x + 1), (int)Math.Round(Box.transform.localPosition.y)];
             if (orb)
             {
 
@@ -162,13 +162,13 @@ public class CoreOrb : Orb
             else
             {
                 ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-                particleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x + 1), (int)Math.Round(transform.localPosition.y), Convert.ToSingle(-1));
+                particleSystem.transform.localPosition = new Vector3((int)Math.Round(Box.transform.localPosition.x + 1), (int)Math.Round(Box.transform.localPosition.y), Convert.ToSingle(-1));
             }
         }
 
-        if ((int)Math.Round(transform.localPosition.x - 1) >= 0)
+        if ((int)Math.Round(Box.transform.localPosition.x - 1) >= 0)
         {
-            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y)];
+            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(Box.transform.localPosition.x - 1), (int)Math.Round(Box.transform.localPosition.y)];
             if (orb)
             {
 
@@ -178,13 +178,19 @@ public class CoreOrb : Orb
             else
             {
                 ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-                particleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x - 1), (int)Math.Round(transform.localPosition.y), Convert.ToSingle(-1));
+                particleSystem.transform.localPosition = new Vector3((int)Math.Round(Box.transform.localPosition.x - 1), (int)Math.Round(Box.transform.localPosition.y), Convert.ToSingle(-1));
             }
         }
 
-        if ((int)Math.Round(transform.localPosition.y + 1) < MixingBoard.Length)
+        if ((int)Math.Round(Box.transform.localPosition.y + 1) < MixingBoard.Height)
         {
-            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y + 1)];
+            ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
+            particleSystem.transform.localPosition = new Vector3((int)Math.Round(Box.transform.localPosition.x), (int)Math.Round(Box.transform.localPosition.y + 1), Convert.ToSingle(-1));
+        }
+
+        if ((int)Math.Round(Box.transform.localPosition.y - 1) >= 0)
+        {
+            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(Box.transform.localPosition.x), (int)Math.Round(Box.transform.localPosition.y - 1)];
             if (orb)
             {
 
@@ -194,26 +200,10 @@ public class CoreOrb : Orb
             else
             {
                 ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-                particleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y + 1), Convert.ToSingle(-1));
+                particleSystem.transform.localPosition = new Vector3((int)Math.Round(Box.transform.localPosition.x), (int)Math.Round(Box.transform.localPosition.y - 1), Convert.ToSingle(-1));
             }
         }
-
-        if ((int)Math.Round(transform.localPosition.y - 1) >= 0)
-        {
-            Orb orb = MixingBoard.StaticInstance.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y - 1)];
-            if (orb)
-            {
-
-                orb.affectWith(coreEffect, aetherToIncrease, archetype);
-                orb.addAffectingSystem(particleSystemSample);
-            }
-            else
-            {
-                ParticleSystem particleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-                particleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y - 1), Convert.ToSingle(-1));
-            }
-        }
-        ParticleSystem centralParticleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
-        centralParticleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y), Convert.ToSingle(-1));
+        //ParticleSystem centralParticleSystem = Instantiate(particleSystemSample, MixingBoard.StaticInstance.OrbShift.transform);
+        //centralParticleSystem.transform.localPosition = new Vector3((int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y), Convert.ToSingle(-1));
     }
 }

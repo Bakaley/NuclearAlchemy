@@ -17,11 +17,6 @@ public class IngredientPreview : MonoBehaviour
     [SerializeField]
     Material targetedEssenceMaterial;
 
-    [SerializeField]
-    Sprite ingredientIcon;
-    [SerializeField]
-    Color ingredientIconColor;
-
 
     public Material DefaultEssenceMaterial
     {

@@ -13,7 +13,7 @@ public class DropOrb : Orb
     }
 
     public int targetY = 0;
-    public Orb targetedtOrb;
+    public OrbBox targetedtOrb;
 
     static Dictionary<ORB_TYPES, EFFECT_TYPES> effectDictionary;
 
@@ -39,14 +39,15 @@ public class DropOrb : Orb
     override protected void FixedUpdate()
     {
         base.FixedUpdate();
-        if(transform.parent.gameObject == MixingBoard.StaticInstance.OrbShift && (int)Math.Round(gameObject.transform.localPosition.y) == targetY && !shouldDestroyed)
+        if(Box.transform.parent.gameObject == MixingBoard.StaticInstance.OrbShift && (int)Math.Round(Box.transform.localPosition.y) == targetY && !shouldDestroyed)
         {
             if (targetedtOrb)
             {
-                ParticleSystem ps = Instantiate(particleSystemSample, targetedtOrb.gameObject.transform);
-                ps.gameObject.transform.SetParent(MixingBoard.StaticInstance.gameObject.transform);
-                targetedtOrb.affectWith(effectDictionary[type], aetherCount, archetype);
+                Instantiate(particleSystemSample, targetedtOrb.transform);
+                targetedtOrb.Orb.affectWith(effectDictionary[type], aetherCount, archetype);
             }
+            else Instantiate(particleSystemSample, Box.transform);
+            symbolRenderer.enabled = false;
             DestroyIn(.5);
         }
     }

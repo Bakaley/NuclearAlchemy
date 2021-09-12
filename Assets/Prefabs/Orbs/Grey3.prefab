@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.01
   movingSpeed: 5
-  rotationSpeed: 0
+  rotationSpeedX: 0
+  rotationSpeedY: 0
+  rotationSpeedZ: 0
+  rotationSpace: 0
   seedShift: 0
 --- !u!114 &5339303323496551909
 MonoBehaviour:
@@ -48,6 +51,7 @@ MonoBehaviour:
   antimatter: 0
   comboAvaliable: 0
   orbDescription: 
+  orbDescriptionEN: 
   nextLevelOrb: {fileID: 97255993474857610, guid: 62f0f5c084c02b14cae2b6cbbf5e08f9, type: 3}
   level: 3
   points: 35
@@ -70,7 +74,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.01
   movingSpeed: 5
-  rotationSpeed: 0
+  rotationSpeedX: 0
+  rotationSpeedY: 0
+  rotationSpeedZ: 0
+  rotationSpace: 0
   seedShift: 0
 --- !u!1001 &5745574515339994697
 PrefabInstance:

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 559553012147933330, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 563562047905023136, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -75,6 +79,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: frozen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: orbType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 704975280876629925, guid: 869697e4cacf64f4f908b61b8c9678ed, type: 3}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: orbDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: particleSystemSample
+      value: 
+      objectReference: {fileID: 138299503909309411, guid: 4eba4a4b938e35b499aad2745b8d3023, type: 3}
     - target: {fileID: 3078130841405024962, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -259,9 +283,13 @@ PrefabInstance:
       propertyPath: particleSystemSample
       value: 
       objectReference: {fileID: 138299503909309411, guid: 4eba4a4b938e35b499aad2745b8d3023, type: 3}
+    - target: {fileID: 5080177059864457724, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: Orb
+      value: 
+      objectReference: {fileID: 527057364721449446}
     - target: {fileID: 5556465686358633237, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5840000748541210610, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
       propertyPath: m_Layer
@@ -414,17 +442,28 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3735578914803517741, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
---- !u!4 &1231011912198592141 stripped
+--- !u!4 &4662818391120340615 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3735578915791664300, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7095341410283324582, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
   m_PrefabInstance: {fileID: 2504599478807061025}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &527057364721449446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+  m_PrefabInstance: {fileID: 2504599478807061025}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40a95bc0b1a82d41ad6930d38248ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9045777924476578592
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1231011912198592141}
+    m_TransformParent: {fileID: 4662818391120340615}
     m_Modifications:
     - target: {fileID: 4059097924872438462, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: m_Layer
@@ -436,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4059097925177810239, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4059097925177810239, guid: 2798405b35f247340a65411f207dc181, type: 3}
       propertyPath: m_LocalScale.x

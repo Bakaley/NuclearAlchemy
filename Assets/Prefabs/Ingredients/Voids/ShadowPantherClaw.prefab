@@ -141,6 +141,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 1946735592631695852, guid: 72641e9cf88c1f444a324f8bb82f033a, type: 3}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: antimatter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 221
+      objectReference: {fileID: 0}
     - target: {fileID: 3702559611903546352, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -227,6 +243,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 1946735592631695852, guid: 72641e9cf88c1f444a324f8bb82f033a, type: 3}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: antimatter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133781487913024201, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 221
+      objectReference: {fileID: 0}
     - target: {fileID: 3702559611903546352, guid: 0f1f066914027234dba259a390f1b1e7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -282,6 +314,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919070905887624591, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 221
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 2971593530927623240, guid: 0719bba7cfdb35d4c91027c67a7b98f6, type: 3}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: antimatter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415870409038403263, guid: 341948465490dd4428611c946c75eaa6, type: 3}
       propertyPath: channelParticleColor.r
       value: 221
       objectReference: {fileID: 0}

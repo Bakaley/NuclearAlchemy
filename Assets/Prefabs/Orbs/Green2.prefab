@@ -275,6 +275,38 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.26406193
       objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: orbType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 3025466273520029140, guid: f8bb550b1a6e452439c29058827eaafb, type: 3}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: nextLevelOrb
+      value: 
+      objectReference: {fileID: 1243305981431226108, guid: c65e0e5bfc09c6b4099cbd44f5ff50da, type: 3}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: aetherParticle
+      value: 
+      objectReference: {fileID: 9199250702057443516, guid: 4e853be0596c4074093ccf10318d30da, type: 3}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: channelParticleColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: channelParticleColor.b
+      value: 0.3815303
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: channelParticleColor.g
+      value: 0.8113207
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: channelParticleColor.r
+      value: 0.26406193
+      objectReference: {fileID: 0}
     - target: {fileID: 5489001474131719653, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: m_RootOrder
       value: 6

@@ -4,12 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - AddingBoard
-  - EssenceIcon
   - Orb
-  - MixingBoard
-  - IngredientPlace
-  - IngredientPreview
+  - ConstellationCircle
   layers:
   - Default
   - TransparentFX

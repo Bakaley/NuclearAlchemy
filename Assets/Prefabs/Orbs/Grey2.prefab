@@ -32,6 +32,7 @@ MonoBehaviour:
   antimatter: 0
   comboAvaliable: 0
   orbDescription: 
+  orbDescriptionEN: 
   nextLevelOrb: {fileID: 1821338051921979678, guid: c71de121d94a8704fbf1a01fe790824e, type: 3}
   level: 2
   points: 0

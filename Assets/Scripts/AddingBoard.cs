@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class AddingBoard : MonoBehaviour
 {
@@ -12,23 +14,26 @@ public class AddingBoard : MonoBehaviour
     [SerializeField]
     GameObject orbShift;
 
+    public OrbBox[] orbBoxes
+    {
+        get; private set;
+    }
 
     void updateOrbList()
     {
-        orbs = new Orb[length, height];
-        foreach (Transform child in orbShift.transform)
+        orbs = new Orb[Width, Height];
+        orbBoxes = GetComponentsInChildren<OrbBox>();
+
+        foreach (OrbBox orbBox in orbBoxes)
         {
-            if (child.tag == "Orb")
-            {
-                orbs[(int)child.transform.localPosition.x, (int)child.transform.localPosition.y] = child.gameObject.GetComponent<Orb>();
-            }
+            orbs[(int)Math.Round(orbBox.transform.localPosition.x), (int)Math.Round(orbBox.transform.localPosition.y)] = orbBox.GetComponent<OrbBox>().Orb;
         }
     }
 
-    public static int length { get; private set; } = 4;
-    public static int height { get; private set; } = 4;
+    public static int Width { get; private set; } = 4;
+    public static int Height { get; private set; } = 4;
 
-    public Orb[,] orbs = new Orb[length, height];
+    public Orb[,] orbs = new Orb[Width, Height];
 
     int maxLeftX;
     int maxRightX;
@@ -39,6 +44,11 @@ public class AddingBoard : MonoBehaviour
         {
             return orbShift;
         }
+    }
+
+    private void Awake()
+    {
+        orbBoxes = new OrbBox[Height * Width];
     }
 
     // Start is called before the first frame update
@@ -56,8 +66,8 @@ public class AddingBoard : MonoBehaviour
 
     public void addingBoardClear()
     {
-        List<Orb> orbs = new List<Orb>(orbShift.GetComponentsInChildren<Orb>());
-        foreach (Orb orb in orbs)
+        List<OrbBox> orbs = new List<OrbBox>(orbShift.GetComponentsInChildren<OrbBox>());
+        foreach (OrbBox orb in orbs)
         {
             Destroy(orb.gameObject);
         }
@@ -68,15 +78,15 @@ public class AddingBoard : MonoBehaviour
         addingBoardClear();
         currnetIngredient = ingredient;
 
-        maxLeftX = MixingBoard.Length;
+        maxLeftX = MixingBoard.Width;
         maxRightX = -1;
 
-        float seed = Random.Range(-100f, 100f);
-        foreach (Orb orb in ingredient.GetComponentsInChildren<Orb>())
+        float seed = UnityEngine.Random.Range(-100f, 100f);
+        foreach (OrbBox orbBox in ingredient.GetComponentsInChildren<OrbBox>())
         {
-            GameObject _orb = Instantiate(orb.gameObject, orb.transform.localPosition, Quaternion.identity);
+            GameObject _orb = Instantiate(orbBox.gameObject, orbBox.transform.localPosition, Quaternion.identity);
             _orb.transform.SetParent(orbShift.transform, false);
-            _orb.GetComponent<Orb>().movingSeed = seed;
+            _orb.GetComponentInChildren<Orb>().movingSeed = seed;
             maxLeftX = Mathf.Min(maxLeftX, (int)_orb.transform.localPosition.x);
             maxRightX = Mathf.Max(maxRightX, (int)_orb.transform.localPosition.x);
         }
@@ -90,9 +100,9 @@ public class AddingBoard : MonoBehaviour
             MixingBoard.ingredientMovementDelay = .2f;
             if (maxLeftX != 0)
             {
-                foreach (Orb orb in orbShift.GetComponentsInChildren<Orb>())
+                foreach (OrbBox orbBox in orbShift.GetComponentsInChildren<OrbBox>())
                 {
-                    orb.transform.localPosition = new Vector3(orb.transform.localPosition.x - 1, orb.transform.localPosition.y, orb.transform.localPosition.z);
+                    orbBox.transform.localPosition = new Vector3(orbBox.transform.localPosition.x - 1, orbBox.transform.localPosition.y, orbBox.transform.localPosition.z);
                 }
                 maxRightX--;
                 maxLeftX--;
@@ -106,11 +116,11 @@ public class AddingBoard : MonoBehaviour
         if (MixingBoard.deployDelay <= 0)
         {
             MixingBoard.ingredientMovementDelay = .2f;
-            if (maxRightX != MixingBoard.Length - 1)
+            if (maxRightX != MixingBoard.Width - 1)
             {
-                foreach (Orb orb in orbShift.GetComponentsInChildren<Orb>())
+                foreach (OrbBox orbBox in orbShift.GetComponentsInChildren<OrbBox>())
                 {
-                    orb.transform.localPosition = new Vector3(orb.transform.localPosition.x + 1, orb.transform.localPosition.y, orb.transform.localPosition.z);
+                    orbBox.transform.localPosition = new Vector3(orbBox.transform.localPosition.x + 1, orbBox.transform.localPosition.y, orbBox.transform.localPosition.z);
                 }
                 maxRightX++;
                 maxLeftX++;
@@ -120,6 +130,6 @@ public class AddingBoard : MonoBehaviour
     }
     public void refreshIngredients()
     {
-        ingredientPanel.refreshIngredientsWithDelay();
+        IngredientPanel.refreshIngredientsWithDelay();
     }
 }

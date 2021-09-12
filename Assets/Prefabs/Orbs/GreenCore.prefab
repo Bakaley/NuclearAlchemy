@@ -26,10 +26,10 @@ Transform:
   m_GameObject: {fileID: 3020614710065430364}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.84999996, z: 0.85}
+  m_LocalScale: {x: 0.8500001, y: 0.84999996, z: 0.8500001}
   m_Children: []
-  m_Father: {fileID: 8824531937758248434}
-  m_RootOrder: 12
+  m_Father: {fileID: 3159221657149017592}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &2306666095323896276
 MonoBehaviour:
@@ -93,6 +93,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: orbit
+      value: 
+      objectReference: {fileID: 3020614710065430364}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: orbType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 7370791110401133601, guid: b46e15ce42a32574b82c2079152fb7cf, type: 3}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: aetherParticle
+      value: 
+      objectReference: {fileID: 9199250702057443516, guid: 4e853be0596c4074093ccf10318d30da, type: 3}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: orbDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707336370691890119, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+      propertyPath: particleSystemSample
+      value: 
+      objectReference: {fileID: 7331537060332970449, guid: 0316789974f2a7243aa51699abd097d7, type: 3}
     - target: {fileID: 3248751010426854749, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -321,9 +345,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
---- !u!4 &8824531937758248434 stripped
+--- !u!4 &3159221657149017592 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3735578915791664300, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7095341410283324582, guid: 04ac9e23247922e449cfaf3c536165cc, type: 3}
   m_PrefabInstance: {fileID: 5305372510225172830}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &8824531938885075049 stripped

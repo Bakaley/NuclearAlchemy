@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class RecipeTable : MonoBehaviour
+public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
 
     [SerializeField]
@@ -23,6 +24,7 @@ public class RecipeTable : MonoBehaviour
     Sprite defalutBackground;
 
     Recipe recipe;
+
 
     public void fillPage(Recipe recipeObject)
     {
@@ -229,15 +231,10 @@ public class RecipeTable : MonoBehaviour
 
     public void prepare()
     {
-        Debug.Log("click");
-
         if (UIManager.cookingMode)
         {
-            Debug.Log("click");
-
             if (CookingModule.ableToNewPreparedRecipe)
             {
-                Debug.Log("click");
                 if (recipeRequiermentCheck())
                 {
                     CookingModule.prepareRecipe(this, recipe);
@@ -255,11 +252,6 @@ public class RecipeTable : MonoBehaviour
     public bool recipeRequiermentCheck()
     {
         StatBoardView stats = StatBoardView.staticInstance;
-       /* Debug.Log(stats.pointsCounter >= recipe.Points);
-        Debug.Log(aspectCheck(stats.potionAspect, recipe.Aspect));
-        Debug.Log(secondParamsCheck(stats, recipe));
-        Debug.Log(essenceCheck(recipe));
-       */
         if (stats.pointsCounter >= recipe.Points && aspectCheck(stats.potionAspect, recipe.Aspect) && secondParamsCheck(stats, recipe) && essenceCheck(recipe)) return true;
         return false;
     }
@@ -340,4 +332,194 @@ public class RecipeTable : MonoBehaviour
         else background.GetComponent<Image>().sprite = defalutBackground;
     }
 
+    float holdingTime = 0;
+    bool holdingButton = false;
+
+
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (!UIManager.cookingMode)
+        {
+            holdingButton = true;
+            holdingTime = 0;
+        }
+        else
+        {
+            if (recipeRequiermentCheck()) prepare();
+            else
+            {
+                List<string> inconsistancies = new List<string>();
+                if (!aspectCheck(StatBoardView.staticInstance.potionAspect, recipe.Aspect))
+                {
+
+                    string incons1 = "";
+                    switch (recipe.Aspect)
+                    {
+                        case StatBoardView.Aspect.mind:
+                            incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на разум" : "The potion must affect on mind";
+                            break;
+                        case StatBoardView.Aspect.body:
+                            incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на тело" : "The potion must affect on body";
+                            break;
+                        case StatBoardView.Aspect.soul:
+                            incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на душу" : "The potion must affect on soul";
+                            break;
+                        case StatBoardView.Aspect.mind_soul:
+                            incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на разум и тело одновременно" : "The potion must affect on both mind and body";
+                            break;
+                        case StatBoardView.Aspect.mind_body:
+                            incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на разум и тело одновременно" : "The potion must affect on both mind and body";
+                            break;
+                        case StatBoardView.Aspect.body_soul:
+                            incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на тело и душу одновременно" : "The potion must affect on both body and soul";
+                            break;
+                        case StatBoardView.Aspect.mind_and_no_body:
+                            switch (StatBoardView.staticInstance.potionAspect)
+                            {
+                                case StatBoardView.Aspect.body:
+                                case StatBoardView.Aspect.mind_body:
+                                case StatBoardView.Aspect.body_soul:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье не должно влиять на тело" : "The potion must not affect on body";
+                                    break;
+                                case StatBoardView.Aspect.aspectless:
+                                case StatBoardView.Aspect.soul:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на разум" : "The potion must affect on mind";
+                                    break;
+                            }
+                            break;
+                        case StatBoardView.Aspect.soul_and_no_body:
+                            switch (StatBoardView.staticInstance.potionAspect)
+                            {
+                                case StatBoardView.Aspect.body:
+                                case StatBoardView.Aspect.mind_body:
+                                case StatBoardView.Aspect.body_soul:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье не должно влиять на тело" : "The potion must not affect on body";
+                                    break;
+                                case StatBoardView.Aspect.aspectless:
+                                case StatBoardView.Aspect.mind:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на душу" : "The potion must affect on soul";
+                                    break;
+                            }
+                            break;
+                        case StatBoardView.Aspect.body_and_no_mind:
+                            switch (StatBoardView.staticInstance.potionAspect)
+                            {
+                                case StatBoardView.Aspect.mind:
+                                case StatBoardView.Aspect.mind_body:
+                                case StatBoardView.Aspect.mind_soul:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье не должно влиять на разум" : "The potion must not affect on mind";
+                                    break;
+                                case StatBoardView.Aspect.aspectless:
+                                case StatBoardView.Aspect.soul:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на тело" : "The potion must affect on body";
+                                    break;
+                            }
+                            break;
+                        case StatBoardView.Aspect.soul_and_no_mind:
+                            switch (StatBoardView.staticInstance.potionAspect)
+                            {
+                                case StatBoardView.Aspect.mind:
+                                case StatBoardView.Aspect.mind_body:
+                                case StatBoardView.Aspect.mind_soul:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье не должно влиять на разум" : "The potion must not affect on mind";
+                                    break;
+                                case StatBoardView.Aspect.aspectless:
+                                case StatBoardView.Aspect.body:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на душу" : "The potion must affect on soul";
+                                    break;
+                            }
+                            break;
+                        case StatBoardView.Aspect.mind_and_no_soul:
+                            switch (StatBoardView.staticInstance.potionAspect)
+                            {
+                                case StatBoardView.Aspect.soul:
+                                case StatBoardView.Aspect.mind_soul:
+                                case StatBoardView.Aspect.body_soul:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье не должно влиять на душу" : "The potion must not affect on soul";
+                                    break;
+                                case StatBoardView.Aspect.aspectless:
+                                case StatBoardView.Aspect.body:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на разум" : "The potion must affect on mind";
+                                    break;
+                            }
+                            break;
+                        case StatBoardView.Aspect.body_and_no_soul:
+                            switch (StatBoardView.staticInstance.potionAspect)
+                            {
+                                case StatBoardView.Aspect.soul:
+                                case StatBoardView.Aspect.mind_soul:
+                                case StatBoardView.Aspect.body_soul:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье не должно влиять на душу" : "The potion must not affect on soul";
+                                    break;
+                                case StatBoardView.Aspect.aspectless:
+                                case StatBoardView.Aspect.mind:
+                                    incons1 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Зелье должно влиять на тело" : "The potion must affect on body";
+                                    break;
+                            }
+                            break;
+                    }
+                    inconsistancies.Add(incons1);
+                }
+                if(StatBoardView.staticInstance.pointsCounter < recipe.Points)
+                {
+                    string incons2 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Недостаточно силы (" + StatBoardView.staticInstance.pointsCounter + " из " + recipe.Points + ")" : "Not enough power (" + StatBoardView.staticInstance.pointsCounter+  " of " + recipe.Points + ")";
+                    inconsistancies.Add(incons2);
+                }
+                if(!secondParamsCheck(StatBoardView.staticInstance, recipe)){
+                    string incons3 = "";
+                    if (recipe.Temperature > 0)
+                    {
+                        if (StatBoardView.staticInstance.temperatureCounter < recipe.Temperature) incons3 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Слишком низкая температура (+" + StatBoardView.staticInstance.temperatureCounter + " из +" + recipe.Temperature + ")" : "Temperature is too low (+" + StatBoardView.staticInstance.temperatureCounter + " of +" + recipe.Temperature + ")";
+                        inconsistancies.Add(incons3);
+                    }
+                    if (recipe.Temperature < 0)
+                    {
+                        if (StatBoardView.staticInstance.temperatureCounter > recipe.Temperature) incons3 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Слишком высокая температура (" + StatBoardView.staticInstance.temperatureCounter + " из " + recipe.Temperature + ")" : "Temperature is too high (" + StatBoardView.staticInstance.temperatureCounter + " of " + recipe.Temperature + ")";
+                        inconsistancies.Add(incons3);
+                    }
+                    if (recipe.Aether != 0 && incons3 == "")
+                    {
+                        if (StatBoardView.staticInstance.aetherCoutner < recipe.Aether) incons3 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Недостаточно эфира (" + StatBoardView.staticInstance.aetherCoutner + " из " + recipe.Aether + ")" : "Not enough aether (" + StatBoardView.staticInstance.aetherCoutner + " of " + recipe.Aether + ")";
+                        inconsistancies.Add(incons3);
+                    }
+                    if (recipe.Viscosity != 0 && incons3 == "")
+                    {
+                        if (StatBoardView.staticInstance.viscosityCounter < recipe.Viscosity) incons3 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Недостаточно 3 и 4 уровней (" + StatBoardView.staticInstance.viscosityCounter + " из " + recipe.Viscosity + ")" : "Not enough 3 and 4 levels (" + StatBoardView.staticInstance.viscosityCounter + " of " + recipe.Viscosity + ")";
+                        inconsistancies.Add(incons3);
+                    }
+                    if (recipe.Voidness != 0 && incons3 == "")
+                    {
+                        if (StatBoardView.staticInstance.voidnessCounter < recipe.Voidness) incons3 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Недостаточно пустот (" + StatBoardView.staticInstance.voidnessCounter + " из " + recipe.Voidness + ")" : "Not enough voids (" + StatBoardView.staticInstance.voidnessCounter + " of " + recipe.Voidness + ")";
+                        inconsistancies.Add(incons3);
+                    }
+                }
+                if (!essenceCheck(recipe))
+                {
+                    string incons4 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Нет нужной эссенции": "No essence that needed";
+                    inconsistancies.Add(incons4);
+                }
+                CookingModule.showInconsistencyPanel(inconsistancies);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (!UIManager.cookingMode)
+        {
+            if (holdingButton) holdingTime += Time.deltaTime;
+            if (holdingTime >= .25f && holdingButton)
+            {
+                holdingButton = false;
+                PauseCanvas.CancelRecipe(recipe);
+            }
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        holdingButton = false;
+        if (UIManager.cookingMode) CookingModule.hideInconsistencyPanel();
+    }
 }

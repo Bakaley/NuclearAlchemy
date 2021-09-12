@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class DissolvingText : MonoBehaviour, DissolvingElement
+public class DissolvingText : MonoBehaviour, IDissolving
 {
 
 
@@ -25,22 +25,31 @@ public class DissolvingText : MonoBehaviour, DissolvingElement
 
     public void appear()
     {
+        if (tmp == null && tmpu == null) initialize();
         stance = STANCE.APPEARING;
         currentDissolvingTimer = textApperingTimer;
+        if (tmp) tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, 0);
+        else tmpu.color = new Color(tmpu.color.r, tmpu.color.g, tmpu.color.b, 0);
     }
 
     public void disappear()
     {
-        
+        if (tmp == null && tmpu == null) initialize();
         stance = STANCE.DISAPPEARING;
         currentDissolvingTimer = textApperingTimer;
+        if (tmp) tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, 1);
+        else tmpu.color = new Color(tmpu.color.r, tmpu.color.g, tmpu.color.b, 1);
     }
 
-    // Start is called before the first frame update
-    void Awake()
+    void initialize()
     {
         tmp = GetComponent<TextMeshPro>();
         if (!tmp) tmpu = GetComponent<TextMeshProUGUI>();
+    }
+
+    void Awake()
+    {
+        if (tmp == null && tmpu == null) initialize();
     }
 
     // Update is called once per frame

@@ -35,6 +35,23 @@ public class EssencePanel : MonoBehaviour
         get; private set;
     }
 
+    public static void clearEssences()
+    {
+        essenceScores[Ingredient.ESSENSE.Water] = 0;
+        essenceScores[Ingredient.ESSENSE.Fire] = 0;
+        essenceScores[Ingredient.ESSENSE.Stone] = 0;
+        essenceScores[Ingredient.ESSENSE.Air] = 0;
+        essenceScores[Ingredient.ESSENSE.Mushroom] = 0;
+        essenceScores[Ingredient.ESSENSE.Plant] = 0;
+        essenceScores[Ingredient.ESSENSE.Animal] = 0;
+        essenceScores[Ingredient.ESSENSE.Crystall] = 0;
+        essenceScores[Ingredient.ESSENSE.Lighting] = 0;
+
+        foreach (KeyValuePair<Ingredient.ESSENSE, int> pair in essenceScores)
+        {
+            essenceIcons[pair.Key].GetComponent<IDissolving>().disappear();
+        }
+    }
 
     void Awake()
     {
@@ -74,7 +91,7 @@ public class EssencePanel : MonoBehaviour
         essenceScores[essence]++;
         if(essenceScores[essence] == 1)
         {
-            essenceIcons[essence].GetComponent<DissolvingElement>().appear();
+            essenceIcons[essence].GetComponent<IDissolving>().appear();
 
            /* getNumberSpriteRenderer(essenceIcons[essence]).color = new Color32(154, 154, 154, 255);
             getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();*/
@@ -88,12 +105,12 @@ public class EssencePanel : MonoBehaviour
         else getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();*/
     }
 
-    public static Image getNumberSpriteRenderer (GameObject icon)
+    /*public static Image getNumberSpriteRenderer (GameObject icon)
     {
         foreach (Transform childTransform in icon.transform)
         {
             return childTransform.GetComponent<Image>();
         }
         return null;
-    }
+    }*/
 }

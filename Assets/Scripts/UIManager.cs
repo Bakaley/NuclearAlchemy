@@ -37,7 +37,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject movingUI;
 
-
     public static UIManager staticInstance
     {
         get;
@@ -82,8 +81,6 @@ public class UIManager : MonoBehaviour
         mixingElementsList.Add(movingCross.GetComponent<DissolvingSprite>());
         mixingElementsList.Add(spinningCross.GetComponent<DissolvingSprite>());
         mixingElementsList.Add(addingModeButton.GetComponent<DissolvingSprite>());
-        DissolvingSprite[] targets = target.GetComponentsInChildren<DissolvingSprite>();
-        foreach (DissolvingSprite element in targets) mixingElementsList.Add(element);
     }
 
     public void openCookingUI()
@@ -91,6 +88,7 @@ public class UIManager : MonoBehaviour
         cookingMode = true;
         movingUI.SetActive(false);
         cookingUI.SetActive(true);
+        if(MixingBoard.isEmpty) switchToAddingMode();
     }
 
     public void closeCookingUI()
@@ -98,11 +96,6 @@ public class UIManager : MonoBehaviour
         cookingMode = false;
         cookingUI.SetActive(false);
         movingUI.SetActive(true);
-    }
-
-    void Update()
-    {
-        
     }
 
     public void switchToAddingMode()
@@ -116,6 +109,10 @@ public class UIManager : MonoBehaviour
                 element.disappear();
                 element.gameObject.SetActive(false);
             }
+            foreach (DissolvingSprite element in target.GetComponentsInChildren<DissolvingSprite>())
+            {
+                element.disappear();
+            }            
             foreach (DissolvingSprite element in addingElementsList)
             {
                 element.appear();
@@ -139,6 +136,10 @@ public class UIManager : MonoBehaviour
                 element.appear();
                 element.gameObject.SetActive(true);
 
+            }
+            foreach (DissolvingSprite element in target.GetComponentsInChildren<DissolvingSprite>())
+            {
+                element.appear();
             }
             foreach (DissolvingSprite element in addingElementsList)
             {

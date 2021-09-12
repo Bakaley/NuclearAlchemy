@@ -76,8 +76,8 @@ public class AspectOrb : Orb, AspectImpactInterface
                         replacingOrb = new Orb.ReplacingOrbStruct(nextLevelOrb);
                     }
                 }
-                if (replacingOrb.baseOrb == null) Invoke("levelUp", .25f);
-                else Invoke("replace", .25f);
+                if (replacingOrb.baseOrb == null) levelUp();
+                else replace(replacingOrb);
                 break;
             case EFFECT_TYPES.ANTIMATTER:
                 if(Level == 3)
@@ -101,7 +101,7 @@ public class AspectOrb : Orb, AspectImpactInterface
                         replacingOrb = new Orb.ReplacingOrbStruct(MixingBoard.StaticInstance.uncertaintyOrb, false, false, 0, false, uncertaintList);
 
                     }
-                    Invoke("replace", .25f);
+                    replace(replacingOrb);
                 }
                 else addAntimatter();
                 break;
@@ -132,6 +132,11 @@ public class AspectOrb : Orb, AspectImpactInterface
     void colorIn (ORB_COLOR color)
     {
 
+        replacingOrb = new ReplacingOrbStruct(MixingBoard.orbDictionary[color + "" + Level], fiery, frozen, aetherCount, antimatter);
+
+        replace(replacingOrb);
+
+        /*
         AspectOrb orbToPaintIn = MixingBoard.orbDictionary[color + "" + Level].GetComponent<AspectOrb>();
         if (!frozen) this.coreSphereRenderer.material = orbToPaintIn.coreSphereRenderer.sharedMaterial;
         this.outerSphereRenderer.material = orbToPaintIn.outerSphereRenderer.sharedMaterial;
@@ -192,7 +197,7 @@ public class AspectOrb : Orb, AspectImpactInterface
                 particleMain.startColor = orbToPaintIn.aetherParticle.GetComponentInChildren<ParticleSystem>().main.startColor;
             }
         }
-        aetherParticle = orbToPaintIn.aetherParticle;
+        aetherParticle = orbToPaintIn.aetherParticle;*/
     }
 
    
@@ -209,9 +214,6 @@ public class AspectOrb : Orb, AspectImpactInterface
         colorDictionary.Add(ORB_TYPES.BLUE_PULSAR, ORB_COLOR.Blue);
         colorDictionary.Add(ORB_TYPES.RED_PULSAR, ORB_COLOR.Red);
         colorDictionary.Add(ORB_TYPES.GREEN_PULSAR, ORB_COLOR.Green);
-
-
-        counterTMP = counter.GetComponent<TextMeshPro>();
     }
 
     protected override void FixedUpdate()

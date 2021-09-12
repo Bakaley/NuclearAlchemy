@@ -83,41 +83,22 @@ public abstract class Orb : MonoBehaviour
 
     public static Dictionary <ORB_TYPES, ORB_ARCHETYPES> typeArchetypeDictionary { get; private set; }
 
-    public static double destroyingTimer = .7;
-    public static double movingTime = .15f;
+    public static readonly double destroyingTimer = .35;
 
     double startDestroyTimer = 0;
     double currentDestroyingTimer = 0;
     double currentAppearingTimer = 0;
     double channelingTime = 0;
 
-    public static float aetherMultiplier = .25f;
+    public static readonly float aetherMultiplier = .25f;
 
     ParticleSystem affectingSystem;
 
     [SerializeField]
     public GameObject OrbPreview;
 
-    public bool lying { get; private set; } = true;
-    public bool xStricted
-    {
-        get
-        {
-            return ((((int)(transform.localPosition.x * 100)) / 100.0) % 1) == 0;
-        }
-    }
-
-    public bool yStricted
-    {
-        get
-        {
-            return ((((int)(transform.localPosition.y * 100)) / 100.0) % 1) == 0;
-        }
-    }
-
-
-
     public bool shouldDestroyed { get; private set; } = false;
+    bool destoyBoxOnDestroyingOrb = true;
 
     [HideInInspector]
     public int countOfReactionsIn = 0;
@@ -140,20 +121,19 @@ public abstract class Orb : MonoBehaviour
     public GameObject counter;
 
     protected static StatBoardView.FILTER_TYPE statToShow;
-    protected TextMeshPro counterTMP;
     protected string counterString;
+
+    public OrbBox Box
+    {
+        get
+        {
+            return GetComponentInParent<OrbBox>();
+        }
+    }
 
     public void disableCounter()
     {
         counter.SetActive(false);
-    }
-
-    public static MixingBoard mixingBoard
-    {
-        get
-        {
-            return MixingBoard.StaticInstance;
-        }
     }
 
     [HideInInspector]
@@ -249,12 +229,6 @@ public abstract class Orb : MonoBehaviour
 
     public bool comboAvaliable;
 
-    [SerializeField]
-    public string orbDescription;
-
-    [SerializeField]
-    public string orbDescriptionEN;
-
     public struct ReplacingOrbStruct
     {
         public GameObject baseOrb
@@ -285,7 +259,8 @@ public abstract class Orb : MonoBehaviour
 
         public ReplacingOrbStruct(GameObject orbToReplace, bool fireFlag = false, bool iceFlag = false, int aetherCounter = 0, bool antimatterFlag = false, List<ReplacingOrbStruct> list = null)
         {
-            baseOrb = orbToReplace;
+            Debug.Log(orbToReplace);
+            baseOrb = orbToReplace.GetComponentInChildren<Orb>().gameObject;
             fire = fireFlag;
             ice = iceFlag;
             aether = aetherCounter;
@@ -316,8 +291,6 @@ public abstract class Orb : MonoBehaviour
         }
     }
 
-    //используется, чтобы сфера не начинала падать, пока уже падает
-    bool falling = false;
 
     [SerializeField]
     protected int points;
@@ -360,11 +333,11 @@ public abstract class Orb : MonoBehaviour
                 else if (type == ORB_TYPES.FIRE_CORE || type == ORB_TYPES.FIRE_VOID) count = Level;
                 else
                 {
-                    if ((int)Math.Round(transform.localPosition.y) + 1 < MixingBoard.Height)
+                    if ((int)Math.Round(Box.transform.localPosition.y) + 1 < MixingBoard.Height)
                     {
-                        if (fiery && mixingBoard.orbs[(int)Math.Round(transform.localPosition.x), (int)Math.Round(transform.localPosition.y) + 1]) count += Level + (int)Math.Round(Level * aetherMultiplier * aetherCount);
+                        if (fiery && MixingBoard.StaticInstance.orbs[(int)Math.Round(Box.transform.localPosition.x), (int)Math.Round(Box.transform.localPosition.y) + 1]) count += Level + (int)Math.Round(Level * aetherMultiplier * aetherCount);
                     }
-                    if (frozen && (int)Math.Round(transform.localPosition.y) != 0) count -= Level + (int)Math.Round(Level * aetherMultiplier * aetherCount);
+                    if (frozen && (int)Math.Round(Box.transform.localPosition.y) != 0) count -= Level + (int)Math.Round(Level * aetherMultiplier * aetherCount);
                 }
                 return count;
             }
@@ -436,7 +409,6 @@ public abstract class Orb : MonoBehaviour
         aetherParticles = new List<GameObject>();
         orbArchetype = typeArchetypeDictionary[type];
         dissolvingAppearing = true;
-        if (type != ORB_TYPES.UNCERTAINTY) counterTMP = counter.GetComponent<TextMeshPro>();
 
         if (type == ORB_TYPES.AETHER_CORE) aetherCount = 4;
         if (type == ORB_TYPES.AETHER_DROP) aetherCount = 5;
@@ -483,54 +455,6 @@ public abstract class Orb : MonoBehaviour
 
     virtual protected void FixedUpdate()
     {
-        if (transform.parent.gameObject == MixingBoard.StaticInstance.OrbShift)
-        {
-            if (xStricted && (int)(this.transform.localPosition.y) == 0) lying = true;
-            else if ((int)this.transform.localPosition.y >= MixingBoard.Height) lying = false;
-            else if (xStricted && yStricted && (int)(this.transform.localPosition.y) > 0 && mixingBoard.orbs[(int)this.transform.localPosition.x, (int)(this.transform.localPosition.y - 1)] != null) lying = true;
-            else lying = false;
-
-            if (!xStricted || !yStricted || !lying) mixingBoard.spinDelay = Math.Max(.05, mixingBoard.spinDelay);
-
-            if (!falling)
-            {
-                if (transform.localPosition.y > 0 && xStricted && mixingBoard.stricted && (int)transform.localPosition.y < MixingBoard.Height)
-                {
-                    int fallDistance = 0;
-                    for (int i = 1; i <= transform.localPosition.y; i++)
-                    {
-                        try
-                        {
-                            if (mixingBoard.orbs[(int)transform.localPosition.x, (int)transform.localPosition.y - i] == null)
-                            {
-                                fallDistance++;
-                            }
-                        }
-                        catch (IndexOutOfRangeException)
-                        {
-                            Debug.LogError("IndexOutOfRangeException " + (int)transform.localPosition.x + " " + (int)(transform.localPosition.y - i));
-                        }
-
-                    }
-                    if (fallDistance != 0 && mixingBoard.stricted)
-                    {
-                        mixingBoard.currentTargetDelay = mixingBoard.targetDelay * fallDistance;
-                        for (int j = (int)transform.localPosition.y; j < MixingBoard.Height; j++)
-                        {
-                            if (mixingBoard.orbs[(int)transform.localPosition.x, j] != null)
-                            {
-                                if (mixingBoard.orbs[(int)transform.localPosition.x, j].channeling) mixingBoard.breakReactionsWith(mixingBoard.orbs[(int)transform.localPosition.x, j]);
-                                lying = false;
-                                iTween.MoveTo(mixingBoard.orbs[(int)transform.localPosition.x, j].gameObject, iTween.Hash("position", new Vector3(mixingBoard.orbs[(int)transform.localPosition.x, j].transform.localPosition.x, mixingBoard.orbs[(int)transform.localPosition.x, j].transform.localPosition.y - fallDistance, mixingBoard.orbs[(int)transform.localPosition.x, j].transform.localPosition.z), "islocal", true, "time", Orb.movingTime * fallDistance, "easetype", iTween.EaseType.easeInOutSine));
-                                mixingBoard.spinDelay = Math.Max(Orb.movingTime * fallDistance, mixingBoard.spinDelay);
-                                falling = true;
-                                Invoke("fallingReset", Convert.ToSingle(Orb.movingTime * fallDistance));
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
         if (channeling)
         {
@@ -546,35 +470,39 @@ public abstract class Orb : MonoBehaviour
                 {
 
                     case CHANNELING_MODES.DOWN:
-                        moveDownCombine();
+                        DestroyIn(destroyingTimer);
+                        Box.moveDownCombine();
                         break;
                     case CHANNELING_MODES.LEFT:
-                        moveLeftCombine();
+                        DestroyIn(destroyingTimer);
+                        Box.moveLeftCombine();
                         break;
                     case CHANNELING_MODES.RIGHT:
-                        moveRightCombine();
+                        DestroyIn(destroyingTimer);
+                        Box.moveRightCombine();
                         break;
                     case CHANNELING_MODES.UP:
-                        moveUpCombine();
+                        DestroyIn(destroyingTimer);
+                        Box.moveUpCombine();
                         break;
                     case CHANNELING_MODES.CENTER:
                         DestroyIn(destroyingTimer);
                         break;
                     case CHANNELING_MODES.REPLACE:
-                        symbolRenderer.enabled = false;
-                        GameObject orbObject = Instantiate(replacingOrb.baseOrb, new Vector3(startX, startY, 0), Quaternion.identity);
+                        //symbolRenderer.enabled = false;
+                        GameObject orbObject = Instantiate(replacingOrb.baseOrb, Box.transform);
                         Orb orb = orbObject.GetComponent<Orb>();
-                        orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
+                        Box.Orb = orb;
                         if (replacingOrb.fire) orb.addFire();
                         if (replacingOrb.ice) orb.addIce();
                         if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
                         if (replacingOrb.antimatter) orb.addAntimatter();
                         if (replacingOrb.uncertainList != null) orb.GetComponent<UncertaintyOrb>().uncertainOrbsList = replacingOrb.uncertainList;
 
-                        DestroyIn(destroyingTimer);
+                        DestroyIn(destroyingTimer, false);
                         break;
                 }
-                mixingBoard.finishReactionsWith(this);
+                MixingBoard.StaticInstance.finishReactionsWith(this);
             }
         }
 
@@ -587,7 +515,7 @@ public abstract class Orb : MonoBehaviour
                 {
                     foreach (MeshRenderer meshRenderer in GetComponent<CoreOrb>().coreSphereList.GetComponent<CoreSphereList>().meshRenderers)
                     {
-                        meshRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(1 - currentDestroyingTimer * 1.2));
+                        meshRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(.67 - (currentDestroyingTimer/destroyingTimer)/2));
                     }
                 }
 
@@ -595,14 +523,14 @@ public abstract class Orb : MonoBehaviour
                 {
                     foreach (MeshRenderer meshRenderer in GetComponent<DropOrb>().coreSphereList.GetComponent<CoreSphereList>().meshRenderers)
                     {
-                        meshRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(1 - currentDestroyingTimer * 1.2));
+                        meshRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(.67 - (currentDestroyingTimer / destroyingTimer) / 2));
                     }
                 }
 
-                coreSphereRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(1 - currentDestroyingTimer * 1.2));
+                coreSphereRenderer.material.SetFloat("DissolvingVector", Convert.ToSingle(.67 - (currentDestroyingTimer / destroyingTimer) / 2));
                 if (symbolRenderer)
                 {
-                    symbolRenderer.color = new Color(symbolRenderer.color.r, symbolRenderer.color.b, symbolRenderer.color.g, Convert.ToSingle(currentDestroyingTimer / startDestroyTimer));
+                    symbolRenderer.color = new Color(symbolRenderer.color.r, symbolRenderer.color.b, symbolRenderer.color.g, Convert.ToSingle((currentDestroyingTimer / destroyingTimer)));
                 }
             }
 
@@ -610,9 +538,10 @@ public abstract class Orb : MonoBehaviour
             {
                 if (affectingSystem)
                 {
-                    affectingSystem.transform.SetParent(mixingBoard.transform, true);
+                    affectingSystem.transform.SetParent(MixingBoard.StaticInstance.transform, true);
                 }
-                Destroy(this.gameObject);
+                if(destoyBoxOnDestroyingOrb) Destroy(Box.gameObject);
+                else Destroy(gameObject);
             }
 
         if (dissolvingAppearing)
@@ -632,12 +561,8 @@ public abstract class Orb : MonoBehaviour
 
             }
         }
-        if (transform.parent.gameObject != MixingBoard.StaticInstance.OrbShift && dissolvingAppearing == true) instantAppear();
-        if (counter && counter.activeSelf)
-        {
-            updateCounterString();
-            counterTMP.text = counterString;
-        }
+        if (Box && Box.transform.parent.gameObject != MixingBoard.StaticInstance.OrbShift && dissolvingAppearing == true) instantAppear();
+
         if (aetherTimerDelay >= 0)
         {
             aetherTimerDelay -= Time.deltaTime;
@@ -651,45 +576,8 @@ public abstract class Orb : MonoBehaviour
                 delayedAether = 0;
             }
         }
-
-        if (levelupTimerDelay >= 0)
-        {
-            levelupTimerDelay -= Time.deltaTime;
-        }
-
     }
 
-
-    void updateCounterString()
-    {
-        switch (statToShow)
-        {
-            case StatBoardView.FILTER_TYPE.POINTS:
-                counterString = pointsImpact + "";
-                break;
-
-            case StatBoardView.FILTER_TYPE.ASPECT:
-                counterString = GetComponent<AspectImpactInterface>().aspectImpact + "";
-                break;
-
-            case StatBoardView.FILTER_TYPE.TEMPERATURE:
-                if (temperatureCountImpact > 0) counterString = "+" + temperatureCountImpact;
-                else counterString = temperatureCountImpact + "";
-                break;
-
-            case StatBoardView.FILTER_TYPE.AETHERNESS:
-                counterString = aetherImpact + "";
-                break;
-
-            case StatBoardView.FILTER_TYPE.VISCOSITY:
-                counterString = viscosityImpact + "";
-                break;
-
-            case StatBoardView.FILTER_TYPE.VOIDNESS:
-                counterString = voidnessImpact + "";
-                break;
-        }
-    }
 
     public void enableCounter(StatBoardView.FILTER_TYPE filter)
     {
@@ -697,29 +585,38 @@ public abstract class Orb : MonoBehaviour
         switch (filter)
         {
             case StatBoardView.FILTER_TYPE.POINTS:
-                if (gameObject.GetComponent<AspectOrb>()) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary[gameObject.GetComponent<AspectOrb>().orbColor + "" + Level].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                if (gameObject.GetComponent<AspectOrb>()) counter.GetComponentInChildren<TextMeshPro>().color = MixingBoard.orbDictionary[gameObject.GetComponent<AspectOrb>().orbColor + "" + Level].GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counterString = pointsImpact + "";
                 break;
             case StatBoardView.FILTER_TYPE.ASPECT:
-                if (gameObject.GetComponent<AspectOrb>()) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary[gameObject.GetComponent<AspectOrb>().orbColor + "" + Level].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
-                else if (gameObject.GetComponent<VoidOrb>()) counter.GetComponent<TextMeshPro>().color = MixingBoard.orbDictionary[AspectOrb.colorDictionary[type] + "3"].GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                if (gameObject.GetComponent<AspectOrb>()) counter.GetComponentInChildren<TextMeshPro>().color = MixingBoard.orbDictionary[gameObject.GetComponent<AspectOrb>().orbColor + "" + Level].GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                else if (gameObject.GetComponent<VoidOrb>()) counter.GetComponentInChildren<TextMeshPro>().color = MixingBoard.orbDictionary[AspectOrb.colorDictionary[type] + "3"].GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counterString = GetComponent<AspectImpactInterface>().aspectImpact + "";
                 break;
             case StatBoardView.FILTER_TYPE.TEMPERATURE:
-                if (fiery && frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.iceOrbSample.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
-                else if (fiery) counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.red1.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
-                else if (frozen) counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.blue1.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                if (fiery && frozen) counter.GetComponentInChildren<TextMeshPro>().color = MixingBoard.StaticInstance.iceOrbSample.GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                else if (fiery) counter.GetComponentInChildren<TextMeshPro>().color = MixingBoard.StaticInstance.red1.GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                else if (frozen) counter.GetComponentInChildren<TextMeshPro>().color = MixingBoard.StaticInstance.blue1.GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                if (temperatureCountImpact > 0) counterString = "+" + temperatureCountImpact;
+                else counterString = temperatureCountImpact + "";
                 break;
             case StatBoardView.FILTER_TYPE.AETHERNESS:
-                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.green1.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.green1.GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counterString = aetherImpact + "";
                 break;
             case StatBoardView.FILTER_TYPE.VISCOSITY:
-                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.yellowCore.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.yellowCore.GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counterString = viscosityImpact + "";
                 break;
             case StatBoardView.FILTER_TYPE.VOIDNESS:
-                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.purpleVoid.GetComponent<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counter.GetComponent<TextMeshPro>().color = MixingBoard.StaticInstance.purpleVoid.GetComponentInChildren<Orb>().counter.GetComponent<TextMeshPro>().color;
+                counterString = voidnessImpact + "";
                 break;
         }
+        counter.GetComponent<TextMeshPro>().text = counterString;
         counter.SetActive(true);
     }
+    
 
     public void instantAppear()
     {
@@ -735,70 +632,22 @@ public abstract class Orb : MonoBehaviour
     }
 
 
-    public void fallingReset()
-    {
-        falling = false;
-    }
-
-    public void moveDown()
-    {
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", new Vector3(this.transform.localPosition.x, this.transform.localPosition.y - 1, this.transform.localPosition.z), "islocal", true, "time", movingTime, "easetype", iTween.EaseType.easeInSine));
-    }
-
-    public void moveUp()
-    {
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", new Vector3(this.transform.localPosition.x, this.transform.localPosition.y + 1, this.transform.localPosition.z), "islocal", true, "time", movingTime, "easetype", iTween.EaseType.easeInSine));
-    }
-
-    public void moveRight()
-    {
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", new Vector3(this.transform.localPosition.x + 1, this.transform.localPosition.y, this.transform.localPosition.z), "islocal", true, "time", movingTime, "easetype", iTween.EaseType.easeInSine));
-    }
-
-    public void moveLeft()
-    {
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", new Vector3(this.transform.localPosition.x - 1, this.transform.localPosition.y, this.transform.localPosition.z), "islocal", true, "time", movingTime, "easetype", iTween.EaseType.easeInSine));
-    }
-
-    private void moveRightCombine()
-    {
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", new Vector3(this.transform.localPosition.x + 1, this.transform.localPosition.y, this.transform.localPosition.z), "islocal", true, "time", destroyingTimer, "easetype", iTween.EaseType.easeInOutBack));
-        DestroyIn(destroyingTimer);
-
-    }
-
-    private void moveLeftCombine()
-    {
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", new Vector3(this.transform.localPosition.x - 1, this.transform.localPosition.y, this.transform.localPosition.z), "islocal", true, "time", destroyingTimer, "easetype", iTween.EaseType.easeInOutBack));
-        DestroyIn(destroyingTimer);
-    }
-
-    private void moveUpCombine()
-    {
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", new Vector3(this.transform.localPosition.x, this.transform.localPosition.y + 1, this.transform.localPosition.z), "islocal", true, "time", destroyingTimer, "easetype", iTween.EaseType.easeInOutBack));
-        DestroyIn(destroyingTimer);
-    }
-
-    private void moveDownCombine()
-    {
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", new Vector3(this.transform.localPosition.x, this.transform.localPosition.y - 1, this.transform.localPosition.z), "islocal", true, "time", destroyingTimer, "easetype", iTween.EaseType.easeInOutBack));
-        DestroyIn(destroyingTimer);
-    }
 
     public void addAffectingSystem (ParticleSystem particleSystem)
     {
-        affectingSystem = Instantiate(particleSystem, transform);
+        affectingSystem = Instantiate(particleSystem, Box.transform);
     }
 
-    public void DestroyIn(double time)
+    public void DestroyIn(double time, bool destoyBoxOnDestroyingOrb = true)
     {
+        this.destoyBoxOnDestroyingOrb = destoyBoxOnDestroyingOrb;
         comboAvaliable = false;
         points = 0;
         aetherCount = 0;
-        mixingBoard.spinDelay = Math.Max(mixingBoard.spinDelay, .25);
+        MixingBoard.StaticInstance.spinDelay = Math.Max(MixingBoard.StaticInstance.spinDelay, .1);
         if (symbolRenderer)
         {
-            symbolRenderer.enabled = false;
+            //symbolRenderer.enabled = false;
         }
         if (antimatterSymbolRenderer)
         {
@@ -866,8 +715,6 @@ public abstract class Orb : MonoBehaviour
     private bool aetherFlagDelay = false;
     private double aetherTimerDelay = 0;
     private int delayedAether = 0;
-
-    private double levelupTimerDelay = 0;
 
     void instaintiateAetherParticles()
     {
@@ -987,7 +834,7 @@ public abstract class Orb : MonoBehaviour
 
         if (symbolRenderer)
         {
-            symbolRenderer.color = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().symbolRenderer.color;
+            symbolRenderer.color = MixingBoard.StaticInstance.iceOrbSample.GetComponent<AspectOrb>().symbolRenderer.color;
             Animation animation = symbolRenderer.GetComponent<Animation>();
             if (animation)
             {
@@ -1000,11 +847,19 @@ public abstract class Orb : MonoBehaviour
                 part = gameObject.name.Substring(0, gameObject.name.IndexOf('('));
             else part = gameObject.name;
 
-
-
-            symbolRenderer.transform.localPosition = MixingBoard.orbDictionary[part].GetComponent<Orb>().symbolRenderer.transform.localPosition;
-            symbolRenderer.transform.localRotation = MixingBoard.orbDictionary[part].GetComponent<Orb>().symbolRenderer.transform.localRotation;
-            symbolRenderer.transform.localScale = MixingBoard.orbDictionary[part].GetComponent<Orb>().symbolRenderer.transform.localScale;
+            if(archetype == ORB_ARCHETYPES.ASPECT)
+            {
+                Debug.Log(GetComponent<AspectOrb>().orbColor + "" + Level);
+                symbolRenderer.transform.localPosition = MixingBoard.orbDictionary[GetComponent<AspectOrb>().orbColor + "" + Level ].GetComponentInChildren<Orb>().symbolRenderer.transform.localPosition;
+                symbolRenderer.transform.localRotation = MixingBoard.orbDictionary[GetComponent<AspectOrb>().orbColor + "" + Level + ""].GetComponentInChildren<Orb>().symbolRenderer.transform.localRotation;
+                symbolRenderer.transform.localScale = MixingBoard.orbDictionary[GetComponent<AspectOrb>().orbColor + ""  + Level].GetComponentInChildren<Orb>().symbolRenderer.transform.localScale;
+            }
+            else if (type == ORB_TYPES.SEMIPLASMA)
+            {
+                symbolRenderer.transform.localPosition = MixingBoard.orbDictionary["Grey1"].GetComponentInChildren<Orb>().symbolRenderer.transform.localPosition;
+                symbolRenderer.transform.localRotation = MixingBoard.orbDictionary["Grey1"].GetComponentInChildren<Orb>().symbolRenderer.transform.localRotation;
+                symbolRenderer.transform.localScale = MixingBoard.orbDictionary["Grey1"].GetComponentInChildren<Orb>().symbolRenderer.transform.localScale;
+            }
 
             if (symbolRenderer.GetComponent<Floating>() != null) symbolRenderer.GetComponent<Floating>().enabled = false;
         }
@@ -1012,7 +867,7 @@ public abstract class Orb : MonoBehaviour
         if (particleSphere)
         {
             var main = particleSphere.main;
-            main.startColor = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().particleSphere.main.startColor;
+            main.startColor = MixingBoard.StaticInstance.iceOrbSample.GetComponent<AspectOrb>().particleSphere.main.startColor;
             particleSphere.Stop();
             particleSphere.Clear();
             particleSphere.Play();
@@ -1051,11 +906,8 @@ public abstract class Orb : MonoBehaviour
 
     void freezeMaterial()
     {
-        coreSphereRenderer.material = mixingBoard.iceOrbSample.GetComponent<AspectOrb>().coreSphereRenderer.sharedMaterial;
+        coreSphereRenderer.material = MixingBoard.StaticInstance.iceOrbSample.GetComponent<AspectOrb>().coreSphereRenderer.sharedMaterial;
     }
-
-
-
 
     protected void addAntimatter()
     {
@@ -1068,35 +920,12 @@ public abstract class Orb : MonoBehaviour
         channelParticleColor = new Color(221, 0, 231);
         antimatter = true;
     }
-
-    GameObject newOrb;
-
     protected void levelUp()
     {
         if (nextLevelOrb)
         {
-            if (levelupTimerDelay >= 0)
-            {
-                Invoke("levelUpNewOrb", .2f);
-            }
-            else
-            {
-                levelupTimerDelay = .25f;
-                replacingOrb = new ReplacingOrbStruct(nextLevelOrb, fiery, frozen, aetherCount, antimatter);
-                newOrb = Instantiate(replacingOrb.baseOrb, new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0), Quaternion.identity);
-                Orb orb = newOrb.GetComponent<Orb>();
-                orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
-                if (archetype != ORB_ARCHETYPES.VOID)
-                {
-                    if (replacingOrb.fire) orb.addFire();
-                    if (replacingOrb.ice) orb.addIce();
-                    if (replacingOrb.antimatter) orb.addAntimatter();
-                }
-                if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
-                if (affectingSystem) affectingSystem.transform.SetParent(orb.transform, false);
-                
-                DestroyIn(destroyingTimer);
-            }
+            replacingOrb = new ReplacingOrbStruct(nextLevelOrb, fiery, frozen, aetherCount, antimatter);
+            replace(replacingOrb);
         }
     }
 
@@ -1104,9 +933,9 @@ public abstract class Orb : MonoBehaviour
     {
         replacingOrb = replacingOrbStruct;
 
-        newOrb = Instantiate(replacingOrb.baseOrb, new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0), Quaternion.identity);
+        GameObject newOrb = Instantiate(replacingOrb.baseOrb, Box.transform);
         Orb orb = newOrb.GetComponent<Orb>();
-        orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
+        Box.Orb = orb;
         if (archetype != ORB_ARCHETYPES.VOID)
         {
             if (replacingOrb.fire) orb.addFire();
@@ -1116,32 +945,8 @@ public abstract class Orb : MonoBehaviour
         if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
         if (affectingSystem) affectingSystem.transform.SetParent(orb.transform, false);
         if (replacingOrb.uncertainList != null) orb.GetComponent<UncertaintyOrb>().uncertainOrbsList = replacingOrb.uncertainList;
-        if (GetComponent<UncertaintyOrb>()) DestroyIn(.01);
-        else DestroyIn(destroyingTimer);
-        
-    }
-
-    void replace()
-    {
-        newOrb = Instantiate(replacingOrb.baseOrb, new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0), Quaternion.identity);
-        Orb orb = newOrb.GetComponent<Orb>();
-        orb.transform.SetParent(mixingBoard.OrbShift.transform, false);
-        if (archetype != ORB_ARCHETYPES.VOID)
-        {
-            if (replacingOrb.fire) orb.addFire();
-            if (replacingOrb.ice) orb.addIce();
-            if (replacingOrb.antimatter) orb.addAntimatter();
-        }
-        if (replacingOrb.aether != 0) orb.aetherCount = replacingOrb.aether;
-        if (affectingSystem) affectingSystem.transform.SetParent(orb.transform, false);
-        if (replacingOrb.uncertainList != null) orb.GetComponent<UncertaintyOrb>().uncertainOrbsList = replacingOrb.uncertainList;
-        if (GetComponent<UncertaintyOrb>()) DestroyIn(.01);
-        else DestroyIn(destroyingTimer);
-    }
-
-    void levelUpNewOrb()
-    {
-        newOrb.GetComponent<Orb>().affectWith(EFFECT_TYPES.LEVEL_UP);
+        Destroy(gameObject);
+        MixingBoard.StaticInstance.orbListUpdate();
     }
 
     public void chanellingBreak()

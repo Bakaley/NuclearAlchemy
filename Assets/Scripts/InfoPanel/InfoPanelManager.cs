@@ -147,7 +147,7 @@ public class InfoPanelManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !DraftModule.opened && !CancelMenu.Opened)
+        if (Input.GetMouseButtonDown(0) && !DraftModule.opened && !PauseCanvas.Paused)
         {
             if (infoPanel != null) Destroy(infoPanel);
             if (infoTarget != null)
@@ -172,7 +172,7 @@ public class InfoPanelManager : MonoBehaviour
             {
                 if (!RectTransformUtility.RectangleContainsScreenPoint(uncertaintyDrafter.GetComponent<UncertaintyDrafter>().cellsBlock.GetComponent<RectTransform>(), Input.mousePosition, UIManager.cameraObject.GetComponent<Camera>()))
                 {
-                    if (clickedPositionMixing.x < MixingBoard.Length && clickedPositionMixing.x >= 0 && clickedPositionMixing.y < MixingBoard.Height && clickedPositionMixing.y >= 0)
+                    if (clickedPositionMixing.x < MixingBoard.Width && clickedPositionMixing.x >= 0 && clickedPositionMixing.y < MixingBoard.Height && clickedPositionMixing.y >= 0)
                     {
                         clickedPositionMixing = new Vector3((int)clickedPositionMixing.x, (int)clickedPositionMixing.y, 0);
                         clickedOrb = mixingBoard.orbs[(int)Math.Round(clickedPositionMixing.x), (int)Math.Round(clickedPositionMixing.y)];
@@ -197,7 +197,7 @@ public class InfoPanelManager : MonoBehaviour
             }
             else
             {
-                if (clickedPositionMixing.x < MixingBoard.Length && clickedPositionMixing.x >= 0 && clickedPositionMixing.y < MixingBoard.Height && clickedPositionMixing.y >= 0)
+                if (clickedPositionMixing.x < MixingBoard.Width && clickedPositionMixing.x >= 0 && clickedPositionMixing.y < MixingBoard.Height && clickedPositionMixing.y >= 0)
                 {
                     clickedPositionMixing = new Vector3((int)clickedPositionMixing.x, (int)clickedPositionMixing.y, 0);
 
@@ -255,7 +255,7 @@ public class InfoPanelManager : MonoBehaviour
                 {
                     Vector3 clickedPositionAdding = addingBoard.gameObject.transform.InverseTransformPoint(clickedPosition);
                     clickedPositionAdding = new Vector3(Convert.ToSingle(clickedPositionAdding.x - addingBoard.OrbShift.transform.localPosition.x + .5), Convert.ToSingle(clickedPositionAdding.y - addingBoard.OrbShift.transform.localPosition.y + .5), -1);
-                    if (clickedPositionAdding.x < AddingBoard.length && clickedPositionAdding.x >= 0 && clickedPositionAdding.y < AddingBoard.height && clickedPositionAdding.y >= 0)
+                    if (clickedPositionAdding.x < AddingBoard.Width && clickedPositionAdding.x >= 0 && clickedPositionAdding.y < AddingBoard.Height && clickedPositionAdding.y >= 0)
                     {
                         clickedPositionAdding = new Vector3((int)clickedPositionAdding.x, (int)clickedPositionAdding.y, -1);
 
@@ -323,45 +323,125 @@ public class InfoPanelManager : MonoBehaviour
             else if (clickedOrb.aetherImpact == 0) pointsCounter.SetText("<b>" + clickedOrb.pointsImpact);
             else pointsCounter.SetText("<b>" + clickedOrb.pointsImpact +"</b><font=\"InfoPanelSDF\"><#808080> [" + clickedOrb.DefaultPoints + " + </font></color><b>" + (clickedOrb.pointsImpact - clickedOrb.DefaultPoints) +  "</b><font=\"InfoPanelSDF\"><#808080>]");
 
-            TextMeshProUGUI descriptionCounter = orbInfo.GetComponent<OrbInfoComponent>().descriptionCounter.GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI descriptionCaption = orbInfo.GetComponent<OrbInfoComponent>().descriptionCounter.GetComponent<TextMeshProUGUI>();
 
-            string descriptionString;
-            if(GameSettings.CurrentLanguage == GameSettings.Language.RU) descriptionString = clickedOrb.orbDescription;
-            else descriptionString = clickedOrb.orbDescriptionEN;
-            if (clickedOrb)
+            string descriptionString = "";
+
+            switch (clickedOrb.type)
             {
-                string defaultString = "";
-                if (clickedOrb.type == Orb.ORB_TYPES.AETHER_DROP || clickedOrb.type == Orb.ORB_TYPES.AETHER_CORE || clickedOrb.type == Orb.ORB_TYPES.AETHER_VOID)
-                {
-                    defaultString = "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>";
-                    descriptionString = descriptionString.Replace("XXX", defaultString);
-                }
-                else if (clickedOrb.archetype == Orb.ORB_ARCHETYPES.ASPECT && clickedOrb.Level == 3)
-                {
-                    defaultString = "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (1 + (int)(1 * Orb.aetherMultiplier * clickedOrb.aetherImpact)) + "</b></color></font>";
-                    string aetherString = "<font=\"InfoPanelSDF\"><#808080> [" + 1 + " + </color></font><b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (int)(1 * Orb.aetherMultiplier * clickedOrb.aetherImpact) + "</color></font></b><font=\"InfoPanelSDF\"><#808080>]</color></font>";
-                    if (clickedOrb.aetherImpact != 0)
-                    {
-                        defaultString += aetherString;
-                    }
-                }
-                
-                descriptionString = descriptionString.Replace("XXX", defaultString);
+                case Orb.ORB_TYPES.MIND_ASPECT:
+                    if (clickedOrb.Level == 3) descriptionString = InfoPanelLexemas.mindAspect;
+                    else descriptionString = InfoPanelLexemas.level12Description;
+                    break;
+                case Orb.ORB_TYPES.BODY_ASPECT:
+                    if (clickedOrb.Level == 3) descriptionString = InfoPanelLexemas.bodyAspect;
+                    else descriptionString = InfoPanelLexemas.level12Description;
+                    break;
+                case Orb.ORB_TYPES.SOUL_ASPECT:
+                    if (clickedOrb.Level == 3) descriptionString = InfoPanelLexemas.soulAspect;
+                    else descriptionString = InfoPanelLexemas.level12Description;
+                    break;
+                case Orb.ORB_TYPES.SEMIPLASMA:
+                    descriptionString = InfoPanelLexemas.semiplasmaDescription;
+                    descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.x, descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.y + 15);
+                    Canvas.ForceUpdateCanvases();
+                    break;
+                case Orb.ORB_TYPES.BLUE_DYE_CORE:
+                    descriptionString = InfoPanelLexemas.blueDyeDescription;
+                    break;
+                case Orb.ORB_TYPES.RED_DYE_CORE:
+                    descriptionString = InfoPanelLexemas.redDyeDescription;
+                    break;
+                case Orb.ORB_TYPES.GREEN_DYE_CORE:
+                    descriptionString = InfoPanelLexemas.greenDyeDescription;
+                    break;
+                case Orb.ORB_TYPES.ICE_CORE:
+                    descriptionString = InfoPanelLexemas.iceCoreDescription;
+                    break;
+                case Orb.ORB_TYPES.FIRE_CORE:
+                    descriptionString = InfoPanelLexemas.fireCoreDescription;
+                    break;
+                case Orb.ORB_TYPES.AETHER_CORE:
+                    descriptionString = InfoPanelLexemas.aetherCoreDescription;
+                    break;
+                case Orb.ORB_TYPES.SUPERNOVA_CORE:
+                    descriptionString = InfoPanelLexemas.supernovaCoreDescription;
+                    break;
+                case Orb.ORB_TYPES.BLUE_DROP:
+                    descriptionString = InfoPanelLexemas.blueDropDescription;
+                    break;
+                case Orb.ORB_TYPES.RED_DROP:
+                    descriptionString = InfoPanelLexemas.redDropDescription;
+                    break;
+                case Orb.ORB_TYPES.GREEN_DROP:
+                    descriptionString = InfoPanelLexemas.greenDropDescription;
+                    break;
+                case Orb.ORB_TYPES.ICE_DROP:
+                    descriptionString = InfoPanelLexemas.iceDropDescription;
+                    break;
+                case Orb.ORB_TYPES.FIRE_DROP:
+                    descriptionString = InfoPanelLexemas.fireDropDescription;
+                    break;
+                case Orb.ORB_TYPES.AETHER_DROP:
+                    descriptionString = InfoPanelLexemas.aetherDropDescription;
+                    break;
+                case Orb.ORB_TYPES.ANTIMATTER_DROP:
+                    descriptionString = InfoPanelLexemas.antimatterDropDescription;
+                    break;
+                case Orb.ORB_TYPES.SUPERNOVA_DROP:
+                    descriptionString = InfoPanelLexemas.supernovaDropDescription;
+                    break;
+                case Orb.ORB_TYPES.VOID:
+                    descriptionString = InfoPanelLexemas.antimatterVoidDescription;
+                    break;
+                case Orb.ORB_TYPES.BLUE_PULSAR:
+                    descriptionString = InfoPanelLexemas.mindAspect + "\n" + InfoPanelLexemas.blueVoidDescription;
+                    descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.x, descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.y + 30);
+                    Canvas.ForceUpdateCanvases();
+                    break;
+                case Orb.ORB_TYPES.RED_PULSAR:
+                    descriptionString = InfoPanelLexemas.bodyAspect + "\n" + InfoPanelLexemas.redVoidDescription;
+                    descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.x, descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.y + 30);
+                    Canvas.ForceUpdateCanvases();
+                    break;
+                case Orb.ORB_TYPES.GREEN_PULSAR:
+                    descriptionString = InfoPanelLexemas.soulAspect + "\n" + InfoPanelLexemas.greenVoidDescription;
+                    descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.x, descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.y + 30);
+                    Canvas.ForceUpdateCanvases();
+                    break;
+                case Orb.ORB_TYPES.ICE_VOID:
+                    descriptionString = InfoPanelLexemas.iceVoidDescription;
+                    break;
+                case Orb.ORB_TYPES.FIRE_VOID:
+                    descriptionString = InfoPanelLexemas.fireVoidDescription;
+                    break;
+                case Orb.ORB_TYPES.AETHER_VOID:
+                    descriptionString = InfoPanelLexemas.aetherVoidDescription;
+                    break;
+                case Orb.ORB_TYPES.SUPERNOVA_VOID:
+                    descriptionString = InfoPanelLexemas.supernovaVoidDescription;
+                    break;
+            }
 
-                if (ConstellationManager.CONSTELLATION1 == ConstellationManager.CONSTELLATION.SUPERNOVA || ConstellationManager.CONSTELLATION2 == ConstellationManager.CONSTELLATION.SUPERNOVA)
+            if (clickedOrb.type == Orb.ORB_TYPES.AETHER_DROP || clickedOrb.type == Orb.ORB_TYPES.AETHER_CORE || clickedOrb.type == Orb.ORB_TYPES.AETHER_VOID)
+            {
+                descriptionString = descriptionString.Replace("XXX", clickedOrb.aetherImpact + "");
+            }
+
+            if (ConstellationManager.CONSTELLATION1 == ConstellationManager.CONSTELLATION.SUPERNOVA || ConstellationManager.CONSTELLATION2 == ConstellationManager.CONSTELLATION.SUPERNOVA)
+            {
+                string viscosity = InfoPanelLexemas.viscosity;
+                if (clickedOrb.viscosityImpact != 0)
                 {
-                    string viscosity = InfoPanelLexemas.viscosity;
-                    if (clickedOrb.viscosityImpact != 0)
-                    {
-                        if (clickedOrb.aetherImpact == 0) viscosity = "- Увеличивает вязкость на <b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.viscosityImpact + "</b></color></font>.";
-                        else viscosity = "- Увеличивает вязкость на <b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.viscosityImpact + "</b></color></font><font=\"InfoPanelSDF\"><#808080> [" + clickedOrb.basicViscosity + " + </color></font><b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (int)(clickedOrb.basicViscosity * Orb.aetherMultiplier * clickedOrb.aetherImpact) + "</color></font></b><font=\"InfoPanelSDF\"><#808080>]</color></font>.";
-                        descriptionCounter.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionCounter.transform.parent.GetComponent<RectTransform>().sizeDelta.x, descriptionCounter.transform.parent.GetComponent<RectTransform>().sizeDelta.y + 15);
-                        Canvas.ForceUpdateCanvases();
-                        descriptionString = descriptionString + "\n" + viscosity;
-                    }
+                    if (clickedOrb.aetherImpact == 0) viscosity = "- Увеличивает вязкость на <b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.viscosityImpact + "</b></color></font>.";
+                    else viscosity = "- Увеличивает вязкость на <b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.viscosityImpact + "</b></color></font><font=\"InfoPanelSDF\"><#808080> [" + clickedOrb.basicViscosity + " + </color></font><b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (int)(clickedOrb.basicViscosity * Orb.aetherMultiplier * clickedOrb.aetherImpact) + "</color></font></b><font=\"InfoPanelSDF\"><#808080>]</color></font>.";
+                    descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.x, descriptionCaption.transform.parent.GetComponent<RectTransform>().sizeDelta.y + 15);
+                    Canvas.ForceUpdateCanvases();
+                    descriptionString = descriptionString + "\n" + viscosity;
                 }
             }
-            descriptionCounter.SetText(descriptionString);
+
+            descriptionCaption.SetText(descriptionString);
         }
 
 
@@ -371,7 +451,7 @@ public class InfoPanelManager : MonoBehaviour
 
         if (clickedOrb)
         {
-            //Selection.activeGameObject = clickedOrb.gameObject;
+            //Selection.activeGameObject = clickedOrb.Box.gameObject;
 
             if ((!clickedOrb.fiery && !clickedOrb.frozen && clickedOrb.aetherImpact == 0 && !clickedOrb.antimatter) || clickedOrb.archetype == Orb.ORB_ARCHETYPES.DROP) Instantiate(orbEffectsAbsent, infoPanelTransorm).GetComponentInChildren<TextMeshProUGUI>().text = InfoPanelLexemas.absentMultiples;
             else
@@ -402,7 +482,12 @@ public class InfoPanelManager : MonoBehaviour
                         GameObject fireLevel12Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().fireLevel12Desrcription, infoPanelTransorm);
                         fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.fireLevel12Description;
                         fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", defaultString);
-
+                        if (clickedOrb.type == Orb.ORB_TYPES.SEMIPLASMA)
+                        {
+                            fireLevel12Desrcription.GetComponent<RectTransform>().sizeDelta = new Vector2(fireLevel12Desrcription.GetComponent<RectTransform>().sizeDelta.x, fireLevel12Desrcription.GetComponent<RectTransform>().sizeDelta.y + 45);
+                            Canvas.ForceUpdateCanvases();
+                            fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = fireLevel12Desrcription.GetComponent<TextMeshProUGUI>().text + InfoPanelLexemas.fireSemiplasmaDescription;
+                        }
                     }
                 }
                 if (clickedOrb.frozen)
@@ -433,7 +518,12 @@ public class InfoPanelManager : MonoBehaviour
                         iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.iceLevel12Description;
                         iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", defaultString);
                         iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", clickedOrb.Level + "");
-
+                        if (clickedOrb.type == Orb.ORB_TYPES.SEMIPLASMA)
+                        {
+                            iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = iceLevel12Desrcription.GetComponent<TextMeshProUGUI>().text + InfoPanelLexemas.iceSemiplasmaDescription;
+                            iceLevel12Desrcription.GetComponent<RectTransform>().sizeDelta = new Vector2(iceLevel12Desrcription.GetComponent<RectTransform>().sizeDelta.x, iceLevel12Desrcription.GetComponent<RectTransform>().sizeDelta.y + 45);
+                            Canvas.ForceUpdateCanvases();
+                        }
                     }
                 }
                 if (clickedOrb.aetherImpact != 0)
@@ -443,7 +533,7 @@ public class InfoPanelManager : MonoBehaviour
                         GameObject aetherVoidCoreDesrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherVoidCoreDesrcription, infoPanelTransorm);
                         aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.aetherVoidCoreDescription;
                         aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>");
-                        aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * 20 + "%</b></color></font>");
+                        aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%</b></color></font>");
 
                     }
                     else if (clickedOrb.Level == 3)
@@ -451,57 +541,27 @@ public class InfoPanelManager : MonoBehaviour
                         GameObject aetherLevel3Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherLevel3Desrcription, infoPanelTransorm);
                         aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.aetherLevel3Description;
                         aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>");
-                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * 20 + "%</b></color></font>");
+                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%</b></color></font>");
                     }
                     else
                     {
                         GameObject aetherLevel12Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherLevel12Desrcription, infoPanelTransorm);
                         aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.aetherLevel12Description;
                         aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>");
-                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * 20 + "%</b></color></font>");
+                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%</b></color></font>");
+                        if (clickedOrb.type == Orb.ORB_TYPES.SEMIPLASMA)
+                        {
+                            aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text + InfoPanelLexemas.aetherSemiplasmaDescription;
+                            aetherLevel12Desrcription.GetComponent<RectTransform>().sizeDelta = new Vector2(aetherLevel12Desrcription.GetComponent<RectTransform>().sizeDelta.x, aetherLevel12Desrcription.GetComponent<RectTransform>().sizeDelta.y + 45);
+                            Canvas.ForceUpdateCanvases();
+                        }
                     }
                 }
                 if (clickedOrb.antimatter)
                 {
                     if (clickedOrb.archetype == Orb.ORB_ARCHETYPES.VOID)
                     {
-                        string voidString = "";
 
-                        switch (clickedOrb.type)
-                        {
-                            case Orb.ORB_TYPES.VOID:
-                                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidString = "превратить остальные сферы в антиматерию";
-                                else voidString = "turn the rest in the antimatter";
-                                break;
-                            case Orb.ORB_TYPES.ICE_VOID:
-                                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidString = "заморозить остальные";
-                                else voidString = "freeze the rest";
-                                break;
-                            case Orb.ORB_TYPES.FIRE_VOID:
-                                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidString = "разогреть остальные";
-                                else voidString = "fire up the rest";
-                                break;
-                            case Orb.ORB_TYPES.AETHER_VOID:
-                                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidString = "наполнить эфиром остальные";
-                                else voidString = "fill up with aether the rest";
-                                break;
-                            case Orb.ORB_TYPES.SUPERNOVA_VOID:
-                                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidString = "повысить уровень остальных";
-                                else voidString = "level up the rest";
-                                break;
-                            case Orb.ORB_TYPES.BLUE_PULSAR:
-                                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidString = "перекрасить остальные в аспект разума";
-                                else voidString = "paint in mind aspect the rest";
-                                break;
-                            case Orb.ORB_TYPES.RED_PULSAR:
-                                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidString = "перекрасить остальные в аспект тела";
-                                else voidString = "paint in body aspect the rest";
-                                break;
-                            case Orb.ORB_TYPES.GREEN_PULSAR:
-                                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) voidString = "перекрасить остальные в аспект души";
-                                else voidString = "paint in soul aspect the rest";
-                                break;
-                        }
 
                         string defaultString = "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (1 + (int)(1 * Orb.aetherMultiplier * clickedOrb.aetherImpact)) + "</b></color></font>";
                         string aetherString = "<font=\"InfoPanelSDF\"><#808080> [" + 1 + " + </color></font><b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + (int)(1 * Orb.aetherMultiplier * clickedOrb.aetherImpact) + "</color></font></b><font=\"InfoPanelSDF\"><#808080>]</color></font>";
@@ -512,14 +572,17 @@ public class InfoPanelManager : MonoBehaviour
                         GameObject antimatterLevel3Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().antimatterLevel3Desrcription, infoPanelTransorm);
                         antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.antimatterLevel4Description;
                         antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", defaultString);
-                        antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = antimatterLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", voidString);
                     }
                     else
                     {
                         GameObject antimatterLevel12Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().antimatterLevel12Desrcription, infoPanelTransorm);
                         antimatterLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.antimatterLevel12Description;
-
-
+                        if (clickedOrb.type == Orb.ORB_TYPES.SEMIPLASMA)
+                        {
+                            antimatterLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = antimatterLevel12Desrcription.GetComponent<TextMeshProUGUI>().text + InfoPanelLexemas.antimatterSemiplasmaDescription;
+                            antimatterLevel12Desrcription.GetComponent<RectTransform>().sizeDelta = new Vector2(antimatterLevel12Desrcription.GetComponent<RectTransform>().sizeDelta.x, antimatterLevel12Desrcription.GetComponent<RectTransform>().sizeDelta.y + 45);
+                            Canvas.ForceUpdateCanvases();
+                        }
                     }
                 }
             }
@@ -530,8 +593,260 @@ public class InfoPanelManager : MonoBehaviour
         }
     }
 
-    class InfoPanelLexemas
+    static class InfoPanelLexemas
     {
+        public static string level12Description
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Объедините с двумя другими, чтобы синтезировать сферу уровнем выше.";
+                else return "";
+            }
+        }
+
+        public static string mindAspect
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Увеличивает влияние зелья на разум на 1.";
+                else return "";
+            }
+        }
+
+        public static string bodyAspect
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Увеличивает влияние зелья на тело на 1.";
+                else return "";
+            }
+        }
+
+        public static string soulAspect
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Увеличивает влияние зелья на душу на 1.";
+                else return "";
+            }
+        }
+
+        public static string blueDyeDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы окрасить их в аспект разума.";
+                else return "";
+            }
+        }
+
+        public static string redDyeDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы окрасить их в аспект тела.";
+                else return "";
+            }
+        }
+
+        public static string greenDyeDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы окрасить их в аспект души.";
+                else return "";
+            }
+        }
+
+        public static string iceCoreDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы заморозить сферы по вертикали или горизонтали.";
+                else return "";
+            }
+        }
+
+        public static string fireCoreDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы разогреть сферы по вертикали или горизонтали.";
+                else return "";
+            }
+        }
+
+        public static string aetherCoreDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы наполнить эфиром сферы по вертикали и горизонтали на XXX.";
+                else return "";
+            }
+        }
+
+        public static string supernovaCoreDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы повысить уровень ближайших сфер.";
+                else return "";
+            }
+        }
+
+        public static string blueDropDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Капните на другую сферу, чтобы окрасить её в аспект разума.";
+                else return "";
+            }
+        }
+
+        public static string redDropDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Капните на другую сферу, чтобы окрасить её в аспект тела.";
+                else return "";
+            }
+        }
+
+        public static string greenDropDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Капните на другую сферу, чтобы окрасить её в аспект души.";
+                else return "";
+            }
+        }
+
+        public static string iceDropDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Капните на другую сферу, чтобы заморозить её.";
+                else return "";
+            }
+        }
+
+        public static string fireDropDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Капните на другую сферу, чтобы её разогреть.";
+                else return "";
+            }
+        }
+
+        public static string aetherDropDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Капните на другую сферу, чтобы наполнить её эфиром на XXX.";
+                else return "";
+            }
+        }
+
+        public static string supernovaDropDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Капните на другую сферу, чтобы повысить её уровень.";
+                else return "";
+            }
+        }
+
+        public static string antimatterDropDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Капните на другую сферу, чтобы превратить её в антиматерию.";
+                else return "";
+            }
+        }
+
+        public static string blueVoidDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы растворить одну из них и окрасить остальные в аспект разума.";
+                else return "";
+            }
+
+        }
+        public static string redVoidDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы растворить одну из них и окрасить остальные в аспект тела.";
+                else return "";
+            }
+        }
+
+        public static string greenVoidDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы растворить одну из них и окрасить остальные в аспект души.";
+                else return "";
+            }
+        }
+
+        public static string iceVoidDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы растворить одну из них и заморозить остальные.";
+                else return "";
+            }
+        }
+
+        public static string fireVoidDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы растворить одну из них и разогреть остальные.";
+                else return "";
+            }
+        }
+
+        public static string aetherVoidDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы растворить одну из них и наполнить эфиром остальные на XXX.";
+                else return "";
+            }
+        }
+
+        public static string supernovaVoidDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы растворить одну из них и повысить уровень остальных.";
+                else return "";
+            }
+        }
+
+        public static string antimatterVoidDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Перемешайте с другими сферами, чтобы растворить одну из них и превратить остальные в антиматерию.";
+                else return "";
+            }
+        }
+
+        public static string semiplasmaDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return " - Объедините с тремя другими, чтобы синтезировать сверхновую.\n - Сфера растворяется при повышении уровня, если на ней нет никакого эффета.";
+                else return "";
+            }
+        }
+
         public static string fireLevel12Description
         {
             get
@@ -557,11 +872,20 @@ public class InfoPanelManager : MonoBehaviour
             }
         }
 
+        public static string fireSemiplasmaDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "\n - Используйте эту сферу в цепочке синтеза, или повысьте её уровень, чтобы синтезировать пылающее ядро.";
+                else return "\n - Используйте эту сферу в цепочке синтеза, или повысьте её уровень, чтобы синтезировать пылающее ядро.";
+            }
+        }
+
         public static string iceLevel12Description
         {
             get
             {
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Лёд]\n - В цепочке синтеза заменяет сферу любого аспекта XXX уровня.\n - Температура зелья понижена на YYY, пока под этой сферой есть любая другая..";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Лёд]\n - В цепочке синтеза заменяет сферу любого аспекта XXX уровня.\n - Температура зелья понижена на YYY, пока под этой сферой есть любая другая.";
                 else return "[Ice]\n - В цепочке синтеза заменяет сферу любого аспекта XXX уровня.\n - Температура зелья понижена на YYY, пока под этой сферой есть любая другая.";
             }
         }
@@ -583,6 +907,15 @@ public class InfoPanelManager : MonoBehaviour
             }
         }
 
+        public static string iceSemiplasmaDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "\n - Используйте эту сферу в цепочке синтеза, или повысьте её уровень, чтобы синтезировать ледяное ядро.";
+                else return "\n - Используйте эту сферу в цепочке синтеза, или повысьте её уровень, чтобы синтезировать ледяное ядро.";
+            }
+
+        }
         public static string aetherLevel12Description
         {
             get
@@ -609,11 +942,21 @@ public class InfoPanelManager : MonoBehaviour
                 else return "[Aether]\n - Повышает эфир зелья на XXX.\n - Увеличивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счётчики</B></font></color> сферы на YYY.";
             }
         }
+        public static string aetherSemiplasmaDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "\n - Используйте эту сферу в цепочке синтеза, или повысьте её уровень, чтобы синтезировать эфирное ядро.";
+                else return "\n - Используйте эту сферу в цепочке синтеза, или повысьте её уровень, чтобы синтезировать эфирное ядро.";
+            }
+
+        }
+
         public static string antimatterLevel12Description
         {
             get
             {
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Антиматерия]\n - Антиматерия передаётся при синтезе.\n - Повысьте сферу до третьего уровня, чтобы превратить её в пустоту.";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Антиматерия]\n - Этот эффект передаётся при синтезе.\n - Повысьте сферу до третьего уровня, чтобы превратить её в пустоту.";
                 else return "[Antimatter]\n -Антиматерия передаётся при синтезе.\n - Повысьте сферу до третьего уровня, чтобы превратить её в пустоту.";
             }
         }
@@ -624,6 +967,15 @@ public class InfoPanelManager : MonoBehaviour
             {
                 if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Антиматерия]\n - Пустотность зелья увеличена на YYY.";
                 else return "[Antimatter]\n - Пустотность зелья увеличена на YYY.";
+            }
+        } 
+
+        public static string antimatterSemiplasmaDescription
+        {
+            get
+            {
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "\n - Используйте эту сферу в цепочке синтеза, или повысьте её уровень, чтобы синтезировать пустоту.";
+                else return "\n - Используйте эту сферу в цепочке синтеза, или повысьте её уровень, чтобы синтезировать пустоту.";
             }
         }
 

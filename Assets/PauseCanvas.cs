@@ -6,7 +6,7 @@ public class PauseCanvas : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject cancelMenuSampler;
+    GameObject cancelMenuSampler, background, constellationPick, constellationConfirmMenuSampler, infoBookObject;
 
     static Recipe recipeToCancel;
 
@@ -25,11 +25,48 @@ public class PauseCanvas : MonoBehaviour
     {
         Pause();
         recipeToCancel = recipe;
-        GameObject cancelMenu = Instantiate(StaticInstance.cancelMenuSampler);
+        GameObject cancelMenu = Instantiate(StaticInstance.cancelMenuSampler, StaticInstance.transform);
+        cancelMenu.GetComponent<CancelMenu>().recipeToCancel = recipe;
+    }
+
+    public void ShowConstellationPickPanel()
+    {
+        Pause();
+        constellationPick.SetActive(true);
+    }
+
+    public static bool Paused
+    {
+        get
+        {
+            return StaticInstance.background.activeSelf;
+        }
+    }
+    public static void ShowConstellatioConfrirm(string caption)
+    {
+        Pause();
+        GameObject menu = Instantiate(StaticInstance.constellationConfirmMenuSampler, StaticInstance.transform);
     }
 
     static void Pause()
     {
-        StaticInstance.gameObject.SetActive(true);
+        StaticInstance.background.SetActive(true);
+    }
+
+    public static void Unpause()
+    {
+        StaticInstance.background.SetActive(false);
+    }
+
+    public static void ShowInfoBook()
+    {
+        Pause();
+        StaticInstance.infoBookObject.SetActive(true);
+    }
+
+    public static void CloseInfoBook()
+    {
+        Unpause();
+        StaticInstance.infoBookObject.SetActive(false);
     }
 }

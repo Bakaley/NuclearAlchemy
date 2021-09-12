@@ -5,31 +5,18 @@ using UnityEngine;
 public class CancelMenu : MonoBehaviour
 {
 
-    private void Awake()
+    public Recipe recipeToCancel;
+
+    public void confirm()
     {
-        staticInstance = this;
+        DraftModule.cancelRecipe(recipeToCancel);
+        PauseCanvas.Unpause();
+        Destroy(gameObject);
     }
 
-    public static bool Opened
+    public void decline()
     {
-        get
-        {
-            if (staticInstance == null) return false;
-            return staticInstance.gameObject.activeInHierarchy;
-        }
-       
-    }
-
-    static CancelMenu staticInstance;
-
-    public void YesButton()
-    {
-        Debug.Log("Yes");
-    }
-
-    public void NoButton()
-    {
-        Debug.Log("No");
-
+        PauseCanvas.Unpause();
+        Destroy(gameObject);
     }
 }

@@ -139,6 +139,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: OrbPreview
+      value: 
+      objectReference: {fileID: 4876869844348111529, guid: 8aac5540f8c7458418eeeaafcd61ae4d, type: 3}
+    - target: {fileID: 4608834017730785567, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
+      propertyPath: aetherCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8016165527176570903, guid: 7fe341e79f2cbd24991196325a3a26ae, type: 3}
       propertyPath: OrbPreview
       value: 

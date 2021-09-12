@@ -87,7 +87,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1655089273180516500}
         m_TargetAssemblyTypeName: CancelMenu, Assembly-CSharp
-        m_MethodName: YesButton
+        m_MethodName: confirm
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2521289fa0b96f046ab6616e7568f945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipeToCancel: {fileID: 0}
 --- !u!222 &1655089273180516501
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -486,7 +487,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1655089273180516500}
         m_TargetAssemblyTypeName: CancelMenu, Assembly-CSharp
-        m_MethodName: NoButton
+        m_MethodName: decline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

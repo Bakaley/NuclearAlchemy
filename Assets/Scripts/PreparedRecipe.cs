@@ -18,8 +18,8 @@ public class PreparedRecipe : MonoBehaviour
 
     public void dissolveIn(float time)
     {
-        DissolvingElement[] elems = GetComponentsInChildren<DissolvingElement>(true);
-        foreach (DissolvingElement elem in elems)
+        IDissolving[] elems = GetComponentsInChildren<IDissolving>(true);
+        foreach (IDissolving elem in elems)
         {
             elem.disappear();
         }

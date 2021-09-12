@@ -69,6 +69,7 @@ MonoBehaviour:
   antimatter: 0
   comboAvaliable: 0
   orbDescription: 
+  orbDescriptionEN: 
   nextLevelOrb: {fileID: 6583435648782796497, guid: 7ede3601d676b704aa9650673169c113, type: 3}
   level: 2
   points: -5
@@ -9994,7 +9995,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.01
   movingSpeed: 5
-  rotationSpeed: 0
+  rotationSpeedX: 0
+  rotationSpeedY: 0
+  rotationSpeedZ: 0
+  rotationSpace: 0
   seedShift: 0
 --- !u!1 &4696772204958966987
 GameObject:
@@ -10092,7 +10096,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.01
   movingSpeed: 5
-  rotationSpeed: 0
+  rotationSpeedX: 0
+  rotationSpeedY: 0
+  rotationSpeedZ: 0
+  rotationSpace: 0
   seedShift: 0
 --- !u!1 &7870828999322341131
 GameObject:
