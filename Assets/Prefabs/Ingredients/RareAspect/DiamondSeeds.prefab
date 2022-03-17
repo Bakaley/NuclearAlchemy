@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 9
   rarity: 4
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u0410\u043B\u043C\u0430\u0437\u043D\u044B\u0435 \u0441\u0435\u043C\u0435\u043D\u0430"
   EnglishName: Diamond seeds
   IngredientFileName: DiamondSeeds

@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 10
   essence3: 1
   rarity: 3
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0421\u0432\u0435\u0440\u0445\u043D\u043E\u0432\u044B\u0439 \u043E\u0434\u0443\u0432\u0430\u043D\u0447\u0438\u043A"
   EnglishName: Supernova dandelion
   IngredientFileName: SupernovaDandelion

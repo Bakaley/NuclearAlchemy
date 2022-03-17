@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2207557622730554796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\u041E\u0447\u0438\u0449\u0430\u044E\u0449\u0438\u0439 \u0434\u044B\u043C"
-  icon: {fileID: 21300000, guid: ca85ac495426e084d92e6971051d72a3, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: Cleansing smoke
+  fileName: CleansingSmoke
   basePoints: 53
-  aspect: 3
+  aspect: 1
   temperature: 0
-  aether: 4
+  aether: 5
   visctosity: 3
   voidness: 0
-  currentLevel: 1
-  potionType: 23
+  constellation1: 3
+  constellation2: 4
+  potionType: 1
+  icon: {fileID: 21300000, guid: ca85ac495426e084d92e6971051d72a3, type: 3}
   basePointsLVL2: 58
   basePointsLVL3: 64
-  price: 187
+  price: 232

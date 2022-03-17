@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6150024408447484762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  recipeName: "\u0413\u043E\u0440\u044E\u0447\u0430\u044F \u0441\u043C\u0435\u0441\u044C"
-  icon: {fileID: 21300000, guid: 79a973caca6d0b64889e7c8cde76da2d, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeName: "\u0413\u043E\u0440\u044F\u0449\u0430\u044F \u0441\u043C\u0435\u0441\u044C"
+  recipeNameEN: Burning slime
+  fileName: BurningSlime
   basePoints: 50
-  aspect: 10
+  aspect: 9
   temperature: 0
   aether: 0
   visctosity: 3
   voidness: 0
-  currentLevel: 1
-  potionType: 20
+  constellation1: 1
+  constellation2: 4
+  potionType: 1
+  icon: {fileID: 21300000, guid: 79a973caca6d0b64889e7c8cde76da2d, type: 3}
   basePointsLVL2: 55
   basePointsLVL3: 60
-  price: 175
+  price: 217

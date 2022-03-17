@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 0
   rarity: 1
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u0416\u0435\u043B\u0435\u0437\u043D\u044B\u0439 \u0441\u043B\u0438\u0442\u043E\u043A"
   EnglishName: Iron bar
   IngredientFileName: IronBar

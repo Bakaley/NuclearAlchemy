@@ -40,22 +40,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8500423105986255374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\u041F\u043E\u043B\u0438\u043C\u043E\u0440\u0444\u043D\u0430\u044F
     \u0441\u0443\u0431\u0441\u0442\u0430\u043D\u0446\u0438\u044F"
-  icon: {fileID: 21300000, guid: 1b7c315f7a0c35b499e3b4985b3e7954, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: Polymorphing substance
+  fileName: PolymorphingSubstance
   basePoints: 57
-  aspect: 3
-  temperature: -4
+  aspect: 1
+  temperature: 4
   aether: 0
   visctosity: 0
-  voidness: 2
-  currentLevel: 1
-  potionType: 25
+  voidness: 8
+  constellation1: 2
+  constellation2: 5
+  potionType: 1
+  icon: {fileID: 21300000, guid: 1b7c315f7a0c35b499e3b4985b3e7954, type: 3}
   basePointsLVL2: 63
   basePointsLVL3: 68
-  price: 204
+  price: 253

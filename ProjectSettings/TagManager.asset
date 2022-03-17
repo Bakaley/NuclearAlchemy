@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Orb
   - ConstellationCircle
+  - AddingBoard
+  - IngredientPlace
+  - IngredientPreview
+  - EssenceIcon
+  - MixingBoard
+  - ResizibleWindow
   layers:
   - Default
   - TransparentFX
@@ -42,4 +48,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Board
+    uniqueID: 2597606579
+    locked: 0
+  - name: Draft
+    uniqueID: 1506395707
+    locked: 0
+  - name: InfoPanel
+    uniqueID: 3609055555
+    locked: 0
+  - name: Pause
+    uniqueID: 3179040959
     locked: 0

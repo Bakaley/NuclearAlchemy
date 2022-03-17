@@ -27,6 +27,12 @@ abstract public class Recipe : MonoBehaviour
     protected string recipeName;
 
     [SerializeField]
+    string recipeNameEN;
+
+    [SerializeField]
+    string fileName;
+
+    [SerializeField]
     protected int basePoints;
 
     [SerializeField]
@@ -52,9 +58,9 @@ abstract public class Recipe : MonoBehaviour
     {
         get
         {
-            if (GetComponent<Ingredient>() && GetComponent<Ingredient>().state == Ingredient.INGREDIENT_STATE.LEARNED_BLUEPRINT) return RECIPE_TYPE.CONSUMABLE;
-            else if (GetComponent<PotionRecipe>() && PotionListManager.LevelUPpingList.Contains(GetComponent<PotionRecipe>())) return RECIPE_TYPE.POTION_LEVEL_UP;
-            else if (GetComponent<PotionRecipe>() && PotionListManager.potionLevelDictionary[gameObject] == 0) return RECIPE_TYPE.POTION_BLUEPRINT;
+            if (GetComponent<Ingredient>() && GetComponent<Ingredient>().state == Ingredient.AVALIABILITY.LEARNED_BLUEPRINT) return RECIPE_TYPE.CONSUMABLE;
+            else if (GetComponent<Potion>() && PotionListManager.LevelUPpingList.Contains(GetComponent<Potion>())) return RECIPE_TYPE.POTION_LEVEL_UP;
+            else if (GetComponent<Potion>() && PotionListManager.potionsAvaliability[GetComponent<Potion>()] == Potion.AVALIABILITY.KNOWN_BLUEPRINT) return RECIPE_TYPE.POTION_BLUEPRINT;
             return type;
         }
     }
@@ -64,6 +70,22 @@ abstract public class Recipe : MonoBehaviour
         get
         {
             return recipeName;
+        }
+    }
+
+    public string RecipeNameEN
+    {
+        get
+        {
+            return recipeNameEN;
+        }
+    }
+
+    public string FileName
+    {
+        get
+        {
+            return fileName;
         }
     }
 
@@ -144,8 +166,4 @@ abstract public class Recipe : MonoBehaviour
             return new EssenceRequirement[] { essence1, essence2 };
         }
     }
-
-    abstract protected void firstReward();
-
-    abstract protected void rewardsRemains();
 }

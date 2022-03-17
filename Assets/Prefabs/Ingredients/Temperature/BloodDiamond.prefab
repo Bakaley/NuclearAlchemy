@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 4
   essence3: 10
   rarity: 4
-  constellation: 3
+  affiliation: 3
   IngredientName: "\u041A\u0440\u043E\u0432\u0430\u0432\u044B\u0439 \u0430\u043B\u043C\u0430\u0437"
   EnglishName: Blood diamond
   IngredientFileName: BloodDiamond

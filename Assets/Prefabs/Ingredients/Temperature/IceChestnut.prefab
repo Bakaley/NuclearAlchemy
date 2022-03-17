@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 0
   rarity: 1
-  constellation: 3
+  affiliation: 3
   IngredientName: "\u041B\u0435\u0434\u044F\u043D\u043E\u0439 \u043A\u0430\u0448\u0442\u0430\u043D"
   EnglishName: Ice chestnut
   IngredientFileName: IceChestnut

@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 10
   rarity: 3
-  constellation: 3
+  affiliation: 3
   IngredientName: "\u0414\u0440\u0430\u043A\u043E\u043D\u043E\u0432\u0430\u044F \u044D\u0441\u0441\u0435\u043D\u0446\u0438\u044F"
   EnglishName: Dragon essence
   IngredientFileName: DragonEssence

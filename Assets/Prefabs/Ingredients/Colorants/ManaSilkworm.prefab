@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 0
   rarity: 2
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u041C\u0430\u043D\u043E\u0432\u044B\u0439 \u0448\u0435\u043B\u043A\u043E\u043F\u0440\u044F\u0434"
   EnglishName: Mana silkworm
   IngredientFileName: ManaSilkworm

@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 1
   rarity: 4
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u041E\u0431\u0440\u0430\u0442\u043D\u0430\u044F \u0432\u043E\u0434\u0430"
   EnglishName: Reversed water
   IngredientFileName: ReversedWater
@@ -80,12 +80,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   recipeName: 
+  recipeNameEN: 
+  fileName: 
   basePoints: 69
   aspect: 3
   temperature: 0
   aether: 0
   visctosity: 0
-  voidness: 3
+  voidness: 10
 --- !u!1001 &304330274436360827
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7346626208432423753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\u0424\u043B\u0430\u043A\u043E\u043D \u0445\u0440\u0443\u043F\u043A\u043E\u0441\u0442\u0438"
-  icon: {fileID: 21300000, guid: 5552fa554836c4143acf8dcb1e664a89, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: Vial of fragility
+  fileName: VialOfFragility
   basePoints: 78
   aspect: 2
   temperature: 0
   aether: 0
   visctosity: 0
-  voidness: 2
-  currentLevel: 1
-  potionType: 16
+  voidness: 12
+  constellation1: 5
+  constellation2: 6
+  potionType: 1
+  icon: {fileID: 21300000, guid: 5552fa554836c4143acf8dcb1e664a89, type: 3}
   basePointsLVL2: 86
   basePointsLVL3: 94
-  price: 264
+  price: 369

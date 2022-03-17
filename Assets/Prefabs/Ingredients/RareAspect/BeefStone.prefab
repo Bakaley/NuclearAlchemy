@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 0
   rarity: 2
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u0413\u043E\u0432\u044F\u0436\u0438\u0439 \u043A\u0430\u043C\u0435\u043D\u044C"
   EnglishName: Beef stone
   IngredientFileName: BeefStone

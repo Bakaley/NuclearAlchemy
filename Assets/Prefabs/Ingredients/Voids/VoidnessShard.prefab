@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 6
   rarity: 4
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u041E\u0441\u043A\u043E\u043B\u043E\u043A \u043F\u0443\u0441\u0442\u043E\u0442\u044B"
   EnglishName: Voidness shard
   IngredientFileName: VoidnessShard
@@ -80,12 +80,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   recipeName: 
+  recipeNameEN: 
+  fileName: 
   basePoints: 68
   aspect: 1
   temperature: 0
   aether: 0
   visctosity: 0
-  voidness: 3
+  voidness: 10
 --- !u!1001 &2102793647976433807
 PrefabInstance:
   m_ObjectHideFlags: 0

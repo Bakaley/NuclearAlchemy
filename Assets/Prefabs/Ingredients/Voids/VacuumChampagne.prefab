@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 0
   rarity: 2
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u0412\u0430\u043A\u0443\u0443\u043C\u043D\u043E\u0435 \u0448\u0430\u043C\u043F\u0430\u043D\u0441\u043A\u043E\u0435"
   EnglishName: Vacuum champagne
   IngredientFileName: VacuumChampagne

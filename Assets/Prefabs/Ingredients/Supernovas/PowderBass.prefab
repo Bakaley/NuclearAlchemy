@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 1
   essence3: 0
   rarity: 1
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u041F\u043E\u0440\u043E\u0445\u043E\u0432\u043E\u0439 \u043E\u043A\u0443\u043D\u044C"
   EnglishName: Powder bass
   IngredientFileName: PowderBass

@@ -54,7 +54,7 @@ MonoBehaviour:
   essence2: 4
   essence3: 0
   rarity: 1
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u0413\u043E\u043B\u0443\u0431\u043E\u0439 \u043C\u043E\u0445"
   EnglishName: Blue moss
   IngredientFileName: BlueMoss

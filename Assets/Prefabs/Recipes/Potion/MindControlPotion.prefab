@@ -40,21 +40,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4594822899060450137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  recipeName: "\u0417\u0435\u043B\u044C\u0435 \u043F\u043E\u0434\u0447\u0438\u043D\u0435\u043D\u0438\u044F"
-  icon: {fileID: 21300000, guid: 93020ddab8870c04a8449fd1c1b5870b, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeName: "\u0417\u0435\u043B\u044C\u0435 \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F
+    \u0440\u0430\u0437\u0443\u043C\u043E\u043C"
+  recipeNameEN: Mind control potion
+  fileName: MindControlPotion
   basePoints: 59
   aspect: 1
   temperature: 0
   aether: 0
   visctosity: 0
-  voidness: 2
-  currentLevel: 1
-  potionType: 8
+  voidness: 8
+  constellation1: 5
+  constellation2: 0
+  potionType: 1
+  icon: {fileID: 21300000, guid: 93020ddab8870c04a8449fd1c1b5870b, type: 3}
   basePointsLVL2: 65
   basePointsLVL3: 71
-  price: 188
+  price: 226

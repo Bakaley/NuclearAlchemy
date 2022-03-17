@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 8
   essence3: 0
   rarity: 2
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0413\u0440\u0438\u0431-\u043A\u0440\u0435\u0441\u0442\u043E\u0432\u0438\u043A"
   EnglishName: Crosshroom
   IngredientFileName: Crosshroom

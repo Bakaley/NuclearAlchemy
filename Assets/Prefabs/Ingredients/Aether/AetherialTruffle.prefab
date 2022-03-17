@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 5
   essence3: 4
   rarity: 3
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u042D\u0444\u0438\u0440\u043D\u044B\u0439 \u0442\u0440\u044E\u0444\u0435\u043B\u044C"
   EnglishName: Aetherial truffle
   IngredientFileName: AetherialTruffle

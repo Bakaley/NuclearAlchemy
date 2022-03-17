@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 452531146199971437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\u041A\u0438\u0441\u043B\u043E\u0442\u043D\u0430\u044F \u043A\u043E\u043B\u0431\u0430"
-  icon: {fileID: 21300000, guid: d0eceadc428642341a7955ad7cb91835, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: Acid flask
+  fileName: AcidFlask
   basePoints: 67
   aspect: 2
   temperature: 0
   aether: 0
-  visctosity: 4
-  voidness: 2
-  currentLevel: 1
-  potionType: 24
+  visctosity: 3
+  voidness: 10
+  constellation1: 4
+  constellation2: 5
+  potionType: 1
+  icon: {fileID: 21300000, guid: d0eceadc428642341a7955ad7cb91835, type: 3}
   basePointsLVL2: 74
   basePointsLVL3: 80
-  price: 246
+  price: 307

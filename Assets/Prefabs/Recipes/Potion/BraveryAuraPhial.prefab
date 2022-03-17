@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6867048950727597936}
   - component: {fileID: 6867048950727597937}
   m_Layer: 0
-  m_Name: SpeedAuraPhial
+  m_Name: BraveryAuraPhial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6867048950727597938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  recipeName: "\u0424\u0438\u0430\u043B \u0430\u0443\u0440\u044B \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438"
-  icon: {fileID: 21300000, guid: 3c1dec4423bb4844d9a339608cb355d5, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeName: "\u0424\u0438\u0430\u043B \u0430\u0443\u0440\u044B \u043E\u0442\u0432\u0430\u0433\u0438"
+  recipeNameEN: Phial of bravery aura
+  fileName: BraveryAuraPhial
   basePoints: 73
-  aspect: 1
+  aspect: 3
   temperature: 0
-  aether: 16
+  aether: 11
   visctosity: 0
   voidness: 0
-  currentLevel: 1
-  potionType: 14
+  constellation1: 3
+  constellation2: 6
+  potionType: 1
+  icon: {fileID: 21300000, guid: 45c596553922dd142aef4126b7eeeced, type: 3}
   basePointsLVL2: 80
   basePointsLVL3: 88
-  price: 243
+  price: 340

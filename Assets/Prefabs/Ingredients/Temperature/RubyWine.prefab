@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 1
   essence3: 0
   rarity: 2
-  constellation: 3
+  affiliation: 3
   IngredientName: "\u0420\u0443\u0431\u0438\u043D\u043E\u0432\u043E\u0435 \u0432\u0438\u043D\u043E"
   EnglishName: Ruby wine
   IngredientFileName: RubyWine

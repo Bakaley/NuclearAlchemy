@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 0
   rarity: 1
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0422\u044E\u043B\u044C\u043F\u0430\u043D\u043E\u0432\u0430\u044F
     \u043F\u044B\u043B\u044C\u0446\u0430"
   EnglishName: Tulip pollen

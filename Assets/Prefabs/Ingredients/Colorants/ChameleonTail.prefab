@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 5
   essence3: 4
   rarity: 3
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u0425\u0432\u043E\u0441\u0442 \u0445\u0430\u043C\u0435\u043B\u0435\u043E\u043D\u0430"
   EnglishName: Chameleon tail
   IngredientFileName: ChameleonTail

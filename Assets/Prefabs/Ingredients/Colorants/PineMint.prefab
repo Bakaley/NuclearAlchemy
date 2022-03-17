@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 0
   rarity: 1
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u0421\u043E\u0441\u043D\u043E\u0432\u0430\u044F \u043C\u044F\u0442\u0430"
   EnglishName: Pine mint
   IngredientFileName: PineMint

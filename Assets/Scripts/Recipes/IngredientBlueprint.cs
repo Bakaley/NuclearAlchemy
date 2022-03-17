@@ -11,14 +11,4 @@ public class IngredientBlueprint : Recipe
             return basePoints;
         }
     }
-
-    protected override void firstReward()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    protected override void rewardsRemains()
-    {
-        throw new System.NotImplementedException();
-    }
 }

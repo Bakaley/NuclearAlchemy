@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 10
   rarity: 3
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041E\u0441\u043A\u043E\u043B\u043A\u0438 \u043C\u043E\u043B\u043D\u0438\u0438"
   EnglishName: Lightning shards
   IngredientFileName: LightningShards

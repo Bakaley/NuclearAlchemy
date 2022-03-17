@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 0
   rarity: 1
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u041D\u0435\u0444\u0440\u0438\u0442\u043E\u0432\u044B\u0439 \u043C\u043E\u043B\u043B\u044E\u0441\u043A"
   EnglishName: Jade clam
   IngredientFileName: JadeClam

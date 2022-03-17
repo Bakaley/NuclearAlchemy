@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 8
   essence3: 0
   rarity: 1
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u0416\u0430\u043B\u043E \u0441\u043A\u043E\u0440\u043F\u0438\u043E\u043D\u0430"
   EnglishName: Scorpion sting
   IngredientFileName: ScorpionSting

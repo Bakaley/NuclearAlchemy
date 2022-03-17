@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 1
   essence3: 0
   rarity: 2
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u0421\u0438\u044F\u044E\u0449\u0438\u0439 \u0433\u0440\u0443\u0437\u0434\u044C"
   EnglishName: Shining lump
   IngredientFileName: ShiningLump
@@ -79,10 +79,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   recipeName: 
+  recipeNameEN: 
+  fileName: 
   basePoints: 42
   aspect: 1
   temperature: 0
-  aether: 2
+  aether: 3
   visctosity: 0
   voidness: 0
 --- !u!1001 &1678497517185731614

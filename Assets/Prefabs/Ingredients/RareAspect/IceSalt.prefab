@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 0
   rarity: 1
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041B\u0435\u0434\u044F\u043D\u0430\u044F \u0441\u043E\u043B\u044C"
   EnglishName: Ice salt
   IngredientFileName: IceSalt

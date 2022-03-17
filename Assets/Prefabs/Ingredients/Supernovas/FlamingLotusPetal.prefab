@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 6
   essence3: 1
   rarity: 4
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u041B\u0435\u043F\u0435\u0441\u0442\u043E\u043A \u043F\u044B\u043B\u0430\u044E\u0449\u0435\u0433\u043E
     \u043B\u043E\u0442\u043E\u0441\u0430"
   EnglishName: Flaming lotus petal

@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 0
   rarity: 1
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u0425\u0438\u0449\u043D\u0430\u044F \u0440\u043E\u0437\u0430"
   EnglishName: Raptorial rose
   IngredientFileName: RaptorialRose

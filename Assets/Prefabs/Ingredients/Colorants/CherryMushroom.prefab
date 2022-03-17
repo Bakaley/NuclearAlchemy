@@ -54,7 +54,7 @@ MonoBehaviour:
   essence2: 10
   essence3: 0
   rarity: 1
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u0412\u0438\u0448\u043D\u0451\u0432\u044B\u0439 \u0433\u0440\u0438\u0431"
   EnglishName: Cherry mushroom
   IngredientFileName: CherryMushroom

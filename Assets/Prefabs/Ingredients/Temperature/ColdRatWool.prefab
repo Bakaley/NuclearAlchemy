@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 8
   essence3: 0
   rarity: 2
-  constellation: 3
+  affiliation: 3
   IngredientName: "\u0428\u0435\u0440\u0441\u0442\u044C \u0448\u043B\u0430\u0434\u043D\u043E\u043A\u0440\u044B\u0441\u0430"
   EnglishName: Coldrat Wool
   IngredientFileName: ColdRatWool

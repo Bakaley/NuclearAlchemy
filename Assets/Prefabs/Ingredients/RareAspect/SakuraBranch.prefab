@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 6
   rarity: 3
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u0412\u0435\u0442\u0432\u044C \u0441\u0430\u043A\u0443\u0440\u044B"
   EnglishName: Sakura branch
   IngredientFileName: SakuraBranch

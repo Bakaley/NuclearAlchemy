@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6529153578803393226}
   - component: {fileID: 6529153578803393227}
   m_Layer: 0
-  m_Name: IntelligencePotion Variant
+  m_Name: IntelligencePotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6529153578803393224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\u0417\u0435\u043B\u044C\u0435 \u0438\u043D\u0442\u0435\u043B\u043B\u0435\u043A\u0442\u0430"
-  icon: {fileID: 21300000, guid: 8d11458c06937984caf0e55595119adc, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: Potion of intelligence
+  fileName: IntelligencePotion
   basePoints: 40
   aspect: 1
   temperature: 0
   aether: 0
   visctosity: 0
   voidness: 0
-  currentLevel: 1
+  constellation1: 0
+  constellation2: 0
   potionType: 0
+  icon: {fileID: 21300000, guid: 8d11458c06937984caf0e55595119adc, type: 3}
   basePointsLVL2: 44
   basePointsLVL3: 48
   price: 120

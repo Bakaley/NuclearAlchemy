@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 4
   rarity: 3
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0424\u0438\u043B\u043E\u0441\u043E\u0444\u0441\u043A\u0430\u044F
     \u043F\u044B\u043B\u044C"
   EnglishName: Philosophical dust

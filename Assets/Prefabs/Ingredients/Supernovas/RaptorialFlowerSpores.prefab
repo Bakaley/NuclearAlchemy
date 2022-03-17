@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 4
   essence3: 0
   rarity: 1
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0421\u043F\u043E\u0440\u044B \u0445\u0438\u0449\u043D\u043E\u0433\u043E
     \u0446\u0432\u0435\u0442\u043A\u0430"
   EnglishName: Raptorial flower spores

@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 6
   essence3: 0
   rarity: 2
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u041E\u0431\u0440\u0430\u0442\u043D\u0430\u044F \u0441\u0435\u0440\u0430"
   EnglishName: Reversed sulfur
   IngredientFileName: ReversedSulfur

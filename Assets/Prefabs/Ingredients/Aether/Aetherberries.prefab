@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 6
   essence3: 0
   rarity: 1
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u042D\u0444\u0438\u0440\u043D\u044B\u0435 \u044F\u0433\u043E\u0434\u044B"
   EnglishName: Aetherberries
   IngredientFileName: Aetherberries

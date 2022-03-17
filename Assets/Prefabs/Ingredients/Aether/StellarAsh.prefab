@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 6
   rarity: 3
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u0417\u0432\u0451\u0437\u0434\u043D\u044B\u0439 \u043F\u0435\u043F\u0435\u043B"
   EnglishName: Stellar ash
   IngredientFileName: StellarAsh
@@ -79,10 +79,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   recipeName: 
+  recipeNameEN: 
+  fileName: 
   basePoints: 55
   aspect: 3
   temperature: 0
-  aether: 4
+  aether: 5
   visctosity: 0
   voidness: 0
 --- !u!1001 &7671772114133607684

@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 5
   essence3: 0
   rarity: 1
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041D\u0430\u0441\u0442\u043E\u0439\u043A\u0430 \u043D\u0430
     \u0448\u0438\u0448\u043A\u0430\u0445"
   EnglishName: Cone tincture

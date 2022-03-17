@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4740757532555511556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\u0417\u0435\u043B\u044C\u0435 \u0441\u043F\u043E\u043A\u043E\u0439\u0441\u0442\u0432\u0438\u044F"
-  icon: {fileID: 21300000, guid: 1b36b840311096a44aa0a68b55535a60, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: Calmness potion
+  fileName: CalmnessPotion
   basePoints: 53
   aspect: 3
   temperature: 0
   aether: 0
   visctosity: 0
   voidness: 0
-  currentLevel: 1
+  constellation1: 0
+  constellation2: 0
   potionType: 0
+  icon: {fileID: 21300000, guid: 1b36b840311096a44aa0a68b55535a60, type: 3}
   basePointsLVL2: 58
   basePointsLVL3: 64
   price: 166

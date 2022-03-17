@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 4
   essence3: 0
   rarity: 1
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u0421\u0442\u0440\u0435\u043B\u044C\u0447\u0430\u0442\u044B\u0435
     \u0433\u0440\u0438\u0431\u044B"
   EnglishName: Lancet mushrooms

@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 0
   rarity: 1
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041F\u044B\u043B\u044C\u0446\u0430 \u043F\u0438\u043A\u0441\u0438"
   EnglishName: Pixie dust
   IngredientFileName: PixieDust

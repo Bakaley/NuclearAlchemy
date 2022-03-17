@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 10
   rarity: 3
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u0413\u0440\u043E\u0437\u043E\u0432\u043E\u0439 \u043C\u0435\u0442\u0430\u043B\u043B"
   EnglishName: Lightning metal
   IngredientFileName: LightningMetal
@@ -79,10 +79,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   recipeName: 
+  recipeNameEN: 
+  fileName: 
   basePoints: 59
   aspect: 1
   temperature: 0
-  aether: 4
+  aether: 5
   visctosity: 0
   voidness: 0
 --- !u!1001 &5268395902312389069

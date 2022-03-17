@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 10
   rarity: 3
-  constellation: 3
+  affiliation: 3
   IngredientName: "\u0422\u0440\u043E\u0439\u043D\u043E\u0439 \u043B\u0451\u0434"
   EnglishName: Triple ice
   IngredientFileName: TripleIce

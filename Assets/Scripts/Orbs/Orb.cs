@@ -198,10 +198,10 @@ public abstract class Orb : MonoBehaviour
     {
         get
         {
-            if (!shouldDestroyed && archetype == ORB_ARCHETYPES.VOID)
+            if (!shouldDestroyed && antimatter)
             {
-                if (aetherCount == 0) return 1;
-                else return (int)(1 + 1 * aetherCount * aetherMultiplier);
+                if (aetherCount == 0) return level;
+                else return (int)(level + level * aetherCount * aetherMultiplier);
 
             }
             else return 0;

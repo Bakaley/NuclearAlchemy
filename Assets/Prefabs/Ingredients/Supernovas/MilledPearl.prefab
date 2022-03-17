@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 4
   essence3: 0
   rarity: 1
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0422\u043E\u043B\u0447\u0451\u043D\u044B\u0439 \u0436\u0435\u043C\u0447\u0443\u0433"
   EnglishName: Milled pearl
   IngredientFileName: MilledPearl

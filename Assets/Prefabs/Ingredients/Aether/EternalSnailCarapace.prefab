@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 9
   essence3: 0
   rarity: 1
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u041F\u0430\u043D\u0446\u0438\u0440\u044C \u0432\u0435\u0447\u043D\u043E\u0436\u0438\u0432\u0443\u0449\u0435\u0439
     \u0443\u043B\u0438\u0442\u043A\u0438"
   EnglishName: Eternal snail carapace

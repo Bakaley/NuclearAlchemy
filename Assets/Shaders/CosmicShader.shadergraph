@@ -73,9 +73,6 @@
             "m_Id": "07027fb1cb1b49978aeed37ac9bb6409"
         },
         {
-            "m_Id": "27976769f1544f168a24dd87f61d15cd"
-        },
-        {
             "m_Id": "04301988f9764cebba3c4dccebc89360"
         },
         {
@@ -352,9 +349,6 @@
             },
             {
                 "m_Id": "07027fb1cb1b49978aeed37ac9bb6409"
-            },
-            {
-                "m_Id": "27976769f1544f168a24dd87f61d15cd"
             }
         ]
     },
@@ -513,7 +507,7 @@
     "m_ActiveSubTarget": {
         "m_Id": "e86567526f6e469ebbb74c7f924d9a1a"
     },
-    "m_SurfaceType": 1,
+    "m_SurfaceType": 0,
     "m_AlphaMode": 0,
     "m_TwoSided": false,
     "m_AlphaClip": false,
@@ -728,39 +722,6 @@
     "m_Property": {
         "m_Id": "9a78bdd054348687b68eb87e2994df2e"
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
-    "m_ObjectId": "27976769f1544f168a24dd87f61d15cd",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "SurfaceDescription.Alpha",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "d20c796991684b0ba664465c1692bec9"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_SerializedDescriptor": "SurfaceDescription.Alpha"
 }
 
 {
@@ -2429,21 +2390,6 @@
         "e32": 0.0,
         "e33": 1.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "d20c796991684b0ba664465c1692bec9",
-    "m_Id": 0,
-    "m_DisplayName": "Alpha",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Alpha",
-    "m_StageCapability": 2,
-    "m_Value": 1.0,
-    "m_DefaultValue": 1.0,
-    "m_Labels": []
 }
 
 {

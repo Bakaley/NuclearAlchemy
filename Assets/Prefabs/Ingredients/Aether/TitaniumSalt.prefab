@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 10
   essence3: 0
   rarity: 2
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u0422\u0438\u0442\u0430\u043D\u043E\u0432\u0430\u044F \u0441\u043E\u043B\u044C"
   EnglishName: Titanium salt
   IngredientFileName: TitaniumSalt

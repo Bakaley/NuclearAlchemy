@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 8
   essence3: 0
   rarity: 2
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0418\u0441\u043A\u0440\u044F\u0449\u0430\u044F\u0441\u044F \u043B\u044F\u0433\u0443\u0448\u043A\u0430"
   EnglishName: Sparkling frog
   IngredientFileName: SparklingFrog

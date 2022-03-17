@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 7
   essence3: 0
   rarity: 2
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u041F\u0443\u0441\u0442\u043E\u0446\u0432\u0435\u0442"
   EnglishName: Voidenblossom
   IngredientFileName: Voidenblossom

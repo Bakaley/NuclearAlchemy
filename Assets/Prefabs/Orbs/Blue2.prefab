@@ -19772,8 +19772,6 @@ MonoBehaviour:
   aetherCount: 0
   antimatter: 0
   comboAvaliable: 1
-  orbDescription: 
-  orbDescriptionEN: 
   nextLevelOrb: {fileID: 1504604985067249816, guid: 3628e5b6ce0bb94438501a299abd18e6, type: 3}
   level: 2
   points: 5

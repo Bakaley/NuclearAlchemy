@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 0
   rarity: 1
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041A\u0443\u043A\u0443\u0440\u0443\u0437\u043D\u044B\u0439 \u043F\u0435\u0441\u043E\u043A"
   EnglishName: Corn sand
   IngredientFileName: CornSand

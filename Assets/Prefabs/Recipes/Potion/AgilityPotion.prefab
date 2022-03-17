@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8927523653512031566}
   - component: {fileID: 8927523653512031567}
   m_Layer: 0
-  m_Name: AgilityPotion Variant
+  m_Name: AgilityPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8927523653512031564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\u0417\u0435\u043B\u044C\u0435 \u043B\u043E\u0432\u043A\u043E\u0441\u0442\u0438"
-  icon: {fileID: 21300000, guid: da08478974c771c429e8363bbad3defa, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: Agility potion
+  fileName: AgilityPotion
   basePoints: 46
   aspect: 3
   temperature: 0
   aether: 0
   visctosity: 0
   voidness: 0
-  currentLevel: 1
+  constellation1: 0
+  constellation2: 0
   potionType: 0
+  icon: {fileID: 21300000, guid: da08478974c771c429e8363bbad3defa, type: 3}
   basePointsLVL2: 51
   basePointsLVL3: 55
   price: 141

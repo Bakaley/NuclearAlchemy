@@ -40,22 +40,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1009929458059518781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\u0420\u0430\u0437\u044A\u0435\u0434\u0430\u044E\u0449\u0435\u0435
     \u0437\u0435\u043B\u044C\u0435"
-  icon: {fileID: 21300000, guid: 0ecf4a1ba30891548b345d8ec3e0d054, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: Corrosive potion
+  fileName: CorrosivePotion
   basePoints: 48
   aspect: 2
   temperature: 0
   aether: 0
   visctosity: 0
-  voidness: 1
-  currentLevel: 1
-  potionType: 8
+  voidness: 6
+  constellation1: 5
+  constellation2: 0
+  potionType: 1
+  icon: {fileID: 21300000, guid: 0ecf4a1ba30891548b345d8ec3e0d054, type: 3}
   basePointsLVL2: 53
-  basePointsLVL3: 58
-  price: 148
+  basePointsLVL3: 57
+  price: 117

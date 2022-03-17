@@ -40,20 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4493815249611243157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  recipeName: "\u0412\u043E\u0441\u043A\u0440\u0435\u0448\u0430\u044E\u0449\u0435\u0435
-    \u0437\u0435\u043B\u044C\u0435"
+  recipeName: "\u0417\u0435\u043B\u044C\u0435 \u0432\u043E\u0441\u043A\u0440\u0435\u0448\u0435\u043D\u0438\u044F"
+  recipeNameEN: Resurrection potion
+  fileName: ResurrectionPotion
   basePoints: 88
   aspect: 3
   temperature: 0
   aether: 0
   visctosity: 0
   voidness: 0
-  potionType: 12
+  constellation1: 6
+  constellation2: 0
+  potionType: 1
   icon: {fileID: 21300000, guid: cc295477de11b9742804f7fd129a74d9, type: 3}
   basePointsLVL2: 97
   basePointsLVL3: 106
-  price: 306
+  price: 368

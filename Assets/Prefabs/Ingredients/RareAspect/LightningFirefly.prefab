@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 8
   essence3: 10
   rarity: 3
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041C\u043E\u043B\u043D\u0438\u0435\u0432\u044B\u0439 \u0441\u0432\u0435\u0442\u043B\u044F\u0447\u043E\u043A"
   EnglishName: Lightning firefly
   IngredientFileName: LightningFirefly

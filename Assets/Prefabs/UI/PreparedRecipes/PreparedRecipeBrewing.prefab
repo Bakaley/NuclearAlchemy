@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeIcon: {fileID: 9196931415947016095}
   counter: {fileID: 9196931417070366294}
+  rewardType: 1
   recipe: {fileID: 0}
 --- !u!222 &71201791388210706
 CanvasRenderer:

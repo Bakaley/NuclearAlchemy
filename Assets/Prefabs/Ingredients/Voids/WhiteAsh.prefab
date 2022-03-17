@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 5
   essence3: 0
   rarity: 1
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u0411\u0435\u043B\u044B\u0439 \u043F\u0435\u043F\u0435\u043B"
   EnglishName: White ash
   IngredientFileName: WhiteAsh

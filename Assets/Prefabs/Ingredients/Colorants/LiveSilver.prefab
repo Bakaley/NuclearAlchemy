@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 10
   rarity: 3
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u0416\u0438\u0432\u043E\u0435 \u0441\u0435\u0440\u0435\u0431\u0440\u043E"
   EnglishName: Live silver
   IngredientFileName: LiveSilver

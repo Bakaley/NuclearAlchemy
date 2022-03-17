@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3990712936552710717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  recipeName: "\u0418\u0441\u0446\u0435\u043B\u044F\u044E\u0449\u0438\u0439 \u0434\u044B\u043C"
-  icon: {fileID: 21300000, guid: 89fee58d4486b554e947971d5599dec4, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeName: "\u041B\u0435\u0447\u0435\u0431\u043D\u044B\u0439 \u0434\u044B\u043C"
+  recipeNameEN: Healing smoke
+  fileName: HealingSmoke
   basePoints: 40
   aspect: 2
   temperature: 0
-  aether: 2
+  aether: 3
   visctosity: 2
   voidness: 0
-  currentLevel: 1
-  potionType: 23
+  constellation1: 3
+  constellation2: 4
+  potionType: 1
+  icon: {fileID: 21300000, guid: 89fee58d4486b554e947971d5599dec4, type: 3}
   basePointsLVL2: 44
   basePointsLVL3: 48
-  price: 136
+  price: 168

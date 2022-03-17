@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 0
   rarity: 2
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u0410\u043B\u044C\u043D\u0435\u0437\u0438\u0439\u0441\u043A\u0438\u0439
     \u0442\u043E\u043C\u0430\u0442"
   EnglishName: Alnesian tomato

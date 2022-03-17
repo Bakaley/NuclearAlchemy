@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 0
   rarity: 1
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u041C\u043E\u0440\u0441\u043A\u043E\u0439 \u043A\u043E\u043D\u0451\u043A"
   EnglishName: Sea horse
   IngredientFileName: SeaHorse

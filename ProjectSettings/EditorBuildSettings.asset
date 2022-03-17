@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DemoScene_Forest.unity
     guid: cc3394a362c052545b42823ea9539668
+  - enabled: 0
+    path: Assets/Scenes/Cave.unity
+    guid: a26d2fd444f0b984ca2f5fd4a55d02eb
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9323f9639fd33984299ca42797803b5e, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 83cee3788832fbe44afddfa04e95f881, type: 2}

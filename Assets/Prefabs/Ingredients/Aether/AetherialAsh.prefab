@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 6
   essence3: 0
   rarity: 2
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u042D\u0444\u0438\u0440\u043D\u044B\u0439 \u043F\u0435\u043F\u0435\u043B"
   EnglishName: Aetherial ash
   IngredientFileName: AetherialAsh

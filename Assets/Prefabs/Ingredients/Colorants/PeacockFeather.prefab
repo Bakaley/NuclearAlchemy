@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 0
   rarity: 1
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u041F\u0435\u0440\u043E \u043F\u0430\u0432\u043B\u0438\u043D\u0430"
   EnglishName: Peacock feather
   IngredientFileName: PeacockFeather

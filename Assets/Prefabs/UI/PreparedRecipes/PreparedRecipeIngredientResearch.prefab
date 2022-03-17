@@ -606,6 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeIcon: {fileID: 8524818284818750218}
   counter: {fileID: 0}
+  recipeType: 3
   recipe: {fileID: 0}
 --- !u!223 &6821458496276263251
 Canvas:

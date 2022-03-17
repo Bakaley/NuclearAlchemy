@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 6
   essence3: 4
   rarity: 4
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0424\u0438\u043B\u043E\u0441\u043E\u0444\u0441\u043A\u0438\u0439
     \u043A\u0430\u043C\u0435\u043D\u044C"
   EnglishName: Philosophers stone

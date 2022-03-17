@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 1
   essence3: 6
   rarity: 3
-  constellation: 3
+  affiliation: 3
   IngredientName: "\u041E\u0431\u0441\u0438\u0434\u0438\u0430\u043D\u043E\u0432\u0430\u044F
     \u0440\u043E\u0437\u0430"
   EnglishName: Obsidian rose

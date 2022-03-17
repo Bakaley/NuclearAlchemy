@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 8
   essence3: 0
   rarity: 2
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041A\u0440\u044B\u043B\u043E \u0441\u043F\u0435\u0446\u0438\u0435\u0432\u043E\u0439
     \u0431\u0430\u0431\u043E\u0447\u043A\u0438"
   EnglishName: Spicyfly wIng

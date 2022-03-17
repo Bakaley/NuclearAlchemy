@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 10
   essence3: 0
   rarity: 1
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u041C\u043E\u0440\u0441\u043A\u0430\u044F \u0431\u0440\u0443\u0441\u043D\u0438\u043A\u0430"
   EnglishName: Sea lingonberry
   IngredientFileName: SeaLingonberry

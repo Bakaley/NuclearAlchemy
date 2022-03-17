@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 7
   essence3: 0
   rarity: 2
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u0422\u0451\u043C\u043D\u044B\u0439 \u043A\u043E\u043B\u043E\u043A\u043E\u043B\u044C\u0447\u0438\u043A"
   EnglishName: Dark bellblossom
   IngredientFileName: DarkBellBlossom

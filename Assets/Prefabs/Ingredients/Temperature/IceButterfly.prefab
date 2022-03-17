@@ -54,7 +54,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 0
   rarity: 1
-  constellation: 3
+  affiliation: 3
   IngredientName: "\u041B\u0435\u0434\u044F\u043D\u0430\u044F \u0431\u0430\u0431\u043E\u0447\u043A\u0430"
   EnglishName: Ice butterfly
   IngredientFileName: IceButterfly

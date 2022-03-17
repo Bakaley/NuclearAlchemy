@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 4
   essence3: 0
   rarity: 2
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u0421\u043E\u043B\u044C \u043F\u0435\u0440\u0435\u0440\u043E\u0436\u0434\u0435\u043D\u0438\u044F"
   EnglishName: Salt of rebirth
   IngredientFileName: SaltOfRebirth

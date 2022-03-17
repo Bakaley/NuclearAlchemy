@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7886585883152868939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   recipeName: "\"\u041F\u0443\u0440\u0433\u0430\""
-  icon: {fileID: 21300000, guid: dc4908ffb43fd1c4cb7f91c74c21cc69, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeNameEN: '"Blizzard"'
+  fileName: Blizzard
   basePoints: 87
   aspect: 1
   temperature: 0
   aether: 0
-  visctosity: 6
+  visctosity: 5
   voidness: 0
-  currentLevel: 1
-  potionType: 15
+  constellation1: 4
+  constellation2: 6
+  potionType: 1
+  icon: {fileID: 21300000, guid: dc4908ffb43fd1c4cb7f91c74c21cc69, type: 3}
   basePointsLVL2: 96
   basePointsLVL3: 104
-  price: 302
+  price: 423

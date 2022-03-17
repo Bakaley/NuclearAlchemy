@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 8
   essence3: 0
   rarity: 1
-  constellation: 5
+  affiliation: 5
   IngredientName: "\u0414\u044B\u043C\u0447\u0430\u0442\u044B\u0439 \u0442\u0435\u0440\u043C\u0438\u0442"
   EnglishName: Smoky termite
   IngredientFileName: SmokyTermite

@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 7
   essence3: 3
   rarity: 4
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u0413\u0440\u043E\u0437\u043E\u0432\u0430\u044F \u043B\u0438\u043B\u0438\u044F"
   EnglishName: Thunderstorm lily
   IngredientFileName: ThunderstormLily

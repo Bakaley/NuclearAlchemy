@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 2
   essence3: 0
   rarity: 1
-  constellation: 6
+  affiliation: 6
   IngredientName: "\u0414\u0438\u0441\u0442\u0438\u043B\u043B\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0435
     \u0441\u0435\u0440\u0435\u0431\u0440\u043E"
   EnglishName: Distilled silver

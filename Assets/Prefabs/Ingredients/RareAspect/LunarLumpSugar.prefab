@@ -58,7 +58,7 @@ MonoBehaviour:
   essence2: 6
   essence3: 0
   rarity: 2
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041B\u0443\u043D\u043D\u044B\u0439 \u0440\u0430\u0444\u0438\u043D\u0430\u0434"
   EnglishName: Lunar lump sugar
   IngredientFileName: LunarLumpSugar

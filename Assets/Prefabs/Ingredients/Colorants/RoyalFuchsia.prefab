@@ -55,7 +55,7 @@ MonoBehaviour:
   essence2: 6
   essence3: 0
   rarity: 1
-  constellation: 2
+  affiliation: 2
   IngredientName: "\u041A\u043E\u0440\u043E\u043B\u0435\u0432\u0441\u043A\u0430\u044F
     \u0444\u0443\u043A\u0441\u0438\u044F"
   EnglishName: Royal fuchsia

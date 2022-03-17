@@ -57,7 +57,7 @@ MonoBehaviour:
   essence2: 3
   essence3: 1
   rarity: 3
-  constellation: 4
+  affiliation: 4
   IngredientName: "\u041F\u043E\u0440\u043E\u0445\u043E\u0432\u043E\u0439 \u0433\u0440\u0438\u0431"
   EnglishName: Powder mushroom
   IngredientFileName: PowderMushroom

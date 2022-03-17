@@ -56,7 +56,7 @@ MonoBehaviour:
   essence2: 7
   essence3: 0
   rarity: 1
-  constellation: 1
+  affiliation: 1
   IngredientName: "\u041B\u0443\u043D\u043D\u044B\u0439 \u043B\u0438\u043C\u043E\u043D"
   EnglishName: Lunar lemon
   IngredientFileName: LunarLemon

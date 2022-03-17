@@ -40,21 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3342736149822260323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0e6c956d8804f44b24117d27b40b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fa0d97fb992d15429b262aa71c54280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  recipeName: "\u041E\u0442\u0432\u0430\u0440 \u043F\u0440\u0438\u0437\u0440\u0430\u043A\u0430"
-  icon: {fileID: 21300000, guid: 230abb5d0e7f38c459a75f63a177af98, type: 3}
-  iconColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  recipeName: "\u041F\u0440\u0438\u0437\u0440\u0430\u0447\u043D\u044B\u0439 \u043E\u0442\u0432\u0430\u0440"
+  recipeNameEN: Ghost decoction
+  fileName: GhostDecoction
   basePoints: 81
   aspect: 1
-  temperature: -7
+  temperature: -8
   aether: 0
   visctosity: 0
   voidness: 0
-  currentLevel: 1
-  potionType: 13
+  constellation1: 2
+  constellation2: 6
+  potionType: 1
+  icon: {fileID: 21300000, guid: 230abb5d0e7f38c459a75f63a177af98, type: 3}
   basePointsLVL2: 89
   basePointsLVL3: 97
-  price: 276
+  price: 387
