@@ -368,6 +368,7 @@ public class RecipeDrafter : MonoBehaviour
                 break;
 
 
+                //git test
             case DRAFT_TYPE.POTION_LEVEL_UP:
                 refreshDrafters(DRAFT_TYPE.POTION_BREWING);
                 List<Recipe> constlvlUPList1 = new List<Recipe>(PotionListManager.Const1ToLevelUP);
