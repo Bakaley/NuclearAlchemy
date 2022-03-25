@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,8 +37,10 @@ public class PotionCell : MonoBehaviour
     [SerializeField]
     GameObject potionCountCircle;
 
-    public void fillPotionCell(Potion potion, int count)
+    Potion potionInCell;
+    public void fillPotionChestCell(Potion potion, int count)
     {
+        potionInCell = potion;
         potionName.GetComponent<TextMeshProUGUI>().text = potion.RecipeName;
         if (count == 1) potionCountCircle.SetActive(false);
         else potionCount.GetComponent<TextMeshProUGUI>().text = "x" + count;
@@ -59,11 +62,29 @@ public class PotionCell : MonoBehaviour
         }
 
         lunarCount.GetComponent<TextMeshProUGUI>().text = potion.Price + "";
+
+        PlayerInventory.StaticInstance.OnPotionsCountChange += inventoryChangeHandler;
+
+        Button button = GetComponentInChildren<Button>();
+        button.onClick.AddListener(() =>
+        {
+            PlayerInventory.StaticInstance.remove1Potion(potion);
+        });
     }
 
-    public void fillBlueprintCell(Recipe recipe)
+    void inventoryChangeHandler(object inventory, EventArgs e)
     {
-        Potion potion = recipe.GetComponent<Potion>();
+        if (!((PlayerInventory)inventory).potionsInventory.ContainsKey(potionInCell)) Destroy(gameObject);
+        else
+        {
+            int count = PlayerInventory.StaticInstance.potionsInventory[potionInCell];
+            if (count == 1) potionCountCircle.SetActive(false);
+            else potionCount.GetComponent<TextMeshProUGUI>().text = "x" + count;
+        }
+    }
+
+    public void fillPotionBlueprintCell(Potion potion)
+    {
         potionName.GetComponent<TextMeshProUGUI>().text = potion.RecipeName;
         potionIcon.GetComponent<Image>().sprite = potion.Icon;
         emblemPlace1.GetComponent<Image>().sprite = getEmblemByConst(potion.Constellation1);
@@ -101,4 +122,8 @@ public class PotionCell : MonoBehaviour
         return emblemBasic;
     }
 
+    private void OnDisable()
+    {
+        PlayerInventory.StaticInstance.OnPotionsCountChange -= inventoryChangeHandler;
+    }
 }

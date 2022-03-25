@@ -5,52 +5,46 @@ using UnityEngine;
 public class InfoSection : MonoBehaviour
 {
     [SerializeField]
-    Bookmark defaultParagraphBookmark;
+    ChapterBookmark defaultRightBookmark;
 
     [SerializeField]
     GameObject leftPagePlace;
     [SerializeField]
     GameObject rightPagePlace;
 
-    [SerializeField]
-    Bookmark activeParagraph;
-    [SerializeField]
-    Bookmark activeBookmark;
+    ParagraphBookmark activeParagraphBookmark = null;
+    ChapterBookmark activeChapterBookmark = null;
 
     GameObject currentLeftPage;
     GameObject currentRightPage;
 
-    void changeLeftPage (Bookmark bookmark)
+    public void changeChapter (ChapterBookmark chapterBookmark)
     {
-        if(activeBookmark != bookmark)
+        if (activeChapterBookmark != chapterBookmark)
         {
-            if (currentLeftPage)
-            {
-                activeBookmark.setInactive();
-                Destroy(currentLeftPage);
-            }
-            currentLeftPage = Instantiate(bookmark.SectionOrPage, leftPagePlace.transform);
-            activeBookmark = bookmark;
+            if (activeChapterBookmark) activeChapterBookmark.setInactive();
+            activeChapterBookmark = chapterBookmark;
+            activeChapterBookmark.setActive();
+            if (currentLeftPage) Destroy(currentLeftPage);
+            currentLeftPage = Instantiate(activeChapterBookmark.SectionOrPage, leftPagePlace.transform);
         }
-
     }
-    public void changeRightPage(Bookmark bookmark)
+    public void changePage(ParagraphBookmark paragraphBookmark)
     {
-        if(activeParagraph != bookmark)
+        if (activeParagraphBookmark != paragraphBookmark)
         {
-            if (currentLeftPage)
-            {
-                activeParagraph.setInactive();
-                Destroy(currentRightPage);
-            }
-            currentRightPage = Instantiate(bookmark.SectionOrPage, rightPagePlace.transform);
-            activeParagraph = bookmark;
+            if (activeParagraphBookmark) activeParagraphBookmark.setInactive();
+            activeParagraphBookmark = paragraphBookmark;
+            activeParagraphBookmark.setActive();
+            if (currentRightPage) Destroy(currentRightPage);
+            currentRightPage = Instantiate(activeParagraphBookmark.SectionOrPage, rightPagePlace.transform);
         }
     }
 
     private void OnEnable()
     {
-        changeLeftPage(defaultParagraphBookmark);
+        if (activeChapterBookmark == null) changeChapter(defaultRightBookmark);
+
     }
 
 }

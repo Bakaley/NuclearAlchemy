@@ -2,54 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject addingModeButton;
-    [SerializeField]
-    GameObject mixingModeButton;
-    [SerializeField]
-    GameObject movingCross;
-    [SerializeField]
-    GameObject spinningCross;
-    [SerializeField]
-    GameObject choosingCross;
-    [SerializeField]
-    GameObject boardCross;
-    [SerializeField]
-    GameObject deployButton;
+    Camera cookingCamera, mainCamera;
 
     [SerializeField]
-    GameObject addingPlane;
-    [SerializeField]
-    GameObject mixingPlane;
-
-    [SerializeField]
-    GameObject target;
-    [SerializeField]
-    Sprite defaultBoardSample;
-    [SerializeField]
-    Sprite selectedBoardSample;
-
-    [SerializeField]
-    GameObject cookingUI;
-    [SerializeField]
-    GameObject movingUI;
+    GameObject MovingUI;
 
     [SerializeField]
     GameObject infoWindow;
-    public static UIManager staticInstance
+
+    [SerializeField]
+    GameObject hintPanel;
+
+    private void Awake()
     {
-        get;
-        private set;
+        Application.targetFrameRate = 60;
+        staticInstance = this;
     }
 
-    public static GameObject cameraObject
+    static UIManager staticInstance;
+
+    public static Camera UICamera
     {
         get
         {
-            return staticInstance.cookingUI.GetComponent<Canvas>().worldCamera.gameObject;
+            return staticInstance.GetComponentInParent<Camera>();
         }
     }
 
@@ -58,103 +39,55 @@ public class UIManager : MonoBehaviour
         get; private set;
     } = false;
 
-    static bool addingMode = false;
 
-    static List<DissolvingSprite> addingElementsList;
-    static List<DissolvingSprite>  mixingElementsList;
+    static bool lensingMode;
 
-    private void Awake()
-    {
-        addingElementsList = new List<DissolvingSprite>();
-        mixingElementsList = new List<DissolvingSprite>();
-
-        staticInstance = this;
-    }
 
     GameObject statBoard;
     void Start()
     {
-        addingElementsList.Add(choosingCross.GetComponent<DissolvingSprite>());
-        addingElementsList.Add(boardCross.GetComponent<DissolvingSprite>());
-        addingElementsList.Add(mixingModeButton.GetComponent<DissolvingSprite>());
-        addingElementsList.Add(deployButton.GetComponent<DissolvingSprite>());
-
-
-        mixingElementsList.Add(movingCross.GetComponent<DissolvingSprite>());
-        mixingElementsList.Add(spinningCross.GetComponent<DissolvingSprite>());
-        mixingElementsList.Add(addingModeButton.GetComponent<DissolvingSprite>());
+        //openCookingUI();
 
         infoWindow.SetActive(true);
     }
 
-    public void openCookingUI()
+    public static void openCookingUI()
     {
         cookingMode = true;
-        movingUI.SetActive(false);
-        cookingUI.SetActive(true);
-        if(MixingBoard.isEmpty) switchToAddingMode();
+        staticInstance.mainCamera.gameObject.SetActive(false);
+        staticInstance.MovingUI.SetActive(false);
+        staticInstance.cookingCamera.gameObject.SetActive(true);
     }
 
-    public void closeCookingUI()
+    public static void closeCookingUI()
     {
         cookingMode = false;
-        cookingUI.SetActive(false);
-        movingUI.SetActive(true);
+        staticInstance.mainCamera.gameObject.SetActive(true);
+        staticInstance.MovingUI.SetActive(true);
+        staticInstance.cookingCamera.gameObject.SetActive(false);
     }
 
-    public void switchToAddingMode()
+    public static void showHint(string hint)
     {
-        if (!addingMode)
-        {
-            addingPlane.GetComponent<SpriteRenderer>().sprite = selectedBoardSample;
-            mixingPlane.GetComponent<SpriteRenderer>().sprite = defaultBoardSample;
-            foreach (DissolvingSprite element in mixingElementsList)
-            {
-                element.disappear();
-                element.gameObject.SetActive(false);
-            }
-            foreach (DissolvingSprite element in target.GetComponentsInChildren<DissolvingSprite>())
-            {
-                element.disappear();
-            }            
-            foreach (DissolvingSprite element in addingElementsList)
-            {
-                element.appear();
-                element.gameObject.SetActive(true);
-
-            }
-
-            addingMode = true;
-        }
-        
+        staticInstance.hintPanel.GetComponent<TextMeshProUGUI>().text = hint;
+        staticInstance.hintPanel.SetActive(true);
     }
 
-    public void switchToMixingMode()
+    public static void showHint(string hint, float time)
     {
-        if (addingMode)
-        {
-            addingPlane.GetComponent<SpriteRenderer>().sprite = defaultBoardSample;
-            mixingPlane.GetComponent<SpriteRenderer>().sprite = selectedBoardSample;
-            foreach (DissolvingSprite element in mixingElementsList)
-            {
-                element.appear();
-                element.gameObject.SetActive(true);
-
-            }
-            foreach (DissolvingSprite element in target.GetComponentsInChildren<DissolvingSprite>())
-            {
-                element.appear();
-            }
-            foreach (DissolvingSprite element in addingElementsList)
-            {
-                element.disappear();
-                element.gameObject.SetActive(false);
-
-            }
-            addingMode = false;
-
-        }
+        staticInstance.hintPanel.GetComponent<TextMeshProUGUI>().text = hint;
+        staticInstance.hintPanel.SetActive(true);
+        staticInstance.Invoke("hideHintInvoking", time);
     }
 
-    
+    //Invoke нельзя применять к статическим методам - ставим костыль для монолита
+    void hideHintInvoking()
+    {
+        hideHint();
+    }
+
+    public static void hideHint()
+    {
+        staticInstance.hintPanel.SetActive(false);
+    }
 }

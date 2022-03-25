@@ -35,7 +35,7 @@ public class EssencePanel : MonoBehaviour
         get; private set;
     }
 
-    public static void clearEssences()
+    public void clearEssences()
     {
         essenceScores[Ingredient.ESSENSE.Water] = 0;
         essenceScores[Ingredient.ESSENSE.Fire] = 0;
@@ -103,6 +103,47 @@ public class EssencePanel : MonoBehaviour
             getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();
         }
         else getNumberSpriteRenderer(essenceIcons[essence]).GetComponent<Animation>().Play();*/
+    }
+
+    void removeEssence(Ingredient.ESSENSE essence)
+    {
+        essenceScores[essence] = 0;
+        if (essenceScores[essence] == 0)
+        {
+            essenceIcons[essence].GetComponent<IDissolving>().disappear();
+        }
+    }
+
+    public void wipeRandomEssence (int countToWipe)
+    {
+        List<Ingredient.ESSENSE> list = new List<Ingredient.ESSENSE>();
+        foreach (KeyValuePair<Ingredient.ESSENSE, int> pair in essenceScores)
+        {
+            if(pair.Value != 0) list.Add(pair.Key);
+        }
+        for (int i = 0; i < countToWipe; i++)
+        {
+            if (essenceCounter == 0) break;
+            else
+            {
+                Ingredient.ESSENSE essence = list[UnityEngine.Random.Range(0, list.Count)];
+                list.Remove(essence);
+                removeEssence(essence);
+            }
+        }
+    }
+
+    public int essenceCounter
+    {
+        get
+        {
+            int n = 0;
+            foreach (KeyValuePair <Ingredient.ESSENSE, int> pair in essenceScores)
+            {
+                if (pair.Value > 0) n++;
+            }
+            return n;
+        }
     }
 
     /*public static Image getNumberSpriteRenderer (GameObject icon)

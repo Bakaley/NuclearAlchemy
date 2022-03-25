@@ -178,7 +178,7 @@ public class MixingBoard : MonoBehaviour
         comboManager = new ComboManager(this);
     }
 
-    void Start()
+    void OnEnable()
     {
         StartCoroutine(comboManager.reactionCheck());
     }
@@ -434,7 +434,7 @@ public class MixingBoard : MonoBehaviour
                     orb.DestroyIn(.25f);
                 }
             }
-            EssencePanel.clearEssences();
+            StaticInstance.essencePanel.clearEssences();
         }
     }
 
@@ -452,6 +452,46 @@ public class MixingBoard : MonoBehaviour
                 }
             return true;
         }
+    }
+
+    public void wipe (int columnsCount, float percentageEssence)
+    {
+        List<List<Orb>> columns = new List<List<Orb>>();
+        for (int i = 0; i < MixingBoard.Width; i++)
+        {
+            List<Orb> list = new List<Orb>();
+            for (int j = 0; j < MixingBoard.Height; j++)
+            {
+                if (orbs[i, j] != null) list.Add(orbs[i, j]);
+            }
+            if(list.Count != 0) columns.Add(list);
+
+        }
+        List<List<Orb>> listToWipe = new List<List<Orb>>();
+        for (int i = 0; i < columnsCount; i++)
+        {
+            if (columns.Count == 0) break;
+            int n = UnityEngine.Random.Range(0, columns.Count);
+            List<Orb> list = columns[n];
+            columns.Remove(list);
+            listToWipe.Add(list);
+        }
+        foreach (List<Orb> list in listToWipe)
+        {
+            foreach (Orb orb in list)
+            {
+                if (orb.channeling) StaticInstance.breakReactionsWith(orb);
+                orb.DestroyIn(.25f);
+            }
+        }
+
+        if (percentageEssence <= 0 || percentageEssence >= 1)
+        {
+            Debug.Log("Попытка удалить " + percentageEssence + "% эссенции");
+            return;
+        }
+        int essenceToWipe = Math.Max((int)Math.Round(essencePanel.essenceCounter * percentageEssence), 1);
+        essencePanel.wipeRandomEssence(essenceToWipe);
     }
 
     private class ComboManager

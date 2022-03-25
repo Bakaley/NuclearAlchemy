@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPS : MonoBehaviour
+public class FPSCounter : MonoBehaviour
 {
-	void Start()
-	{
-		Application.targetFrameRate = 60;
 
-	}
 
 	float deltaTime = 0.0f;
 	float timer = 0.0f;

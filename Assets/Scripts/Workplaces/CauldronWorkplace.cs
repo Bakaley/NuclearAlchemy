@@ -6,7 +6,7 @@ public class CauldronWorkplace : Workplace
 {
     public override void openWorkplaceUI()
     {
-        UIManager.staticInstance.openCookingUI();
+        UIManager.openCookingUI();
     }
 
     // Start is called before the first frame update

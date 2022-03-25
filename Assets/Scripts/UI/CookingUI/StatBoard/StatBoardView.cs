@@ -231,14 +231,14 @@ public class StatBoardView : MonoBehaviour
 
         if (oldPointsCounter != pointsCounter)
         {
-            CookingModule.updatePreparedPotions();
+            BottleModule.updatePreparedPotions();
             textScoreCounter.GetComponent<TextMeshProUGUI>().text = pointsCounter + "";
             textScoreCounter.GetComponent<Animation>().Play();
         }
 
         if(oldTemperature != temperatureCounter)
         {
-            CookingModule.updatePreparedPotions();
+            BottleModule.updatePreparedPotions();
             if(temperatureCounter == 0)
             {
                 textTemperatureCounter.GetComponent<TextMeshProUGUI>().text = "" + temperatureCounter;
@@ -258,21 +258,21 @@ public class StatBoardView : MonoBehaviour
 
         if (oldAether != aetherCoutner)
         {
-            CookingModule.updatePreparedPotions();
+            BottleModule.updatePreparedPotions();
             textAetherCounter.GetComponent<TextMeshProUGUI>().text = aetherCoutner + "";
             textAetherCounter.GetComponent<Animation>().Play();
         }
 
         if (oldPlasmicity != viscosityCounter)
         {
-            CookingModule.updatePreparedPotions();
+            BottleModule.updatePreparedPotions();
             textPlasmicityCouter.GetComponent<TextMeshProUGUI>().text = viscosityCounter + "";
             textPlasmicityCouter.GetComponent<Animation>().Play();
         }
 
         if (oldVoidness != voidnessCounter)
         {
-            CookingModule.updatePreparedPotions();
+            BottleModule.updatePreparedPotions();
             textVoidCounter.GetComponent<TextMeshProUGUI>().text = voidnessCounter + "";
             textVoidCounter.GetComponent<Animation>().Play();
         }
@@ -360,7 +360,7 @@ public class StatBoardView : MonoBehaviour
         }
            if(oldAspect != potionAspect)
         {
-            CookingModule.updatePreparedPotions();
+            BottleModule.updatePreparedPotions();
             
             left.gameObject.GetComponent<Animation>().Play();
             right.gameObject.GetComponent<Animation>().Play();

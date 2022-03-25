@@ -49,12 +49,12 @@ public class PreparedRecipe : MonoBehaviour
 
     public void unprepare()
     {
-        CookingModule.unprepareRecipe(this);
+        BottleModule.unprepareRecipe(this);
     }
 
     public void unprepareWithNoredirecting()
     {
-        CookingModule.unprepareRecipe(this, false);
+        BottleModule.unprepareRecipe(this, false);
     }
 
     public void dissolveIn(float time)

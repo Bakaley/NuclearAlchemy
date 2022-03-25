@@ -14,45 +14,41 @@ public class StatBoardPanel : MonoBehaviour
     [SerializeField]
     StatBoardView.FILTER_TYPE filter;
 
-    [SerializeField]
-    GameObject currentShowingPanel;
 
     public void enableOrbCounters ()
     {
         switch (filter)
         {
             case StatBoardView.FILTER_TYPE.POINTS:
-                if(GameSettings.CurrentLanguage == GameSettings.Language.RU) currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: сила";
-                else currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Shown: power";
+                if(GameSettings.CurrentLanguage == GameSettings.Language.RU) UIManager.showHint("Показано: сила");
+                else UIManager.showHint("Shown: power");
                 break;
 
             case StatBoardView.FILTER_TYPE.ASPECT:
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: аспект";
-                else currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Shown: aspect";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) UIManager.showHint("Показано: аспект");
+                else UIManager.showHint("Shown: aspect");
                 break;
 
             case StatBoardView.FILTER_TYPE.TEMPERATURE:
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: температура";
-                else currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Shown: temperature";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) UIManager.showHint("Показано: температура");
+                else UIManager.showHint("Shown: temperature");
                 break;
 
             case StatBoardView.FILTER_TYPE.AETHERNESS:
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: эфир";
-                else currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Shown: aether";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) UIManager.showHint("Показано: эфир");
+                else UIManager.showHint("Shown: aether");
                 break;
 
             case StatBoardView.FILTER_TYPE.VISCOSITY:
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: вязкость";
-                else currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Shown: viscosity";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) UIManager.showHint("Показано: вязкость");
+                else UIManager.showHint("Shown: viscosity");
                 break;
 
             case StatBoardView.FILTER_TYPE.VOIDNESS:
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Показано: пустоты";
-                else currentShowingPanel.GetComponent<TextMeshProUGUI>().text = "Shown: voids";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) UIManager.showHint("Показано: пустотность");
+                else UIManager.showHint("Shown: voids");
                 break;
         }
-
-        currentShowingPanel.SetActive(true);
        
 
         foreach (Orb orb in MixingBoard.StaticInstance.orbs)
@@ -91,7 +87,7 @@ public class StatBoardPanel : MonoBehaviour
 
     public void disableOrbCounters()
     {
-        currentShowingPanel.SetActive(false);
+        UIManager.hideHint();
         foreach (Orb orb in MixingBoard.StaticInstance.orbs)
         {
             if (orb) orb.disableCounter();

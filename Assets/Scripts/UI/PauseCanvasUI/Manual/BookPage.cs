@@ -70,16 +70,16 @@ public class BookPage : MonoBehaviour
                 recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.GetComponent<Ingredient>().IngredientName : recipe.GetComponent<Ingredient>().EnglishName;
                 break;
         }
-        recipeTypeString.GetComponent<TextMeshPro>().text = constellationCaption;
-        recipeNameString.GetComponent<TextMeshPro>().text = recipeNameCaption;
+        recipeTypeString.GetComponent<TextMeshProUGUI>().text = constellationCaption;
+        recipeNameString.GetComponent<TextMeshProUGUI>().text = recipeNameCaption;
 
-        if(recipe.Type == Recipe.RECIPE_TYPE.POTION_LEVEL_UP) potionParamList.points.GetComponent<TextMeshPro>().text = recipe.GetComponent<Potion>().Points + "";
-        else potionParamList.points.GetComponent<TextMeshPro>().text = recipe.Points + "";
+        if(recipe.Type == Recipe.RECIPE_TYPE.POTION_LEVEL_UP) potionParamList.points.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().Points + "";
+        else potionParamList.points.GetComponent<TextMeshProUGUI>().text = recipe.Points + "";
 
         switch (recipe.Aspect)
         {
             case StatBoardView.Aspect.body:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.body;
                 potionParamList.aspect1.GetComponent<Transform>().localPosition = new Vector3(
                     (potionParamList.aspect1.GetComponent<Transform>().localPosition.x + potionParamList.aspect2.GetComponent<Transform>().localPosition.x) / 2,
                     potionParamList.aspect1.GetComponent<Transform>().localPosition.y,
@@ -87,7 +87,7 @@ public class BookPage : MonoBehaviour
                 potionParamList.aspect2.gameObject.SetActive(false);
                 break;
             case StatBoardView.Aspect.mind:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
                 potionParamList.aspect1.GetComponent<Transform>().localPosition = new Vector3(
                     (potionParamList.aspect1.GetComponent<Transform>().localPosition.x + potionParamList.aspect2.GetComponent<Transform>().localPosition.x) / 2,
                     potionParamList.aspect1.GetComponent<Transform>().localPosition.y,
@@ -95,7 +95,7 @@ public class BookPage : MonoBehaviour
                 potionParamList.aspect2.gameObject.SetActive(false);
                 break;
             case StatBoardView.Aspect.soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.soul;
                 potionParamList.aspect1.GetComponent<Transform>().localPosition = new Vector3(
                     (potionParamList.aspect1.GetComponent<Transform>().localPosition.x + potionParamList.aspect2.GetComponent<Transform>().localPosition.x) / 2,
                     potionParamList.aspect1.GetComponent<Transform>().localPosition.y,
@@ -103,99 +103,99 @@ public class BookPage : MonoBehaviour
                 potionParamList.aspect2.gameObject.SetActive(false);
                 break;
             case StatBoardView.Aspect.body_and_no_mind:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedMind;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.body;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedMind;
                 break;
             case StatBoardView.Aspect.body_and_no_soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedSoul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.body;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedSoul;
                 break;
             case StatBoardView.Aspect.mind_and_no_body:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedBody;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedBody;
                 break;
             case StatBoardView.Aspect.mind_and_no_soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedSoul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedSoul;
                 break;
             case StatBoardView.Aspect.soul_and_no_body:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedBody;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.soul;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedBody;
                 break;
             case StatBoardView.Aspect.soul_and_no_mind:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedMind;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.soul;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedMind;
                 break;
             case StatBoardView.Aspect.mind_body:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.body;
                 break;
             case StatBoardView.Aspect.mind_soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.soul;
                 break;
             case StatBoardView.Aspect.body_soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.body;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.soul;
                 break;
         }
 
         if (recipe.Temperature > 0)
         {
-            potionParamList.param1.GetComponent<TextMeshPro>().text = "+" + recipe.Temperature;
-            potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.temperaturePlus;
+            potionParamList.param1.GetComponent<TextMeshProUGUI>().text = "+" + recipe.Temperature;
+            potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.temperaturePlus;
         }
         if (recipe.Temperature < 0)
         {
-            potionParamList.param1.GetComponent<TextMeshPro>().text = recipe.Temperature + "";
-            potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.temperatureMinus;
+            potionParamList.param1.GetComponent<TextMeshProUGUI>().text = recipe.Temperature + "";
+            potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.temperatureMinus;
         }
         if (recipe.Aether != 0)
         {
-            if (potionParamList.param1.GetComponent<TextMeshPro>().text == "0")
+            if (potionParamList.param1.GetComponent<TextMeshProUGUI>().text == "0")
             {
-                potionParamList.param1.GetComponent<TextMeshPro>().text = recipe.Aether + "";
-                potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.aether;
+                potionParamList.param1.GetComponent<TextMeshProUGUI>().text = recipe.Aether + "";
+                potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.aether;
             }
             else
             {
-                potionParamList.param2.GetComponent<TextMeshPro>().text = recipe.Aether + "";
-                potionParamList.param2Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.aether;
+                potionParamList.param2.GetComponent<TextMeshProUGUI>().text = recipe.Aether + "";
+                potionParamList.param2Sprite.GetComponent<Image>().sprite = potionParamList.aether;
             }
         }
         if (recipe.Viscosity != 0)
         {
-            if (potionParamList.param1.GetComponent<TextMeshPro>().text == "0")
+            if (potionParamList.param1.GetComponent<TextMeshProUGUI>().text == "0")
             {
-                potionParamList.param1.GetComponent<TextMeshPro>().text = recipe.Viscosity + "";
-                potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.viscosity;
+                potionParamList.param1.GetComponent<TextMeshProUGUI>().text = recipe.Viscosity + "";
+                potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.viscosity;
             }
             else
             {
-                potionParamList.param2.GetComponent<TextMeshPro>().text = recipe.Viscosity + "";
-                potionParamList.param2Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.viscosity;
+                potionParamList.param2.GetComponent<TextMeshProUGUI>().text = recipe.Viscosity + "";
+                potionParamList.param2Sprite.GetComponent<Image>().sprite = potionParamList.viscosity;
             }
         }
         if (recipe.Voidness != 0)
         {
-            if (potionParamList.param1.GetComponent<TextMeshPro>().text == "0")
+            if (potionParamList.param1.GetComponent<TextMeshProUGUI>().text == "0")
             {
-                potionParamList.param1.GetComponent<TextMeshPro>().text = recipe.Voidness + "";
-                potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.voidness;
+                potionParamList.param1.GetComponent<TextMeshProUGUI>().text = recipe.Voidness + "";
+                potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.voidness;
             }
             else
             {
-                potionParamList.param2.GetComponent<TextMeshPro>().text = recipe.Voidness + "";
-                potionParamList.param2Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.voidness;
+                potionParamList.param2.GetComponent<TextMeshProUGUI>().text = recipe.Voidness + "";
+                potionParamList.param2Sprite.GetComponent<Image>().sprite = potionParamList.voidness;
             }
         }
 
-        if (potionParamList.param1.GetComponent<TextMeshPro>().text == "0")
+        if (potionParamList.param1.GetComponent<TextMeshProUGUI>().text == "0")
         {
             secondParamsBlock.SetActive(false);
         }
 
-        if (potionParamList.param2.GetComponent<TextMeshPro>().text == "0")
+        if (potionParamList.param2.GetComponent<TextMeshProUGUI>().text == "0")
         {
             potionParamList.param1.GetComponent<Transform>().localPosition = new Vector3(
                    potionParamList.param1.GetComponent<Transform>().localPosition.x,
@@ -215,10 +215,10 @@ public class BookPage : MonoBehaviour
             case Recipe.RECIPE_TYPE.POTION_BREWING:
                 GameObject rewaredBrewGameobject = Instantiate(potionBrewingSampler, rewardPlace.transform);
                 PotionBrewSampler potionBrewReward = rewaredBrewGameobject.GetComponent<PotionBrewSampler>();
-                potionBrewReward.potionIcon.GetComponent<SpriteRenderer>().sprite = recipe.GetComponent<Potion>().Icon;
-                potionBrewReward.potionIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<Potion>().IconColor;
-                potionBrewReward.potionCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<Potion>().PotionCount + "";
-                potionBrewReward.lunarCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<Potion>().Price + "";
+                potionBrewReward.potionIcon.GetComponent<Image>().sprite = recipe.GetComponent<Potion>().Icon;
+                potionBrewReward.potionIcon.GetComponent<Image>().color = recipe.GetComponent<Potion>().IconColor;
+                potionBrewReward.potionCount.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().PotionCount + "";
+                potionBrewReward.lunarCount.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().Price + "";
                 setConstellationPotionString();
                 break;
 
@@ -236,21 +236,23 @@ public class BookPage : MonoBehaviour
                 setConstellationPotionString();
                 GameObject rewardLevelUPGameObject = Instantiate(potionLevelUpSampler, rewardPlace.transform);
                 PotionLevelUpSampler potionLevelUpReward = rewardLevelUPGameObject.GetComponent<PotionLevelUpSampler>();
-                potionLevelUpReward.potionIcon.GetComponent<SpriteRenderer>().sprite = recipe.GetComponent<Potion>().Icon;
-                potionLevelUpReward.potionIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<Potion>().IconColor;
-                potionLevelUpReward.oldCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<Potion>().PotionCount + "";
-                potionLevelUpReward.newCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<Potion>().nextLvLPotionCount + "";
+                potionLevelUpReward.potionIcon.GetComponent<Image>().sprite = recipe.GetComponent<Potion>().Icon;
+                potionLevelUpReward.potionIcon.GetComponent<Image>().color = recipe.GetComponent<Potion>().IconColor;
+
+
+                potionLevelUpReward.oldCount.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().PotionCount + "";
+                potionLevelUpReward.newCount.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().nextLvLPotionCount + "";
                 break;
 
             case Recipe.RECIPE_TYPE.POTION_BLUEPRINT:
                 GameObject rewaredPotBlueprintGameobject = Instantiate(potionBlueprintSampler, rewardPlace.transform);
                 PotionBlueprintSampler potionBlueprintReward = rewaredPotBlueprintGameobject.GetComponent<PotionBlueprintSampler>();
                 potionBlueprintReward.backgroundBlueprint.SetActive(true);
-                potionBlueprintReward.potionIcon.transform.localScale = new Vector3(.75f, .75f, .75f);
-                potionBlueprintReward.potionIcon.GetComponent<SpriteRenderer>().sprite = recipe.GetComponent<Potion>().Icon;
-                potionBlueprintReward.potionIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<Potion>().IconColor;
-                potionBlueprintReward.potionCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<Potion>().PotionCount + "";
-                potionBlueprintReward.lunarCount.GetComponent<TextMeshPro>().text = recipe.GetComponent<Potion>().Price + "";
+                //potionBlueprintReward.potionIcon.transform.localScale = new Vector3(.75f, .75f, .75f);
+                potionBlueprintReward.potionIcon.GetComponent<Image>().sprite = recipe.GetComponent<Potion>().Icon;
+                potionBlueprintReward.potionIcon.GetComponent<Image>().color = recipe.GetComponent<Potion>().IconColor;
+                potionBlueprintReward.potionCount.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().nextLvLPotionCount + "";
+                potionBlueprintReward.lunarCount.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().Price + "";
                 setConstellationPotionString();
                 break;
         }
@@ -303,7 +305,7 @@ public class BookPage : MonoBehaviour
                     break;
             }
             constellationString.SetActive(true);
-            constellationString.GetComponent<TextMeshPro>().text = constellationCaption;
+            constellationString.GetComponent<TextMeshProUGUI>().text = constellationCaption;
         }
 
         void fillIngredientReward()
@@ -317,17 +319,17 @@ public class BookPage : MonoBehaviour
 
             if (recipe.GetComponent<Ingredient>().essence2 == Ingredient.ESSENSE.None)
             {
-                ingrSampler.essence3.GetComponent<SpriteRenderer>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<SpriteRenderer>().sprite;
-                ingrSampler.essence3.GetComponent<SpriteRenderer>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<SpriteRenderer>().color;
+                ingrSampler.essence3.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().sprite;
+                ingrSampler.essence3.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().color;
                 ingrSampler.essence3.gameObject.transform.localPosition = new Vector3(ingrSampler.essence3.gameObject.transform.localPosition.x, (ingrSampler.essence3.gameObject.transform.localPosition.y + ingrSampler.essence1.gameObject.transform.localPosition.y) / 2, ingrSampler.essence3.gameObject.transform.localPosition.z);
                 ingrSampler.essence3.gameObject.SetActive(true);
             }
             else if (recipe.GetComponent<Ingredient>().essence3 == Ingredient.ESSENSE.None)
             {
-                ingrSampler.essence1.GetComponent<SpriteRenderer>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<SpriteRenderer>().sprite;
-                ingrSampler.essence1.GetComponent<SpriteRenderer>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<SpriteRenderer>().color;
-                ingrSampler.essence2.GetComponent<SpriteRenderer>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<SpriteRenderer>().sprite;
-                ingrSampler.essence2.GetComponent<SpriteRenderer>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<SpriteRenderer>().color;
+                ingrSampler.essence1.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().sprite;
+                ingrSampler.essence1.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().color;
+                ingrSampler.essence2.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<Image>().sprite;
+                ingrSampler.essence2.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<Image>().color;
 
                 ingrSampler.essence1.gameObject.transform.localPosition = new Vector3(ingrSampler.essence1.gameObject.transform.localPosition.x, (ingrSampler.essence1.gameObject.transform.localPosition.y + ingrSampler.essence3.gameObject.transform.localPosition.y) / 2, ingrSampler.essence1.gameObject.transform.localPosition.z);
                 ingrSampler.essence2.gameObject.transform.localPosition = new Vector3(ingrSampler.essence2.gameObject.transform.localPosition.x, (ingrSampler.essence2.gameObject.transform.localPosition.y + ingrSampler.essence3.gameObject.transform.localPosition.y) / 2, ingrSampler.essence2.gameObject.transform.localPosition.z);
@@ -337,20 +339,20 @@ public class BookPage : MonoBehaviour
             }
             else
             {
-                ingrSampler.essence1.GetComponent<SpriteRenderer>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<SpriteRenderer>().sprite;
-                ingrSampler.essence1.GetComponent<SpriteRenderer>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<SpriteRenderer>().color;
-                ingrSampler.essence2.GetComponent<SpriteRenderer>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<SpriteRenderer>().sprite;
-                ingrSampler.essence2.GetComponent<SpriteRenderer>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<SpriteRenderer>().color;
-                ingrSampler.essence3.GetComponent<SpriteRenderer>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence3].GetComponent<SpriteRenderer>().sprite;
-                ingrSampler.essence3.GetComponent<SpriteRenderer>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence3].GetComponent<SpriteRenderer>().color;
+                ingrSampler.essence1.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().sprite;
+                ingrSampler.essence1.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence1].GetComponent<Image>().color;
+                ingrSampler.essence2.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<Image>().sprite;
+                ingrSampler.essence2.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence2].GetComponent<Image>().color;
+                ingrSampler.essence3.GetComponent<Image>().sprite = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence3].GetComponent<Image>().sprite;
+                ingrSampler.essence3.GetComponent<Image>().color = EssenceList.essenceIcons[recipe.GetComponent<Ingredient>().essence3].GetComponent<Image>().color;
                 ingrSampler.essence1.gameObject.SetActive(true);
                 ingrSampler.essence2.gameObject.SetActive(true);
                 ingrSampler.essence3.gameObject.SetActive(true);
             }
 
             IngredientCell.SetActive(true);
-            IngredientIcon.GetComponent<SpriteRenderer>().sprite = recipe.GetComponent<Ingredient>().IngredientIcon;
-            IngredientIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<Ingredient>().IngredientIconColor;
+            IngredientIcon.GetComponent<Image>().sprite = recipe.GetComponent<Ingredient>().IngredientIcon;
+            IngredientIcon.GetComponent<Image>().color = recipe.GetComponent<Ingredient>().IngredientIconColor;
 
 
             switch (recipe.GetComponent<Ingredient>().Affliliation)
@@ -377,7 +379,7 @@ public class BookPage : MonoBehaviour
             }
 
             constellationString.SetActive(true);
-            constellationString.GetComponent<TextMeshPro>().text = constellationCaption;
+            constellationString.GetComponent<TextMeshProUGUI>().text = constellationCaption;
         }
 
         Recipe.EssenceRequirement[] ess = recipe.essences;
@@ -408,5 +410,6 @@ public class BookPage : MonoBehaviour
     {
         DraftModule.clean();
         DraftModule.pick(recipe);
+        if(DraftModule.CurrentDrafts.Count > 0 && recipe.Type != Recipe.RECIPE_TYPE.POTION_BREWING) Destroy(DraftModule.CurrentDrafts[0].gameObject);
     }
 }

@@ -69,8 +69,12 @@ public class RecipeDrafter : MonoBehaviour
 
     private void Start()
     {
-        counter = transform.parent.GetComponentInChildren<TextMeshPro>();
-        refreshCounter();
+        if(DraftType != DRAFT_TYPE.POTION_BREWING)
+        {
+            counter = transform.parent.GetComponentInChildren<TextMeshPro>();
+            refreshCounter();
+        }
+
     }
 
     void refreshCounter()
@@ -113,6 +117,11 @@ public class RecipeDrafter : MonoBehaviour
     public void beginDraft()
     {
         if (draft != DRAFT_TYPE.POTION_BREWING && UIManager.cookingMode) return;
+        if (DraftModule.CurrentRecipes.Count >= 3)
+        {
+            UIManager.showHint("Сначала приготовьте уже выбранные рецепты)", 1f);
+            return;
+        }
         switch (draft)
         {
             case DRAFT_TYPE.POTION_BREWING:

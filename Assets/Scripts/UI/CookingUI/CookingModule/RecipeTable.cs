@@ -52,13 +52,13 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         switch (recipe.Type)
         {
             case Recipe.RECIPE_TYPE.POTION_BREWING:
-                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeName;
+                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeNameEN;
                 break;
             case Recipe.RECIPE_TYPE.POTION_BLUEPRINT:
-                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeName;
+                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeNameEN;
                 break;
             case Recipe.RECIPE_TYPE.POTION_LEVEL_UP:
-                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeName;
+                recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.RecipeName : recipe.RecipeNameEN;
                 break;
             case Recipe.RECIPE_TYPE.NEW_INGREDIENT:
                 recipeNameCaption = GameSettings.CurrentLanguage == GameSettings.Language.RU ? recipe.GetComponent<Ingredient>().IngredientName : recipe.GetComponent<Ingredient>().EnglishName;
@@ -68,14 +68,14 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                 break;
         }
 
-        recipeNameString.GetComponent<TextMeshPro>().text = recipeNameCaption;
-        if (recipe.Type == Recipe.RECIPE_TYPE.POTION_LEVEL_UP) potionParamList.points.GetComponent<TextMeshPro>().text = recipe.GetComponent<Potion>().Points + "";
-        else potionParamList.points.GetComponent<TextMeshPro>().text = recipe.Points + "";
+        recipeNameString.GetComponent<TextMeshProUGUI>().text = recipeNameCaption;
+        if (recipe.Type == Recipe.RECIPE_TYPE.POTION_LEVEL_UP) potionParamList.points.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().Points + "";
+        else potionParamList.points.GetComponent<TextMeshProUGUI>().text = recipe.Points + "";
 
         switch (recipe.Aspect)
         {
             case StatBoardView.Aspect.body:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.body;
                 potionParamList.aspect1.GetComponent<Transform>().localPosition = new Vector3(
                     (potionParamList.aspect1.GetComponent<Transform>().localPosition.x + potionParamList.aspect2.GetComponent<Transform>().localPosition.x) / 2,
                     potionParamList.aspect1.GetComponent<Transform>().localPosition.y,
@@ -83,7 +83,7 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                 potionParamList.aspect2.gameObject.SetActive(false);
                 break;
             case StatBoardView.Aspect.mind:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
                 potionParamList.aspect1.GetComponent<Transform>().localPosition = new Vector3(
                     (potionParamList.aspect1.GetComponent<Transform>().localPosition.x + potionParamList.aspect2.GetComponent<Transform>().localPosition.x) / 2,
                     potionParamList.aspect1.GetComponent<Transform>().localPosition.y,
@@ -91,7 +91,7 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                 potionParamList.aspect2.gameObject.SetActive(false);
                 break;
             case StatBoardView.Aspect.soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.soul;
                 potionParamList.aspect1.GetComponent<Transform>().localPosition = new Vector3(
                     (potionParamList.aspect1.GetComponent<Transform>().localPosition.x + potionParamList.aspect2.GetComponent<Transform>().localPosition.x) / 2,
                     potionParamList.aspect1.GetComponent<Transform>().localPosition.y,
@@ -99,111 +99,111 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                 potionParamList.aspect2.gameObject.SetActive(false);
                 break;
             case StatBoardView.Aspect.body_and_no_mind:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedMind;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.body;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedMind;
                 break;
             case StatBoardView.Aspect.body_and_no_soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedSoul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.body;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedSoul;
                 break;
             case StatBoardView.Aspect.mind_and_no_body:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedBody;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedBody;
                 break;
             case StatBoardView.Aspect.mind_and_no_soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedSoul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedSoul;
                 break;
             case StatBoardView.Aspect.soul_and_no_body:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedBody;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.soul;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedBody;
                 break;
             case StatBoardView.Aspect.soul_and_no_mind:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.crossedMind;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.soul;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.crossedMind;
                 break;
             case StatBoardView.Aspect.mind_body:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.body;
                 break;
             case StatBoardView.Aspect.mind_soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.mind;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.mind;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.soul;
                 break;
             case StatBoardView.Aspect.body_soul:
-                potionParamList.aspect1.GetComponent<SpriteRenderer>().sprite = potionParamList.body;
-                potionParamList.aspect2.GetComponent<SpriteRenderer>().sprite = potionParamList.soul;
+                potionParamList.aspect1.GetComponent<Image>().sprite = potionParamList.body;
+                potionParamList.aspect2.GetComponent<Image>().sprite = potionParamList.soul;
                 break;
         }
 
         if (recipe.Temperature > 0)
         {
-            potionParamList.param1.GetComponent<TextMeshPro>().text = "+" + recipe.Temperature;
-            potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.temperaturePlus;
+            potionParamList.param1.GetComponent<TextMeshProUGUI>().text = "+" + recipe.Temperature;
+            potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.temperaturePlus;
             secondaryParam1 = secondparamType.TEMPERATURE;
         }
         if (recipe.Temperature < 0)
         {
-            potionParamList.param1.GetComponent<TextMeshPro>().text = recipe.Temperature + "";
-            potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.temperatureMinus;
+            potionParamList.param1.GetComponent<TextMeshProUGUI>().text = recipe.Temperature + "";
+            potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.temperatureMinus;
             secondaryParam1 = secondparamType.TEMPERATURE;
         }
         if (recipe.Aether != 0)
         {
-            if (potionParamList.param1.GetComponent<TextMeshPro>().text == "0")
+            if (potionParamList.param1.GetComponent<TextMeshProUGUI>().text == "0")
             {
-                potionParamList.param1.GetComponent<TextMeshPro>().text = recipe.Aether + "";
-                potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.aether;
+                potionParamList.param1.GetComponent<TextMeshProUGUI>().text = recipe.Aether + "";
+                potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.aether;
                 secondaryParam1 = secondparamType.AETHER;
             }
             else
             {
-                potionParamList.param2.GetComponent<TextMeshPro>().text = recipe.Aether + "";
-                potionParamList.param2Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.aether;
+                potionParamList.param2.GetComponent<TextMeshProUGUI>().text = recipe.Aether + "";
+                potionParamList.param2Sprite.GetComponent<Image>().sprite = potionParamList.aether;
                 secondaryParam2 = secondparamType.AETHER;
             }
         }
         if (recipe.Viscosity != 0)
         {
-            if (potionParamList.param1.GetComponent<TextMeshPro>().text == "0")
+            if (potionParamList.param1.GetComponent<TextMeshProUGUI>().text == "0")
             {
-                potionParamList.param1.GetComponent<TextMeshPro>().text = recipe.Viscosity + "";
-                potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.viscosity;
+                potionParamList.param1.GetComponent<TextMeshProUGUI>().text = recipe.Viscosity + "";
+                potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.viscosity;
                 secondaryParam1 = secondparamType.VISCOSITY;
 
             }
             else
             {
-                potionParamList.param2.GetComponent<TextMeshPro>().text = recipe.Viscosity + "";
-                potionParamList.param2Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.viscosity;
+                potionParamList.param2.GetComponent<TextMeshProUGUI>().text = recipe.Viscosity + "";
+                potionParamList.param2Sprite.GetComponent<Image>().sprite = potionParamList.viscosity;
                 secondaryParam2 = secondparamType.VISCOSITY;
 
             }
         }
         if (recipe.Voidness != 0)
         {
-            if (potionParamList.param1.GetComponent<TextMeshPro>().text == "0")
+            if (potionParamList.param1.GetComponent<TextMeshProUGUI>().text == "0")
             {
-                potionParamList.param1.GetComponent<TextMeshPro>().text = recipe.Voidness + "";
-                potionParamList.param1Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.voidness;
+                potionParamList.param1.GetComponent<TextMeshProUGUI>().text = recipe.Voidness + "";
+                potionParamList.param1Sprite.GetComponent<Image>().sprite = potionParamList.voidness;
                 secondaryParam1 = secondparamType.VOIDNESS;
 
             }
             else
             {
-                potionParamList.param2.GetComponent<TextMeshPro>().text = recipe.Voidness + "";
-                potionParamList.param2Sprite.GetComponent<SpriteRenderer>().sprite = potionParamList.voidness;
+                potionParamList.param2.GetComponent<TextMeshProUGUI>().text = recipe.Voidness + "";
+                potionParamList.param2Sprite.GetComponent<Image>().sprite = potionParamList.voidness;
                 secondaryParam2 = secondparamType.VOIDNESS;
 
             }
         }
 
-        if (potionParamList.param1.GetComponent<TextMeshPro>().text == "0")
+        if (potionParamList.param1.GetComponent<TextMeshProUGUI>().text == "0")
         {
             secondParamsBlock.SetActive(false);
         }
 
-        if (potionParamList.param2.GetComponent<TextMeshPro>().text == "0")
+        if (potionParamList.param2.GetComponent<TextMeshProUGUI>().text == "0")
         {
             potionParamList.param1.GetComponent<Transform>().localPosition = new Vector3(
                    potionParamList.param1.GetComponent<Transform>().localPosition.x,
@@ -225,30 +225,27 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         switch (recipe.Type)
         {
             case Recipe.RECIPE_TYPE.POTION_BREWING:
-                rewardIcon.GetComponent<SpriteRenderer>().sprite = recipeObject.GetComponent<Potion>().Icon;
-                rewardIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<Potion>().IconColor;
+                rewardIcon.GetComponent<Image>().sprite = recipeObject.GetComponent<Potion>().Icon;
+                rewardIcon.GetComponent<Image>().color = recipe.GetComponent<Potion>().IconColor;
                 break;
             case Recipe.RECIPE_TYPE.POTION_LEVEL_UP:
-                rewardIcon.GetComponent<SpriteRenderer>().sprite = recipeObject.GetComponent<Potion>().Icon;
-                rewardIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<Potion>().IconColor;
+                rewardIcon.GetComponent<Image>().sprite = recipeObject.GetComponent<Potion>().Icon;
+                rewardIcon.GetComponent<Image>().color = recipe.GetComponent<Potion>().IconColor;
                 arrow.SetActive(true);
                 break;
             case Recipe.RECIPE_TYPE.NEW_INGREDIENT:
                 backgroundIcon.SetActive(true);
-                rewardIcon.transform.localScale = new Vector3(200f, 200f, 200f);
-                rewardIcon.GetComponent<SpriteRenderer>().sprite = recipeObject.GetComponent<Ingredient>().IngredientIcon;
-                rewardIcon.GetComponent<SpriteRenderer>().color = recipeObject.GetComponent<Ingredient>().IngredientIconColor;
+                rewardIcon.GetComponent<Image>().sprite = recipeObject.GetComponent<Ingredient>().IngredientIcon;
+                rewardIcon.GetComponent<Image>().color = recipeObject.GetComponent<Ingredient>().IngredientIconColor;
                 break;
             case Recipe.RECIPE_TYPE.CONSUMABLE:
-                rewardIcon.transform.localScale = new Vector3(225f, 225f, 225f);
-                rewardIcon.GetComponent<SpriteRenderer>().sprite = recipeObject.GetComponent<Ingredient>().IngredientIcon;
-                rewardIcon.GetComponent<SpriteRenderer>().color = recipeObject.GetComponent<Ingredient>().IngredientIconColor;
+                rewardIcon.GetComponent<Image>().sprite = recipeObject.GetComponent<Ingredient>().IngredientIcon;
+                rewardIcon.GetComponent<Image>().color = recipeObject.GetComponent<Ingredient>().IngredientIconColor;
                 break;
             case Recipe.RECIPE_TYPE.POTION_BLUEPRINT:
-                rewardIcon.GetComponent<SpriteRenderer>().sprite = recipeObject.GetComponent<Potion>().Icon;
-                rewardIcon.GetComponent<SpriteRenderer>().color = recipe.GetComponent<Potion>().IconColor;
+                rewardIcon.GetComponent<Image>().sprite = recipeObject.GetComponent<Potion>().Icon;
+                rewardIcon.GetComponent<Image>().color = recipe.GetComponent<Potion>().IconColor;
                 backgroundIcon.SetActive(true);
-                rewardIcon.transform.localScale = new Vector3(250f, 250f, 250f);
                 break;
         }
 
@@ -340,11 +337,11 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         if (UIManager.cookingMode)
         {
-            if (CookingModule.ableToNewPreparedRecipe)
+            if (BottleModule.ableToNewPreparedRecipe)
             {
                 if (recipeRequiermentCheck())
                 {
-                    CookingModule.prepareRecipe(recipe);
+                    BottleModule.prepareRecipe(recipe);
                     setTargeted(true);
                 }
             }
@@ -353,7 +350,7 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     public void unprepare()
     {
-        background.GetComponent<SpriteRenderer>().sprite = defalutBackground;
+        background.GetComponent<Image>().sprite = defalutBackground;
     }
 
     public bool recipeRequiermentCheck()
@@ -436,8 +433,8 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     public void setTargeted(bool targetOn)
     {
-        if(targetOn) background.GetComponent<SpriteRenderer>().sprite = targetedBackground;
-        else background.GetComponent<SpriteRenderer>().sprite = defalutBackground;
+        if(targetOn) background.GetComponent<Image>().sprite = targetedBackground;
+        else background.GetComponent<Image>().sprite = defalutBackground;
     }
 
     float holdingTime = 0;
@@ -602,7 +599,7 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
                     string incons4 = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Нет нужной эссенции": "No essence that needed";
                     if(inconsistancies.Count < 4) inconsistancies.Add(incons4);
                 }
-                CookingModule.showInconsistencyPanel(inconsistancies);
+                BottleModule.showInconsistencyPanel(inconsistancies);
             }
         }
     }
@@ -623,6 +620,6 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         holdingButton = false;
-        if (UIManager.cookingMode) CookingModule.hideInconsistencyPanel();
+        if (UIManager.cookingMode) BottleModule.hideInconsistencyPanel();
     }
 }

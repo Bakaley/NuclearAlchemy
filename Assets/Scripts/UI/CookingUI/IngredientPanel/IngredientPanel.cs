@@ -78,7 +78,7 @@ public class IngredientPanel : MonoBehaviour
 
     public void chooseUpLeft()
     {
-        UIManager.staticInstance.switchToAddingMode();
+        CookingManager.staticInstance.switchToAddingMode();
         if (targetedPlace != placeUpLeft)
         {
             changeTarget(placeUpLeft);
@@ -89,7 +89,7 @@ public class IngredientPanel : MonoBehaviour
     public void chooseUpRight()
     {
 
-        UIManager.staticInstance.switchToAddingMode();
+        CookingManager.staticInstance.switchToAddingMode();
         if (targetedPlace != placeUpRight)
         {
             changeTarget(placeUpRight);
@@ -100,7 +100,7 @@ public class IngredientPanel : MonoBehaviour
     public void chooseDownLeft()
     {
 
-        UIManager.staticInstance.switchToAddingMode();
+        CookingManager.staticInstance.switchToAddingMode();
         if (targetedPlace != placeDownLeft)
         {
             changeTarget(placeDownLeft);
@@ -111,7 +111,7 @@ public class IngredientPanel : MonoBehaviour
     public void chooseDownRight()
     {
 
-        UIManager.staticInstance.switchToAddingMode();
+        CookingManager.staticInstance.switchToAddingMode();
         if (targetedPlace != placeDownRight)
         {
             changeTarget(placeDownRight);

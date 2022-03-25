@@ -27,11 +27,20 @@ public class DraftModule : MonoBehaviour
         recipeTables = new Dictionary<Recipe, GameObject>();
         StartCoroutine(recipeSpawn());
     }
+
+    public static Camera CookingCamera
+    {
+        get
+        {
+            return staticInstance.GetComponentInParent<Camera>();
+        }
+    }
+
     void Update()
     {
         if (opened)
         {
-            if (Input.GetMouseButton(0) && !RectTransformUtility.RectangleContainsScreenPoint(container.GetComponent<RectTransform>(), Input.mousePosition, UIManager.cameraObject.GetComponent<Camera>()))
+            if (Input.GetMouseButton(0) && !RectTransformUtility.RectangleContainsScreenPoint(container.GetComponent<RectTransform>(), Input.mousePosition, UIManager.UICamera))
             {
                 if (page1)
                 {
@@ -54,18 +63,31 @@ public class DraftModule : MonoBehaviour
         }
     }
 
-    public int MAX_RECIPES = 3;
+    static readonly int MAX_RECIPES = 3;
 
-    public static int CurrentRecipesCount
+    public static List<RecipeTable> CurrentRecipes
     {
         get
         {
-            int c = 0;
+            List<RecipeTable> list = new List<RecipeTable>();
             foreach (Transform tr in staticInstance.recipePanel.transform)
             {
-                if (tr.GetComponent<RecipeTable>() || tr.GetComponent<RecipeDrafter>()) c++;
+                if (tr.GetComponent<RecipeTable> ()) list.Add(tr.GetComponent<RecipeTable>());
             }
-            return c;
+            return list;
+        }
+    }
+
+    public static List<RecipeDrafter> CurrentDrafts
+    {
+        get
+        {
+            List<RecipeDrafter> list = new List<RecipeDrafter>();
+            foreach (Transform tr in staticInstance.recipePanel.transform)
+            {
+                if (tr.GetComponent<RecipeDrafter>()) list.Add(tr.GetComponent<RecipeDrafter>());
+            }
+            return list;
         }
     }
 
@@ -113,7 +135,7 @@ public class DraftModule : MonoBehaviour
         else if (page2 == null) page2 = page;
         else if (page3 == null) page3 = page;
 
-        page.GetComponentInChildren<TextMeshPro>().text = limitText;
+        page.GetComponentInChildren<TextMeshProUGUI>().text = limitText;
         IDissolving[] dissolvingElements = page.GetComponentsInChildren<IDissolving>();
         foreach (IDissolving elem in dissolvingElements) elem.appear();
     }
@@ -168,8 +190,8 @@ public class DraftModule : MonoBehaviour
                     else limit = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Остальные зелья, которые можно улучшить, находятся в других созвездиях." : "The rest of the potions, that can be upgraded, are in other constellations.";
                     break;
                 case RecipeDrafter.DRAFT_TYPE.POTION_BLUEPRINT:
-                    if (recipeDrafter.Counter - (recipes.Count - n) == 0) limit = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Новые рецепты зелий можно найти в подземельях, или приобрести у торговцев." : "New potion recipes can be found in dungeons, or purchased from merchants.";
-                    else limit = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Остальные рецепты зелий, которые можно изучить, находятся в других созвездиях." : "The rest of the potion recipes, that can be learned, are in other constellations.";
+                    if (recipeDrafter.Counter - (recipes.Count - n) == 0) limit = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Вы выучили все рецепты зелий, которые у вас были." : "You learned all the potion recipes you had.";
+                    else limit = GameSettings.CurrentLanguage == GameSettings.Language.RU ? "Вы уже знаете все рецепты зелий, которые привязаны к текущим созвездиям. Смените созвездия, чтобы увидеть оставшиеся неизученные рецепты." : "You already know all the potion recipes that are tied to the current constellations. Change constellations to see the remaining unlearned recipes.";
                     break;
             }
             generate(recipes, limit);
@@ -188,7 +210,7 @@ public class DraftModule : MonoBehaviour
         }
 
         addRecipeTable(recipe, recipeTable);
-        CookingModule.addRecipe(recipe);
+        BottleModule.addRecipe(recipe);
 
         if(openedDrafter.DraftType == RecipeDrafter.DRAFT_TYPE.POTION_LEVEL_UP)
         {
@@ -206,17 +228,24 @@ public class DraftModule : MonoBehaviour
     }
     public static void cancelRecipe(Recipe recipe)
     {
-        CookingModule.cancelRecipe(recipe);
+        BottleModule.cancelRecipe(recipe);
         Destroy(recipeTables[recipe]);
         recipeTables.Remove(recipe);
+    }
+
+    public static bool isRecipePanelFull
+    {
+        get
+        {
+            return CurrentRecipes.Count + CurrentDrafts.Count >= MAX_RECIPES;
+        }
     }
 
     IEnumerator recipeSpawn()
     {
         while (true)
         {
-            Debug.Log(CurrentRecipesCount);
-            if (CurrentRecipesCount < MAX_RECIPES) Instantiate(recipeDrafterSampler, recipePanel.transform);
+            if(!isRecipePanelFull) Instantiate(recipeDrafterSampler, recipePanel.transform);
             yield return new WaitForSeconds(1);
         }
     }

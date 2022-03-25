@@ -164,13 +164,13 @@ public class InfoPanelManager : MonoBehaviour
 
 
 
-            Vector3 clickedPosition = UIManager.cameraObject.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+            Vector3 clickedPosition = CookingManager.CookingCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector3 clickedPositionMixing = mixingBoard.gameObject.transform.InverseTransformPoint(clickedPosition);
             clickedPositionMixing = new Vector3(Convert.ToSingle(clickedPositionMixing.x - mixingBoard.OrbShift.transform.localPosition.x + .5), Convert.ToSingle(clickedPositionMixing.y - mixingBoard.OrbShift.transform.localPosition.y + .5), -1);
 
             if (uncertaintyDrafter != null)
             {
-                if (!RectTransformUtility.RectangleContainsScreenPoint(uncertaintyDrafter.GetComponent<UncertaintyDrafter>().cellsBlock.GetComponent<RectTransform>(), Input.mousePosition, UIManager.cameraObject.GetComponent<Camera>()))
+                if (!RectTransformUtility.RectangleContainsScreenPoint(uncertaintyDrafter.GetComponent<UncertaintyDrafter>().cellsBlock.GetComponent<RectTransform>(), Input.mousePosition, CookingManager.CookingCamera))
                 {
                     if (clickedPositionMixing.x < MixingBoard.Width && clickedPositionMixing.x >= 0 && clickedPositionMixing.y < MixingBoard.Height && clickedPositionMixing.y >= 0)
                     {
@@ -302,7 +302,26 @@ public class InfoPanelManager : MonoBehaviour
     void fillPanel(CLICKED_BOARD board)
     {
 
-        Instantiate(orbCaption, infoPanelTransorm).GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.orb;
+        TextMeshProUGUI orbName = Instantiate(orbCaption, infoPanelTransorm).GetComponent<TextMeshProUGUI>();
+        string name = "";
+        if (!clickedOrb) name = InfoPanelLexemas.orb;
+        else
+        {
+            if (GameSettings.CurrentLanguage == GameSettings.Language.RU)
+            {
+                name = orbTypeDicrionaryRU[clickedOrb.type] + "";
+                if (clickedOrb.archetype == Orb.ORB_ARCHETYPES.ASPECT) name += (" (ур. " + clickedOrb.Level + ")");
+            }
+            else
+            {
+                name = orbTypeDicrionaryEN[clickedOrb.type] + "";
+                if (clickedOrb.archetype == Orb.ORB_ARCHETYPES.ASPECT) name += (" (lvl " + clickedOrb.Level + ")");
+            }
+        }
+
+        orbName.SetText(name);
+
+
         RectTransform separatorTransform = Instantiate(separator, infoPanelTransorm).GetComponent<RectTransform>();
         if (!clickedOrb) Instantiate(orbInfoAbsent, infoPanelTransorm).GetComponentInChildren<TextMeshProUGUI>().text = InfoPanelLexemas.absent;
         else
@@ -591,6 +610,14 @@ public class InfoPanelManager : MonoBehaviour
         else
         {
             Instantiate(orbEffectsAbsent, infoPanelTransorm).GetComponentInChildren<TextMeshProUGUI>().text = InfoPanelLexemas.absentMultiples;
+        }
+
+        if(board == CLICKED_BOARD.MIXING_BOARD)
+        {
+            Instantiate(cellEffectsCaption, infoPanelTransorm).GetComponentInChildren<TextMeshProUGUI>().text = InfoPanelLexemas.cellEffects;
+            Instantiate(separator, infoPanelTransorm);
+            Instantiate(cellEffectsAbsent, infoPanelTransorm).GetComponentInChildren<TextMeshProUGUI>().text = InfoPanelLexemas.absentMultiples;
+
         }
     }
 

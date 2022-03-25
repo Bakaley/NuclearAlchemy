@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 3111396713426916236}
   - component: {fileID: 4538971744298685362}
   m_Layer: 5
-  m_Name: PotionCell
+  m_Name: PotionChestCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

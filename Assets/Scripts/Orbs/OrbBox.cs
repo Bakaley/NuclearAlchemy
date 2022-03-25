@@ -35,18 +35,24 @@ public class OrbBox : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(fallingCheck());
+    }
+
     //используется, чтобы сфера не начинала падать, пока уже падает
     public bool falling = false;
     private void Start()
     {
         Orb = GetComponentInChildren<Orb>();
-        StartCoroutine(fallingCheck());
     }
 
     IEnumerator fallingCheck()
     {
         while (true)
         {
+            if(transform.parent == null) yield return new WaitForSeconds(.07f);
+
             if (transform.parent.gameObject == MixingBoard.StaticInstance.OrbShift)
             {
                 if (!xStricted || !yStricted || !lying) MixingBoard.StaticInstance.spinDelay = Math.Max(.1, MixingBoard.StaticInstance.spinDelay);

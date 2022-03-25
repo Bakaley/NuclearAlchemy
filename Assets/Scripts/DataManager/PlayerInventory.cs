@@ -6,9 +6,14 @@ using System.IO;
 
 public class PlayerInventory : MonoBehaviour
 {
-
+    public static PlayerInventory StaticInstance
+    {
+        get;
+        private set;
+    }
     private void Awake()
     {
+        StaticInstance = this;
         potionsInventory = new Dictionary<Potion, int>();
         ingredientsInventory = new Dictionary<Ingredient, int>();
     }
@@ -47,42 +52,59 @@ public class PlayerInventory : MonoBehaviour
         }
         
     }
-    public static Dictionary<Potion, int> potionsInventory
+    public Dictionary<Potion, int> potionsInventory
     {
         get; private set;
     }
 
-    public static Dictionary<Ingredient, int> ingredientsInventory
+    public Dictionary<Ingredient, int> ingredientsInventory
     {
         get; private set;
     }
 
-    public static void addPotion (Potion potionRecipe, int count)
+    public void addPotion (Potion potionRecipe, int count)
     {
-        Debug.Log("adding " + count + "potions of" + potionRecipe);
         if (potionsInventory.ContainsKey(potionRecipe)) potionsInventory[potionRecipe] += count;
         else potionsInventory.Add(potionRecipe, count);
         SaveLoadManager.Save();
+        OnPotionsCountChange?.Invoke(this, EventArgs.Empty);
     }
 
-    public static void delete1Potion (Potion potionRecipe)
+    public void remove1Potion (Potion potionRecipe)
     {
         potionsInventory[potionRecipe]--;
         if (potionsInventory[potionRecipe] == 0) potionsInventory.Remove(potionRecipe);
         SaveLoadManager.Save();
+        OnPotionsCountChange?.Invoke(this, EventArgs.Empty);
+
     }
 
-    public static void addIngredient(Ingredient ingredient, int count)
+    public void addIngredient(Ingredient ingredient, int count)
     {
         if (ingredientsInventory.ContainsKey(ingredient)) ingredientsInventory[ingredient] += count;
         else ingredientsInventory.Add(ingredient, count);
         SaveLoadManager.Save();
     }
 
-    public static void delete1Ingredient(Ingredient ingredient)
+    public void remove1Ingredient(Ingredient ingredient)
     {
         ingredientsInventory[ingredient]--;
         if (ingredientsInventory[ingredient] == 0) ingredientsInventory.Remove(ingredient);
         SaveLoadManager.Save();
     }
+
+    public int PotionsAmount
+    {
+        get
+        {
+            int n = 0;
+            foreach (KeyValuePair<Potion, int> pair in potionsInventory)
+            {
+                n += pair.Value;
+            }
+            return n;
+        }
+    }
+
+    public event EventHandler OnPotionsCountChange;
 }

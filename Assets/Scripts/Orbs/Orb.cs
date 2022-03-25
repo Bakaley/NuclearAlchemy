@@ -259,7 +259,6 @@ public abstract class Orb : MonoBehaviour
 
         public ReplacingOrbStruct(GameObject orbToReplace, bool fireFlag = false, bool iceFlag = false, int aetherCounter = 0, bool antimatterFlag = false, List<ReplacingOrbStruct> list = null)
         {
-            Debug.Log(orbToReplace);
             baseOrb = orbToReplace.GetComponentInChildren<Orb>().gameObject;
             fire = fireFlag;
             ice = iceFlag;

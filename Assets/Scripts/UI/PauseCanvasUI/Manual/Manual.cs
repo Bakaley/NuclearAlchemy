@@ -7,30 +7,25 @@ public class Manual : MonoBehaviour
     [SerializeField]
     GameObject sectionPlace;
     [SerializeField]
-    GameObject activeBookmarkPlace;
-    [SerializeField]
-    GameObject inactiveBookmarks;
-    [SerializeField]
-    Bookmark defaultBookmark;
+    SectionBookmark defaultTopBookmark;
 
-    Bookmark activeBookmark;
-    GameObject activeSection;
+    SectionBookmark activeSectionBookmark = null;
+    GameObject currentSection;
 
-    public void changeSection (Bookmark bookmark)
+    public void changeSection (SectionBookmark sectionBookmark)
     {
-        if(activeBookmark)
+        if(sectionBookmark != activeSectionBookmark)
         {
-            activeBookmark.transform.SetParent(inactiveBookmarks.transform);
-            Destroy(activeSection.gameObject);
+            if(activeSectionBookmark) activeSectionBookmark.setInactive();
+            activeSectionBookmark = sectionBookmark;
+            activeSectionBookmark.setActive();
+            if(currentSection) Destroy(currentSection);
+            currentSection = Instantiate(activeSectionBookmark.SectionOrPage, sectionPlace.transform);
         }
-        activeBookmark = bookmark;
-        activeBookmark.gameObject.transform.SetParent(activeBookmarkPlace.transform);
-        activeSection = Instantiate(activeBookmark.SectionOrPage, sectionPlace.transform);
     }
     
     private void OnEnable()
     {
-        if (activeBookmark == null) changeSection(defaultBookmark);
-        else changeSection(activeBookmark);
+        if (activeSectionBookmark == null) changeSection(defaultTopBookmark);
     }
 }

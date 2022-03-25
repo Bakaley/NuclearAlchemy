@@ -51,10 +51,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preview: {fileID: 0}
   essence1: 2
-  essence2: 0
-  essence3: 0
+  essence2: 4
+  essence3: 5
   rarity: 0
-  constellation: 0
+  affiliation: 0
   IngredientName: 
   EnglishName: 
   IngredientFileName: 

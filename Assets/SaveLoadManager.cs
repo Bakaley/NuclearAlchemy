@@ -37,12 +37,12 @@ public class SaveLoadManager : MonoBehaviour
             saveLoadFile.ingredientsAvaliabilitySave.Add(pair.Key.IngredientFileName, pair.Value + "");
         }
 
-        foreach (KeyValuePair<Potion, int> pair in PlayerInventory.potionsInventory)
+        foreach (KeyValuePair<Potion, int> pair in PlayerInventory.StaticInstance.potionsInventory)
         {
             saveLoadFile.potionsSave.Add(pair.Key.FileName, pair.Value);
         }
 
-        foreach (KeyValuePair<Ingredient, int> pair in PlayerInventory.ingredientsInventory)
+        foreach (KeyValuePair<Ingredient, int> pair in PlayerInventory.StaticInstance.ingredientsInventory)
         {
             saveLoadFile.ingredientsSave.Add(pair.Key.IngredientFileName, pair.Value);
         }

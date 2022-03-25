@@ -5,21 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainRoom.unity
     guid: ed8a37eb640d7df4db7d22c4b49dc37a
   - enabled: 0
     path: Assets/Scenes/MindPalaces.unity
     guid: 7dccd2a8d6a980945ab2505513345dba
-  - enabled: 0
-    path: Assets/Scenes/DemoScene_Forest.unity
-    guid: cc3394a362c052545b42823ea9539668
   - enabled: 0
     path: Assets/Scenes/Cave.unity
     guid: a26d2fd444f0b984ca2f5fd4a55d02eb

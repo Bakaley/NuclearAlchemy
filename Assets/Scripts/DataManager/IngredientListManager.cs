@@ -147,6 +147,8 @@ public class IngredientListManager : MonoBehaviour
                 secondList = voidsList;
                 break;
             case ConstellationManager.CONSTELLATION.LENSING:
+                secondList = firstList;
+                break;
             case ConstellationManager.CONSTELLATION.NONE:
                 secondList = new List<Ingredient>();
                 break;
@@ -211,7 +213,7 @@ public class IngredientListManager : MonoBehaviour
         //линзирование не может занимать слот первого созвездия и возвращает ингредиенты из слота первого созвездия, если этот слот != NONE
         if (constellation == ConstellationManager.CONSTELLATION.LENSING)
         {
-            if (ConstellationManager.CONSTELLATION1 == ConstellationManager.CONSTELLATION.NONE) return getIngredients(ConstellationManager.CONSTELLATION1, avaliability);
+            if (ConstellationManager.CONSTELLATION1 != ConstellationManager.CONSTELLATION.NONE) return getIngredients(ConstellationManager.CONSTELLATION1, avaliability);
         }
 
         List<Ingredient> list = new List<Ingredient>();

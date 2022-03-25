@@ -2716,6 +2716,7 @@ MonoBehaviour:
   selectedBoardSample: {fileID: 21300000, guid: e327a2632e800bf4bb651c66930f8f15, type: 3}
   cookingUI: {fileID: 5010123705262790947}
   movingUI: {fileID: 8446392141417168333}
+  infoWindow: {fileID: 0}
 --- !u!1 &8446392140463151565
 GameObject:
   m_ObjectHideFlags: 0
@@ -11117,10 +11118,6 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: d75ac9724878e754aa00c85e08b15f1b, type: 2}
-    - target: {fileID: 3923946350619312093, guid: b57a4742bcc1c4d4fbe45c33bd2d2407, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3923946350619312093, guid: b57a4742bcc1c4d4fbe45c33bd2d2407, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1

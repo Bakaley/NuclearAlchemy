@@ -56,6 +56,7 @@ public class Potion : Recipe
     }
 
 
+
     [SerializeField]
     POTION_TYPE potionType;
 

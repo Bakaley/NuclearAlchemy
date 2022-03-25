@@ -4,25 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Bookmark : MonoBehaviour
+public abstract class Bookmark : MonoBehaviour
 {
     [SerializeField]
-    Sprite inactiveSprire;
-    [SerializeField]
-    Sprite activeSprite;
-
-    Color32 inactiveTextColor = new Color32(149, 146, 140, 255);
-    Color32 activeTextColor = new Color32(209, 154, 52, 255);
-
-    public enum BOOKMARK_TYPE
-    {
-        SECTION_BOOKMARK,
-        PAGE_BOOKMARK,
-        PARAGRAPH_BOOKMARK
-    }
+    protected Color32 activeColor = new Color32(219, 164, 65, 255);
 
     [SerializeField]
-    BOOKMARK_TYPE type;
+    protected Color32 inactiveColor = new Color32(37, 175, 255, 255);
+
+
     [SerializeField]
     GameObject sectionOrPage;
 
@@ -31,32 +21,7 @@ public class Bookmark : MonoBehaviour
         get { return sectionOrPage; }
     }
 
-    public void load()
-    {
-        switch (type)
-        {
-            case BOOKMARK_TYPE.PARAGRAPH_BOOKMARK:
-                GetComponentInChildren<TextMeshProUGUI>().color = activeTextColor;
-                GetComponentInParent<InfoSection>().changeRightPage(this);
-                GameObject selector = GetComponentInParent<ParagraphPage>().selector;
-                selector.transform.localPosition = new Vector3(
-                    selector.transform.localPosition.x,
-                    transform.parent.localPosition.y + gameObject.transform.localPosition.y,
-                    selector.transform.localPosition.z);
-                break;
-            case BOOKMARK_TYPE.SECTION_BOOKMARK:
-                GetComponentInParent<Manual>().changeSection(this);
-                break;
-        }
-    }
-
-    public void setInactive()
-    {
-        switch (type)
-        {
-            case BOOKMARK_TYPE.PARAGRAPH_BOOKMARK:
-                GetComponentInChildren<TextMeshProUGUI>().color = inactiveTextColor;
-                break;
-        }
-    }
+    abstract public void load();
+    abstract public void setActive();
+    abstract public void setInactive();
 }

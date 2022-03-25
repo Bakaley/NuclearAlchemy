@@ -32,7 +32,6 @@ public class PotionListManager : MonoBehaviour
             {
                 Enum.TryParse(dict[key.FileName], out Potion.AVALIABILITY avaliability);
                 potionsAvaliability[key] = avaliability;
-                Debug.Log(potionsAvaliability[key]);
             }
         }
     }
@@ -172,11 +171,11 @@ public class PotionListManager : MonoBehaviour
         }
     }
 
-    public static List<Recipe> PotionsToLearn
+    public static List<Potion> PotionsToLearn
     {
         get
         {
-            List<Recipe> list = new List<Recipe>();
+            List<Potion> list = new List<Potion>();
             foreach (KeyValuePair<Potion, Potion.AVALIABILITY> pair in potionsAvaliability)
             {
                 if (pair.Value == Potion.AVALIABILITY.KNOWN_BLUEPRINT) list.Add(pair.Key);

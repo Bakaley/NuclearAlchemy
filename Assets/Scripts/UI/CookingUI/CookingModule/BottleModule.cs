@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class CookingModule : MonoBehaviour
+public class BottleModule : MonoBehaviour
 {
     [SerializeField]
     int maximumPreparedRecipes;
@@ -36,7 +36,7 @@ public class CookingModule : MonoBehaviour
     [SerializeField]
     GameObject preparingDisslovingModule;
     [SerializeField]
-    GameObject preparingPanel;
+    GameObject preparingContainer;
     [SerializeField]
     GameObject preparingInfoPanel;
 
@@ -46,7 +46,7 @@ public class CookingModule : MonoBehaviour
     static List<Recipe> recipesToAddOnAwake;
 
 
-    static CookingModule staticInstance;
+    static BottleModule staticInstance;
 
     private void Awake()
     {
@@ -78,14 +78,14 @@ public class CookingModule : MonoBehaviour
         switch (recipe.Type)
         {
             case Recipe.RECIPE_TYPE.POTION_BREWING:
-                sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedPotionSampler, staticInstance.preparingPanel.transform);
+                sampler = Instantiate(staticInstance.preparingContainer.GetComponent<PreparedPotionSamplers>().preparedPotionSampler, staticInstance.preparingContainer.transform);
                 sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Potion>().Icon;
                 sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Potion>().IconColor;
                 sampler.GetComponent<PreparedRecipe>().recipe = recipe;
                 sampler.GetComponent<PreparedRecipe>().counter.GetComponent<TextMeshProUGUI>().text = recipe.GetComponent<Potion>().PotionCount + "";
                 break;
             case Recipe.RECIPE_TYPE.CONSUMABLE:
-                sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedRecipeConsumableSampler, staticInstance.preparingPanel.transform);
+                sampler = Instantiate(staticInstance.preparingContainer.GetComponent<PreparedPotionSamplers>().preparedRecipeConsumableSampler, staticInstance.preparingContainer.transform);
                 sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Ingredient>().IngredientIcon;
                 sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Ingredient>().IngredientIconColor;
                 sampler.GetComponent<PreparedRecipe>().recipe = recipe;
@@ -94,7 +94,7 @@ public class CookingModule : MonoBehaviour
             case Recipe.RECIPE_TYPE.POTION_LEVEL_UP:
                 if (preparedRecipes[recipe].Count != 0)
                 {
-                    sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedPotionSampler, staticInstance.preparingPanel.transform);
+                    sampler = Instantiate(staticInstance.preparingContainer.GetComponent<PreparedPotionSamplers>().preparedPotionSampler, staticInstance.preparingContainer.transform);
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Potion>().Icon;
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Potion>().IconColor;
                     sampler.GetComponent<PreparedRecipe>().recipe = recipe;
@@ -102,7 +102,7 @@ public class CookingModule : MonoBehaviour
                 }
                 else
                 {
-                    sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedPotLvlUpSampler, staticInstance.preparingPanel.transform);
+                    sampler = Instantiate(staticInstance.preparingContainer.GetComponent<PreparedPotionSamplers>().preparedPotLvlUpSampler, staticInstance.preparingContainer.transform);
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Potion>().Icon;
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Potion>().IconColor;
                     sampler.GetComponent<PreparedRecipe>().recipe = recipe;
@@ -111,7 +111,7 @@ public class CookingModule : MonoBehaviour
             case Recipe.RECIPE_TYPE.POTION_BLUEPRINT:
                 if (preparedRecipes[recipe].Count != 0)
                 {
-                    sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedPotionSampler, staticInstance.preparingPanel.transform);
+                    sampler = Instantiate(staticInstance.preparingContainer.GetComponent<PreparedPotionSamplers>().preparedPotionSampler, staticInstance.preparingContainer.transform);
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Potion>().Icon;
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Potion>().IconColor;
                     sampler.GetComponent<PreparedRecipe>().recipe = recipe;
@@ -119,7 +119,7 @@ public class CookingModule : MonoBehaviour
                 }
                 else
                 {
-                    sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedPotResearchSampler, staticInstance.preparingPanel.transform);
+                    sampler = Instantiate(staticInstance.preparingContainer.GetComponent<PreparedPotionSamplers>().preparedPotResearchSampler, staticInstance.preparingContainer.transform);
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Potion>().Icon;
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Potion>().IconColor;
                     sampler.GetComponent<PreparedRecipe>().recipe = recipe;
@@ -128,7 +128,7 @@ public class CookingModule : MonoBehaviour
             case Recipe.RECIPE_TYPE.NEW_INGREDIENT:
                 if (preparedRecipes[recipe].Count != 0)
                 {
-                    sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedRecipeConsumableSampler, staticInstance.preparingPanel.transform);
+                    sampler = Instantiate(staticInstance.preparingContainer.GetComponent<PreparedPotionSamplers>().preparedRecipeConsumableSampler, staticInstance.preparingContainer.transform);
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Ingredient>().IngredientIcon;
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Ingredient>().IngredientIconColor;
                     sampler.GetComponent<PreparedRecipe>().recipe = recipe;
@@ -136,7 +136,7 @@ public class CookingModule : MonoBehaviour
                 }
                 else
                 {
-                    sampler = Instantiate(staticInstance.preparingPanel.GetComponent<PreparedPotionSamplers>().preparedIngrResearchSampler, staticInstance.preparingPanel.transform);
+                    sampler = Instantiate(staticInstance.preparingContainer.GetComponent<PreparedPotionSamplers>().preparedIngrResearchSampler, staticInstance.preparingContainer.transform);
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().sprite = recipe.gameObject.GetComponent<Ingredient>().IngredientIcon;
                     sampler.GetComponent<PreparedRecipe>().recipeIcon.GetComponent<Image>().color = recipe.gameObject.GetComponent<Ingredient>().IngredientIconColor;
                     sampler.GetComponent<PreparedRecipe>().recipe = recipe;
@@ -277,23 +277,26 @@ public class CookingModule : MonoBehaviour
                         int probability = (int)((recipe.PotionCount - bottles)*100);
                         int r = Random.Range(0, 100);
                         if (r < probability) bottles++;
-                        PlayerInventory.addPotion(recipe, bottles);
+                        PlayerInventory.StaticInstance.addPotion(recipe, bottles);
                         break;
                     case PreparedRecipe.RECIPE_TYPE.INGREDIENT_BLUEPRINT:
                         IngredientListManager.researchIngredient(preparedRecipe.GetComponent<PreparedRecipe>().recipe.GetComponent<Ingredient>());
                         break;
                     case PreparedRecipe.RECIPE_TYPE.CONSUMABLE:
                         Ingredient consumable = preparedRecipe.GetComponent<PreparedRecipe>().recipe.GetComponent<Ingredient>();
-                        PlayerInventory.addIngredient(consumable, 1);
+                        PlayerInventory.StaticInstance.addIngredient(consumable, 1);
                         break;
                 }
                 if (!toDestroy.Contains(preparedRecipe.GetComponent<PreparedRecipe>().recipe)) toDestroy.Add(preparedRecipe.GetComponent<PreparedRecipe>().recipe);
             }
         }
+        MixingBoard.StaticInstance.wipe(preparedRecipesCount, preparedRecipesCount * .25f);
 
         foreach (Recipe rec in toDestroy)
         {
             DraftModule.cancelRecipe(rec);
         }
+
+
     }
 }

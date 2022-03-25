@@ -74,7 +74,5 @@ public class ConstellationManager : MonoBehaviour
             CONSTELLATION1 = CONSTELLATION2;
             CONSTELLATION2 = constellation;
         }
-        Debug.Log(CONSTELLATION1);
-        Debug.Log(CONSTELLATION2);
     }
 }
