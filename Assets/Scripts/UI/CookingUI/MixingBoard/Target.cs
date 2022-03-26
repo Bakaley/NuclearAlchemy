@@ -169,6 +169,7 @@ public class Target : MonoBehaviour
 
     public void redrawTargets()
     {
+        if (CookingManager.addingMode) return;
         spinCore = null;
         spinVoid = null;
         leftOrbToDissolve = null;

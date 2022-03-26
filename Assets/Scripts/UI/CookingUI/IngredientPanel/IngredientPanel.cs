@@ -69,6 +69,8 @@ public class IngredientPanel : MonoBehaviour
 
         if (GameSettings.CurrentLanguage == GameSettings.Language.RU) skipButton.GetComponent<TextMeshProUGUI>().text = "Пропустить";
         else skipButton.GetComponent<TextMeshProUGUI>().text = "Skip";
+
+        refreshIngredientsNoDelay();
     }
 
     void Update()

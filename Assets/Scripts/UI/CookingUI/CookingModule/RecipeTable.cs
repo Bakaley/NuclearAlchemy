@@ -423,7 +423,7 @@ public class RecipeTable : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     bool essenceCheck(Recipe recipe)
     {
-        return true;
+        //return true;
         foreach (Recipe.EssenceRequirement requirement in recipe.essences)
         {
             if (EssencePanel.essenceScores[requirement.essence] == 0) return false;

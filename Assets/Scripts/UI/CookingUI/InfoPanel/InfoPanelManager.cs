@@ -551,23 +551,29 @@ public class InfoPanelManager : MonoBehaviour
                     {
                         GameObject aetherVoidCoreDesrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherVoidCoreDesrcription, infoPanelTransorm);
                         aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.aetherVoidCoreDescription;
-                        aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>");
-                        aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%</b></color></font>");
+                        aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "" + clickedOrb.aetherImpact);
+                        aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%");
+                        aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text = aetherVoidCoreDesrcription.GetComponent<TextMeshProUGUI>().text.Replace("ZZZ", "" + clickedOrb.aetherImpact);
+
 
                     }
                     else if (clickedOrb.Level == 3)
                     {
                         GameObject aetherLevel3Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherLevel3Desrcription, infoPanelTransorm);
                         aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.aetherLevel3Description;
-                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>");
-                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%</b></color></font>");
+                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "" + clickedOrb.aetherImpact);
+                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%");
+                        aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel3Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("ZZZ", "" + clickedOrb.aetherImpact);
+
                     }
                     else
                     {
                         GameObject aetherLevel12Desrcription = Instantiate(orbEffectsSampler.GetComponent<EffectInfoComponent>().aetherLevel12Desrcription, infoPanelTransorm);
                         aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = InfoPanelLexemas.aetherLevel12Description;
-                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact + "</b></color></font>");
-                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", "<b><font=\"InfoPanelCounterSDF\"><#FFFFFF>" + clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%</b></color></font>");
+                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("XXX", "" + clickedOrb.aetherImpact);
+                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("YYY", clickedOrb.aetherImpact * (int)Math.Round(Orb.aetherMultiplier * 100) + "%");
+                        aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text.Replace("ZZZ", "" + clickedOrb.aetherImpact);
+
                         if (clickedOrb.type == Orb.ORB_TYPES.SEMIPLASMA)
                         {
                             aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text = aetherLevel12Desrcription.GetComponent<TextMeshProUGUI>().text + InfoPanelLexemas.aetherSemiplasmaDescription;
@@ -948,7 +954,7 @@ public class InfoPanelManager : MonoBehaviour
         {
             get
             {
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Ёфир]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.\n - Ёфир тер€етс€ при перемешивании, но передаЄтс€ при синтезе";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Ёфир ZZZ]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.\n - Ёфир тер€етс€ при перемешивании, но передаЄтс€ при синтезе";
                 else return "[Aether]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.\n - Ёфир тер€етс€ при перемешивании, но передаЄтс€ при синтезе";
             }
         }
@@ -957,7 +963,7 @@ public class InfoPanelManager : MonoBehaviour
         {
             get
             {
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Ёфир]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.\n - Ёфир не тер€етс€ при перемешивании.";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Ёфир ZZZ]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.\n - Ёфир не тер€етс€ при перемешивании.";
                 else return "[Aether]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.\n - Ёфир не тер€етс€ при перемешивании.";
             }
         }
@@ -966,7 +972,7 @@ public class InfoPanelManager : MonoBehaviour
         {
             get
             {
-                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Ёфир]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.";
+                if (GameSettings.CurrentLanguage == GameSettings.Language.RU) return "[Ёфир ZZZ]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.";
                 else return "[Aether]\n - ѕовышает эфир зель€ на XXX.\n - ”величивает остальные <font=\"InfoPanelCounterSDF\"><#FFFFFF> <B>счЄтчики</B></font></color> сферы на YYY.";
             }
         }

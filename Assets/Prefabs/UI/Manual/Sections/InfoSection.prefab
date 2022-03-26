@@ -525,7 +525,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0411\u043E\u0439"
+  m_text: "\u041F\u043E\u0434\u0437\u0435\u043C\u0435\u043B\u044C\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9e6d417e38d2ab4688596029bc07850, type: 2}
   m_sharedMaterial: {fileID: 4040772806541264863, guid: e9e6d417e38d2ab4688596029bc07850, type: 2}
@@ -1047,8 +1047,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Bookmark, Assembly-CSharp
+      - m_Target: {fileID: 7806475012326712433}
+        m_TargetAssemblyTypeName: ChapterBookmark, Assembly-CSharp
         m_MethodName: load
         m_Mode: 1
         m_Arguments:
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   inactiveColor:
     serializedVersion: 2
     rgba: 4294946597
-  sectionOrPage: {fileID: 0}
+  sectionOrPage: {fileID: 6374328171132781490, guid: 356420ec60633874dbb88faaa063c8ef, type: 3}
   inactiveSprite: {fileID: 21300000, guid: 64aca43bac8910940a87aa5f58162951, type: 3}
   activeSprite: {fileID: 21300000, guid: 8517523cec6785c4ea9536f478a4b016, type: 3}
 --- !u!1 &7066080112930710332

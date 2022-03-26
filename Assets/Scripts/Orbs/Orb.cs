@@ -409,8 +409,8 @@ public abstract class Orb : MonoBehaviour
         orbArchetype = typeArchetypeDictionary[type];
         dissolvingAppearing = true;
 
-        if (type == ORB_TYPES.AETHER_CORE) aetherCount = 4;
-        if (type == ORB_TYPES.AETHER_DROP) aetherCount = 5;
+        if (type == ORB_TYPES.AETHER_CORE) aetherCount = 3;
+        if (type == ORB_TYPES.AETHER_DROP) aetherCount = 4;
         Invoke("delayedAetherParticles", .05f);
     }
 

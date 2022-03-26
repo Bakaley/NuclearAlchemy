@@ -48,7 +48,7 @@ public class CookingManager : MonoBehaviour
         }
     }
 
-    static bool addingMode = false;
+    public static bool addingMode { get; private set; } = false;
 
     public static Camera CookingCamera
     {
@@ -108,6 +108,7 @@ public class CookingManager : MonoBehaviour
             }
             addingMode = false;
 
+            target.GetComponent<Target>().redrawTargets();
         }
     }
 

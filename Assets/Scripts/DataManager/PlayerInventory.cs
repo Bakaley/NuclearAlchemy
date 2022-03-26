@@ -48,7 +48,8 @@ public class PlayerInventory : MonoBehaviour
 
         foreach (Potion potion in PotionListManager.testFill)
         {
-            //addPotion(potion, 3);
+            //заполнить инвентарь случайными зельями
+            //addPotion(potion, UnityEngine.Random.Range(1, 7));
         }
         
     }

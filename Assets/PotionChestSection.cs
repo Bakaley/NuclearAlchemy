@@ -30,6 +30,7 @@ public class PotionChestSection : MonoBehaviour
     {        
         PlayerInventory.StaticInstance.OnPotionsCountChange += inventoryChangeHandler;
         TextRefresh();
+        containersRefresh(FILTER_MODE.ALL);
     }
 
     void inventoryChangeHandler (object inventory, EventArgs e)
